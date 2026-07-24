@@ -1,0 +1,43 @@
+/* 设置整体字体与行高 */
+body {
+    font-family: "WenQuanYi Micro Hei", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.6;
+    color: #333333;
+}
+
+/* 标题样式 */
+h1 {
+    font-size: 24pt;
+    font-weight: bold;
+    color: #1a202c;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 8px;
+}
+
+h2 {
+    font-size: 18pt;
+    font-weight: bold;
+    color: #2d3748;
+    margin-top: 18pt;
+}
+
+h3 {
+    font-size: 14pt;
+    font-weight: bold;
+    color: #4a5568;
+}
+
+/* 代码块字体与背景 */
+code, pre {
+    font-family: "Courier New", Consolas, monospace;
+    background-color: #f7fafc;
+    border-radius: 4px;
+}
+
+/* 提示框/引用块样式 */
+blockquote {
+    border-left: 4px solid #3182ce;
+    background-color: #ebf8ff;
+    padding: 8px 12px;
+    margin: 12px 0;
+}
