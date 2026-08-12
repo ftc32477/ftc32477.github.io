@@ -114,18 +114,23 @@ nav.sidebar::-webkit-scrollbar-thumb{background:#444;border-radius:2px}
  *   宽屏：内容固定 900px 宽（含 padding），居中于侧边栏右侧
  *   中屏：随宽度缩小，左右留白逐渐收窄直至消失
  *   窄屏（<768px）：侧边栏折叠，内容全宽
+ *
+ * 兼容性说明：部分 Chrome 版本对嵌套在自定义属性中的
+ * min()/max()/clamp()（含 vw 单位）存在布局计算 bug（宽度会算成 0，
+ * 正文空白而侧边栏正常）。因此此处只用普通 calc + max-width 封顶，
+ * 并为 min()/max()/clamp() 提供级联回退声明。
  */
 main{
   box-sizing:content-box;
+  --pad: 40px;                                        /* 回退：clamp 不支持时 */
   --pad: clamp(12px, 4vw, 48px);
   padding: 40px var(--pad);
-  --content-w: min(
-    calc(900px - 2 * var(--pad)),
-    calc(100vw - var(--sidebar-w) - 2 * var(--pad))
-  );
-  width: var(--content-w);
-  --center-offset: max(0px, calc((100vw - var(--sidebar-w) - var(--content-w) - 2 * var(--pad)) / 2));
-  margin-left: calc(var(--sidebar-w) + var(--center-offset));
+  /* 宽度：随视口收缩，上限 900px（含 padding，即内容宽 900-2*pad） */
+  width: calc(100vw - var(--sidebar-w) - 2 * var(--pad));
+  max-width: calc(900px - 2 * var(--pad));
+  /* 左外边距：回退为紧贴侧边栏，支持 max() 时在宽屏居中 */
+  margin-left: var(--sidebar-w);
+  margin-left: calc(var(--sidebar-w) + max(0px, (100vw - var(--sidebar-w) - 900px) / 2));
   margin-right: auto;
 }
 
@@ -204,14 +209,15 @@ tr:nth-child(even){background:#fafafa}
   nav.sidebar{
     transform:translateX(-100%);
     top:var(--topbar-h);z-index:101;
+    width:280px;                        /* 回退：min() 不支持时 */
     width:min(280px,84vw)
   }
   nav.sidebar.open{transform:translateX(0)}
   .overlay.show{display:block}
   main{
     margin-left:0;margin-top:var(--topbar-h);
-    --content-w: calc(100vw - 2 * var(--pad));
-    width: var(--content-w);
+    width: calc(100vw - 2 * var(--pad));
+    max-width: none;
   }
   .hero{padding:28px 20px}
   .hero h1{font-size:22px}
