@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programming｜FTC 32477 Origin Quick Start Guide</title>
+<link rel="icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
+<style>
+:root {
+  --red: #d32f2f;
+  --dark: #1a1a2e;
+  --slate: #16213e;
+  --card: #ffffff;
+  --text: #2c2c2c;
+  --muted: #666;
+  --border: #e0e0e0;
+  --radius: 10px;
+  --sidebar-w: 260px;
+  --topbar-h: 52px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+  color:var(--text);background:#f8f9fa;line-height:1.8;min-height:100vh
+}
+
+/* ====== TOP BAR (mobile) ====== */
+.topbar{
+  display:none;position:fixed;top:0;left:0;right:0;height:var(--topbar-h);
+  background:var(--dark);color:#fff;z-index:200;align-items:center;
+  padding:0 12px;gap:8px
+}
+.topbar .brand{
+  font-weight:700;font-size:14px;flex:1;min-width:0;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap
+}
+.topbar .brand a{
+  color:#fff;text-decoration:none;cursor:pointer
+}
+.topbar .brand a:hover{opacity:.85}
+.lang-select{
+  background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);
+  border-radius:6px;font-size:13px;padding:6px 26px 6px 10px;max-width:150px;
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 8px center
+}
+.lang-select option{color:#2c2c2c;background:#fff}
+.topbar .menu-btn{
+  background:none;border:none;color:#fff;font-size:24px;cursor:pointer;
+  width:40px;height:40px;flex-shrink:0;display:flex;align-items:center;
+  justify-content:center;border-radius:6px;line-height:1
+}
+.topbar .menu-btn:hover{background:rgba(255,255,255,.1)}
+
+/* ====== SIDEBAR ====== */
+nav.sidebar{
+  position:fixed;top:0;left:0;bottom:0;width:var(--sidebar-w);
+  background:var(--dark);color:#ccc;overflow-y:auto;z-index:100;
+  display:flex;flex-direction:column;transition:transform .28s ease;
+}
+nav.sidebar::-webkit-scrollbar{width:4px}
+nav.sidebar::-webkit-scrollbar-thumb{background:#444;border-radius:2px}
+.sidebar-header{padding:24px 20px 14px;border-bottom:1px solid rgba(255,255,255,.08);text-align:center}
+.sidebar-header .home-link{
+  display:block;text-decoration:none;border-radius:8px;
+  padding:4px 0;transition:background .18s
+}
+.sidebar-header .home-link:hover{background:rgba(255,255,255,.06)}
+.sidebar-header .home-link:hover .sub{color:#fff}
+.sidebar-header .logo{font-size:22px;font-weight:700;color:#fff;line-height:1.3}
+.sidebar-header .sub{font-size:12px;color:#f44336;margin-top:4px;letter-spacing:1px}
+/* 语言切换：纵向全称布局 */
+.lang-switch{
+  margin:12px 14px 0;display:flex;flex-direction:column;gap:6px
+}
+.lang-switch a{
+  color:#ccc;text-decoration:none;font-size:13px;padding:7px 10px;
+  text-align:center;border:1px solid rgba(255,255,255,.15);
+  border-radius:8px;transition:all .18s
+}
+.lang-switch a:hover{color:#fff;border-color:rgba(255,255,255,.4)}
+.lang-switch a.active{color:#fff;background:rgba(244,67,54,.35);border-color:rgba(244,67,54,.6)}
+.sidebar-nav{flex:1;padding:12px 0}
+.sidebar-nav a{
+  display:block;padding:10px 22px;color:#aaa;text-decoration:none;
+  font-size:14px;border-left:3px solid transparent;transition:all .18s
+}
+.sidebar-nav a:hover{color:#fff;background:rgba(255,255,255,.04)}
+.sidebar-nav a.active{color:#fff;background:rgba(244,67,54,.15);border-left-color:#f44336}
+/* 二级目录：仅当前页面显示 */
+.sidebar-nav a.sub-link{
+  padding:5px 22px 5px 34px;font-size:12.5px;color:#8a8a8a;border-left-color:transparent
+}
+.sidebar-nav a.sub-link:hover{color:#fff}
+.sidebar-nav a.sub-link.sub-3{padding-left:46px;font-size:12px;color:#777}
+/* 侧边栏队徽 */
+.side-logo{
+  display:block;width:64px;height:64px;margin:0 auto 10px;
+  border-radius:14px;object-fit:cover
+}
+/* 顶栏队徽（移动端） */
+.topbar-logo{width:22px;height:22px;border-radius:5px;flex-shrink:0}
+.sidebar-footer{padding:16px 20px;font-size:11px;color:#555;border-top:1px solid rgba(255,255,255,.08);text-align:center}
+
+/* ====== OVERLAY (mobile) ====== */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:99}
+
+/* ====== MAIN CONTENT ====== */
+/*
+ * 响应式宽度策略：
+ *   宽屏：内容固定 900px 宽（含 padding），居中于侧边栏右侧
+ *   中屏：随宽度缩小，左右留白逐渐收窄直至消失
+ *   窄屏（<768px）：侧边栏折叠，内容全宽
+ */
+main{
+  box-sizing:content-box;
+  --pad: clamp(12px, 4vw, 48px);
+  padding: 40px var(--pad);
+  --content-w: min(
+    calc(900px - 2 * var(--pad)),
+    calc(100vw - var(--sidebar-w) - 2 * var(--pad))
+  );
+  width: var(--content-w);
+  --center-offset: max(0px, calc((100vw - var(--sidebar-w) - var(--content-w) - 2 * var(--pad)) / 2));
+  margin-left: calc(var(--sidebar-w) + var(--center-offset));
+  margin-right: auto;
+}
+
+/* Hero */
+.hero{
+  background:linear-gradient(135deg,var(--dark) 0%,var(--slate) 100%);color:#fff;
+  border-radius:var(--radius);padding:44px 40px;margin-bottom:36px;
+  position:relative;overflow:hidden
+}
+.hero::after{
+  content:'';position:absolute;right:-40px;bottom:-40px;
+  width:200px;height:200px;background:var(--red);opacity:.18;border-radius:50%
+}
+.hero h1{font-size:28px;font-weight:700;position:relative;z-index:1}
+.hero .subtitle{font-size:14px;margin-top:10px;opacity:.8;position:relative;z-index:1}
+.hero .badge{
+  display:inline-block;background:var(--red);padding:4px 14px;
+  border-radius:20px;font-size:12px;font-weight:600;margin-bottom:12px;
+  position:relative;z-index:1
+}
+
+/* Sections */
+section{margin-bottom:40px}
+section h2{font-size:22px;font-weight:700;padding-bottom:10px;margin-bottom:20px;border-bottom:2px solid var(--red);color:var(--dark)}
+section h3{font-size:17px;font-weight:600;margin:28px 0 10px;color:var(--slate)}
+section h4,.card h4{font-size:15px;font-weight:600;margin:18px 0 8px}
+.card{background:var(--card);border-radius:var(--radius);padding:24px 28px;box-shadow:0 1px 4px rgba(0,0,0,.04);margin-bottom:16px}
+p{margin-bottom:10px}
+a{color:#1565c0;text-decoration:none}
+a:hover{text-decoration:underline}
+ul,ol{padding-left:22px;margin-bottom:12px}
+li{margin-bottom:4px}
+code{background:#f0f0f0;padding:2px 6px;border-radius:4px;font-size:13px;font-family:"SF Mono","Fira Code",monospace}
+pre{background:#1a1a2e;color:#e0e0e0;padding:16px 20px;border-radius:var(--radius);overflow-x:auto;margin-bottom:14px;font-size:13px;line-height:1.6}
+pre code{background:none;padding:0;color:inherit}
+blockquote{
+  border-left:4px solid var(--red);background:#fef5f5;padding:12px 18px;
+  margin:14px 0;border-radius:0 var(--radius) var(--radius) 0;font-size:14px;color:#8b0000
+}
+hr{border:none;border-top:1px solid var(--border);margin:24px 0}
+img{max-width:100%;border-radius:var(--radius);margin:12px 0}
+/* 锚点跳转留白（避免被固定顶栏遮挡） */
+h2,h3{scroll-margin-top:16px}
+
+/* 图片排布：多图横向，窄屏自动纵向 */
+.img-row{
+  display:flex;flex-wrap:wrap;gap:14px;margin:14px 0
+}
+.img-row .img-fig{
+  flex:1 1 40%;min-width:0;margin:0
+}
+.img-row .img-fig img{
+  width:100%;margin:0;border-radius:var(--radius)
+}
+.img-row figcaption{
+  text-align:center;font-size:12px;color:var(--muted);margin-top:6px
+}
+.img-row-single .img-fig{flex-basis:100%}
+@media(max-width:600px){
+  .img-row{flex-direction:column;gap:12px}
+  h2,h3{scroll-margin-top:64px}
+}
+
+/* Table */
+.table-wrap{overflow-x:auto;margin-bottom:14px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{border:1px solid var(--border);padding:10px 14px;text-align:left}
+th{background:var(--dark);color:#fff;font-weight:600}
+tr:nth-child(even){background:#fafafa}
+
+/* ====== RESPONSIVE ====== */
+
+/* Narrow: collapse sidebar */
+@media(max-width:768px){
+  .topbar{display:flex}
+  nav.sidebar{
+    transform:translateX(-100%);
+    top:var(--topbar-h);z-index:101;
+    width:min(280px,84vw)
+  }
+  nav.sidebar.open{transform:translateX(0)}
+  .overlay.show{display:block}
+  main{
+    margin-left:0;margin-top:var(--topbar-h);
+    --content-w: calc(100vw - 2 * var(--pad));
+    width: var(--content-w);
+  }
+  .hero{padding:28px 20px}
+  .hero h1{font-size:22px}
+  .card{padding:16px 18px}
+  section h2{font-size:19px}
+  section h3{font-size:16px}
+  .table-wrap{margin-left:-18px;margin-right:-18px;width:calc(100% + 36px)}
+}
+
+/* Very narrow screens */
+@media(max-width:420px){
+  .topbar .brand{font-size:13px}
+  .lang-select{max-width:132px;font-size:12px;padding:5px 22px 5px 8px}
+  main{--pad: 12px}
+  .card{padding:14px 14px}
+  .hero{padding:22px 16px}
+  .hero h1{font-size:20px}
+}
+
+/* ====== PRINT (PDF 导出) ====== */
+/*
+ * 注意：Chrome 打印视口宽度可能低于 768px，导致移动端媒体查询规则
+ * 泄漏到打印渲染。因此必须在打印样式中显式覆盖所有相关属性。
+ */
+@media print{
+  html,body{display:block !important;width:100% !important;max-width:100% !important;overflow:visible !important}
+  nav.sidebar,.topbar,.overlay{display:none !important}
+  body{background:#fff}
+  main{
+    display:block !important;box-sizing:border-box !important;
+    margin:0 !important;padding:0 !important;
+    width:100% !important;max-width:100% !important;
+  }
+  .card{box-shadow:none;border:1px solid var(--border);padding:24px 28px}
+  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:32px 28px}
+  .hero h1{color:var(--dark);font-size:28px}
+  section h2{font-size:22px}
+  section h3{font-size:17px}
+  .hero .badge{background:var(--red);color:#fff}
+  a{color:inherit}
+  /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
+  .table-wrap{
+    overflow:visible !important;
+    margin:0 !important;
+    width:100% !important;
+    max-width:100% !important;
+  }
+  table{
+    width:100% !important;max-width:100% !important;
+    table-layout:fixed;font-size:12px
+  }
+  th,td{padding:6px 8px;word-break:break-all;overflow-wrap:break-word}
+  tr{page-break-inside:avoid}
+  .img-row{flex-wrap:nowrap}
+  .img-fig{page-break-inside:avoid}
+  .img-row .img-fig{flex:1 1 0}
+  /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
+  html[lang="zh-cn"] main p,html[lang="zh-tw"] main p{text-indent:2em}
+  /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
+  h1{margin:3.2em 0 1em}
+  h2{margin:2em 0 .8em}
+  h3{margin:1.2em 0 .5em}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <img class="topbar-logo" src="../images/basic/team_logo.png" alt="32477 Origin">
+  <span class="brand"><a href="../index.html" title="返回主页">FTC 32477 Origin Quick Start Guide</a></span>
+  <select class="lang-select" id="langSelect" aria-label="Language">
+<option value="../zh-cn/programming.html">简体中文</option><option value="../zh-tw/programming.html">繁體中文</option><option value="../en-us/programming.html" selected>English (US)</option>
+  </select>
+  <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <a class="home-link" href="../index.html" title="返回主页">
+      <img class="side-logo" src="../images/basic/team_logo.png" alt="32477 Origin Team Logo">
+      <div class="logo">FTC 32477<br>Origin</div>
+      <div class="sub">Quick Start Guide</div>
+    </a>
+    <div class="lang-switch"><a href="../zh-cn/programming.html">简体中文</a><a href="../zh-tw/programming.html">繁體中文</a><a href="../en-us/programming.html" class="active">English (US)</a></div>
+  </div>
+  <div class="sidebar-nav">
+<a href="index.html">Preface</a>
+<a href="member.html">Team Essentials</a>
+<a href="modeling.html">Modeling &amp; Design</a>
+<a href="build.html">Hardware &amp; Build</a>
+<a href="programming.html" class="active">Programming</a>
+<a class="sub-link" href="#1BasicRequirements">1. Basic Requirements</a>
+<a class="sub-link sub-3" href="#Applications">Applications</a>
+<a class="sub-link" href="#2EnvironmentSetup">2. Environment Setup</a>
+<a class="sub-link sub-3" href="#WebBrowser">Web Browser</a>
+<a class="sub-link sub-3" href="#Git">Git</a>
+<a class="sub-link sub-3" href="#AndroidStudio">Android Studio</a>
+<a class="sub-link sub-3" href="#VisualStudioCode">Visual Studio Code</a>
+<a class="sub-link" href="#3ToolsOverview">3. Tools Overview</a>
+<a class="sub-link sub-3" href="#AndroidStudio-1">Android Studio</a>
+<a class="sub-link sub-3" href="#VisualStudioCode-1">Visual Studio Code</a>
+<a class="sub-link sub-3" href="#RobotDashboard">Robot Dashboard</a>
+<a class="sub-link" href="#4Workflow">4. Workflow</a>
+<a class="sub-link sub-3" href="#DebuggingIstheCore">Debugging Is the Core</a>
+<a href="outreach.html">Outreach &amp; PR</a>
+<a href="afterword.html">Afterword</a>
+  </div>
+  <div class="sidebar-footer">Aug 2026, 1st Ed. &middot; Editorial Team</div>
+</nav>
+
+<main>
+<h1>Programming</h1>
+<h2 id="1BasicRequirements">1. Basic Requirements</h2>
+<p>The following are supplementary requirements for Programming.</p>
+<h3 id="Applications">Applications</h3>
+<ul><li>Git</li><li>Visual Studio Code</li><li>Android Studio</li></ul>
+<hr>
+<h2 id="2EnvironmentSetup">2. Environment Setup</h2>
+<p>The following environment must be configured before you begin. If you have any questions, please consult an administrator.</p>
+<h3 id="WebBrowser">Web Browser</h3>
+<p>Bookmark the following additional websites:</p>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">Name</th><th style="text-align:left">URL</th></tr></thead><tbody><tr><td style="text-align:left">Programming Resources</td><td style="text-align:left">https://www.firstinspires.org/resources/library/ftc/programming-resources</td></tr><tr><td style="text-align:left">REV Robotics Documentation</td><td style="text-align:left">https://docs.revrobotics.com/duo-control/hello-robot-java/welcome</td></tr><tr><td style="text-align:left">Pedro Pathing</td><td style="text-align:left">https://pedropathing.com/</td></tr><tr><td style="text-align:left">Robot Dashboard</td><td style="text-align:left">http://192.168.43.1:8080/</td></tr></tbody></table></div>
+<h3 id="Git">Git</h3>
+<p>Git is the version control tool adopted by our team for program files. It is installed automatically along with Android Studio.</p>
+<h3 id="AndroidStudio">Android Studio</h3>
+<p>Android Studio is the IDE adopted by our team for writing programs.</p>
+<p><strong>Software installation and configuration:</strong></p>
+<ol><li>Open <a href="https://developer.android.com/studio" target="_blank">https://developer.android.com/studio</a></li><li>Click "Download Android Studio" and install the version for your platform.</li></ol>
+<p><strong>On Windows, note the following during installation:</strong></p>
+<ul><li>Both checkboxes must be checked</li><li>Choose a path with sufficient space that will not be moved</li></ul>
+<p><strong>Initialization:</strong></p>
+<ul><li>Select "Standard" mode</li><li>Check "Accept" when agreeing to the licenses</li><li>Keep everything else unchanged and click "Next"</li></ul>
+<p><strong>Installing the Chinese language pack (optional):</strong></p>
+<ol><li>Open the <a href="https://github.com/sollyu/AndroidStudioChineseLanguagePack/releases" target="_blank">Android Studio Chinese Language Pack releases</a></li><li>Download the latest language pack (.jar file)</li><li>In the left tab list on the welcome screen, select "Plugins", then "Install Plugin from Disk"</li><li>Select the downloaded .jar file and open it; make sure the plugin is enabled once loaded</li><li>In the left tab list, select "Customize", choose "Americas" under "Regions", then select "Chinese (Simplified)" under "Language" and restart</li></ol>
+<p><strong>Cloning the repository:</strong></p>
+<ol><li>Click "GitHub" in the left tab list and sign in via "Log in with GitHub" to authorize.</li><li>Select the current season's code repository (e.g., <code>ftc32477/FTC-32477-Decode-Program</code>)</li><li>Choose an empty folder on a path that will not change and click "Clone"</li><li>Wait for the download to finish; track progress via the "Build" tab in the left sidebar or the progress bar in the bottom-right corner</li></ol>
+<blockquote>If you run into problems, ask an administrator.</blockquote>
+<h3 id="VisualStudioCode">Visual Studio Code</h3>
+<p>Visual Studio Code is the tool adopted by our team for viewing code history.</p>
+<p><strong>Software installation and configuration:</strong></p>
+<ol><li>Open <a href="https://code.visualstudio.com/Download" target="_blank">https://code.visualstudio.com/Download</a></li><li>Download and install the build for your platform</li><li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hans" target="_blank">Chinese language pack</a> if you want the UI in Chinese.</li></ol>
+<hr>
+<h2 id="3ToolsOverview">3. Tools Overview</h2>
+<h3 id="AndroidStudio-1">Android Studio</h3>
+<p>Official documentation: <a href="https://developer.android.com/studio/intro?hl=en" target="_blank">https://developer.android.com/studio/intro?hl=en</a></p>
+<p>In this project, we build on the official FTC application framework and write robot control programs in Java under the <code>TeamCode</code> folder, calling upon and simulating the various dependency library environments needed for robot operation.</p>
+<p>For the essentials you need to know about Android Studio, refer to the quick UI walkthrough in the official documentation.</p>
+<h3 id="VisualStudioCode-1">Visual Studio Code</h3>
+<p>Official documentation: <a href="https://code.visualstudio.com/docs" target="_blank">https://code.visualstudio.com/docs</a></p>
+<p>Since Visual Studio Code follows similar operating logic to Android Studio and is used less frequently in this project, refer to the Android Studio section for interface guidance.</p>
+<h3 id="RobotDashboard">Robot Dashboard</h3>
+<ul><li>Connect to the Wi-Fi network "<code>32477-RC</code>". Wi-Fi password: ask an administrator or obtain it via the Driver Hub.</li><li>URL: <a href="http://192.168.43.1:8080/" target="_blank">http://192.168.43.1:8080/</a></li><li>This is the web page of the Wi-Fi module built into the Control Hub, providing a graphical management console for the Control Hub.</li></ul>
+<p>For the essentials you need to know about the Robot Dashboard, refer to the quick UI walkthrough in the official documentation.</p>
+<hr>
+<h2 id="4Workflow">4. Workflow</h2>
+<p>The Programming team's core work consists of three parts:</p>
+<ul><li><strong>Autonomous programs</strong>: control logic for the season's Autonomous period</li><li><strong>TeleOp programs</strong>: operation logic for the driver-controlled period</li><li><strong>Sensor configuration</strong>: configuration of sensors and vision systems</li></ul>
+<h3 id="DebuggingIstheCore">Debugging Is the Core</h3>
+<blockquote>The real difficulty in program development lies in debugging. Autonomous paths, driver controls, PID parameters, vision configuration — most sensors come with ready-made packages you can reuse. What you really do is <em>tune</em>.</blockquote>
+<p>Debugging runs through the entire development workflow:</p>
+<ol><li><strong>Requirements analysis</strong>: clarify the rules and task requirements of the current season</li><li><strong>Architecture design</strong>: design the overall program architecture and module breakdown</li><li><strong>Implementation</strong>: write Java code in Android Studio</li><li><strong>Version control</strong>: manage code versions with Git</li><li><strong>Debugging</strong>: tune autonomous paths, driver controls, PID parameters, and vision configuration</li><li><strong>Testing & verification</strong>: verify program functionality on the robot</li><li><strong>Code review</strong>: review and merge code via GitHub</li><li><strong>Deployment</strong>: deploy the final build to the Robot Controller</li></ol>
+</main>
+
+<script>
+(function(){
+  var sb=document.getElementById("sidebar");
+  var ol=document.getElementById("overlay");
+  var btn=document.getElementById("menuBtn");
+  function open(){sb.classList.add("open");ol.classList.add("show")}
+  function close(){sb.classList.remove("open");ol.classList.remove("show")}
+  btn.addEventListener("click",function(){sb.classList.contains("open")?close():open()});
+  ol.addEventListener("click",close);
+  var ls=document.getElementById("langSelect");
+  if(ls){ls.addEventListener("change",function(){window.location.href=ls.value})};
+})();
+</script>
+</body>
+</html>
