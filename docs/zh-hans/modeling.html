@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-hans">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>后记｜FTC 32477 Origin 快速入门指南</title>
+<title>建模设计｜FTC 32477 Origin 快速入门指南</title>
 <link rel="icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <link rel="shortcut icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <style>
@@ -279,7 +279,7 @@ tr:nth-child(even){background:#fafafa}
   .img-fig{page-break-inside:avoid}
   .img-row .img-fig{flex:1 1 0}
   /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
-  html[lang="zh-cn"] main p,html[lang="zh-tw"] main p{text-indent:2em}
+  html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
   /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
   h1{margin:3.2em 0 1em}
   h2{margin:2em 0 .8em}
@@ -293,7 +293,7 @@ tr:nth-child(even){background:#fafafa}
   <img class="topbar-logo" src="../images/basic/team_logo.png" alt="32477 Origin">
   <span class="brand"><a href="../index.html" title="返回主页">FTC 32477 Origin 快速入门指南</a></span>
   <select class="lang-select" id="langSelect" aria-label="Language">
-<option value="../zh-cn/afterword.html" selected>简体中文</option><option value="../zh-tw/afterword.html">繁體中文</option><option value="../en-us/afterword.html">English (US)</option><option value="../fr/afterword.html">Français</option>
+<option value="../zh-hans/modeling.html" selected>简体中文</option><option value="../zh-hant/modeling.html">繁體中文</option><option value="../en-us/modeling.html">English (US)</option><option value="../fr/modeling.html">Français</option>
   </select>
   <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
 </div>
@@ -307,45 +307,107 @@ tr:nth-child(even){background:#fafafa}
       <div class="sub">快速入门指南</div>
     </a>
     <select class="lang-select-sidebar" id="langSelectSide" aria-label="Language">
-<option value="../zh-cn/afterword.html" selected>简体中文</option><option value="../zh-tw/afterword.html">繁體中文</option><option value="../en-us/afterword.html">English (US)</option><option value="../fr/afterword.html">Français</option>
+<option value="../zh-hans/modeling.html" selected>简体中文</option><option value="../zh-hant/modeling.html">繁體中文</option><option value="../en-us/modeling.html">English (US)</option><option value="../fr/modeling.html">Français</option>
     </select>
   </div>
   <div class="sidebar-nav">
 <a href="index.html">前言</a>
 <a href="member.html">队员须知</a>
-<a href="modeling.html">建模设计</a>
+<a href="modeling.html" class="active">建模设计</a>
+<a class="sub-link" href="#一基本资料">一、基本资料</a>
+<a class="sub-link sub-3" href="#应用程序">应用程序</a>
+<a class="sub-link sub-3" href="#在线账户">在线账户</a>
+<a class="sub-link" href="#二环境配置">二、环境配置</a>
+<a class="sub-link sub-3" href="#网络浏览器">网络浏览器</a>
+<a class="sub-link sub-3" href="#Onshape账号注册">Onshape 账号注册</a>
+<a class="sub-link sub-3" href="#Onshape环境配置">Onshape 环境配置</a>
+<a class="sub-link sub-3" href="#Onshape插件">Onshape 插件</a>
+<a class="sub-link" href="#三建模设计要点">三、建模设计要点</a>
+<a class="sub-link sub-3" href="#零件设计与装配">零件设计与装配</a>
+<a class="sub-link sub-3" href="#项目文档与工作区">项目文档与工作区</a>
+<a class="sub-link sub-3" href="#建模基础流程">建模基础流程</a>
+<a class="sub-link sub-3" href="#模型强度与设计经验">模型强度与设计经验</a>
+<a class="sub-link sub-3" href="#建模思路与赛程参考">建模思路与赛程参考</a>
+<a class="sub-link sub-3" href="#Onshape学习资源">Onshape 学习资源</a>
+<a class="sub-link sub-3" href="#FTC常用零件库">FTC 常用零件库</a>
+<a class="sub-link sub-3" href="#设计规范">设计规范</a>
 <a href="build.html">结构建造</a>
 <a href="programming.html">程序设计</a>
 <a href="outreach.html">外部联络</a>
-<a href="afterword.html" class="active">后记</a>
-<a class="sub-link" href="#全队成员">全队成员</a>
-<a class="sub-link" href="#合影">合影</a>
+<a href="afterword.html">后记</a>
   </div>
   <div class="sidebar-footer">2026年8月第1版 &middot; 编写小组</div>
 </nav>
 
 <main>
-<h1>后记</h1>
-<p>本指南编写小组成员如下：</p>
-<ul><li><strong>主编</strong>：付修齐</li><li><strong>编委</strong>：杜星洲 等</li></ul>
-<p>这本指南的编纂得到了许多人的帮助。</p>
-<p>我们要感谢北京十一实验中学的大力支持，感谢邹书森老师的技术指导，感谢董莹老师的物资保障。</p>
-<p>我们还要特别感谢黄天霖同学的摄影技术指导与王景钰同学的图片编辑技术指导。</p>
-<p>参考：《普通高中教科书 物理 必修 第三册》</p>
+<h1>建模设计</h1>
+<h2 id="一基本资料">一、基本资料</h2>
+<p>以下是建模设计需要追加的资料。</p>
+<h3 id="应用程序">应用程序</h3>
+<ul><li>网络浏览器（Chrome 或 Edge 或 Safari）</li><li>LocalSend</li><li>Onshape FTC 零件库 — <a href="https://ftconshape.com/" target="_blank">https://ftconshape.com/</a>（FIRST 与 PTC 合作维护；发邮件至 FIRST@ptc.com 可加入共享文件夹）</li><li>FTC Insert Tool 零件库插件 — <a href="https://cad.onshape.com/appstore/apps/Design%20&%20Documentation/6515cfb91574253b1b96a6ba" target="_blank">https://cad.onshape.com/appstore/apps/Design%20&%20Documentation/6515cfb91574253b1b96a6ba</a>（Onshape 应用商店安装：Subscribe → Get for Free）</li></ul>
+<h3 id="在线账户">在线账户</h3>
+<ul><li>CycleZLab — <a href="https://www.cyclezlab.com/" target="_blank">https://www.cyclezlab.com/</a>（免费，需申请加入）</li></ul>
 <hr>
-<p>FTC 是一场硬核的科技竞技，但它更是一个关于成长与陪伴的故事。在这里，你会经历零件不匹配的沮丧、代码报错时的抓狂，但更能体会到问题解决那一刻的狂喜，以及与队友并肩作战的深厚情谊。</p>
-<p>愿我们在新的赛季里，秉持专业精神，大胆尝试，小心求证。</p>
-<p>享受比赛，享受创造，让我们再创佳绩！</p>
+<h2 id="二环境配置">二、环境配置</h2>
+<p>以下是在正式开始前需要配置的工作环境，请按照说明操作。如有疑问，请向管理员咨询。</p>
+<h3 id="网络浏览器">网络浏览器</h3>
+<p>需要追加收藏保存的网址如下：</p>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">名称</th><th style="text-align:left">地址</th></tr></thead><tbody><tr><td style="text-align:left">goBILDA</td><td style="text-align:left">https://www.gobilda.com/</td></tr><tr><td style="text-align:left">REV Robotics</td><td style="text-align:left">https://www.revrobotics.com/</td></tr><tr><td style="text-align:left">CycleZLab</td><td style="text-align:left">https://www.cyclezlab.com/</td></tr><tr><td style="text-align:left">Onshape 教育版</td><td style="text-align:left">https://www.onshape.com/en/education/</td></tr></tbody></table></div>
+<h3 id="Onshape账号注册">Onshape 账号注册</h3>
+<p>Onshape 是我们队伍所采用的云端建模平台。相较于 SolidWorks 等工业建模软件，Onshape 具有不吃配置、工程跨设备共享方便、易上手、有 FIRST 官方支持等优势，在保证功能全面的同时，非常适合用来学习 CAD 建模与制作项目。</p>
+<p><strong>注册流程：</strong></p>
+<ol><li>打开 <a href="https://www.onshape.com/en/education/" target="_blank">https://www.onshape.com/en/education/</a>，注册教育版账号</li><li>填入姓（First name）、名（Last name）以及邮箱</li></ol>
+<blockquote class="bq-warning">不要使用 QQ 等国内邮箱，有概率收不到验证码；推荐使用 @gmail.com 或 @outlook.com。</blockquote>
+<ol start="3"><li>在下一个界面依次选择身份 "Student"、学校类别 "Grade School / K-12 (Ages <18)"、生日，完成后点击下一步</li><li>依次填入以下信息：<ul><li>校名：BEIJING NATIONAL DAY EXPERIMENTAL SCHOOL</li><li>学校官网：<a href="https://sysyzx.bjhdedu.cn/" target="_blank">https://sysyzx.bjhdedu.cn/</a></li><li>预计毕业年份</li><li>注册原因：I am a member of FTC Team 32477, and I registered this account to use the team's modeling tools.（不知道写什么就填这句）</li><li>勾选同意下方三个协议条款，完成注册</li></ul></li><li>前往邮箱查收确认邮件</li></ol>
+<blockquote class="bq-info">注册成功后，请向管理员提供你的账号，以便将你加入队伍共享文件夹。</blockquote>
+<p><strong>常见问题：</strong></p>
+<ul><li>最后一步提示 reCAPTCHA 出现问题：说明人机验证服务未响应，尝试更换网络环境，确保可以连接 reCAPTCHA 服务</li><li>邮箱收不到验证码：若等待超过 3 分钟，尝试更换邮箱（Outlook 或 Gmail，不要使用 QQ）</li></ul>
+<h3 id="Onshape环境配置">Onshape 环境配置</h3>
+<ol><li>进入工作区，点击右上角账号图标，选择下拉菜单第一个选项"我的账户"</li><li>选择右侧菜单从上到下第三个选项"首选项"，将第一个语言选项改为"简体中文"，改完点击保存</li><li>在同菜单将下方单位选项改为公制（队伍工作环境中长度默认毫米）</li></ol>
+<blockquote class="bq-info">以上更改只会应用在修改后创建的文档中，旧文档的单位不受影响。</blockquote>
+<ol start="4"><li>依照偏好修改个人资料</li></ol>
+<h3 id="Onshape插件">Onshape 插件</h3>
+<p>得益于云端性质，Onshape 具有丰富的共享插件，获取渠道包括 Onshape 应用商店、第三方插件网站、他人分享等。</p>
+<p>队伍常用的插件包括（仅供举例）：</p>
+<ul><li><strong>Onshape FTC 零件库</strong>（核心，见"一、基本资料"）</li><li><strong>Lighten</strong>（自定义特征，精简结构使零件更轻）</li><li><strong>Spur gear</strong>（自定义特征，齿轮生成器）</li><li><strong>HTD Pulley Generator</strong>（从其他文档派生，同步带轮生成器）</li></ul>
 <hr>
-<h2 id="全队成员">全队成员</h2>
-<ul><li><strong>社长</strong>：杜星洲</li><li><strong>结构</strong>：谢金灿、时宇光、姜易辰、薛晨、杜丰宇</li><li><strong>程序</strong>：杜星洲、付修齐、张熙芃、刘楚翌</li><li><strong>外联</strong>：韩子萱、陈西贝、李骄洋、柳宇轩、王一舟</li></ul>
-<hr>
-<h2 id="合影">合影</h2>
-<div class="img-row"><figure class="img-fig"><img src="../images/afterword/group_photo_20251219.jpg" alt="大合照（2025年12月19日）" loading="lazy"><figcaption>大合照（2025年12月19日）</figcaption></figure><figure class="img-fig"><img src="../images/afterword/group_photo_20260528.jpg" alt="大合照（2026年5月28日）" loading="lazy"><figcaption>大合照（2026年5月28日）</figcaption></figure></div>
-<hr>
-<p><strong>法律声明：</strong> 本指南是 FTC 32477 Origin 队伍的独立出版物。本队伍与 FIRST®（For Inspiration and Recognition of Science and Technology）无隶属、背书或赞助关系。FIRST®、FIRST® Robotics Competition、FRC®、FIRST® Tech Challenge 及 FTC® 均为 FIRST 的注册商标。本指南中分享的所有队伍设计、代码与资源均由队伍成员提供，不代表 FIRST 官方材料。</p>
-<hr>
-<p><em>32477 Origin 快速入门指南编写小组 · 2026年8月第1版</em></p>
+<h2 id="三建模设计要点">三、建模设计要点</h2>
+<h3 id="零件设计与装配">零件设计与装配</h3>
+<p>在 Onshape 中进行 3D 建模时，需要特别注意以下几点：</p>
+<ul><li><strong>尺寸精度</strong>：确保模型中所有尺寸与实际零件一致</li><li><strong>装配关系</strong>：合理设置零件之间的装配配合（Mate 与 Mate Connector）</li><li><strong>干涉检查</strong>：在装配完成后进行干涉检查</li><li><strong>零件命名</strong>：按照统一规范命名零件和装配体</li></ul>
+<h3 id="项目文档与工作区">项目文档与工作区</h3>
+<p>在进行队伍相关项目的制作时，请在队伍共享文件夹里创建文档，以便与其他队员共享。若尚未加入，请联系管理员将你加入队伍共享文件夹。</p>
+<ol><li>在个人工作台左侧菜单选择"已与我共享"，打开"32477"文件夹，即可新建文档或打开队伍已创建的文档（一个文档就是一个项目）</li><li>若要新建项目：点击页面左上角蓝色创建按钮，选择"文档"，等待文档创建完成并打开</li></ol>
+<p>进入工作区后，下方可见"结构体"与"装配体"标签页（点击标签右侧加号可新建）：</p>
+<ul><li><strong>结构体</strong>：单个零件建模的区域（对应 CAD 流程中的草图与零件），通过草图约束来制作零件</li><li><strong>装配体</strong>：利用"结构体"中制作的零件或零件库中现成的零件进行拼装的区域（对应 CAD 流程中的装配）</li></ul>
+<p>一个文档中可以创建任意数量的"装配体"与"结构体"。为方便修改与管理，请注意：一个结构体尽量只制作一个零件；将整车分结构进行装配，最后再在一个总装配体中合体。</p>
+<h3 id="建模基础流程">建模基础流程</h3>
+<p>作为入门手册，这里只介绍 Onshape 最基本的操作与工作流程。</p>
+<h4>草图的绘制</h4>
+<p>在"结构体"中新建草图，选择基准面后，使用直线、矩形、圆等草图工具绘制轮廓，再通过尺寸标注与几何约束（如水平、垂直、相切）固定形状。草图应尽量完全约束，后续特征操作才能可靠。</p>
+<h4>零件的制作</h4>
+<p>草图完成后，使用拉伸、旋转、扫描等特征工具将二维轮廓转化为三维实体，并通过孔、倒角、圆角等操作细化零件。所有特征按顺序记录在特征列表中，可随时回退修改。</p>
+<h4>零件装配</h4>
+<p>在"装配体"中插入"结构体"制作的零件或零件库中的现成零件，使用 Mate 与 Mate Connector 将其按配合关系连接。装配完成后应检查运动是否顺畅、有无干涉。</p>
+<h4>工具的使用</h4>
+<p>Onshape 提供测量、剖切、质量属性等分析工具，可在建模过程中随时检查尺寸与重量；右键菜单中还提供隐藏、隔离、重命名等快捷操作。</p>
+<h3 id="模型强度与设计经验">模型强度与设计经验</h3>
+<p>3D 打印零件的强度与材质、结构有关，以下是常用的结构设计概念：</p>
+<ul><li><strong>核心结构件</strong>（如梁、结构板）：尽量使用 PETG-CF 打印（参数见《结构建造》一章），厚度不小于 4mm</li><li><strong>导向件</strong>（如球轨道、结构限位）：可选 PLA，壁厚不小于 2mm</li><li><strong>保护性装饰件</strong>（如侧板）：壁厚不小于 1.5mm</li><li>对于亚克力等较为脆性的板类或结构，尽量避免设计密集孔（孔间距小于 3mm）；结构间受力连接部分宽度不小于 7mm</li><li>尽量使零件不含锐角，倒角成圆角，防止零件应力集中导致断裂</li></ul>
+<blockquote class="bq-info">以上数据仅供参考，实际参数需通过实物验证进行调优。</blockquote>
+<h3 id="建模思路与赛程参考">建模思路与赛程参考</h3>
+<ul><li>构思车辆设计时，可以将赛题任务拆分成小项，分别构思完成各小项的结构，再进行组合</li><li>正式建模前，应向其他队员征询方案意见，基于队伍得分策略进行设计</li><li>完成整车设计建模后，应考虑实际装配流程：对于内部的螺丝等难安装结构，应提前预留安装通道，并预留走线空间</li><li>可以考虑设计模块化结构，方便后期修理与优化</li><li>终版方案尽量设计一体结构，减少不必要的小结构，以提升整体结构强度与轻便性</li></ul>
+<p><strong>赛程参考：</strong></p>
+<ul><li>工期安排上，初代设计可以比较潦草，但必须尽快设计完并制作，给程序调试和 Driver 练习留时间，并实测结构进行迭代优化；在资格赛前，一辆具备资格的整车要迭代至少 3 次（参考）</li><li>多关注国外队伍动态，FTC 社区有类似 "Robot in 30 Hours Reveal | FTC" 的活动，参赛队伍随时可能分享新赛季方案；也可以参考 FRC、VEX 等赛事的队伍方案</li></ul>
+<h3 id="Onshape学习资源">Onshape 学习资源</h3>
+<p>Onshape 作为专业的建模平台，具有完整的官方学习资源：<a href="https://learn.onshape.com/" target="_blank">https://learn.onshape.com/</a>；哔哩哔哩、YouTube 等视频平台上也有许多教程。</p>
+<ul><li>由于 CAD 软件工作流程的相似性（草图、零件、装配体），SolidWorks、Autodesk Fusion 等软件的教程同样具有学习价值，可以帮助培养对零件空间感的把握以及对建模工作流程的熟悉</li><li>学习过程中要牢记实践重于理论：可以在哔哩哔哩找一些模型跟练，先自己尝试建模，实在不会再查看教程；在生活中也可以观察、思考一些小结构的建模思路</li><li>对于 FTC 赛事，要多学习其他队伍的优秀方案：大多数强队都有自己的网站并开源方案，可以在 YouTube 或 Google 上搜索 FTC 队伍号查找官网；也可以在 CycleZLab 等网站查看其他队伍的模型</li></ul>
+<blockquote class="bq-info">如有疑问，可咨询建模前辈或直接上网搜索。</blockquote>
+<h3 id="FTC常用零件库">FTC 常用零件库</h3>
+<p>常用的 FTC 零件供应商与资源平台：</p>
+<ul><li><strong>goBILDA</strong>：提供完整的 FTC 结构件</li><li><strong>REV Robotics</strong>：提供电控模块和结构件</li><li><strong>CycleZLab</strong>：FIRST 机器人社区平台（CAD、代码与建造日志档案库）</li></ul>
+<h3 id="设计规范">设计规范</h3>
+<ul><li>使用公制单位（mm）</li><li>所有 3D 打印件需预留适当的间隙（推荐 0.2-0.3mm）</li><li>导出格式：STEP 文件用于加工，STL 文件用于 3D 打印，3MF 文件用于切片打印</li></ul>
 </main>
 
 <script>
