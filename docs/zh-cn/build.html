@@ -273,7 +273,7 @@ tr:nth-child(even){background:#fafafa}
     width:100% !important;max-width:100% !important;
     table-layout:fixed;font-size:12px
   }
-  th,td{padding:6px 8px;word-break:break-all;overflow-wrap:break-word}
+  th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
@@ -365,7 +365,7 @@ tr:nth-child(even){background:#fafafa}
 <p><strong>软件安装及环境配置流程：</strong></p>
 <ol><li>打开 <a href="https://bambulab.cn/zh-cn/download/studio" target="_blank">https://bambulab.cn/zh-cn/download/studio</a></li><li>选择合适的版本下载并安装即可。</li></ol>
 <p><strong>需要注意的是：</strong></p>
-<ul><li>在 Windows 中，你可以更改软件的安装目录，保证路径结尾为 <code>..\Bambu Studio\</code> 即可。安装成功时，需要勾选"使用 Bambu Studio 打开 .3mf 文件""使用 Bambu Studio 打开 .stl 文件""使用 Bambu Studio 打开 .step/.stp 文件"。</li><li>在 macOS 中，将 <code>BambuStudio.app</code> 拖入 Applications 文件夹即可。</li><li>运行 Bambu Studio。登录区域请选择"中国内地（大陆）"，打印机请仅选择 <strong>Bambu Lab P1S</strong> 和 <strong>Bambu Lab P2S</strong>，材料按默认配置即可。请勾选"安装 Bambu 网络插件"。</li><li>请使用手机号码等方式登录 Bambu 帐号。</li></ul>
+<ul><li>在 Windows 中，你可以更改软件的安装目录，保证路径结尾为 <code>..\Bambu Studio\</code> 即可。安装成功时，需要勾选"使用 Bambu Studio 打开 .3mf 文件""使用 Bambu Studio 打开 .stl 文件""使用 Bambu Studio 打开 .step/.stp 文件"。</li><li>在 macOS 中，将 <code>BambuStudio.app</code> 拖入 Applications 文件夹即可。</li><li>运行 Bambu Studio。登录区域请选择"中国内地（大陆）"，打印机请至少选择 <strong>Bambu Lab P1S</strong> 和 <strong>Bambu Lab P2S</strong>，材料按默认配置即可。请勾选"安装 Bambu 网络插件"。</li><li>请使用手机号码等方式登录 Bambu 帐号。</li></ul>
 <h3 id="RDWorksV8">RD Works V8</h3>
 <blockquote class="bq-danger"><strong>注意：</strong> 强烈不推荐使用 macOS 安装本程序，否则需要 Parallels Desktop、VMware Fusion 或 CrossOver 等虚拟机支持。</blockquote>
 <p>RD Works V8 是我队采用的激光切割机的配套驱动软件。</p>
@@ -395,30 +395,23 @@ tr:nth-child(even){background:#fafafa}
 <p>内置弹簧卷收机构的柔性金属尺，用于测量较长距离或非线性尺寸。使用时，拉出尺带，将前端挂钩勾住物体边缘或抵住基准面。读取尺带上的刻度，测量完毕后按下锁紧扣或利用自动回弹功能回收尺带。注意挂钩通常有轻微活动量，这是为了补偿挂钩厚度以确保内量与外量读数一致。</p>
 <h4>游标卡尺</h4>
 <p>游标卡尺的主要部分是主尺 A 和一条可以沿着主尺滑动的游标尺 B。</p>
-<p><strong>原理：</strong> 游标卡尺是利用主尺的单位刻度（1mm）与游标尺的单位刻度之间固定的微量差值来提高测量精度的。常用的游标卡尺有 10 分度、20 分度和 50 分度三种。</p>
-<p><strong>读数：</strong> 先读主尺上的刻度，根据游标尺上零刻度线与主尺刻度线的相对位置读取主尺读数；再读游标尺上的刻度，看游标尺上第几条刻度线与主尺上的刻度线对齐；结合主尺及游标尺的读数得到被测长度。</p>
-<p><strong>使用：</strong> 当外（内）测量爪一侧的两个刃接触时，游标尺上的零刻度线与主尺上的零刻度线正好对齐。将被测物体夹（套）在这两个刃之间，把主尺读数和游标尺读数综合起来，就是被测物体的长度。</p>
+<ul><li><strong>原理</strong>：游标卡尺是利用主尺的单位刻度（1mm）与游标尺的单位刻度之间固定的微量差值来提高测量精度的。常用的游标卡尺有 10 分度、20 分度和 50 分度三种。</li><li><strong>读数</strong>：先读主尺上的刻度，根据游标尺上零刻度线与主尺刻度线的相对位置读取主尺读数；再读游标尺上的刻度，看游标尺上第几条刻度线与主尺上的刻度线对齐；结合主尺及游标尺的读数得到被测长度。</li><li><strong>使用</strong>：当外（内）测量爪一侧的两个刃接触时，游标尺上的零刻度线与主尺上的零刻度线正好对齐。将被测物体夹（套）在这两个刃之间，把主尺读数和游标尺读数综合起来，就是被测物体的长度。</li></ul>
 <h4>螺旋测微器</h4>
 <p>螺旋测微器的测砧 A 和固定刻度 B 是固定在尺架 C 上的；可动刻度 E、旋钮 D、微调旋钮 D' 是与测微螺杆 F 连在一起的，通过精密螺纹套在 B 上。</p>
-<p><strong>原理：</strong> 当旋钮 D 旋转一周，螺杆 F 便沿着旋转轴线方向前进或后退一个螺距的距离。螺旋测微器的固定刻度 B 的螺距是 0.5 mm，圆周上的可动刻度 E 有 50 个等分刻度，因此可动刻度每旋转一格，对应测微螺杆 F 前进或后退 0.01 mm。用螺旋测微器测量可准确到 0.01 mm。</p>
-<p><strong>读数：</strong> 先读 B 上的刻度，观察到 B 上的半毫米刻度线是否已露出；再读 E 上的刻度，每一格对应 0.01 mm。综合 B 及 E 的读数得到被测长度。</p>
-<p><strong>使用：</strong> 先使 F 与 A 接触，E 的左边缘与 B 的零刻度线对正；将被测物体夹在 F 与 A 之间，旋转 D，当 F 快靠近物体时停止使用 D，改用 D'，听到"喀喀"声时停止，然后读数。</p>
+<ul><li><strong>原理</strong>：当旋钮 D 旋转一周，螺杆 F 便沿着旋转轴线方向前进或后退一个螺距的距离。螺旋测微器的固定刻度 B 的螺距是 0.5 mm，圆周上的可动刻度 E 有 50 个等分刻度，因此可动刻度每旋转一格，对应测微螺杆 F 前进或后退 0.01 mm。用螺旋测微器测量可准确到 0.01 mm。</li><li><strong>读数</strong>：先读 B 上的刻度，观察到 B 上的半毫米刻度线是否已露出；再读 E 上的刻度，每一格对应 0.01 mm。综合 B 及 E 的读数得到被测长度。</li><li><strong>使用</strong>：先使 F 与 A 接触，E 的左边缘与 B 的零刻度线对正；将被测物体夹在 F 与 A 之间，旋转 D，当 F 快靠近物体时停止使用 D，改用 D'，听到"喀喀"声时停止，然后读数。</li></ul>
 <h3 id="常用材料">常用材料</h3>
 <h4>通用材料</h4>
 <p>各种渠道都可以采购到的：</p>
 <ul><li>各种螺丝、螺母</li><li>六棱柱</li><li>同步带轮</li><li>轴承</li></ul>
 <blockquote class="bq-warning">轴不列入通用材料：轴的规格需求比较特殊，请按项目实际需要单独采购。</blockquote>
 <h4>专用材料</h4>
-<p>官方 REV 和 goBILDA，以及洲宇的专用型材供应商。</p>
+<p>官方 REV 和 goBILDA 的专用型材。</p>
 <h4>材料特性</h4>
-<div class="table-wrap"><table><thead><tr><th style="text-align:left">品牌</th><th style="text-align:left">特点</th></tr></thead><tbody><tr><td style="text-align:left"><strong>REV</strong></td><td style="text-align:left">相对古老但是核心。三大电控模块（Driver Hub、Control Hub、Expansion Hub）主要采用 REV 产品。结构件包括各种铝型材（应用相对较少），型材可做小限位架、固定非单位位移结构。型材主要对应 M3 杯头螺丝（仅），6mm REX 轴，齿轮和链条，72:1 横轴电机、40:1 电机较为可用常用。</td></tr><tr><td style="text-align:left"><strong>goBILDA & 洲宇</strong></td><td style="text-align:left">C 型梁、方梁或薄梁，8mm REX 轴，各种单位化的连接件，连接功能完善。主要采用 M4 螺丝（官方 10mm），电机多为 5203 系列。适用于电机直传的套件。</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">品牌</th><th style="text-align:left">特点</th></tr></thead><tbody><tr><td style="text-align:left"><strong>REV</strong></td><td style="text-align:left">相对古老但是核心。三大电控模块（Driver Hub、Control Hub、Expansion Hub）主要采用 REV 产品。结构件包括各种铝型材（应用相对较少），型材可做小限位架、固定非单位位移结构。型材主要对应 M3 杯头螺丝（仅），6mm REX 轴，齿轮和链条，72:1 横轴电机、40:1 电机较为可用常用。</td></tr><tr><td style="text-align:left"><strong>goBILDA</strong></td><td style="text-align:left">C 型梁、方梁或薄梁，8mm REX 轴，各种单位化的连接件，连接功能完善。主要采用 M4 螺丝（官方 10mm），电机多为 5203 系列。适用于电机直传的套件。</td></tr></tbody></table></div>
 <p><strong>REV 供应商细节：</strong></p>
 <ul><li><strong>核心电控模块</strong>：Driver Hub、Controller Hub（即 Control Hub）、Expansion Hub 三大电控模块主要采用 REV 产品。</li><li><strong>结构件</strong>：以铝型材为主，当前使用较少，可做小限位架、固定非单位位移的结构。</li><li><strong>特殊螺丝</strong>：REV 型材使用 M3 杯头（内六角）螺丝，这种螺丝卡在铝型材内，几乎只有 REV 型材会用到。</li><li><strong>轴规格</strong>：REV 对应 6 毫米 REX 轴，这是 REV 特有的规格。</li><li><strong>电机</strong>：REV 提供 72:1 横轴电机（官方名 Core Hex，90° 横置输出、无自带输出轴）与 40:1 标准电机（官方名 HD Hex）。72:1 横轴电机可提供特殊安装方案，但结构设计较老，在现有环境中较难找到适配对象。</li><li><strong>齿轮与链条</strong>：REV 也提供，但通常优先选用 goBILDA 产品。</li></ul>
 <p><strong>goBILDA 供应商细节：</strong></p>
 <ul><li><strong>C 型梁</strong>：分为方梁与薄梁两种。方梁适合做底盘等大框架结构，薄梁适合做跨度性连接。</li><li><strong>连接件</strong>：提供各类标准化连接件，单位化程度高，与自身材料和 REV 材料连接功能完善。</li><li><strong>螺丝规格</strong>：主要采用 M4 螺丝，官方配用 M4×10 毫米杯头螺丝。</li><li><strong>轴规格</strong>：对应 8 毫米 REX 轴。</li><li><strong>电机</strong>：常用 5203 系列，适合标准直传。由于 8mm REX 轴强度与电机安装方式的特性，goBILDA 是适合电机直传的套件。</li></ul>
-<p><strong>洲宇供应商细节：</strong></p>
-<blockquote class="bq-warning">有关洲宇，可以找到 goBILDA 绝大多数对应材料，也存在差异。尽可能采用 goBILDA 官方建材，但洲宇价格更低，可能存在质量问题。</blockquote>
-<ul><li>绝大多数材料都可以在洲宇找到对应的 goBILDA 同类型产品。</li><li>存在部分洲宇根据国内需求自制的特殊件，其中一些 goBILDA 没有对应款，若遇到有巧思的洲宇件，可以购买测试使用。</li><li>价格方面，洲宇是三家供应商中最低的，但做工相比 goBILDA 稍差。</li></ul>
 <h4>3D 打印耗材</h4>
 <div class="table-wrap"><table><thead><tr><th style="text-align:left">类型</th><th style="text-align:left">打印温度（约）</th><th style="text-align:left">说明</th></tr></thead><tbody><tr><td style="text-align:left">PLA</td><td style="text-align:left">220°C</td><td style="text-align:left">标准基础塑料耗材</td></tr><tr><td style="text-align:left">PETG-CF</td><td style="text-align:left">240+°C</td><td style="text-align:left">含碳塑料耗材</td></tr></tbody></table></div>
 <p>采购使用拓竹官方或三绿（SUNLU）的耗材，质量相对稳定。</p>
@@ -471,10 +464,10 @@ tr:nth-child(even){background:#fafafa}
 <ul><li>在 Bambu Studio 创建新项目，点击上方"导入"按钮导入 STEP 文件，导入选项默认确认即可。</li><li>若零件位置不符合预期，不选中任何零件，右键打印盘选择"自动摆放"或"自动朝向"。</li><li>手动调整：选中零件，长按左键拖动移动；点击旋转按钮通过相对/绝对两种方式旋转。</li><li>操作逻辑差异：Bambu Studio 默认与 Onshape 相同——左键拖动为旋转视图，右键拖动为平移视图；如不习惯也可在设置中调整视图操作方式。选中零件后左键拖动可直接移动零件。</li></ul>
 <h3 id="打印参数配置">打印参数配置</h3>
 <p><strong>打印机与耗材选择：</strong></p>
-<div class="table-wrap"><table><thead><tr><th style="text-align:left">打印机</th><th style="text-align:left">喷嘴</th><th style="text-align:left">耗材</th></tr></thead><tbody><tr><td style="text-align:left">P2S（未更换喷嘴）</td><td style="text-align:left">0.4 mm</td><td style="text-align:left">PLA Basic</td></tr><tr><td style="text-align:left">P2S（已更换喷嘴，专门打印碳材）</td><td style="text-align:left">按对应配置</td><td style="text-align:left">PETG-CF</td></tr><tr><td style="text-align:left">P1S（两台）</td><td style="text-align:left">0.4 mm</td><td style="text-align:left">PLA Basic</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">打印机</th><th style="text-align:left">喷嘴</th><th style="text-align:left">耗材</th></tr></thead><tbody><tr><td style="text-align:left">P1S（未更换喷嘴）</td><td style="text-align:left">0.4 mm</td><td style="text-align:left">PLA Basic</td></tr><tr><td style="text-align:left">P1S（已更换喷嘴，专门打印碳材）</td><td style="text-align:left">0.6 mm</td><td style="text-align:left">PETG-CF</td></tr><tr><td style="text-align:left">P2S（两台）</td><td style="text-align:left">0.4 mm</td><td style="text-align:left">PLA Basic</td></tr></tbody></table></div>
 <p><strong>按零件类型选择工艺参数：</strong></p>
 <div class="table-wrap"><table><thead><tr><th style="text-align:left">类型</th><th style="text-align:left">参数</th></tr></thead><tbody><tr><td style="text-align:left">装饰件</td><td style="text-align:left">Bambu Studio 默认参数</td></tr><tr><td style="text-align:left">非承重结构件</td><td style="text-align:left">按建模组常用配置</td></tr><tr><td style="text-align:left">承重结构件</td><td style="text-align:left">按建模组常用配置（高强度）</td></tr></tbody></table></div>
-<blockquote class="bq-info">以上参数均为我校建模组的常用配置，如有特殊需求可自行修改。</blockquote>
+<blockquote class="bq-info">以上参数均为我队的常用配置，如有特殊需求可自行修改。</blockquote>
 <p><strong>多零件摆盘：</strong></p>
 <ul><li>同一打印盘需要多个相同零件：选中零件右键选择"克隆"。</li><li>添加不同零件：再次点击"导入"按钮导入即可。</li></ul>
 <h3 id="连接3D打印机">连接 3D 打印机</h3>
