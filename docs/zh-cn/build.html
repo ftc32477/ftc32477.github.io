@@ -72,17 +72,17 @@ nav.sidebar::-webkit-scrollbar-thumb{background:#444;border-radius:2px}
 .sidebar-header .home-link:hover .sub{color:#fff}
 .sidebar-header .logo{font-size:22px;font-weight:700;color:#fff;line-height:1.3}
 .sidebar-header .sub{font-size:12px;color:#f44336;margin-top:4px;letter-spacing:1px}
-/* 语言切换：纵向全称布局 */
-.lang-switch{
-  margin:12px 14px 0;display:flex;flex-direction:column;gap:6px
+/* 语言切换：侧边栏下拉选项栏（节省空间给目录） */
+.lang-select-sidebar{
+  margin:12px 14px 0;width:calc(100% - 28px);box-sizing:border-box;
+  background:rgba(255,255,255,.1);color:#fff;
+  border:1px solid rgba(255,255,255,.25);border-radius:8px;
+  font-size:13px;padding:7px 26px 7px 10px;
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 8px center
 }
-.lang-switch a{
-  color:#ccc;text-decoration:none;font-size:13px;padding:7px 10px;
-  text-align:center;border:1px solid rgba(255,255,255,.15);
-  border-radius:8px;transition:all .18s
-}
-.lang-switch a:hover{color:#fff;border-color:rgba(255,255,255,.4)}
-.lang-switch a.active{color:#fff;background:rgba(244,67,54,.35);border-color:rgba(244,67,54,.6)}
+.lang-select-sidebar option{color:#2c2c2c;background:#fff}
 .sidebar-nav{flex:1;padding:12px 0}
 .sidebar-nav a{
   display:block;padding:10px 22px;color:#aaa;text-decoration:none;
@@ -159,7 +159,7 @@ section h3{font-size:17px;font-weight:600;margin:28px 0 10px;color:var(--slate)}
 section h4,.card h4{font-size:15px;font-weight:600;margin:18px 0 8px}
 .card{background:var(--card);border-radius:var(--radius);padding:24px 28px;box-shadow:0 1px 4px rgba(0,0,0,.04);margin-bottom:16px}
 p{margin-bottom:10px}
-a{color:#1565c0;text-decoration:none}
+a{color:#1565c0;text-decoration:none;overflow-wrap:anywhere}
 a:hover{text-decoration:underline}
 ul,ol{padding-left:22px;margin-bottom:12px}
 li{margin-bottom:4px}
@@ -170,6 +170,10 @@ blockquote{
   border-left:4px solid var(--red);background:#fef5f5;padding:12px 18px;
   margin:14px 0;border-radius:0 var(--radius) var(--radius) 0;font-size:14px;color:#8b0000
 }
+/* 类型化引用块：[!info] 蓝 / [!warning] 黄 / [!danger] 红（仅颜色区分，无标签） */
+blockquote.bq-info{border-left-color:#1565c0;background:#eaf3fb;color:#0d3c66}
+blockquote.bq-warning{border-left-color:#f9a825;background:#fff8e1;color:#6d4c00}
+blockquote.bq-danger{border-left-color:#d32f2f;background:#fef5f5;color:#8b0000}
 hr{border:none;border-top:1px solid var(--border);margin:24px 0}
 img{max-width:100%;border-radius:var(--radius);margin:12px 0}
 /* 锚点跳转留白（避免被固定顶栏遮挡） */
@@ -257,7 +261,7 @@ tr:nth-child(even){background:#fafafa}
   section h2{font-size:22px}
   section h3{font-size:17px}
   .hero .badge{background:var(--red);color:#fff}
-  a{color:inherit}
+  a{color:inherit;overflow-wrap:anywhere !important}
   /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
   .table-wrap{
     overflow:visible !important;
@@ -302,7 +306,9 @@ tr:nth-child(even){background:#fafafa}
       <div class="logo">FTC 32477<br>Origin</div>
       <div class="sub">快速入门指南</div>
     </a>
-    <div class="lang-switch"><a href="../zh-cn/build.html" class="active">简体中文</a><a href="../zh-tw/build.html">繁體中文</a><a href="../en-us/build.html">English (US)</a></div>
+    <select class="lang-select-sidebar" id="langSelectSide" aria-label="Language">
+<option value="../zh-cn/build.html" selected>简体中文</option><option value="../zh-tw/build.html">繁體中文</option><option value="../en-us/build.html">English (US)</option>
+    </select>
   </div>
   <div class="sidebar-nav">
 <a href="index.html">前言</a>
@@ -361,22 +367,22 @@ tr:nth-child(even){background:#fafafa}
 <p><strong>需要注意的是：</strong></p>
 <ul><li>在 Windows 中，你可以更改软件的安装目录，保证路径结尾为 <code>..\Bambu Studio\</code> 即可。安装成功时，需要勾选"使用 Bambu Studio 打开 .3mf 文件""使用 Bambu Studio 打开 .stl 文件""使用 Bambu Studio 打开 .step/.stp 文件"。</li><li>在 macOS 中，将 <code>BambuStudio.app</code> 拖入 Applications 文件夹即可。</li><li>运行 Bambu Studio。登录区域请选择"中国内地（大陆）"，打印机请仅选择 <strong>Bambu Lab P1S</strong> 和 <strong>Bambu Lab P2S</strong>，材料按默认配置即可。请勾选"安装 Bambu 网络插件"。</li><li>请使用手机号码等方式登录 Bambu 帐号。</li></ul>
 <h3 id="RDWorksV8">RD Works V8</h3>
-<blockquote><strong>注意：</strong> 强烈不推荐使用 macOS 安装本程序，否则需要 Parallels Desktop、VMware Fusion 或 CrossOver 等虚拟机支持。</blockquote>
+<blockquote class="bq-danger"><strong>注意：</strong> 强烈不推荐使用 macOS 安装本程序，否则需要 Parallels Desktop、VMware Fusion 或 CrossOver 等虚拟机支持。</blockquote>
 <p>RD Works V8 是我队采用的激光切割机的配套驱动软件。</p>
 <p><strong>软件安装及环境配置流程：</strong></p>
 <ol><li>向管理员或指导老师获取 <code>RDWorksV8Setup.exe</code> 安装文件，打开并点击"Install"。</li><li>可以通过勾选"手动定位安装路径"来更改安装路径。</li><li>将电脑连接至激光切割机，点击"安装 USB 驱动"。</li><li>其他选项保持默认即可。</li></ol>
 <hr>
 <h2 id="三用品简介">三、用品简介</h2>
 <h3 id="常用工具">常用工具</h3>
-<blockquote>在使用任何手动工具前，请务必检查工具状态是否完好（如手柄是否松动、钳口是否有崩刃），并在操作时按需佩戴防护手套或护目镜。</blockquote>
-<blockquote>此处仅收录最常用的工具。其余不常用工具统一整理为《工具清单》附录，后续将持续扩充。</blockquote>
+<blockquote class="bq-danger">在使用任何手动工具前，请务必检查工具状态是否完好（如手柄是否松动、钳口是否有崩刃），并在操作时按需佩戴防护手套或护目镜。</blockquote>
+<blockquote class="bq-info">此处仅收录最常用的工具。其余不常用工具统一整理为《工具清单》附录，后续将持续扩充。</blockquote>
 <h4>内六角型扳手</h4>
 <p>截面呈正六边形的 L 型或 T 型工具，用于拧转内六角螺栓或螺钉。使用时，将扳手较短或长的一端完全插入螺钉头的六角孔内，顺时针旋转为紧固，逆时针旋转为松开。T 型手柄扳手通常用于提供更大的杠杆力或在深孔作业。</p>
-<blockquote>我们最常用的扳手规格是 M3 与 M4 两种，务必随身常备。</blockquote>
+<blockquote class="bq-info">我们最常用的扳手规格是 M3 与 M4 两种，务必随身常备。</blockquote>
 <h4>套筒</h4>
 <p>一种圆柱形的紧固工具，内壁呈六角形，能够包住螺母或螺栓头。使用时，将套筒垂直套在螺母上，通过手柄带动旋转。其优势在于接触面积大，不易打滑，且适合在空间狭窄、普通扳手无法旋转的区域工作。</p>
 <h4>活口扳手</h4>
-<p>开口宽度可在一定范围内调节的通用扳手，适用于不同规格的六角螺母。使用时，可以通过旋转扳手上的蜗轮来调节开口大小，使其紧贴螺母对边。另外，应让活动扳唇承受拉力而非推力，以防止扳手损坏或滑脱。</p>
+<p>开口宽度可在一定范围内调节的通用扳手，适用于不同规格的六角螺母。使用时，可以通过旋转扳手上的蜗轮来调节开口大小，使其紧贴螺母对边。另外，应确保固定钳口承受主要的推力或拉力，即施力方向应朝向固定钳口一侧，以防止扳手损坏或滑脱。</p>
 <h4>扁口钳</h4>
 <p>钳头呈扁平状的夹持工具，内部通常带有细齿以增加摩擦力。使用时，可以用于弯折金属薄板、夹持小型零件或在装配时提供辅助拉力。</p>
 <h4>尖嘴钳</h4>
@@ -401,33 +407,33 @@ tr:nth-child(even){background:#fafafa}
 <h4>通用材料</h4>
 <p>各种渠道都可以采购到的：</p>
 <ul><li>各种螺丝、螺母</li><li>六棱柱</li><li>同步带轮</li><li>轴承</li></ul>
-<blockquote>轴不列入通用材料：轴的规格需求比较特殊，请按项目实际需要单独采购。</blockquote>
+<blockquote class="bq-warning">轴不列入通用材料：轴的规格需求比较特殊，请按项目实际需要单独采购。</blockquote>
 <h4>专用材料</h4>
 <p>官方 REV 和 goBILDA，以及洲宇的专用型材供应商。</p>
 <h4>材料特性</h4>
-<div class="table-wrap"><table><thead><tr><th style="text-align:left">品牌</th><th style="text-align:left">特点</th></tr></thead><tbody><tr><td style="text-align:left"><strong>REV</strong></td><td style="text-align:left">相对古老但是核心。三大电控模块（Driver Hub、Control Hub、Expansion Hub）主要采用 REV 产品。结构件包括各种铝型材（应用相对较少），型材可做小限位架、固定非单位位移结构。型材主要对应外六 M3 螺丝（仅），6mm REX 轴，齿轮和链条，72:1 横轴电机、40:1 电机较为可用常用。</td></tr><tr><td style="text-align:left"><strong>goBILDA & 洲宇</strong></td><td style="text-align:left">C 型梁、方梁或薄梁，8mm REX 轴，各种单位化的连接件，连接功能完善。主要采用 M4 螺丝（官方 10mm），电机多为 5203 系列。适用于电机直传的套件。</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">品牌</th><th style="text-align:left">特点</th></tr></thead><tbody><tr><td style="text-align:left"><strong>REV</strong></td><td style="text-align:left">相对古老但是核心。三大电控模块（Driver Hub、Control Hub、Expansion Hub）主要采用 REV 产品。结构件包括各种铝型材（应用相对较少），型材可做小限位架、固定非单位位移结构。型材主要对应 M3 杯头螺丝（仅），6mm REX 轴，齿轮和链条，72:1 横轴电机、40:1 电机较为可用常用。</td></tr><tr><td style="text-align:left"><strong>goBILDA & 洲宇</strong></td><td style="text-align:left">C 型梁、方梁或薄梁，8mm REX 轴，各种单位化的连接件，连接功能完善。主要采用 M4 螺丝（官方 10mm），电机多为 5203 系列。适用于电机直传的套件。</td></tr></tbody></table></div>
 <p><strong>REV 供应商细节：</strong></p>
-<ul><li><strong>核心电控模块</strong>：Driver Hub、Controller Hub（即 Control Hub）、Expansion Hub 三大电控模块主要采用 REV 产品。</li><li><strong>结构件</strong>：以铝型材为主，当前使用较少，可做小限位架、固定非单位位移的结构。</li><li><strong>特殊螺丝</strong>：REV 型材使用 Y6 规格的 M3 螺丝，这种螺丝卡在铝型材内，几乎只有 REV 型材会用到。</li><li><strong>轴规格</strong>：REV 对应 6 毫米 REX 轴，这是 REV 特有的规格。</li><li><strong>电机</strong>：REV 提供 72:1 横轴电机与 40:1 标准电机。72:1 横轴电机可提供特殊安装方案，但结构设计较老，在现有环境中较难找到适配对象。</li><li><strong>齿轮与链条</strong>：REV 也提供，但通常优先选用 goBILDA 产品。</li></ul>
+<ul><li><strong>核心电控模块</strong>：Driver Hub、Controller Hub（即 Control Hub）、Expansion Hub 三大电控模块主要采用 REV 产品。</li><li><strong>结构件</strong>：以铝型材为主，当前使用较少，可做小限位架、固定非单位位移的结构。</li><li><strong>特殊螺丝</strong>：REV 型材使用 M3 杯头（内六角）螺丝，这种螺丝卡在铝型材内，几乎只有 REV 型材会用到。</li><li><strong>轴规格</strong>：REV 对应 6 毫米 REX 轴，这是 REV 特有的规格。</li><li><strong>电机</strong>：REV 提供 72:1 横轴电机（官方名 Core Hex，90° 横置输出、无自带输出轴）与 40:1 标准电机（官方名 HD Hex）。72:1 横轴电机可提供特殊安装方案，但结构设计较老，在现有环境中较难找到适配对象。</li><li><strong>齿轮与链条</strong>：REV 也提供，但通常优先选用 goBILDA 产品。</li></ul>
 <p><strong>goBILDA 供应商细节：</strong></p>
 <ul><li><strong>C 型梁</strong>：分为方梁与薄梁两种。方梁适合做底盘等大框架结构，薄梁适合做跨度性连接。</li><li><strong>连接件</strong>：提供各类标准化连接件，单位化程度高，与自身材料和 REV 材料连接功能完善。</li><li><strong>螺丝规格</strong>：主要采用 M4 螺丝，官方配用 M4×10 毫米杯头螺丝。</li><li><strong>轴规格</strong>：对应 8 毫米 REX 轴。</li><li><strong>电机</strong>：常用 5203 系列，适合标准直传。由于 8mm REX 轴强度与电机安装方式的特性，goBILDA 是适合电机直传的套件。</li></ul>
 <p><strong>洲宇供应商细节：</strong></p>
-<blockquote>有关洲宇，可以找到 goBILDA 绝大多数对应材料，也存在差异。尽可能采用 goBILDA 官方建材，但洲宇价格更低，可能存在质量问题。</blockquote>
+<blockquote class="bq-warning">有关洲宇，可以找到 goBILDA 绝大多数对应材料，也存在差异。尽可能采用 goBILDA 官方建材，但洲宇价格更低，可能存在质量问题。</blockquote>
 <ul><li>绝大多数材料都可以在洲宇找到对应的 goBILDA 同类型产品。</li><li>存在部分洲宇根据国内需求自制的特殊件，其中一些 goBILDA 没有对应款，若遇到有巧思的洲宇件，可以购买测试使用。</li><li>价格方面，洲宇是三家供应商中最低的，但做工相比 goBILDA 稍差。</li></ul>
 <h4>3D 打印耗材</h4>
-<div class="table-wrap"><table><thead><tr><th style="text-align:left">类型</th><th style="text-align:left">熔点</th><th style="text-align:left">说明</th></tr></thead><tbody><tr><td style="text-align:left">PLA</td><td style="text-align:left">220°C</td><td style="text-align:left">标准基础塑料耗材</td></tr><tr><td style="text-align:left">PETG-CF</td><td style="text-align:left">240+°C</td><td style="text-align:left">含碳塑料耗材</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">类型</th><th style="text-align:left">打印温度（约）</th><th style="text-align:left">说明</th></tr></thead><tbody><tr><td style="text-align:left">PLA</td><td style="text-align:left">220°C</td><td style="text-align:left">标准基础塑料耗材</td></tr><tr><td style="text-align:left">PETG-CF</td><td style="text-align:left">240+°C</td><td style="text-align:left">含碳塑料耗材</td></tr></tbody></table></div>
 <p>采购使用拓竹官方或 3 绿的耗材，质量相对稳定。</p>
 <p><strong>收缩量：</strong></p>
 <ul><li>通常情况下，PLA 不需考虑收缩量问题。</li><li>打印轴套时，可能出现直径约 5% 的收缩量，需要根据打印形态来测量。</li><li>PETG-CF 的收缩量受时间、温度、批次等因素影响波动较大，使用前建议根据零件形态制作简单测试件测量收缩量。</li></ul>
 <h4>激光切割耗材</h4>
 <div class="table-wrap"><table><thead><tr><th style="text-align:left">材料</th><th style="text-align:left">特点</th><th style="text-align:left">用途</th></tr></thead><tbody><tr><td style="text-align:left">亚克力板</td><td style="text-align:left">强度较高</td><td style="text-align:left">大跨度承重板</td></tr><tr><td style="text-align:left">PP 板</td><td style="text-align:left">韧性较强</td><td style="text-align:left">保护件，需要更多连接点，可承受直接冲击</td></tr><tr><td style="text-align:left">木板</td><td style="text-align:left">成本较低</td><td style="text-align:left">易发生翘曲，特殊情况使用</td></tr></tbody></table></div>
-<blockquote>材料本身的性质固定记录在此处。激光切割的功率、速度等工艺参数放在附录中持续更新。</blockquote>
+<blockquote class="bq-info">材料本身的性质固定记录在此处。激光切割的功率、速度等工艺参数放在附录中持续更新。</blockquote>
 <h4>线材</h4>
 <p><strong>电源线：</strong></p>
 <ul><li>电池—Hub 连接线（根据设计需求，电池可能直连 Control Hub 或 Expansion Hub）</li><li>Con—EXP 连接线</li><li>自带线材的开关</li><li>电机电源线：对于 goBILDA 的电机，电源线适配口和 Hub 不兼容，需要裁掉原适配口，利用线卡子重新制作接头。</li></ul>
 <p><strong>数据线（电机编码器线）：</strong></p>
 <ul><li>对于 goBILDA 而言，其与 Hub 适配口、线序不同（黄线与白线互换），制作时需要特别注意。</li><li>I2C 传感器线：无特殊要求。</li><li>Con 和 EXP 数据连接线。</li><li>舵机延长线：注意方向。</li></ul>
 <p><strong>主机数据线：</strong></p>
-<ul><li>手机连 Control Hub 转接线：必须使用 mini USB 转 micro USB 线材。</li><li>其他：USB-A 到 USB-C、USB-A 到 miniUSB、USB-C 到 miniUSB 等各类转换线。</li><li>网线（Driver Station 使用）。</li><li>手柄数据线（USB-A 到 microUSB）。</li></ul>
+<ul><li>Hub 连接电脑：Control Hub 使用 USB-A 转 USB-C 线材，Expansion Hub 使用 mini USB 线材。</li><li>其他：USB-A 到 USB-C、USB-A 到 miniUSB、USB-C 到 miniUSB 等各类转换线。</li><li>网线（可用于网络辅助连接，非必需用品）。</li><li>手柄数据线（USB-A 到 microUSB）。</li></ul>
 <p><strong>基础设施（作为耗材）：</strong></p>
 <ul><li>WiFi、监控、网线、电插板等基础设施均按耗材管理，注意及时补充。</li></ul>
 <hr>
@@ -435,7 +441,7 @@ tr:nth-child(even){background:#fafafa}
 <ol><li><strong>零件采购</strong></li><li><strong>自制件制作</strong><ul><li>3D 打印件制作</li><li>激光切割板材加工</li></ul></li><li><strong>硬件安装</strong></li><li><strong>导线连接</strong></li><li><strong>Robot Configuration 编写</strong>（与程序设计协同）</li><li><strong>Driver Station 与 Robot Controller 连接</strong>（与程序设计协同）</li></ol>
 <h3 id="硬件安装">硬件安装</h3>
 <h4>安装次序</h4>
-<blockquote>常规手搭机器人习惯先做底盘再向上累加。但在此赛机器人中，我们有建模图纸，这个顺序容易因零件遮挡导致大量返工。</blockquote>
+<blockquote class="bq-warning">常规手搭机器人习惯先做底盘再向上累加。但在比赛机器人中，我们有建模图纸，这个顺序容易因零件遮挡导致大量返工。</blockquote>
 <ul><li>安装时需要根据零件遮挡关系调整次序：<strong>先安装被电机、电控等部件遮挡的零件</strong>，再安装遮挡它们的部件。</li><li>例如：确认电机周围需要安装的零件装完后，再装这颗电机。</li></ul>
 <h4>零件使用注意事项</h4>
 <ul><li>轴上的零件不要优先使用带顶丝的款式，顶丝会损坏轴。</li><li>拧螺丝时不要拧得过死。</li><li>其余零件使用规则后续持续补充。</li></ul>
@@ -447,8 +453,8 @@ tr:nth-child(even){background:#fafafa}
 <ul><li>带滑轨的伸缩结构必须套线管，防止线乱飞卡死滑轨甚至扯断线。</li><li>理线是装车中技术含量最高的工作，务必认真对待。</li></ul>
 <h3 id="导线连接">导线连接</h3>
 <h4>Control Hub 与 Expansion Hub 连接</h4>
-<ul><li><strong>电源连接</strong>：公头对母头连接。</li><li><strong>数据连接</strong>：使用 UART 口配合 3P 线材连接。两边各有 4 个 UART 口，各选一个插上即可，无需相互对应固定位置。</li></ul>
-<blockquote>官方插头均具有防呆设计，该设计防呆不防傻。遇到无法插入的情况，请及时检查插线方向，切勿用力插拔。</blockquote>
+<ul><li><strong>电源连接</strong>：公头对母头连接。</li><li><strong>数据连接</strong>：使用 RS-485 口配合 3P 线材连接。两边各有 2 个 RS-485 口，各选一个插上即可，无需相互对应固定位置。</li></ul>
+<blockquote class="bq-warning">官方插头均具有防呆设计，该设计防呆不防傻。遇到无法插入的情况，请及时检查插线方向，切勿用力插拔。</blockquote>
 <h4>Driver Station 与 Robot Controller 连接</h4>
 <p>网络连接部分，结构与程序都需要掌握，可直接复用程序部分内容。</p>
 <h4>Robot Configuration 编写</h4>
@@ -462,27 +468,27 @@ tr:nth-child(even){background:#fafafa}
 <h3 id="从Onshape导出建模文件">从 Onshape 导出建模文件</h3>
 <ol><li>打开建模文件，选中目标零件，左下角会标记出该零件在左侧实例列表中的位置。</li><li>右键该零件，选择切换到该实例对应的工作栏，进入零件构造区。</li><li>在左下角零件数位置右键，选择导出。<ul><li>注意：只有获取到文档的更改权限后，才有导出选项。</li></ul></li><li>将格式改为 STEP，文件名按需求更改，其余选项默认即可。</li></ol>
 <h3 id="BambuStudio导入与摆盘">Bambu Studio 导入与摆盘</h3>
-<ul><li>在 Bambu Studio 创建新项目，点击上方"添加"按钮导入 STEP 文件，导入选项默认确认即可。</li><li>若零件位置不符合预期，不选中任何零件，右键打印盘选择"自动摆放"或"自动朝向"。</li><li>手动调整：选中零件，长按左键拖动移动；点击旋转按钮通过相对/绝对两种方式旋转。</li><li>操作逻辑差异：Bambu Studio 中左键拖动为旋转视图，右键拖动为移动视图；与 Onshape 不同。</li></ul>
+<ul><li>在 Bambu Studio 创建新项目，点击上方"导入"按钮导入 STEP 文件，导入选项默认确认即可。</li><li>若零件位置不符合预期，不选中任何零件，右键打印盘选择"自动摆放"或"自动朝向"。</li><li>手动调整：选中零件，长按左键拖动移动；点击旋转按钮通过相对/绝对两种方式旋转。</li><li>操作逻辑差异：Bambu Studio 默认与 Onshape 相同——左键拖动为旋转视图，右键拖动为平移视图；如不习惯也可在设置中调整视图操作方式。选中零件后左键拖动可直接移动零件。</li></ul>
 <h3 id="打印参数配置">打印参数配置</h3>
 <p><strong>打印机与耗材选择：</strong></p>
 <div class="table-wrap"><table><thead><tr><th style="text-align:left">打印机</th><th style="text-align:left">喷嘴</th><th style="text-align:left">耗材</th></tr></thead><tbody><tr><td style="text-align:left">P2S（未更换喷嘴）</td><td style="text-align:left">0.4 mm</td><td style="text-align:left">PLA Basic</td></tr><tr><td style="text-align:left">P2S（已更换喷嘴，专门打印碳材）</td><td style="text-align:left">按对应配置</td><td style="text-align:left">PETG-CF</td></tr><tr><td style="text-align:left">P1S（两台）</td><td style="text-align:left">0.4 mm</td><td style="text-align:left">PLA Basic</td></tr></tbody></table></div>
 <p><strong>按零件类型选择工艺参数：</strong></p>
 <div class="table-wrap"><table><thead><tr><th style="text-align:left">类型</th><th style="text-align:left">参数</th></tr></thead><tbody><tr><td style="text-align:left">装饰件</td><td style="text-align:left">Bambu Studio 默认参数</td></tr><tr><td style="text-align:left">非承重结构件</td><td style="text-align:left">按建模组常用配置</td></tr><tr><td style="text-align:left">承重结构件</td><td style="text-align:left">按建模组常用配置（高强度）</td></tr></tbody></table></div>
-<blockquote>以上参数均为我校建模组的常用配置，如有特殊需求可自行修改。</blockquote>
+<blockquote class="bq-info">以上参数均为我校建模组的常用配置，如有特殊需求可自行修改。</blockquote>
 <p><strong>多零件摆盘：</strong></p>
-<ul><li>同一打印盘需要多个相同零件：选中零件右键选择"克隆"。</li><li>添加不同零件：再次点击"添加"按钮导入即可。</li></ul>
+<ul><li>同一打印盘需要多个相同零件：选中零件右键选择"克隆"。</li><li>添加不同零件：再次点击"导入"按钮导入即可。</li></ul>
 <h3 id="连接3D打印机">连接 3D 打印机</h3>
-<ul><li>进入"设备"一栏，开启局域网模式后自动扫描局域网内的打印机（开启局域网模式可能退出当前登录账号，可忽略提示）。</li><li>若无法扫描到目标打印机：先确认打印机已开启局域网模式；仍无法识别可通过 IP + 访问码手动绑定。IP 在打印机设置的 WiFi 页面查找，访问码在开启紧急网模式后的登录头像位置查看。</li><li>切片完成后在"预览"一栏确认，打印前建议将切片预览图发给当前建模或结构负责人确认配置无误后再发送打印。</li></ul>
+<ul><li>进入"设备"一栏，开启局域网模式后自动扫描局域网内的打印机（开启局域网模式可能退出当前登录账号，可忽略提示）。</li><li>若无法扫描到目标打印机：先确认打印机已开启局域网模式；仍无法识别可通过 IP + 访问码手动绑定。IP 在打印机设置的 WiFi 页面查找，访问码在开启局域网模式后的登录头像位置查看。</li><li>切片完成后在"预览"一栏确认，打印前建议将切片预览图发给当前建模或结构负责人确认配置无误后再发送打印。</li></ul>
 <h3 id="打印设置">打印设置</h3>
 <p><strong>P2S 打印机：</strong></p>
 <ul><li>打印前开启延时摄影。</li><li>必须开启自动热床调平。</li><li>选择对应装载的耗材与目标打印机。</li></ul>
 <p><strong>P1S 打印机：</strong></p>
 <ul><li>延时摄影默认关闭即可。</li><li>自动热床调平和动态流量校准必须全部设置为自动。</li></ul>
 <h3 id="打印异常处理">打印异常处理</h3>
-<ul><li><strong>P1S</strong>：出现炒面（耗材丝乱飞）时设备会自动停止打印，并向登录该设备的账号发送提醒。清理错误文件后设备会自动重启。</li><li><strong>P2S</strong>：没有炒面自动识别停止功能，打印过程中需要实时关注状态。发现炒面后手动停止打印，可在左侧 cache 文件夹的历史打印文件中找到出错文件并清理。</li></ul>
+<ul><li><strong>P2S</strong>：具备 AI 炒面检测，出现炒面（耗材丝乱飞）时设备会自动停止打印，并向登录该设备的账号发送提醒。清理错误文件后设备会自动重启。</li><li><strong>P1S</strong>：没有炒面自动识别功能，打印过程中需要实时关注状态。发现炒面后手动停止打印，可在左侧 cache 文件夹的历史打印文件中找到出错文件并清理。</li></ul>
 <h3 id="安装并配置RDWorksV8">安装并配置 RD Works V8</h3>
 <p><strong>安装流程：</strong></p>
-<ol><li>找管理员或指导老师获取 exe 安装文件，选择 Install</li><li>勾选手动安装路径来更改位置</li><li>外挂无需安装</li><li>当连接到激光切割机后选择安装 USB 驱动</li><li>选择关闭再打开软件即可</li></ol>
+<ol><li>找管理员或指导老师获取 exe 安装文件，选择 Install</li><li>勾选手动安装路径来更改位置</li><li>其他选项保持默认即可</li><li>当连接到激光切割机后选择安装 USB 驱动</li><li>选择关闭再打开软件即可</li></ol>
 </main>
 
 <script>
@@ -496,6 +502,8 @@ tr:nth-child(even){background:#fafafa}
   ol.addEventListener("click",close);
   var ls=document.getElementById("langSelect");
   if(ls){ls.addEventListener("change",function(){window.location.href=ls.value})};
+  var lss=document.getElementById("langSelectSide");
+  if(lss){lss.addEventListener("change",function(){window.location.href=lss.value})};
 })();
 </script>
 </body>

@@ -72,17 +72,17 @@ nav.sidebar::-webkit-scrollbar-thumb{background:#444;border-radius:2px}
 .sidebar-header .home-link:hover .sub{color:#fff}
 .sidebar-header .logo{font-size:22px;font-weight:700;color:#fff;line-height:1.3}
 .sidebar-header .sub{font-size:12px;color:#f44336;margin-top:4px;letter-spacing:1px}
-/* 语言切换：纵向全称布局 */
-.lang-switch{
-  margin:12px 14px 0;display:flex;flex-direction:column;gap:6px
+/* 语言切换：侧边栏下拉选项栏（节省空间给目录） */
+.lang-select-sidebar{
+  margin:12px 14px 0;width:calc(100% - 28px);box-sizing:border-box;
+  background:rgba(255,255,255,.1);color:#fff;
+  border:1px solid rgba(255,255,255,.25);border-radius:8px;
+  font-size:13px;padding:7px 26px 7px 10px;
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 8px center
 }
-.lang-switch a{
-  color:#ccc;text-decoration:none;font-size:13px;padding:7px 10px;
-  text-align:center;border:1px solid rgba(255,255,255,.15);
-  border-radius:8px;transition:all .18s
-}
-.lang-switch a:hover{color:#fff;border-color:rgba(255,255,255,.4)}
-.lang-switch a.active{color:#fff;background:rgba(244,67,54,.35);border-color:rgba(244,67,54,.6)}
+.lang-select-sidebar option{color:#2c2c2c;background:#fff}
 .sidebar-nav{flex:1;padding:12px 0}
 .sidebar-nav a{
   display:block;padding:10px 22px;color:#aaa;text-decoration:none;
@@ -159,7 +159,7 @@ section h3{font-size:17px;font-weight:600;margin:28px 0 10px;color:var(--slate)}
 section h4,.card h4{font-size:15px;font-weight:600;margin:18px 0 8px}
 .card{background:var(--card);border-radius:var(--radius);padding:24px 28px;box-shadow:0 1px 4px rgba(0,0,0,.04);margin-bottom:16px}
 p{margin-bottom:10px}
-a{color:#1565c0;text-decoration:none}
+a{color:#1565c0;text-decoration:none;overflow-wrap:anywhere}
 a:hover{text-decoration:underline}
 ul,ol{padding-left:22px;margin-bottom:12px}
 li{margin-bottom:4px}
@@ -170,6 +170,10 @@ blockquote{
   border-left:4px solid var(--red);background:#fef5f5;padding:12px 18px;
   margin:14px 0;border-radius:0 var(--radius) var(--radius) 0;font-size:14px;color:#8b0000
 }
+/* 类型化引用块：[!info] 蓝 / [!warning] 黄 / [!danger] 红（仅颜色区分，无标签） */
+blockquote.bq-info{border-left-color:#1565c0;background:#eaf3fb;color:#0d3c66}
+blockquote.bq-warning{border-left-color:#f9a825;background:#fff8e1;color:#6d4c00}
+blockquote.bq-danger{border-left-color:#d32f2f;background:#fef5f5;color:#8b0000}
 hr{border:none;border-top:1px solid var(--border);margin:24px 0}
 img{max-width:100%;border-radius:var(--radius);margin:12px 0}
 /* 锚点跳转留白（避免被固定顶栏遮挡） */
@@ -257,7 +261,7 @@ tr:nth-child(even){background:#fafafa}
   section h2{font-size:22px}
   section h3{font-size:17px}
   .hero .badge{background:var(--red);color:#fff}
-  a{color:inherit}
+  a{color:inherit;overflow-wrap:anywhere !important}
   /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
   .table-wrap{
     overflow:visible !important;
@@ -302,7 +306,9 @@ tr:nth-child(even){background:#fafafa}
       <div class="logo">FTC 32477<br>Origin</div>
       <div class="sub">快速入門指南</div>
     </a>
-    <div class="lang-switch"><a href="../zh-cn/outreach.html">简体中文</a><a href="../zh-tw/outreach.html" class="active">繁體中文</a><a href="../en-us/outreach.html">English (US)</a></div>
+    <select class="lang-select-sidebar" id="langSelectSide" aria-label="Language">
+<option value="../zh-cn/outreach.html">简体中文</option><option value="../zh-tw/outreach.html" selected>繁體中文</option><option value="../en-us/outreach.html">English (US)</option>
+    </select>
   </div>
   <div class="sidebar-nav">
 <a href="index.html">前言</a>
@@ -325,7 +331,7 @@ tr:nth-child(even){background:#fafafa}
 <a class="sub-link" href="#三贊助開發">三、贊助開發</a>
 <a class="sub-link sub-3" href="#贊助的本質利益交換">贊助的本質：利益交換</a>
 <a class="sub-link sub-3" href="#商業計畫書">商業計畫書</a>
-<a class="sub-link sub-3" href="#案例570隊的商業開發">案例：570 隊的商業開發</a>
+<a class="sub-link sub-3" href="#案例FTC27570隊BYNX的商業開發">案例：FTC 27570 隊（BYNX）的商業開發</a>
 <a class="sub-link sub-3" href="#案例FGC中國國家隊">案例：FGC 中國國家隊</a>
 <a class="sub-link" href="#四其他事項">四、其他事項</a>
 <a href="afterword.html">後記</a>
@@ -362,15 +368,15 @@ tr:nth-child(even){background:#fafafa}
 <hr>
 <h2 id="三贊助開發">三、贊助開發</h2>
 <h3 id="贊助的本質利益交換">贊助的本質：利益交換</h3>
-<blockquote>沒有人會平白無故給你錢。贊助方提供資金和物資，需要得到的是曝光度和知名度。</blockquote>
+<blockquote class="bq-info">沒有人會平白無故給你錢。贊助方提供資金和物資，需要得到的是曝光度和知名度。</blockquote>
 <ul><li>成績越好，曝光度越高，越容易拉到贊助。</li><li>現階段可以先拉小贊助：例如找電子廠贊助工具、螺絲等耗材。</li><li>聯絡方式：給大廠發郵件、給淘寶商家直接打電話。</li></ul>
 <h3 id="商業計畫書">商業計畫書</h3>
 <p>向贊助方遞交商業計畫書時，應包含：</p>
 <ul><li>賽事介紹（FTC 是什麼、賽事影響力）</li><li>隊伍自我介紹</li><li>歷史成績</li><li>分檔位贊助權益：不同金額對應不同規格的 logo 露出</li></ul>
-<h3 id="案例570隊的商業開發">案例：570 隊的商業開發</h3>
-<ul><li><strong>聲光模組</strong>：570 隊開發了專為 FTC 設計的聲光模組，支援自訂燈效。階梯定價中嵌入了隊號——1 個 180 元、4 個 570 元、6 個 787 元，潛移默化地把隊號刻進買家認知。</li><li><strong>訂製舵機</strong>：與舵機廠合作訂製專屬舵機，貼牌後開發配套調參軟體，透過官網售賣舵機、分電板等配件，售賣收入作為團隊經費。</li></ul>
+<h3 id="案例FTC27570隊BYNX的商業開發">案例：FTC 27570 隊（BYNX）的商業開發</h3>
+<ul><li><strong>聲光模組</strong>：FTC 27570 隊開發了專為 FTC 設計的聲光模組 KIRIN（麒麟），支援自訂燈效。階梯定價中嵌入了隊號——1 個 180 元、4 個 570 元、6 個 787 元，其中 570 與 787 分別對應 FTC 27570 與 FTC 25787 兩隊的隊號，潛移默化地把隊號刻進買家認知。</li><li><strong>訂製舵機</strong>：與舵機廠合作訂製專屬舵機，貼牌後開發配套調參軟體，透過官網售賣舵機、分電板等配件，售賣收入作為團隊經費。</li></ul>
 <h3 id="案例FGC中國國家隊">案例：FGC 中國國家隊</h3>
-<ul><li>FGC（First Global Challenge）相當於機器人領域的奧運會，2026 年賽事將在韓國仁川舉辦，共有 190 多個國家參賽。</li><li>FGC 中國國家隊的商業計畫書包含賽事介紹、隊伍自我介紹、歷史成績、不同檔位贊助對應的權益，曾獲得小米、華為（貼牌華坤振宇）等品牌的贊助。</li></ul>
+<ul><li>FGC（First Global Challenge）相當於機器人領域的奧運會，2026 年賽事將在韓國仁川舉辦，共有 190 多個國家參賽。</li><li>FGC 中國國家隊的商業計畫書包含賽事介紹、隊伍自我介紹、歷史成績、不同檔位贊助對應的權益。據了解，該隊曾獲得小米、華為（貼牌華鯤振宇）等品牌的贊助。</li></ul>
 <hr>
 <h2 id="四其他事項">四、其他事項</h2>
 <p>（詳見相關文件和手冊）</p>
@@ -387,6 +393,8 @@ tr:nth-child(even){background:#fafafa}
   ol.addEventListener("click",close);
   var ls=document.getElementById("langSelect");
   if(ls){ls.addEventListener("change",function(){window.location.href=ls.value})};
+  var lss=document.getElementById("langSelectSide");
+  if(lss){lss.addEventListener("change",function(){window.location.href=lss.value})};
 })();
 </script>
 </body>
