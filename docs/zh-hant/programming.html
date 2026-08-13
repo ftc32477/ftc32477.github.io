@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-tw">
+<html lang="zh-hant">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>建模設計｜FTC 32477 Origin 快速入門指南</title>
+<title>程式設計｜FTC 32477 Origin 快速入門指南</title>
 <link rel="icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <link rel="shortcut icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <style>
@@ -279,7 +279,7 @@ tr:nth-child(even){background:#fafafa}
   .img-fig{page-break-inside:avoid}
   .img-row .img-fig{flex:1 1 0}
   /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
-  html[lang="zh-cn"] main p,html[lang="zh-tw"] main p{text-indent:2em}
+  html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
   /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
   h1{margin:3.2em 0 1em}
   h2{margin:2em 0 .8em}
@@ -293,7 +293,7 @@ tr:nth-child(even){background:#fafafa}
   <img class="topbar-logo" src="../images/basic/team_logo.png" alt="32477 Origin">
   <span class="brand"><a href="../index.html" title="返回主页">FTC 32477 Origin 快速入門指南</a></span>
   <select class="lang-select" id="langSelect" aria-label="Language">
-<option value="../zh-cn/modeling.html">简体中文</option><option value="../zh-tw/modeling.html" selected>繁體中文</option><option value="../en-us/modeling.html">English (US)</option><option value="../fr/modeling.html">Français</option>
+<option value="../zh-hans/programming.html">简体中文</option><option value="../zh-hant/programming.html" selected>繁體中文</option><option value="../en-us/programming.html">English (US)</option><option value="../fr/programming.html">Français</option>
   </select>
   <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
 </div>
@@ -307,32 +307,28 @@ tr:nth-child(even){background:#fafafa}
       <div class="sub">快速入門指南</div>
     </a>
     <select class="lang-select-sidebar" id="langSelectSide" aria-label="Language">
-<option value="../zh-cn/modeling.html">简体中文</option><option value="../zh-tw/modeling.html" selected>繁體中文</option><option value="../en-us/modeling.html">English (US)</option><option value="../fr/modeling.html">Français</option>
+<option value="../zh-hans/programming.html">简体中文</option><option value="../zh-hant/programming.html" selected>繁體中文</option><option value="../en-us/programming.html">English (US)</option><option value="../fr/programming.html">Français</option>
     </select>
   </div>
   <div class="sidebar-nav">
 <a href="index.html">前言</a>
 <a href="member.html">隊員須知</a>
-<a href="modeling.html" class="active">建模設計</a>
+<a href="modeling.html">建模設計</a>
+<a href="build.html">結構建造</a>
+<a href="programming.html" class="active">程式設計</a>
 <a class="sub-link" href="#一基本資料">一、基本資料</a>
 <a class="sub-link sub-3" href="#應用程式">應用程式</a>
-<a class="sub-link sub-3" href="#線上帳戶">線上帳戶</a>
 <a class="sub-link" href="#二環境配置">二、環境配置</a>
 <a class="sub-link sub-3" href="#網路瀏覽器">網路瀏覽器</a>
-<a class="sub-link sub-3" href="#Onshape帳號註冊">Onshape 帳號註冊</a>
-<a class="sub-link sub-3" href="#Onshape環境配置">Onshape 環境配置</a>
-<a class="sub-link sub-3" href="#Onshape外掛">Onshape 外掛</a>
-<a class="sub-link" href="#三建模設計要點">三、建模設計要點</a>
-<a class="sub-link sub-3" href="#零件設計與裝配">零件設計與裝配</a>
-<a class="sub-link sub-3" href="#專案文件與工作區">專案文件與工作區</a>
-<a class="sub-link sub-3" href="#建模基礎流程">建模基礎流程</a>
-<a class="sub-link sub-3" href="#模型強度與設計經驗">模型強度與設計經驗</a>
-<a class="sub-link sub-3" href="#建模思路與賽程參考">建模思路與賽程參考</a>
-<a class="sub-link sub-3" href="#Onshape學習資源">Onshape 學習資源</a>
-<a class="sub-link sub-3" href="#FTC常用零件庫">FTC 常用零件庫</a>
-<a class="sub-link sub-3" href="#設計規範">設計規範</a>
-<a href="build.html">結構建造</a>
-<a href="programming.html">程式設計</a>
+<a class="sub-link sub-3" href="#Git">Git</a>
+<a class="sub-link sub-3" href="#AndroidStudio">Android Studio</a>
+<a class="sub-link sub-3" href="#VisualStudioCode">Visual Studio Code</a>
+<a class="sub-link" href="#三用品簡介">三、用品簡介</a>
+<a class="sub-link sub-3" href="#AndroidStudio-1">Android Studio</a>
+<a class="sub-link sub-3" href="#VisualStudioCode-1">Visual Studio Code</a>
+<a class="sub-link sub-3" href="#RobotDashboard">Robot Dashboard</a>
+<a class="sub-link" href="#四工作流程">四、工作流程</a>
+<a class="sub-link sub-3" href="#除錯是核心">除錯是核心</a>
 <a href="outreach.html">外部聯絡</a>
 <a href="afterword.html">後記</a>
   </div>
@@ -340,74 +336,61 @@ tr:nth-child(even){background:#fafafa}
 </nav>
 
 <main>
-<h1>建模設計</h1>
+<h1>程式設計</h1>
 <h2 id="一基本資料">一、基本資料</h2>
-<p>以下是建模設計需要追加的資料。</p>
+<p>以下是程式設計需要追加的資料。</p>
 <h3 id="應用程式">應用程式</h3>
-<ul><li>網路瀏覽器（Chrome 或 Edge 或 Safari）</li><li>LocalSend</li><li>Onshape FTC 零件庫 — <a href="https://ftconshape.com/" target="_blank">https://ftconshape.com/</a>（FIRST 與 PTC 合作維護；發郵件至 FIRST@ptc.com 可加入共享資料夾）</li><li>FTC Insert Tool 零件庫外掛 — <a href="https://cad.onshape.com/appstore/apps/Design%20&%20Documentation/6515cfb91574253b1b96a6ba" target="_blank">https://cad.onshape.com/appstore/apps/Design%20&%20Documentation/6515cfb91574253b1b96a6ba</a>（Onshape 應用程式商店安裝：Subscribe → Get for Free）</li></ul>
-<h3 id="線上帳戶">線上帳戶</h3>
-<ul><li>CycleZLab — <a href="https://www.cyclezlab.com/" target="_blank">https://www.cyclezlab.com/</a>（免費，需申請加入）</li></ul>
+<ul><li>Git</li><li>Visual Studio Code</li><li>Android Studio</li></ul>
 <hr>
 <h2 id="二環境配置">二、環境配置</h2>
 <p>以下是在正式開始前需要配置的工作環境，請按照說明操作。如有疑問，請向管理員諮詢。</p>
 <h3 id="網路瀏覽器">網路瀏覽器</h3>
 <p>需要追加收藏儲存的網址如下：</p>
-<div class="table-wrap"><table><thead><tr><th style="text-align:left">名稱</th><th style="text-align:left">網址</th></tr></thead><tbody><tr><td style="text-align:left">goBILDA</td><td style="text-align:left">https://www.gobilda.com/</td></tr><tr><td style="text-align:left">REV Robotics</td><td style="text-align:left">https://www.revrobotics.com/</td></tr><tr><td style="text-align:left">CycleZLab</td><td style="text-align:left">https://www.cyclezlab.com/</td></tr><tr><td style="text-align:left">Onshape 教育版</td><td style="text-align:left">https://www.onshape.com/en/education/</td></tr></tbody></table></div>
-<h3 id="Onshape帳號註冊">Onshape 帳號註冊</h3>
-<p>Onshape 是我們隊伍所採用的雲端建模平台。相較於 SolidWorks 等工業建模軟體，Onshape 具有不吃配置、工程跨裝置共享方便、易上手、有 FIRST 官方支援等優勢，在保證功能全面的同時，非常適合用來學習 CAD 建模與製作專案。</p>
-<p><strong>註冊流程：</strong></p>
-<ol><li>開啟 <a href="https://www.onshape.com/en/education/" target="_blank">https://www.onshape.com/en/education/</a>，註冊教育版帳號</li><li>填入姓（First name）、名（Last name）以及電子郵件</li></ol>
-<blockquote class="bq-warning">不要使用 QQ 等中國大陸郵箱，有機率收不到驗證碼；推薦使用 @gmail.com 或 @outlook.com。</blockquote>
-<ol start="3"><li>在下一個介面依次選擇身份 "Student"、學校類別 "Grade School / K-12 (Ages <18)"、生日，完成後點擊下一步</li><li>依次填入以下資訊：<ul><li>校名：BEIJING NATIONAL DAY EXPERIMENTAL SCHOOL</li><li>學校官網：<a href="https://sysyzx.bjhdedu.cn/" target="_blank">https://sysyzx.bjhdedu.cn/</a></li><li>預計畢業年份</li><li>註冊原因：I am a member of FTC Team 32477, and I registered this account to use the team's modeling tools.（不知道寫什麼就填這句）</li><li>勾選同意下方三個協議條款，完成註冊</li></ul></li><li>前往電子郵件查收確認郵件</li></ol>
-<blockquote class="bq-info">註冊成功後，請向管理員提供你的帳號，以便將你加入隊伍共享資料夾。</blockquote>
-<p><strong>常見問題：</strong></p>
-<ul><li>最後一步提示 reCAPTCHA 出現問題：說明人機驗證服務未回應，嘗試更換網路環境，確保可以連接 reCAPTCHA 服務</li><li>電子郵件收不到驗證碼：若等待超過 3 分鐘，嘗試更換電子郵件（Outlook 或 Gmail，不要使用 QQ）</li></ul>
-<h3 id="Onshape環境配置">Onshape 環境配置</h3>
-<ol><li>進入工作區，點擊右上角帳號圖示，選擇下拉選單第一個選項「我的账户」</li><li>選擇右側選單從上到下第三個選項「首选项」，將第一個語言選項改為「简体中文」，改完點擊儲存</li><li>在同選單將下方單位選項改為公制（隊伍工作環境中長度預設毫米）</li></ol>
-<blockquote class="bq-info">以上更改只會應用在修改後建立的檔案中，舊檔案的單位不受影響。</blockquote>
-<ol start="4"><li>依照偏好修改個人資料</li></ol>
-<h3 id="Onshape外掛">Onshape 外掛</h3>
-<p>得益於雲端性質，Onshape 具有豐富的共享外掛，取得管道包括 Onshape 應用程式商店、第三方外掛網站、他人分享等。</p>
-<p>隊伍常用的外掛包括（僅供舉例）：</p>
-<ul><li><strong>Onshape FTC 零件庫</strong>（核心，見「一、基本資料」）</li><li><strong>Lighten</strong>（自訂特徵，精簡結構使零件更輕）</li><li><strong>Spur gear</strong>（自訂特徵，齒輪產生器）</li><li><strong>HTD Pulley Generator</strong>（從其他文件派生，同步帶輪產生器）</li></ul>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">名稱</th><th style="text-align:left">網址</th></tr></thead><tbody><tr><td style="text-align:left">Programming Resources</td><td style="text-align:left">https://www.firstinspires.org/resources/library/ftc/programming-resources</td></tr><tr><td style="text-align:left">REV Robotics Documentation</td><td style="text-align:left">https://docs.revrobotics.com/duo-control/hello-robot-java/welcome</td></tr><tr><td style="text-align:left">Pedro Pathing</td><td style="text-align:left">https://pedropathing.com/</td></tr><tr><td style="text-align:left">Robot Dashboard</td><td style="text-align:left">http://192.168.43.1:8080/</td></tr></tbody></table></div>
+<h3 id="Git">Git</h3>
+<p>Git 是我隊採用的程式檔案版本控制工具。Android Studio 不附帶 Git，需要安裝並配置，以下兩種方式任選其一。</p>
+<p><strong>方式一（在 Android Studio 中下載並安裝 Git）：</strong></p>
+<ol><li>開啟 Android Studio，進入設定頁面：Windows/Linux 為 File → Settings，macOS 為 Android Studio → Settings（或 Preferences）</li><li>在左側選單展開 Version Control，點擊 Git</li><li>若未偵測到 Git，介面會提供下載入口，點擊下載並安裝即可</li><li>安裝完成後，在 Path to Git executable 中確認 Git 程式路徑（Windows 為 git.exe），點擊 Test 顯示 Successful 後，點擊 Apply 與 OK 儲存</li></ol>
+<p><strong>方式二（先單獨安裝 Git，再在 Android Studio 中配置路徑）：</strong></p>
+<ol><li>訪問 Git 官網 <a href="https://git-scm.com/downloads" target="_blank">https://git-scm.com/downloads</a>，下載適合你電腦系統（Windows / macOS / Linux）的安裝包</li><li>執行安裝程式，按預設選項一路 Next 完成安裝</li><li>開啟 Android Studio，進入設定 → Version Control → Git</li><li>在 Path to Git executable 中輸入或選擇 Git 程式路徑（已配置環境變數時會自動識別）</li><li>點擊 Test，顯示 Successful 後點擊 Apply 與 OK 儲存</li></ol>
+<p>如需要在目前專案啟用版本控制：點擊頂部選單 VCS → Enable Version Control Integration...，選擇 Git 並點擊 OK。</p>
+<h3 id="AndroidStudio">Android Studio</h3>
+<p>Android Studio 是我隊採用的程式編寫工具。</p>
+<p><strong>軟體安裝及環境配置流程：</strong></p>
+<ol><li>開啟 <a href="https://developer.android.com/studio" target="_blank">https://developer.android.com/studio</a></li><li>點擊「Download Android Studio」，下載對應版本並安裝。</li></ol>
+<p><strong>在 Windows 中安裝時需要注意：</strong></p>
+<ul><li>兩個核取方塊均須勾選</li><li>選擇一個空間充足且不會被改變的路徑地址</li></ul>
+<p><strong>初始化：</strong></p>
+<ul><li>請選擇「Standard」模式</li><li>同意協議時請勾選「Accept」</li><li>其他請保持不變並選擇「Next」</li></ul>
+<p><strong>中文化：</strong></p>
+<ol><li>開啟 <a href="https://github.com/sollyu/AndroidStudioChineseLanguagePack/releases" target="_blank">Android Studio 中文語言套件</a></li><li>下載最新的語言擴充套件（.jar 檔案）</li><li>在主頁面的左側頁籤清單中選擇「Plugins」，選擇「Install Plugin from Disk」</li><li>選擇下載的 .jar 檔案並開啟，外掛載入成功後確保其處於開啟狀態</li><li>在左側頁籤清單中選擇「Customize」，進入「語言和地區（Language and Region）」，將「語言（Language）」選擇為「Chinese (Simplified) 簡體中文」，將「地區（Region）」選擇為「Americas」，然後重新啟動</li></ol>
+<p><strong>複製存放庫：</strong></p>
+<ol><li>點擊左側頁籤清單中的「GitHub」，點擊「透過 GitHub 登入」進行授權。</li><li>選擇當前賽季的程式碼存放庫（如：<code>ftc32477/FTC-32477-Decode-Program</code>）</li><li>選擇一個不會改變路徑的空資料夾，點擊「複製」</li><li>等待檔案下載完成，在左側邊欄的「建置」頁籤或視窗右下透過進度條查看進度</li></ol>
+<blockquote class="bq-warning">如有問題，請向管理員諮詢。</blockquote>
+<h3 id="VisualStudioCode">Visual Studio Code</h3>
+<p>Visual Studio Code 是我隊採用的程式碼編輯與歷史檢視工具。</p>
+<p><strong>軟體安裝及環境配置流程：</strong></p>
+<ol><li>開啟 <a href="https://code.visualstudio.com/Download" target="_blank">https://code.visualstudio.com/Download</a></li><li>下載對應版本並安裝即可</li><li>開啟 <a href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hans" target="_blank">中文化外掛</a>，安裝該外掛即可中文化。</li></ol>
 <hr>
-<h2 id="三建模設計要點">三、建模設計要點</h2>
-<h3 id="零件設計與裝配">零件設計與裝配</h3>
-<p>在 Onshape 中進行 3D 建模時，需要特別注意以下幾點：</p>
-<ul><li><strong>尺寸精度</strong>：確保模型中所有尺寸與實際零件一致</li><li><strong>裝配關係</strong>：合理設定零件之間的裝配配合（Mate 與 Mate Connector）</li><li><strong>干涉檢查</strong>：在裝配完成後進行干涉檢查</li><li><strong>零件命名</strong>：按照統一規範命名零件和裝配體</li></ul>
-<h3 id="專案文件與工作區">專案文件與工作區</h3>
-<p>在進行隊伍相關專案的製作時，請在隊伍共享資料夾裡建立文件，以便與其他隊員共享。若尚未加入，請聯繫管理員將你加入隊伍共享資料夾。</p>
-<ol><li>在個人工作台左側選單選擇「已与我共享」，開啟「32477」資料夾，即可新建文件或開啟隊伍已建立的文件（一個文件就是一個專案）</li><li>若要新建專案：點擊頁面左上角藍色建立按鈕，選擇「文档」，等待文件建立完成並開啟</li></ol>
-<p>進入工作區後，下方可見「结构体」與「装配体」標籤頁（點擊標籤右側加號可新建）：</p>
-<ul><li><strong>结构体</strong>：單個零件建模的區域（對應 CAD 流程中的草圖與零件），透過草圖約束來製作零件</li><li><strong>装配体</strong>：利用「结构体」中製作的零件或零件庫中現成的零件進行拼裝的區域（對應 CAD 流程中的裝配）</li></ul>
-<p>一個文件中可以建立任意數量的「装配体」與「结构体」。為方便修改與管理，請注意：一個結構體盡量只製作一個零件；將整車分結構進行裝配，最後再在一個總裝配體中合體。</p>
-<h3 id="建模基礎流程">建模基礎流程</h3>
-<p>作為入門手冊，這裡只介紹 Onshape 最基本的操作與工作流程。</p>
-<h4>草圖的繪製</h4>
-<p>在「结构体」中新建草圖，選擇基準面後，使用直線、矩形、圓等草圖工具繪製輪廓，再透過尺寸標註與幾何約束（如水平、垂直、相切）固定形狀。草圖應盡量完全約束，後續特徵操作才能可靠。</p>
-<h4>零件的製作</h4>
-<p>草圖完成後，使用拉伸、旋轉、掃描等特徵工具將二維輪廓轉化為三維實體，並透過孔、倒角、圓角等操作細化零件。所有特徵按順序記錄在特徵列表中，可隨時回退修改。</p>
-<h4>零件裝配</h4>
-<p>在「装配体」中插入「结构体」製作的零件或零件庫中的現成零件，使用 Mate 與 Mate Connector 將其按配合關係連接。裝配完成後應檢查運動是否順暢、有無干涉。</p>
-<h4>工具的使用</h4>
-<p>Onshape 提供測量、剖切、質量屬性等分析工具，可在建模過程中隨時檢查尺寸與重量；右鍵選單中還提供隱藏、隔離、重新命名等快捷操作。</p>
-<h3 id="模型強度與設計經驗">模型強度與設計經驗</h3>
-<p>3D 列印零件的強度與材質、結構有關，以下是常用的結構設計概念：</p>
-<ul><li><strong>核心結構件</strong>（如梁、結構板）：盡量使用 PETG-CF 列印（參數見《結構建造》一章），厚度不小於 4mm</li><li><strong>導向件</strong>（如球軌道、結構限位）：可選 PLA，壁厚不小於 2mm</li><li><strong>保護性裝飾件</strong>（如側板）：壁厚不小於 1.5mm</li><li>對於亞克力等較為脆性的板類或結構，盡量避免設計密集孔（孔間距小於 3mm）；結構間受力連接部分寬度不小於 7mm</li><li>盡量使零件不含銳角，倒角成圓角，防止零件應力集中導致斷裂</li></ul>
-<blockquote class="bq-info">以上資料僅供參考，實際參數需透過實物驗證進行調優。</blockquote>
-<h3 id="建模思路與賽程參考">建模思路與賽程參考</h3>
-<ul><li>構思車輛設計時，可以將賽題任務拆分成小項，分別構思完成各小項的結構，再進行組合</li><li>正式建模前，應向其他隊員徵詢方案意見，基於隊伍得分策略進行設計</li><li>完成整車設計建模後，應考慮實際裝配流程：對於內部的螺絲等難安裝結構，應提前預留安裝通道，並預留走線空間</li><li>可以考慮設計模組化結構，方便後期修理與最佳化</li><li>終版方案盡量設計一體結構，減少不必要的小結構，以提升整體結構強度與輕便性</li></ul>
-<p><strong>賽程參考：</strong></p>
-<ul><li>工期安排上，初代設計可以比較潦草，但必須盡快設計完並製作，給程式偵錯和 Driver 練習留時間，並實測結構進行迭代最佳化；在資格賽前，一輛具備資格的整車要迭代至少 3 次（參考）</li><li>多關注國外隊伍動態，FTC 社群有類似 "Robot in 30 Hours Reveal | FTC" 的活動，參賽隊伍隨時可能分享新賽季方案；也可以參考 FRC、VEX 等賽事的隊伍方案</li></ul>
-<h3 id="Onshape學習資源">Onshape 學習資源</h3>
-<p>Onshape 作為專業的建模平台，具有完整的官方學習資源：<a href="https://learn.onshape.com/" target="_blank">https://learn.onshape.com/</a>；嗶哩嗶哩、YouTube 等影片平台上也有許多教學。</p>
-<ul><li>由於 CAD 軟體工作流程的相似性（草圖、零件、裝配體），SolidWorks、Autodesk Fusion 等軟體的教學同樣具有學習價值，可以幫助培養對零件空間感的把握以及對建模工作流程的熟悉</li><li>學習過程中要牢記實踐重於理論：可以在嗶哩嗶哩找一些模型跟練，先自己嘗試建模，實在不會再查看教學；在生活中也可以觀察、思考一些小結構的建模思路</li><li>對於 FTC 賽事，要多學習其他隊伍的優秀方案：大多數強隊都有自己的網站並開源方案，可以在 YouTube 或 Google 上搜尋 FTC 隊伍號查詢官網；也可以在 CycleZLab 等網站查看其他隊伍的模型</li></ul>
-<blockquote class="bq-info">如有疑問，可諮詢建模前輩或直接上網搜尋。</blockquote>
-<h3 id="FTC常用零件庫">FTC 常用零件庫</h3>
-<p>常用的 FTC 零件供應商與資源平台：</p>
-<ul><li><strong>goBILDA</strong>：提供完整的 FTC 結構件</li><li><strong>REV Robotics</strong>：提供電控模組和結構件</li><li><strong>CycleZLab</strong>：FIRST 機器人社群平台（CAD、程式碼與建造日誌檔案庫）</li></ul>
-<h3 id="設計規範">設計規範</h3>
-<ul><li>使用公制單位（mm）</li><li>所有 3D 列印件需預留適當的間隙（推薦 0.2-0.3mm）</li><li>匯出格式：STEP 檔案用於加工，STL 檔案用於 3D 列印，3MF 檔案用於切片列印</li></ul>
+<h2 id="三用品簡介">三、用品簡介</h2>
+<h3 id="AndroidStudio-1">Android Studio</h3>
+<p>官方文件：<a href="https://developer.android.com/studio/intro?hl=zh-cn" target="_blank">https://developer.android.com/studio/intro?hl=zh-cn</a></p>
+<p>在本專案中，我們基於 FTC 官方提供的應用框架，在 <code>TeamCode</code> 資料夾下使用 Java 語言編寫機器人控制程式，以呼叫機器人執行所需的各類依賴庫。</p>
+<p>關於 Android Studio 所需掌握的基本知識，請參考官方文件中的簡易頁面指引。</p>
+<h3 id="VisualStudioCode-1">Visual Studio Code</h3>
+<p>官方文件：<a href="https://code.visualstudio.com/docs" target="_blank">https://code.visualstudio.com/docs</a></p>
+<p>鑒於 Visual Studio Code 與 Android Studio 操作邏輯類似，且前者在本專案中使用頻次較低，相關介面指引請參考 Android Studio 部分，此處不再贅述。</p>
+<h3 id="RobotDashboard">Robot Dashboard</h3>
+<ul><li>連接 Wi-Fi 網路「<code>32477-RC</code>」。Wi-Fi 密碼：詢問管理員或透過 Driver Hub 取得。</li><li>網址是：<a href="http://192.168.43.1:8080/" target="_blank">http://192.168.43.1:8080/</a></li><li>這是 Control Hub 內建的 Wi-Fi 模組的 Web 頁面（官方名稱為 Robot Controller Console，即機器人控制器控制台），提供了管理 Control Hub 的圖形化後台。</li></ul>
+<p>關於 Robot Dashboard 所需掌握的基本知識，請參考官方文件中的簡易頁面指引。</p>
+<hr>
+<h2 id="四工作流程">四、工作流程</h2>
+<p>程式設計組的核心工作分為三部分：</p>
+<ul><li><strong>自動程式</strong>：賽季自動階段（Auto）的控制邏輯</li><li><strong>手動程式</strong>：遙控階段（TeleOp）的操作邏輯</li><li><strong>感測器配置</strong>：各類感測器、視覺系統的配置</li></ul>
+<h3 id="除錯是核心">除錯是核心</h3>
+<blockquote class="bq-info">程式開發的真正難點在於除錯。自動路徑、手動操作、PID 參數、視覺配置——大部分感測器都有現成的程式套件可以直接複用，你真正要做的是「調」。</blockquote>
+<p>除錯工作貫穿整個開發流程：</p>
+<ol><li><strong>需求分析</strong>：明確當前賽季的規則和任務需求</li><li><strong>架構設計</strong>：設計程式整體架構和模組劃分</li><li><strong>程式碼編寫</strong>：在 Android Studio 中編寫 Java 程式碼</li><li><strong>版本控制</strong>：使用 Git 進行程式碼版本管理</li><li><strong>除錯</strong>：調自動路徑、調手動操作、調 PID 參數、調視覺配置</li><li><strong>測試驗證</strong>：在機器人上驗證程式功能</li><li><strong>程式碼審查</strong>：透過 GitHub 進行程式碼審查和合併</li><li><strong>部署發布</strong>：將最終版本部署到 Robot Controller</li></ol>
 </main>
 
 <script>
