@@ -319,8 +319,16 @@ tr:nth-child(even){background:#fafafa}
 <a class="sub-link sub-3" href="#OnlineAccounts">Online Accounts</a>
 <a class="sub-link" href="#2EnvironmentSetup">2. Environment Setup</a>
 <a class="sub-link sub-3" href="#WebBrowser">Web Browser</a>
+<a class="sub-link sub-3" href="#OnshapeAccountRegistration">Onshape Account Registration</a>
+<a class="sub-link sub-3" href="#OnshapePreferencesSetup">Onshape Preferences Setup</a>
+<a class="sub-link sub-3" href="#OnshapePlugins">Onshape Plugins</a>
 <a class="sub-link" href="#3ModelingEssentials">3. Modeling Essentials</a>
 <a class="sub-link sub-3" href="#PartDesignandAssembly">Part Design and Assembly</a>
+<a class="sub-link sub-3" href="#ProjectDocumentsandWorkspace">Project Documents and Workspace</a>
+<a class="sub-link sub-3" href="#BasicModelingWorkflow">Basic Modeling Workflow</a>
+<a class="sub-link sub-3" href="#ModelStrengthandDesignTips">Model Strength and Design Tips</a>
+<a class="sub-link sub-3" href="#DesignStrategyandSeasonPlanning">Design Strategy and Season Planning</a>
+<a class="sub-link sub-3" href="#OnshapeLearningResources">Onshape Learning Resources</a>
 <a class="sub-link sub-3" href="#CommonFTCPartsLibraries">Common FTC Parts Libraries</a>
 <a class="sub-link sub-3" href="#DesignStandards">Design Standards</a>
 <a href="build.html">Hardware &amp; Build</a>
@@ -344,12 +352,57 @@ tr:nth-child(even){background:#fafafa}
 <p>The following environment must be configured before you begin. If you have any questions, please consult an administrator.</p>
 <h3 id="WebBrowser">Web Browser</h3>
 <p>Bookmark the following additional websites:</p>
-<div class="table-wrap"><table><thead><tr><th style="text-align:left">Name</th><th style="text-align:left">URL</th></tr></thead><tbody><tr><td style="text-align:left">goBILDA</td><td style="text-align:left">https://www.gobilda.com/</td></tr><tr><td style="text-align:left">REV Robotics</td><td style="text-align:left">https://www.revrobotics.com/</td></tr><tr><td style="text-align:left">CycleZLab</td><td style="text-align:left">https://www.cyclezlab.com/</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">Name</th><th style="text-align:left">URL</th></tr></thead><tbody><tr><td style="text-align:left">goBILDA</td><td style="text-align:left">https://www.gobilda.com/</td></tr><tr><td style="text-align:left">REV Robotics</td><td style="text-align:left">https://www.revrobotics.com/</td></tr><tr><td style="text-align:left">CycleZLab</td><td style="text-align:left">https://www.cyclezlab.com/</td></tr><tr><td style="text-align:left">Onshape for Education</td><td style="text-align:left">https://www.onshape.com/en/education/</td></tr></tbody></table></div>
+<h3 id="OnshapeAccountRegistration">Onshape Account Registration</h3>
+<p>Onshape is the cloud-based CAD platform adopted by our team. Compared with industrial modeling software such as SolidWorks, Onshape is light on system resources, makes sharing projects across devices easy, is beginner-friendly, and has official FIRST support—while remaining fully functional, it is ideal for learning CAD modeling and working on projects.</p>
+<p><strong>Registration:</strong></p>
+<ol><li>Open <a href="https://www.onshape.com/en/education/" target="_blank">https://www.onshape.com/en/education/</a> and sign up for an Education account</li><li>Enter your first name, last name, and email address</li></ol>
+<blockquote class="bq-warning">Do not use QQ or other Chinese domestic email providers—verification emails may never arrive. Use @gmail.com or @outlook.com instead.</blockquote>
+<ol start="3"><li>On the next screen, select your role "Student", school level "Grade School / K-12 (Ages <18)", and date of birth, then click Next</li><li>Fill in the following information:<ul><li>School name: BEIJING NATIONAL DAY EXPERIMENTAL SCHOOL</li><li>School website: <a href="https://sysyzx.bjhdedu.cn/" target="_blank">https://sysyzx.bjhdedu.cn/</a></li><li>Expected graduation year</li><li>Reason for registering: I am a member of FTC Team 32477, and I registered this account to use the team's modeling tools. (fill this in if you are unsure what to write)</li><li>Check all three agreement boxes to complete registration</li></ul></li><li>Check your email for the confirmation message</li></ol>
+<blockquote class="bq-info">After registering, give your account name to an administrator so they can add you to the team's shared folder.</blockquote>
+<p><strong>Common issues:</strong></p>
+<ul><li>reCAPTCHA error on the final step: the human-verification service did not respond. Try switching networks and make sure the reCAPTCHA service is reachable.</li><li>No verification email received: if you have waited more than 3 minutes, try a different email address (Outlook or Gmail—not QQ)</li></ul>
+<h3 id="OnshapePreferencesSetup">Onshape Preferences Setup</h3>
+<ol><li>Enter the workspace, click the account icon in the top-right corner, and select "My account", the first item in the dropdown menu</li><li>Select "Preferences", the third item from the top of the menu, change the first language option to "Simplified Chinese", then click Save</li><li>In the same menu, change the units option to metric (millimeters are the default length unit in the team's working environment)</li></ol>
+<blockquote class="bq-info">These changes only apply to documents created afterwards; existing documents keep their original units.</blockquote>
+<ol start="4"><li>Update your profile as you prefer</li></ol>
+<h3 id="OnshapePlugins">Onshape Plugins</h3>
+<p>Thanks to its cloud-based nature, Onshape has a rich ecosystem of shared plugins, available through the Onshape App Store, third-party plugin websites, and sharing between users.</p>
+<p>Plugins commonly used by the team include (examples only):</p>
+<ul><li><strong>Onshape FTC parts library</strong> (core; see "1. Basic Requirements")</li><li><strong>Lighten</strong> (custom feature that slims down parts to make them lighter)</li><li><strong>Spur gear</strong> (custom feature, gear generator)</li><li><strong>HTD Pulley Generator</strong> (derived from another document, timing belt pulley generator)</li></ul>
 <hr>
 <h2 id="3ModelingEssentials">3. Modeling Essentials</h2>
 <h3 id="PartDesignandAssembly">Part Design and Assembly</h3>
 <p>When performing 3D modeling in Onshape, pay special attention to the following:</p>
 <ul><li><strong>Dimensional accuracy</strong>: ensure all dimensions in the model match the physical parts</li><li><strong>Assembly mates</strong>: set up part-to-part mates (Mates and Mate Connectors) properly</li><li><strong>Interference check</strong>: run interference checks after assembly</li><li><strong>Part naming</strong>: name parts and assemblies according to unified conventions</li></ul>
+<h3 id="ProjectDocumentsandWorkspace">Project Documents and Workspace</h3>
+<p>When working on team projects, create documents in the team's shared folder so that other members can access them. If you have not been added yet, contact an administrator to add you to the shared folder.</p>
+<ol><li>In your personal workspace, select "Shared with me" in the left menu and open the "32477" folder. There you can create a new document or open an existing team document (a document is a project)</li><li>To create a new project: click the blue Create button in the top-left corner, select "Document", and wait for the document to be created and opened</li></ol>
+<p>Once in the workspace, you will see "Part Studio" and "Assembly" tabs at the bottom (click the plus sign to the right of the tabs to create new ones):</p>
+<ul><li><strong>Part Studio</strong>: the area where individual parts are modeled (corresponding to the sketch and part stages of a CAD workflow); parts are created through sketch constraints</li><li><strong>Assembly</strong>: the area where parts made in Part Studios, or ready-made parts from libraries, are assembled (corresponding to the assembly stage of a CAD workflow)</li></ul>
+<p>A document can contain any number of Assemblies and Part Studios. For ease of editing and management, keep the following in mind: model only one part per Part Studio when possible; assemble the robot by subsystems, then bring everything together in one top-level assembly.</p>
+<h3 id="BasicModelingWorkflow">Basic Modeling Workflow</h3>
+<p>As an introductory guide, this section covers only the most basic Onshape operations and workflows.</p>
+<h4>Sketching</h4>
+<p>In a Part Studio, create a sketch, select a plane, draw the outline with sketch tools such as lines, rectangles, and circles, then fix the geometry with dimensions and geometric constraints (e.g., horizontal, vertical, tangent). Aim for a fully constrained sketch so that subsequent feature operations are reliable.</p>
+<h4>Creating Parts</h4>
+<p>Once the sketch is complete, use feature tools such as extrude, revolve, and sweep to turn the 2D profile into a 3D solid, then refine the part with holes, chamfers, and fillets. All features are recorded in the feature list in order and can be rolled back and edited at any time.</p>
+<h4>Assembling Parts</h4>
+<p>In an Assembly, insert parts made in Part Studios or ready-made parts from libraries, and connect them with Mates and Mate Connectors. After assembling, check that the motion is smooth and that there are no interferences.</p>
+<h4>Using Tools</h4>
+<p>Onshape provides analysis tools such as measure, section view, and mass properties, so you can check dimensions and weight at any time while modeling. The right-click menu also offers shortcuts such as hide, isolate, and rename.</p>
+<h3 id="ModelStrengthandDesignTips">Model Strength and Design Tips</h3>
+<p>The strength of 3D-printed parts depends on the material and the geometry. Here are some commonly used structural design concepts:</p>
+<ul><li><strong>Core structural parts</strong> (e.g., beams, structural plates): print in PETG-CF when possible (see the Hardware & Build chapter for parameters), with a thickness of at least 4 mm</li><li><strong>Guide parts</strong> (e.g., ball tracks, structural stops): PLA is fine, with a wall thickness of at least 2 mm</li><li><strong>Protective decorative parts</strong> (e.g., side panels): wall thickness of at least 1.5 mm</li><li>For brittle sheet materials such as acrylic, avoid dense hole patterns (hole spacing less than 3 mm); load-bearing connections between structures should be at least 7 mm wide</li><li>Avoid sharp corners wherever possible; round them off with fillets to prevent stress concentrations that can cause cracking</li></ul>
+<blockquote class="bq-info">The figures above are for reference only; actual parameters must be tuned and validated on physical parts.</blockquote>
+<h3 id="DesignStrategyandSeasonPlanning">Design Strategy and Season Planning</h3>
+<ul><li>When designing the robot, break the game tasks into small items, design the structures for each item separately, and then combine them</li><li>Before formal modeling, consult your teammates on the design and base it on the team's scoring strategy</li><li>After completing the whole-robot design, consider the actual assembly process: leave assembly access for hard-to-reach screws and reserve space for cable routing</li><li>Consider modular structures to make later repairs and optimization easier</li><li>For the final version, aim for a unified structure and cut unnecessary small parts to improve overall strength and reduce weight</li></ul>
+<p><strong>Season planning:</strong></p>
+<ul><li>On the schedule: the first design iteration can be rough, but it must be finished and built as soon as possible to leave time for software debugging and Driver practice, and to test the structure physically for iterative optimization. Before qualifiers, a competition-ready robot should go through at least 3 iterations (reference)</li><li>Keep an eye on teams abroad. The FTC community has events like "Robot in 30 Hours Reveal | FTC" where teams may share their new season designs at any time. You can also reference designs from FRC and VEX teams</li></ul>
+<h3 id="OnshapeLearningResources">Onshape Learning Resources</h3>
+<p>As a professional modeling platform, Onshape offers complete official learning resources: <a href="https://learn.onshape.com/" target="_blank">https://learn.onshape.com/</a>. There are also many tutorials on video platforms such as Bilibili and YouTube.</p>
+<ul><li>Because CAD software follows similar workflows (sketch, part, assembly), tutorials for other software such as SolidWorks and Autodesk Fusion are equally valuable—they help develop spatial awareness of parts and familiarity with modeling workflows</li><li>Remember that practice matters more than theory: find some models on Bilibili to model along with; try to model on your own first and only check the tutorial if you get stuck. In daily life, observe and think about how small structures are modeled</li><li>For FTC, study the excellent designs of other teams: most strong teams have their own websites and open-source their designs. Search for an FTC team number on YouTube or Google to find their official site, or browse other teams' models on sites such as CycleZLab</li></ul>
+<blockquote class="bq-info">If you have questions, ask a modeling veteran or search online.</blockquote>
 <h3 id="CommonFTCPartsLibraries">Common FTC Parts Libraries</h3>
 <p>Commonly used FTC parts suppliers and resource platforms:</p>
 <ul><li><strong>goBILDA</strong>: provides a complete range of FTC structural components</li><li><strong>REV Robotics</strong>: provides control system modules and structural components</li><li><strong>CycleZLab</strong>: a FIRST robotics community platform (archive of CAD, code, and build logs)</li></ul>
