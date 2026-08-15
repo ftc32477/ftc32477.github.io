@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-hans">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>前言｜FTC 32477 Origin 快速入门指南</title>
+<title>Esenciales del equipo｜Guía de inicio rápido de FTC 32477 Origin</title>
 <link rel="icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <link rel="shortcut icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <style>
@@ -292,9 +292,9 @@ tr:nth-child(even){background:#fafafa}
 
 <div class="topbar">
   <img class="topbar-logo" src="../images/basic/team_logo.png" alt="32477 Origin">
-  <span class="brand"><a href="../index.html" title="返回主页">FTC 32477 Origin 快速入门指南</a></span>
+  <span class="brand"><a href="../index.html" title="返回主页">Guía de inicio rápido de FTC 32477 Origin</a></span>
   <select class="lang-select" id="langSelect" aria-label="Language">
-<option value="../zh-hans/preface.html" selected>简体中文</option><option value="../zh-hant/preface.html">繁體中文</option><option value="../en-us/preface.html">English (US)</option><option value="../fr/preface.html">Français</option><option value="../es/preface.html">Español</option>
+<option value="../zh-hans/member.html">简体中文</option><option value="../zh-hant/member.html">繁體中文</option><option value="../en-us/member.html">English (US)</option><option value="../fr/member.html">Français</option><option value="../es/member.html" selected>Español</option>
   </select>
   <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
 </div>
@@ -305,42 +305,86 @@ tr:nth-child(even){background:#fafafa}
     <a class="home-link" href="../index.html" title="返回主页">
       <img class="side-logo" src="../images/basic/team_logo.png" alt="32477 Origin Team Logo">
       <div class="logo">FTC 32477<br>Origin</div>
-      <div class="sub">快速入门指南</div>
+      <div class="sub">Guía de inicio rápido</div>
     </a>
     <select class="lang-select-sidebar" id="langSelectSide" aria-label="Language">
-<option value="../zh-hans/preface.html" selected>简体中文</option><option value="../zh-hant/preface.html">繁體中文</option><option value="../en-us/preface.html">English (US)</option><option value="../fr/preface.html">Français</option><option value="../es/preface.html">Español</option>
+<option value="../zh-hans/member.html">简体中文</option><option value="../zh-hant/member.html">繁體中文</option><option value="../en-us/member.html">English (US)</option><option value="../fr/member.html">Français</option><option value="../es/member.html" selected>Español</option>
     </select>
   </div>
   <div class="sidebar-nav">
-<a href="index.html">主页</a>
-<a href="preface.html" class="active">前言</a>
-<a href="member.html">队员须知</a>
-<a href="modeling.html">建模设计</a>
-<a href="build.html">结构建造</a>
-<a href="programming.html">程序设计</a>
-<a href="outreach.html">外部联络</a>
-<a href="afterword.html">后记</a>
+<a href="index.html">Inicio</a>
+<a href="preface.html">Prefacio</a>
+<a href="member.html" class="active">Esenciales del equipo</a>
+<a class="sub-link" href="#1Informaciónbásica">1. Información básica</a>
+<a class="sub-link sub-3" href="#Equipamiento">Equipamiento</a>
+<a class="sub-link sub-3" href="#Entornodered">Entorno de red</a>
+<a class="sub-link sub-3" href="#Aplicaciones">Aplicaciones</a>
+<a class="sub-link sub-3" href="#Cuentasenlínea">Cuentas en línea</a>
+<a class="sub-link" href="#2Configuracióndelentorno">2. Configuración del entorno</a>
+<a class="sub-link sub-3" href="#Navegadorweb">Navegador web</a>
+<a class="sub-link sub-3" href="#Entornodered-1">Entorno de red</a>
+<a class="sub-link sub-3" href="#LocalSend">LocalSend</a>
+<a class="sub-link sub-3" href="#GitHub">GitHub</a>
+<a class="sub-link sub-3" href="#Onshape">Onshape</a>
+<a href="modeling.html">Modelado y diseño</a>
+<a href="build.html">Hardware y construcción</a>
+<a href="programming.html">Programación</a>
+<a href="outreach.html">Divulgación y relaciones públicas</a>
+<a href="afterword.html">Epílogo</a>
   </div>
-  <div class="sidebar-footer">2026年8月第2版 &middot; 编写小组</div>
+  <div class="sidebar-footer">Ago. 2026, 2.ª ed. &middot; Equipo editorial</div>
 </nav>
 
 <main>
-<h1>FIRST® Tech Challenge<br>32477 Origin<br>快速入门指南</h1>
-<p>欢迎加入我们，欢迎来到 FTC 的世界！</p>
-<p>当你翻开这本指南时，无论你是刚刚踏入机器人实验室、对一切充满好奇的新人，还是已经经历过赛场洗礼、准备带领队伍再创佳绩的老队员，这本指南都是为你准备的。</p>
-<p>制造一台竞技机器人从来不是把一堆金属和代码简单拼凑在一起，它是一场融合了工程逻辑、团队协作与创新精神的冒险。为了让这场冒险拥有清晰的导航，我们决定编纂这本指南。</p>
-<p>在过去的赛季中，我们积累了宝贵的经验，也踩过不少坑。我们意识到，队伍的强大不能仅仅依赖少数人的"单打独斗"，而需要建立统一的工作流程和高效的协作机制。</p>
-<blockquote class="bq-info"><strong>这本指南的初衷很简单：拒绝重复造轮子。</strong></blockquote>
-<p>我们希望它能帮助新队员跳过迷茫的摸索期，快速建立对 FTC 的全局认知；同时也作为老队员的"工具书"和"备忘录"，帮助大家规范操作标准，让我们的每一次头脑风暴、每一次零件拼装、每一次代码提交都能无缝衔接。只有把基础夯实，队伍的发展才具备真正的可持续性，我们才能把更多的精力投入到真正的创新中去。</p>
-<p>在 FTC 的赛场上，每个人都能找到属于自己的高光时刻。我们围绕一台机器人的诞生周期，划分了四个紧密相连的部分。你可以通过这本指南，探索自己的兴趣并确定未来的发展方向：</p>
-<ul><li><strong>建模设计（3D Modeling & Design）</strong>：连接想象与现实的桥梁。在零件被真正加工出来之前，你们需要在虚拟空间中进行精密的构思、装配与力学推演，确保设计的可行性。</li><li><strong>结构建造（Hardware & Build）</strong>：把图纸变成实物。你们是机器人的骨骼与肌肉的创造者，负责将一个个齿轮、型材、电机拼装为赛场上稳定、强悍的钢铁战士。</li><li><strong>程序设计（Programming）</strong>：赋予机器人灵魂。从底层逻辑到应用阶段的算法，再到团队代码版本的规范化管理，你们是让冰冷的金属拥有智慧大脑的创造者。</li><li><strong>外部联络（Outreach & PR）</strong>：队伍的扩音器与外交官。争取赞助资源、撰写工程笔记、推广 STEM 教育理念，并与其他队伍交流。你们让这支队伍的影响力超越了赛场本身。</li></ul>
-<p>如果你是新队员：请不要把它当成一本枯燥的教科书，请把它当成一份"职业规划地图"。先通读全篇，了解各个部门在做什么，然后选择你最感兴趣的领域深入阅读。遇到不懂的专业术语，随时向老队员提问——这本指南是你融入团队的敲门砖。</p>
-<p>如果你是老队员：请把它作为你工作的"基准线"。在开展工作、带教新人的过程中，参考指南中的标准流程，确保我们的技术积累能够准确无误地传承下去。</p>
-<p>FTC 是一场硬核的科技竞技，但它更是一个关于成长与陪伴的故事。在这里，你会经历零件不匹配的沮丧、代码报错时的抓狂，但更能体会到问题解决那一刻的狂喜，以及与队友并肩作战的深厚情谊。</p>
-<p>希望这本指南能成为你 FTC 旅程中可靠的伙伴。愿我们在新的赛季里，秉持专业精神，大胆尝试，小心求证。</p>
-<p>享受比赛，享受创造，让我们再创佳绩！</p>
+<h1>Esenciales del equipo</h1>
+<h2 id="1Informaciónbásica">1. Información básica</h2>
+<p>Los siguientes son los materiales que todos los miembros del equipo deben preparar.</p>
+<h3 id="Equipamiento">Equipamiento</h3>
+<p>Basta con una de las siguientes opciones:</p>
+<ul><li>Un ordenador con Windows 10 o superior</li><li>Un ordenador con macOS 13 o superior</li></ul>
+<h3 id="Entornodered">Entorno de red</h3>
+<p>Es necesario disponer de un entorno de red con acceso al soporte de Android.</p>
+<ul><li>Soporte de Android: <a href="https://support.google.com/android" target="_blank">https://support.google.com/android</a></li></ul>
+<h3 id="Aplicaciones">Aplicaciones</h3>
+<ul><li>Navegador web (Chrome, Edge o Safari)</li><li>LocalSend</li></ul>
+<h3 id="Cuentasenlínea">Cuentas en línea</h3>
+<ul><li>Correo electrónico (se recomienda @gmail.com o @outlook.com)<ul><li>Crear una cuenta de Gmail: <a href="https://support.google.com/mail/answer/56256" target="_blank">https://support.google.com/mail/answer/56256</a></li><li>Crear una cuenta de Outlook: <a href="https://outlook.live.com/mail/?prompt=create_account" target="_blank">https://outlook.live.com/mail/?prompt=create_account</a></li></ul></li><li>GitHub — <a href="https://github.com/" target="_blank">https://github.com/</a></li><li>Onshape — <a href="https://www.onshape.com/" target="_blank">https://www.onshape.com/</a></li></ul>
+<blockquote class="bq-warning">Además, Modelado y diseño, Hardware y construcción, Programación y Divulgación y relaciones públicas tienen materiales adicionales propios.</blockquote>
 <hr>
-<p class="align-right">32477 Origin 快速入门指南编写小组 · 2026年8月</p>
+<h2 id="2Configuracióndelentorno">2. Configuración del entorno</h2>
+<p>A continuación se describe el entorno de trabajo que hay que configurar antes de empezar. Siga las instrucciones y consulte al administrador si tiene dudas.</p>
+<h3 id="Navegadorweb">Navegador web</h3>
+<p>Instálelo por su cuenta. Recomendamos Chrome.</p>
+<p>Descarga de Chrome: <a href="https://www.google.com/chrome/" target="_blank">https://www.google.com/chrome/</a></p>
+<p><strong>Sitios web que debe conocer, leer y guardar:</strong></p>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">Nombre</th><th style="text-align:left">Dirección</th></tr></thead><tbody><tr><td style="text-align:left">Current Game and Season Materials</td><td style="text-align:left">https://ftc-resources.firstinspires.org/ftc/game</td></tr><tr><td style="text-align:left">FIRST Tech Challenge documentation</td><td style="text-align:left">https://ftc-docs.firstinspires.org/en/latest/index.html</td></tr><tr><td style="text-align:left">FTC AI</td><td style="text-align:left">https://ftc-cmchatbot.firstinspires.org/</td></tr><tr><td style="text-align:left">Techno Trojans</td><td style="text-align:left">https://www.fruitportrobotics.org/</td></tr><tr><td style="text-align:left">FTC Event Web — Team 32477</td><td style="text-align:left">https://ftc-events.firstinspires.org/team/32477</td></tr><tr><td style="text-align:left">32477 — FTCScout</td><td style="text-align:left">https://ftcscout.org/teams/32477</td></tr><tr><td style="text-align:left">GitHub FTC 32477</td><td style="text-align:left">https://github.com/ftc32477</td></tr></tbody></table></div>
+<h3 id="Entornodered-1">Entorno de red</h3>
+<h4>Red local</h4>
+<p>El taller dispone de red local cableada e inalámbrica. El nombre de la red inalámbrica es <code>BNDES-FTC</code>, la puerta de enlace es <code>192.168.3.1</code> y el estándar inalámbrico es 802.11ax.</p>
+<p>Consulte al administrador la contraseña.</p>
+<h4>Internet</h4>
+<p>Para las operaciones concretas, consulte al administrador.</p>
+<h3 id="LocalSend">LocalSend</h3>
+<p>LocalSend es la herramienta de transferencia de archivos en la red local que utiliza nuestro equipo.</p>
+<p><strong>Proceso de instalación (ejemplo con la versión v1.17.0):</strong></p>
+<blockquote class="bq-warning">En <strong>iOS</strong>: abra <a href="https://apps.apple.com/us/app/localsend/id1661733229" target="_blank">https://apps.apple.com/us/app/localsend/id1661733229</a> e instálela.</blockquote>
+<ol><li>Abra <a href="https://localsend.org/zh-CN/download" target="_blank">https://localsend.org/zh-CN/download</a></li><li>O acceda al repositorio de GitHub: <a href="https://github.com/localsend/localsend/releases" target="_blank">https://github.com/localsend/localsend/releases</a></li><li>Desplace la página hacia abajo y, en la lista Assets de la última versión, pulse "Show all assets" para mostrar todas las versiones disponibles</li><li>Descargue la versión correspondiente e instálela</li></ol>
+<p><strong>Descripción de las versiones por plataforma:</strong></p>
+<ul><li><strong>Android:</strong><ul><li><code>-android-arm32v7.apk</code>: compilada para CPU ARM de 32 bits de 7.ª generación</li><li><code>-android-arm64v8.apk</code>: compilada para CPU ARM de 64 bits de 8.ª generación</li><li><code>-android-google-play.apk</code>: compilada para Google Play (puede requerir los servicios de Google Mobile Services)</li><li><code>-android-x64.apk</code>: compilada para arquitectura x86 de 64 bits</li></ul></li><li><strong>Linux:</strong><ul><li><code>-linux-arm-64.deb</code>: paquete .deb para sistemas Debian/Ubuntu con arquitectura ARM de 64 bits</li><li><code>-linux-arm-64.tar.gz</code>: paquete comprimido universal para Linux con arquitectura ARM de 64 bits</li><li><code>-linux-x86-64.AppImage</code>: ejecutable AppImage para Linux con arquitectura x86 de 64 bits</li><li><code>-linux-x86-64.deb</code>: paquete .deb para sistemas Debian/Ubuntu con arquitectura x86 de 64 bits</li><li><code>-linux-x86-64.tar.gz</code>: paquete comprimido universal para Linux con arquitectura x86 de 64 bits</li></ul></li><li><strong>Windows:</strong><ul><li><code>-windows-x86-64.exe</code>: instalador para arquitectura x86 de 64 bits</li><li><code>-windows-x86-64.zip</code>: paquete comprimido portátil (sin instalación) para arquitectura x86 de 64 bits</li></ul></li><li><strong>macOS:</strong><ul><li><code>.dmg</code>: imagen de disco instalable para macOS</li></ul></li></ul>
+<h3 id="GitHub">GitHub</h3>
+<p>GitHub es el repositorio de almacenamiento de material de código abierto que utiliza nuestro equipo.</p>
+<p><strong>Proceso de registro:</strong></p>
+<ol><li>Abra <a href="https://github.com/signup" target="_blank">https://github.com/signup</a></li><li>Siga las indicaciones para crear una cuenta personal<ul><li>Durante el registro, el sistema pedirá verificar la dirección de correo electrónico</li><li>Recomendamos seleccionar «Estados Unidos» como país/región</li></ul></li><li>Tras registrarse, comunique su nombre de usuario al administrador y espere a que le envíe la invitación para unirse a la organización. Puede consultarla en <a href="https://github.com/notifications" target="_blank">https://github.com/notifications</a>.</li></ol>
+<p>A continuación, ya puede consultar y modificar los repositorios en <a href="https://github.com/orgs/ftc32477/repositories" target="_blank">https://github.com/orgs/ftc32477/repositories</a>.</p>
+<p><strong>Referencias:</strong></p>
+<ul><li><a href="https://docs.github.com/zh/get-started/start-your-journey/creating-an-account-on-github" target="_blank">Documentación de GitHub sobre cómo crear una cuenta</a></li></ul>
+<h3 id="Onshape">Onshape</h3>
+<p>Onshape es la plataforma de modelado 3D en la nube que utiliza nuestro equipo.</p>
+<p>Todas las cuentas de Onshape del equipo utilizan el plan educativo gratuito (Education Plan).</p>
+<p><strong>Proceso de registro:</strong></p>
+<ol><li>Abra la página de registro del plan educativo: <a href="https://www.onshape.com/en/education/sign-up" target="_blank">https://www.onshape.com/en/education/sign-up</a></li><li>Rellene el formulario de registro y envíelo</li></ol>
+<p>Referencias:</p>
+<ul><li><a href="https://www.onshape.com/en/education/plans" target="_blank">Información sobre el plan educativo de Onshape</a></li></ul>
 </main>
 
 <script>
