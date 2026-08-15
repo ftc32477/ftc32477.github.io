@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-hant">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>前言｜FTC 32477 Origin 快速入門指南</title>
+<title>Programación｜Guía de inicio rápido de FTC 32477 Origin</title>
 <link rel="icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <link rel="shortcut icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <style>
@@ -292,9 +292,9 @@ tr:nth-child(even){background:#fafafa}
 
 <div class="topbar">
   <img class="topbar-logo" src="../images/basic/team_logo.png" alt="32477 Origin">
-  <span class="brand"><a href="../index.html" title="返回主页">FTC 32477 Origin 快速入門指南</a></span>
+  <span class="brand"><a href="../index.html" title="返回主页">Guía de inicio rápido de FTC 32477 Origin</a></span>
   <select class="lang-select" id="langSelect" aria-label="Language">
-<option value="../zh-hans/preface.html">简体中文</option><option value="../zh-hant/preface.html" selected>繁體中文</option><option value="../en-us/preface.html">English (US)</option><option value="../fr/preface.html">Français</option><option value="../es/preface.html">Español</option>
+<option value="../zh-hans/programming.html">简体中文</option><option value="../zh-hant/programming.html">繁體中文</option><option value="../en-us/programming.html">English (US)</option><option value="../fr/programming.html">Français</option><option value="../es/programming.html" selected>Español</option>
   </select>
   <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
 </div>
@@ -305,42 +305,94 @@ tr:nth-child(even){background:#fafafa}
     <a class="home-link" href="../index.html" title="返回主页">
       <img class="side-logo" src="../images/basic/team_logo.png" alt="32477 Origin Team Logo">
       <div class="logo">FTC 32477<br>Origin</div>
-      <div class="sub">快速入門指南</div>
+      <div class="sub">Guía de inicio rápido</div>
     </a>
     <select class="lang-select-sidebar" id="langSelectSide" aria-label="Language">
-<option value="../zh-hans/preface.html">简体中文</option><option value="../zh-hant/preface.html" selected>繁體中文</option><option value="../en-us/preface.html">English (US)</option><option value="../fr/preface.html">Français</option><option value="../es/preface.html">Español</option>
+<option value="../zh-hans/programming.html">简体中文</option><option value="../zh-hant/programming.html">繁體中文</option><option value="../en-us/programming.html">English (US)</option><option value="../fr/programming.html">Français</option><option value="../es/programming.html" selected>Español</option>
     </select>
   </div>
   <div class="sidebar-nav">
-<a href="index.html">首頁</a>
-<a href="preface.html" class="active">前言</a>
-<a href="member.html">隊員須知</a>
-<a href="modeling.html">建模設計</a>
-<a href="build.html">結構建造</a>
-<a href="programming.html">程式設計</a>
-<a href="outreach.html">外部聯絡</a>
-<a href="afterword.html">後記</a>
+<a href="index.html">Inicio</a>
+<a href="preface.html">Prefacio</a>
+<a href="member.html">Esenciales del equipo</a>
+<a href="modeling.html">Modelado y diseño</a>
+<a href="build.html">Hardware y construcción</a>
+<a href="programming.html" class="active">Programación</a>
+<a class="sub-link" href="#1Informaciónbásica">1. Información básica</a>
+<a class="sub-link sub-3" href="#Aplicaciones">Aplicaciones</a>
+<a class="sub-link" href="#2Configuracióndelentorno">2. Configuración del entorno</a>
+<a class="sub-link sub-3" href="#Navegadorweb">Navegador web</a>
+<a class="sub-link sub-3" href="#Git">Git</a>
+<a class="sub-link sub-3" href="#AndroidStudio">Android Studio</a>
+<a class="sub-link sub-3" href="#VisualStudioCode">Visual Studio Code</a>
+<a class="sub-link" href="#3Presentacióndelasherramientas">3. Presentación de las herramientas</a>
+<a class="sub-link sub-3" href="#AndroidStudio-1">Android Studio</a>
+<a class="sub-link sub-3" href="#VisualStudioCode-1">Visual Studio Code</a>
+<a class="sub-link sub-3" href="#RobotDashboard">Robot Dashboard</a>
+<a class="sub-link" href="#4Flujodetrabajo">4. Flujo de trabajo</a>
+<a class="sub-link sub-3" href="#Ladepuracióneselnúcleo">La depuración es el núcleo</a>
+<a href="outreach.html">Divulgación y relaciones públicas</a>
+<a href="afterword.html">Epílogo</a>
   </div>
-  <div class="sidebar-footer">2026年8月第1版 &middot; 編寫小組</div>
+  <div class="sidebar-footer">Ago. 2026, 1.ª ed. &middot; Equipo editorial</div>
 </nav>
 
 <main>
-<h1>FIRST® Tech Challenge<br>32477 Origin<br>快速入門指南</h1>
-<p>歡迎加入我們，歡迎來到 FTC 的世界！</p>
-<p>當你翻開這本指南時，無論你是剛剛踏入機器人實驗室、對一切充滿好奇的新人，還是已經經歷過賽場洗禮、準備帶領隊伍再創佳績的老隊員，這本指南都是為你準備的。</p>
-<p>製造一台競技機器人從來不是把一堆金屬和程式碼簡單拼湊在一起，它是一場融合了工程邏輯、團隊協作與創新精神的冒險。為了讓這場冒險擁有清晰的導航，我們決定編纂這本指南。</p>
-<p>在過去的賽季中，我們累積了寶貴的經驗，也踩過不少坑。我們意識到，隊伍的強大不能僅僅依賴少數人的「單打獨鬥」，而需要建立統一的工作流程和高效的協作機制。</p>
-<blockquote class="bq-info"><strong>這本指南的初衷很簡單：拒絕重複造輪子。</strong></blockquote>
-<p>我們希望它能幫助新隊員跳過迷茫的摸索期，快速建立對 FTC 的全局認知；同時也作為老隊員的「工具書」和「備忘錄」，幫助大家規範操作標準，讓我們的每一次腦力激盪、每一次零件組裝、每一次程式碼提交都能無縫銜接。只有把基礎夯實，隊伍的發展才具備真正的永續性，我們才能把更多的精力投入到真正的創新中去。</p>
-<p>在 FTC 的賽場上，每個人都能找到屬於自己的高光時刻。我們圍繞一台機器人的誕生週期，劃分了四個緊密相連的部分。你可以透過這本指南，探索自己的興趣並確定未來的發展方向：</p>
-<ul><li><strong>建模設計（3D Modeling & Design）</strong>：連接想像與現實的橋樑。在零件被真正加工出來之前，你們需要在虛擬空間中進行精密的構思、裝配與力學推演，確保設計的可行性。</li><li><strong>結構建造（Hardware & Build）</strong>：把圖紙變成實物。你們是機器人的骨骼與肌肉的創造者，負責將一個個齒輪、型材、馬達拼裝為賽場上穩定、強悍的鋼鐵戰士。</li><li><strong>程式設計（Programming）</strong>：賦予機器人靈魂。從底層邏輯到應用階段的演算法，再到團隊程式碼版本的規範化管理，你們是讓冰冷的金屬擁有智慧大腦的創造者。</li><li><strong>外部聯絡（Outreach & PR）</strong>：隊伍的擴音器與外交官。爭取贊助資源、撰寫工程筆記、推廣 STEM 教育理念，並與其他隊伍交流。你們讓這支隊伍的影響力超越了賽場本身。</li></ul>
-<p>如果你是新隊員：請不要把它當成一本枯燥的教科書，請把它當成一份「職涯規劃地圖」。先通讀全篇，了解各部門在做什麼，然後選擇你最感興趣的領域深入閱讀。遇到不懂的專業術語，隨時向老隊員提問——這本指南是你融入團隊的敲門磚。</p>
-<p>如果你是老隊員：請把它作為你工作的「基準線」。在開展工作、帶教新人的過程中，參考指南中的標準流程，確保我們的技術累積能夠準確無誤地傳承下去。</p>
-<p>FTC 是一場硬核的科技競技，但它更是一個關於成長與陪伴的故事。在這裡，你會經歷零件不匹配的沮喪、程式碼報錯時的抓狂，但更能體會到問題解決那一刻的狂喜，以及與隊友並肩作戰的深厚情誼。</p>
-<p>希望這本指南能成為你 FTC 旅程中可靠的夥伴。願我們在新的賽季裡，秉持專業精神，大膽嘗試，小心求證。</p>
-<p>享受比賽，享受創造，讓我們再創佳績！</p>
+<h1>Programación</h1>
+<h2 id="1Informaciónbásica">1. Información básica</h2>
+<p>A continuación se indican los materiales adicionales que requiere Programación.</p>
+<h3 id="Aplicaciones">Aplicaciones</h3>
+<ul><li>Git</li><li>Visual Studio Code</li><li>Android Studio</li></ul>
 <hr>
-<p class="align-right">32477 Origin 快速入門指南編寫小組 · 2026年8月</p>
+<h2 id="2Configuracióndelentorno">2. Configuración del entorno</h2>
+<p>A continuación se describe el entorno de trabajo que hay que configurar antes de empezar. Siga las instrucciones y consulte al administrador si tiene dudas.</p>
+<h3 id="Navegadorweb">Navegador web</h3>
+<p>Sitios web adicionales que hay que añadir a marcadores:</p>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">Nombre</th><th style="text-align:left">Dirección</th></tr></thead><tbody><tr><td style="text-align:left">Programming Resources</td><td style="text-align:left">https://www.firstinspires.org/resources/library/ftc/programming-resources</td></tr><tr><td style="text-align:left">REV Robotics Documentation</td><td style="text-align:left">https://docs.revrobotics.com/duo-control/hello-robot-java/welcome</td></tr><tr><td style="text-align:left">Pedro Pathing</td><td style="text-align:left">https://pedropathing.com/</td></tr><tr><td style="text-align:left">Robot Dashboard</td><td style="text-align:left">http://192.168.43.1:8080/</td></tr></tbody></table></div>
+<h3 id="Git">Git</h3>
+<p>Git es la herramienta de control de versiones de los archivos de programa que utiliza nuestro equipo. Android Studio no trae Git incorporado, por lo que hay que instalarlo y configurarlo; elija uno de los dos métodos siguientes.</p>
+<p><strong>Método 1 (descargar e instalar Git desde Android Studio):</strong></p>
+<ol><li>Abra Android Studio y entre en los ajustes: en Windows/Linux, File → Settings; en macOS, Android Studio → Settings (o Preferences)</li><li>En el menú de la izquierda, despliegue Version Control y pulse Git</li><li>Si no se detecta Git, la interfaz ofrece un acceso de descarga; púlselo, descárguelo e instálelo</li><li>Tras la instalación, confirme la ruta del ejecutable de Git en Path to Git executable (git.exe en Windows); pulse Test y, cuando muestre Successful, pulse Apply y OK para guardar</li></ol>
+<p><strong>Método 2 (instalar primero Git por separado y configurar la ruta después en Android Studio):</strong></p>
+<ol><li>Visite el sitio oficial de Git <a href="https://git-scm.com/downloads" target="_blank">https://git-scm.com/downloads</a> y descargue el instalador adecuado para su sistema (Windows / macOS / Linux)</li><li>Ejecute el instalador y complete la instalación con las opciones predeterminadas pulsando Next</li><li>Abra Android Studio y vaya a Ajustes → Version Control → Git</li><li>En Path to Git executable, introduzca o seleccione la ruta del ejecutable de Git (se detecta automáticamente si la variable de entorno está configurada)</li><li>Pulse Test; cuando muestre Successful, pulse Apply y OK para guardar</li></ol>
+<p>Si necesita activar el control de versiones en el proyecto actual: pulse en el menú superior VCS → Enable Version Control Integration..., elija Git y pulse OK.</p>
+<h3 id="AndroidStudio">Android Studio</h3>
+<p>Android Studio es la herramienta de escritura de programas que utiliza nuestro equipo.</p>
+<p><strong>Proceso de instalación y configuración del entorno:</strong></p>
+<ol><li>Abra <a href="https://developer.android.com/studio" target="_blank">https://developer.android.com/studio</a></li><li>Pulse «Download Android Studio», descargue la versión correspondiente e instálela.</li></ol>
+<p><strong>A tener en cuenta al instalar en Windows:</strong></p>
+<ul><li>Marque las dos casillas</li><li>Elija una ruta con espacio suficiente y que no vaya a cambiar</li></ul>
+<p><strong>Inicialización:</strong></p>
+<ul><li>Elija el modo «Standard»</li><li>Al aceptar el acuerdo, marque «Accept»</li><li>Deje el resto tal cual y pulse «Next»</li></ul>
+<p><strong>Traducción al chino:</strong></p>
+<ol><li>Abra <a href="https://github.com/sollyu/AndroidStudioChineseLanguagePack/releases" target="_blank">Android Studio Chinese Language Pack</a></li><li>Descargue el paquete de idioma más reciente (archivo .jar)</li><li>En la lista de pestañas de la izquierda de la pantalla principal, elija «Plugins» y después «Install Plugin from Disk»</li><li>Elija el archivo .jar descargado y ábralo; cuando el complemento se cargue, asegúrese de que queda activado</li><li>En la lista de pestañas de la izquierda, elija «Customize», entre en «Language and Region», seleccione «Chinese (Simplified) 简体中文» en «Language» y «Americas» en «Region», y reinicie</li></ol>
+<p><strong>Clonar el repositorio:</strong></p>
+<ol><li>En la lista de pestañas de la izquierda, pulse «GitHub» y autorice con «Log In via GitHub».</li><li>Elija el repositorio de código de la temporada actual (p. ej., <code>ftc32477/FTC-32477-Decode-Program</code>)</li><li>Elija una carpeta vacía cuya ruta no vaya a cambiar y pulse «Clone»</li><li>Espere a que termine la descarga; puede ver el progreso en la pestaña «Build» de la barra lateral izquierda o mediante la barra de progreso de la esquina inferior derecha</li></ol>
+<blockquote class="bq-warning">Si tiene problemas, consulte al administrador.</blockquote>
+<h3 id="VisualStudioCode">Visual Studio Code</h3>
+<p>Visual Studio Code es la herramienta de edición de código y consulta del historial que utiliza nuestro equipo.</p>
+<p><strong>Proceso de instalación y configuración del entorno:</strong></p>
+<ol><li>Abra <a href="https://code.visualstudio.com/Download" target="_blank">https://code.visualstudio.com/Download</a></li><li>Descargue la versión correspondiente e instálela</li><li>Abra el <a href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hans" target="_blank">complemento de traducción al chino</a> e instálelo.</li></ol>
+<hr>
+<h2 id="3Presentacióndelasherramientas">3. Presentación de las herramientas</h2>
+<h3 id="AndroidStudio-1">Android Studio</h3>
+<p>Documentación oficial: <a href="https://developer.android.com/studio/intro?hl=zh-cn" target="_blank">https://developer.android.com/studio/intro?hl=zh-cn</a></p>
+<p>En este proyecto, partimos del marco de aplicaciones oficial de FTC y escribimos el programa de control del robot en Java dentro de la carpeta <code>TeamCode</code>, para invocar las distintas bibliotecas de dependencias que el robot necesita para funcionar.</p>
+<p>Sobre los conocimientos básicos de Android Studio, consulte las páginas sencillas de la documentación oficial.</p>
+<h3 id="VisualStudioCode-1">Visual Studio Code</h3>
+<p>Documentación oficial: <a href="https://code.visualstudio.com/docs" target="_blank">https://code.visualstudio.com/docs</a></p>
+<p>Dado que la lógica de manejo de Visual Studio Code es similar a la de Android Studio, y que en este proyecto se usa con menos frecuencia, para las guías de interfaz consulte la parte de Android Studio; no se repite aquí.</p>
+<h3 id="RobotDashboard">Robot Dashboard</h3>
+<ul><li>Conéctese a la red wifi «<code>32477-RC</code>». Contraseña wifi: pregunte al administrador u obténgala a través del Driver Hub.</li><li>La dirección es: <a href="http://192.168.43.1:8080/" target="_blank">http://192.168.43.1:8080/</a></li><li>Es la página web del módulo wifi integrado del Control Hub (nombre oficial: Robot Controller Console, es decir, la consola del controlador del robot), que ofrece un panel gráfico de administración del Control Hub.</li></ul>
+<p>Sobre los conocimientos básicos de Robot Dashboard, consulte las páginas sencillas de la documentación oficial.</p>
+<hr>
+<h2 id="4Flujodetrabajo">4. Flujo de trabajo</h2>
+<p>El trabajo central del grupo de Programación se divide en tres partes:</p>
+<ul><li><strong>Programa autónomo</strong>: la lógica de control de la fase autónoma (Auto) de la temporada</li><li><strong>Programa manual</strong>: la lógica de manejo de la fase de control por mando (TeleOp)</li><li><strong>Configuración de sensores</strong>: la configuración de los distintos sensores y del sistema de visión</li></ul>
+<h3 id="Ladepuracióneselnúcleo">La depuración es el núcleo</h3>
+<blockquote class="bq-info">La verdadera dificultad del desarrollo de programas está en la depuración. Rutas autónomas, manejo manual, parámetros PID, configuración de visión: la mayoría de los sensores disponen de paquetes ya hechos que pueden reutilizarse directamente; lo que de verdad hay que hacer es «ajustar».</blockquote>
+<p>La depuración atraviesa todo el proceso de desarrollo:</p>
+<ol><li><strong>Análisis de requisitos</strong>: clarificar las reglas y las tareas de la temporada actual</li><li><strong>Diseño de la arquitectura</strong>: diseñar la arquitectura general del programa y la división en módulos</li><li><strong>Escritura de código</strong>: escribir el código Java en Android Studio</li><li><strong>Control de versiones</strong>: gestionar las versiones del código con Git</li><li><strong>Depuración</strong>: ajustar las rutas autónomas, el manejo manual, los parámetros PID y la configuración de visión</li><li><strong>Pruebas y verificación</strong>: verificar el funcionamiento del programa en el robot</li><li><strong>Revisión de código</strong>: revisar y fusionar el código mediante GitHub</li><li><strong>Despliegue y publicación</strong>: desplegar la versión final en el Robot Controller</li></ol>
 </main>
 
 <script>
