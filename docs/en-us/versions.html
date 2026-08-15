@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en-us">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Programmation｜Guide de démarrage rapide FTC 32477 Origin</title>
+<title>Version History｜FTC 32477 Origin Quick Start Guide</title>
 <link rel="icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <link rel="shortcut icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <style>
@@ -286,15 +286,46 @@ tr:nth-child(even){background:#fafafa}
   h2{margin:2em 0 .8em}
   h3{margin:1.2em 0 .5em}
 }
+
+
+/* ====== 历史版本页 ====== */
+.ver-page{max-width:760px;margin:0 auto}
+.ver-top{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.ver-top h1{font-size:28px;color:#2c2c2c}
+.ver-sort{display:inline-flex;border:1px solid #e0e0e0;border-radius:8px;overflow:hidden;background:#fff}
+.ver-sort-btn{background:#fff;border:none;padding:6px 14px;font-size:13px;cursor:pointer;color:#666}
+.ver-sort-btn.active{background:#1a1a2e;color:#fff}
+.ver-intro{color:#666;margin:10px 0 22px;font-size:14px}
+.ver-list{display:flex;flex-direction:column;gap:16px}
+.ver-list.reversed{flex-direction:column-reverse}
+.ver-card{background:#fff;border:1px solid #e0e0e0;border-radius:12px;padding:22px 24px;box-shadow:0 1px 4px rgba(0,0,0,.04);scroll-margin-top:24px}
+.ver-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.ver-tag{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:700;font-size:16px;color:#1a1a2e}
+.ver-name{color:#666;font-size:14px}
+.ver-badge{font-size:11px;font-weight:600;padding:2px 10px;border-radius:12px}
+.ver-badge.latest{background:#d32f2f;color:#fff}
+.ver-badge.preview{background:#f9a825;color:#fff}
+.ver-date{color:#999;font-size:12.5px;margin-top:6px}
+.ver-changes{margin:12px 0 0;padding-left:20px;color:#2c2c2c;font-size:14px;line-height:1.8}
+.ver-changes li{margin:2px 0}
+.ver-pdfs{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.ver-pdf-label{color:#999;font-size:13px}
+.ver-pdf-btn{background:#f0f0f0;color:#2c2c2c;border:1px solid #e0e0e0;border-radius:8px;padding:6px 12px;font-size:13px;font-weight:600;text-decoration:none}
+.ver-pdf-btn:hover{background:#e4e4e4}
+.ver-pdf-note{color:#999;font-size:13px;margin-top:12px}
+#verNav{display:flex;flex-direction:column}
+#verNav.reversed{flex-direction:column-reverse}
+.sidebar-nav a.ver-link{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px}
+@media print{.topbar,.sidebar,.overlay,.ver-sort{display:none!important}}
 </style>
 </head>
 <body>
 
 <div class="topbar">
   <img class="topbar-logo" src="../images/basic/team_logo.png" alt="32477 Origin">
-  <span class="brand"><a href="../index.html" title="返回主页">Guide de démarrage rapide FTC 32477 Origin</a></span>
+  <span class="brand"><a href="../index.html" title="返回主页">FTC 32477 Origin Quick Start Guide</a></span>
   <select class="lang-select" id="langSelect" aria-label="Language">
-<option value="../zh-hans/programming.html">简体中文</option><option value="../zh-hant/programming.html">繁體中文</option><option value="../en-us/programming.html">English (US)</option><option value="../fr/programming.html" selected>Français</option>
+<option value="../zh-hans/versions.html">简体中文</option><option value="../zh-hant/versions.html">繁體中文</option><option value="../en-us/versions.html" selected>English (US)</option><option value="../fr/versions.html">Français</option>
   </select>
   <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
 </div>
@@ -305,94 +336,32 @@ tr:nth-child(even){background:#fafafa}
     <a class="home-link" href="../index.html" title="返回主页">
       <img class="side-logo" src="../images/basic/team_logo.png" alt="32477 Origin Team Logo">
       <div class="logo">FTC 32477<br>Origin</div>
-      <div class="sub">Guide de démarrage rapide</div>
+      <div class="sub">Version History</div>
     </a>
     <select class="lang-select-sidebar" id="langSelectSide" aria-label="Language">
-<option value="../zh-hans/programming.html">简体中文</option><option value="../zh-hant/programming.html">繁體中文</option><option value="../en-us/programming.html">English (US)</option><option value="../fr/programming.html" selected>Français</option>
+<option value="../zh-hans/versions.html">简体中文</option><option value="../zh-hant/versions.html">繁體中文</option><option value="../en-us/versions.html" selected>English (US)</option><option value="../fr/versions.html">Français</option>
     </select>
   </div>
-  <div class="sidebar-nav">
-<a href="index.html">Accueil</a>
-<a href="preface.html">Préface</a>
-<a href="member.html">Essentiels de l'équipe</a>
-<a href="modeling.html">Modélisation &amp; Conception</a>
-<a href="build.html">Matériel &amp; Construction</a>
-<a href="programming.html" class="active">Programmation</a>
-<a class="sub-link" href="#1Informationsdebase">1. Informations de base</a>
-<a class="sub-link sub-3" href="#Applications">Applications</a>
-<a class="sub-link" href="#2Configurationdelenvironnement">2. Configuration de l'environnement</a>
-<a class="sub-link sub-3" href="#Navigateurweb">Navigateur web</a>
-<a class="sub-link sub-3" href="#Git">Git</a>
-<a class="sub-link sub-3" href="#AndroidStudio">Android Studio</a>
-<a class="sub-link sub-3" href="#VisualStudioCode">Visual Studio Code</a>
-<a class="sub-link" href="#3Présentationdesoutils">3. Présentation des outils</a>
-<a class="sub-link sub-3" href="#AndroidStudio-1">Android Studio</a>
-<a class="sub-link sub-3" href="#VisualStudioCode-1">Visual Studio Code</a>
-<a class="sub-link sub-3" href="#RobotDashboard">Robot Dashboard</a>
-<a class="sub-link" href="#4Fluxdetravail">4. Flux de travail</a>
-<a class="sub-link sub-3" href="#Ledébogageestaucœurdutravail">Le débogage est au cœur du travail</a>
-<a href="outreach.html">Sensibilisation &amp; Relations publiques</a>
-<a href="afterword.html">Postface</a>
+  <div class="sidebar-nav" id="verNav">
+<a class="ver-link" href="#v1.0.0">v1.0.0</a>
   </div>
-  <div class="sidebar-footer">Août 2026, 1re éd. &middot; Équipe éditoriale</div>
+  <div class="sidebar-footer">Aug 2026, 1st Ed. &middot; Editorial Team</div>
 </nav>
 
 <main>
-<h1>Programmation</h1>
-<h2 id="1Informationsdebase">1. Informations de base</h2>
-<p>Voici les éléments complémentaires requis pour la Programmation.</p>
-<h3 id="Applications">Applications</h3>
-<ul><li>Git</li><li>Visual Studio Code</li><li>Android Studio</li></ul>
-<hr>
-<h2 id="2Configurationdelenvironnement">2. Configuration de l'environnement</h2>
-<p>L'environnement de travail suivant doit être configuré avant de commencer ; suivez les instructions ci-dessous. En cas de question, consultez un administrateur.</p>
-<h3 id="Navigateurweb">Navigateur web</h3>
-<p>Voici les sites à ajouter à vos favoris :</p>
-<div class="table-wrap"><table><thead><tr><th style="text-align:left">Nom</th><th style="text-align:left">Adresse</th></tr></thead><tbody><tr><td style="text-align:left">Programming Resources</td><td style="text-align:left">https://www.firstinspires.org/resources/library/ftc/programming-resources</td></tr><tr><td style="text-align:left">REV Robotics Documentation</td><td style="text-align:left">https://docs.revrobotics.com/duo-control/hello-robot-java/welcome</td></tr><tr><td style="text-align:left">Pedro Pathing</td><td style="text-align:left">https://pedropathing.com/</td></tr><tr><td style="text-align:left">Robot Dashboard</td><td style="text-align:left">http://192.168.43.1:8080/</td></tr></tbody></table></div>
-<h3 id="Git">Git</h3>
-<p>Git est l'outil de gestion de versions des fichiers de code adopté par notre équipe. Android Studio ne l'intègre pas nativement : vous devez l'installer et le configurer, en choisissant l'une des deux méthodes suivantes.</p>
-<p><strong>Méthode 1 (télécharger et installer Git dans Android Studio) :</strong></p>
-<ol><li>Ouvrez Android Studio et accédez à la page des paramètres : File → Settings sous Windows/Linux, Android Studio → Settings (ou Preferences) sous macOS</li><li>Dans le menu de gauche, dépliez Version Control, puis cliquez sur Git</li><li>Si Git n'est pas détecté, l'interface propose une entrée de téléchargement : cliquez dessus pour télécharger et installer Git</li><li>Une fois l'installation terminée, vérifiez le chemin du programme Git dans Path to Git executable (git.exe sous Windows) ; cliquez sur Test jusqu'à ce que la mention Successful s'affiche, puis cliquez sur Apply et OK pour enregistrer</li></ol>
-<p><strong>Méthode 2 (installer Git séparément, puis configurer le chemin dans Android Studio) :</strong></p>
-<ol><li>Rendez-vous sur le site officiel de Git <a href="https://git-scm.com/downloads" target="_blank">https://git-scm.com/downloads</a> et téléchargez le programme d'installation adapté à votre système (Windows / macOS / Linux)</li><li>Lancez le programme d'installation et cliquez sur Next en conservant les options par défaut</li><li>Ouvrez Android Studio et accédez à Settings → Version Control → Git</li><li>Saisissez ou sélectionnez le chemin du programme Git dans Path to Git executable (détection automatique si la variable d'environnement PATH est configurée)</li><li>Cliquez sur Test ; lorsque la mention Successful s'affiche, cliquez sur Apply et OK pour enregistrer</li></ol>
-<p>Pour activer la gestion de versions dans le projet actuel : cliquez sur VCS dans le menu supérieur → Enable Version Control Integration..., sélectionnez Git, puis cliquez sur OK.</p>
-<h3 id="AndroidStudio">Android Studio</h3>
-<p>Android Studio est l'outil d'écriture des programmes adopté par notre équipe.</p>
-<p><strong>Installation du logiciel et configuration de l'environnement :</strong></p>
-<ol><li>Ouvrez <a href="https://developer.android.com/studio" target="_blank">https://developer.android.com/studio</a></li><li>Cliquez sur « Download Android Studio », téléchargez la version correspondante, puis installez-la.</li></ol>
-<p><strong>Points d'attention lors de l'installation sous Windows :</strong></p>
-<ul><li>Les deux cases à cocher doivent être cochées</li><li>Choisissez un chemin disposant d'un espace suffisant et qui ne sera pas modifié</li></ul>
-<p><strong>Initialisation :</strong></p>
-<ul><li>Sélectionnez le mode « Standard »</li><li>Cochez « Accept » lors de l'acceptation des licences</li><li>Laissez le reste inchangé et cliquez sur « Next »</li></ul>
-<p><strong>Passer l'interface en chinois (optionnel) :</strong></p>
-<ol><li>Ouvrez le <a href="https://github.com/sollyu/AndroidStudioChineseLanguagePack/releases" target="_blank">pack de langue chinoise d'Android Studio</a></li><li>Téléchargez la dernière extension de langue (fichier .jar)</li><li>Dans la liste des onglets à gauche de l'écran d'accueil, sélectionnez « Plugins », puis « Install Plugin from Disk »</li><li>Sélectionnez le fichier .jar téléchargé et ouvrez-le ; une fois le plugin chargé, assurez-vous qu'il est activé</li><li>Dans la liste des onglets à gauche, sélectionnez « Customize », ouvrez « Language and Region », choisissez « Chinese (Simplified) » sous « Language » et « Americas » sous « Region », puis redémarrez</li></ol>
-<p><strong>Clonage du dépôt :</strong></p>
-<ol><li>Cliquez sur « GitHub » dans la liste des onglets à gauche, puis connectez-vous via « Log in with GitHub » pour autoriser l'accès.</li><li>Sélectionnez le dépôt de code de la saison en cours (par exemple : <code>ftc32477/FTC-32477-Decode-Program</code>)</li><li>Choisissez un dossier vide situé sur un chemin qui ne changera pas, puis cliquez sur « Clone »</li><li>Attendez la fin du téléchargement ; suivez la progression via l'onglet « Build » dans la barre latérale gauche ou via la barre de progression en bas à droite de la fenêtre</li></ol>
-<blockquote class="bq-warning">En cas de problème, consultez un administrateur.</blockquote>
-<h3 id="VisualStudioCode">Visual Studio Code</h3>
-<p>Visual Studio Code est l'outil adopté par notre équipe pour l'édition du code et la consultation de l'historique.</p>
-<p><strong>Installation du logiciel et configuration de l'environnement :</strong></p>
-<ol><li>Ouvrez <a href="https://code.visualstudio.com/Download" target="_blank">https://code.visualstudio.com/Download</a></li><li>Téléchargez la version correspondante, puis installez-la</li><li>Ouvrez le <a href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hans" target="_blank">pack de langue chinoise</a> et installez-le pour passer l'interface en chinois.</li></ol>
-<hr>
-<h2 id="3Présentationdesoutils">3. Présentation des outils</h2>
-<h3 id="AndroidStudio-1">Android Studio</h3>
-<p>Documentation officielle : <a href="https://developer.android.com/studio/intro?hl=zh-cn" target="_blank">https://developer.android.com/studio/intro?hl=zh-cn</a></p>
-<p>Dans ce projet, nous nous appuyons sur le framework d'application officiel fourni par la FTC et écrivons le programme de contrôle du robot en Java dans le dossier <code>TeamCode</code>, afin d'appeler les différentes bibliothèques nécessaires au fonctionnement du robot.</p>
-<p>Pour les connaissances de base à maîtriser sur Android Studio, reportez-vous au guide rapide de l'interface proposé dans la documentation officielle.</p>
-<h3 id="VisualStudioCode-1">Visual Studio Code</h3>
-<p>Documentation officielle : <a href="https://code.visualstudio.com/docs" target="_blank">https://code.visualstudio.com/docs</a></p>
-<p>La logique d'utilisation de Visual Studio Code étant similaire à celle d'Android Studio et son usage étant moins fréquent dans ce projet, reportez-vous à la section Android Studio pour les indications d'interface ; nous n'y reviendrons pas ici.</p>
-<h3 id="RobotDashboard">Robot Dashboard</h3>
-<ul><li>Connectez-vous au réseau Wi-Fi « <code>32477-RC</code> ». Mot de passe Wi-Fi : demandez-le à un administrateur ou récupérez-le via le Driver Hub.</li><li>L'adresse est la suivante : <a href="http://192.168.43.1:8080/" target="_blank">http://192.168.43.1:8080/</a></li><li>Il s'agit de la page web du module Wi-Fi intégré au Control Hub (désignée officiellement sous le nom de Robot Controller Console), qui fournit une interface graphique d'administration du Control Hub.</li></ul>
-<p>Pour les connaissances de base à maîtriser sur le Robot Dashboard, reportez-vous au guide rapide de l'interface proposé dans la documentation officielle.</p>
-<hr>
-<h2 id="4Fluxdetravail">4. Flux de travail</h2>
-<p>Le travail principal de l'équipe Programmation se divise en trois volets :</p>
-<ul><li><strong>Programmes autonomes</strong> : la logique de contrôle de la phase autonome (Auto) de la saison</li><li><strong>Programmes de téléopération (TeleOp)</strong> : la logique de commande de la phase télécommandée (TeleOp)</li><li><strong>Configuration des capteurs</strong> : la configuration des différents capteurs et systèmes de vision</li></ul>
-<h3 id="Ledébogageestaucœurdutravail">Le débogage est au cœur du travail</h3>
-<blockquote class="bq-info">La véritable difficulté du développement de programmes réside dans le débogage. Trajectoires autonomes, commandes manuelles, paramètres PID, configuration de la vision : la plupart des capteurs disposent de packages prêts à l'emploi que vous pouvez réutiliser directement ; votre véritable travail consiste à « régler ».</blockquote>
-<p>Le débogage traverse l'ensemble du flux de développement :</p>
-<ol><li><strong>Analyse des besoins</strong> : clarifier les règles et les exigences des tâches de la saison en cours</li><li><strong>Conception de l'architecture</strong> : concevoir l'architecture globale du programme et la découpe en modules</li><li><strong>Écriture du code</strong> : écrire le code Java dans Android Studio</li><li><strong>Gestion de versions</strong> : gérer les versions du code avec Git</li><li><strong>Débogage</strong> : régler les trajectoires autonomes, les commandes manuelles, les paramètres PID et la configuration de la vision</li><li><strong>Tests et validation</strong> : vérifier le fonctionnement du programme sur le robot</li><li><strong>Revue de code</strong> : effectuer la revue et la fusion du code via GitHub</li><li><strong>Déploiement</strong> : déployer la version finale sur le Robot Controller</li></ol>
+  <div class="ver-page">
+    <div class="ver-top">
+      <h1>Version History</h1>
+      <div class="ver-sort" role="group" aria-label="Sort">
+        <button id="sortDesc" class="ver-sort-btn active" type="button">Newest first</button>
+        <button id="sortAsc" class="ver-sort-btn" type="button">Oldest first</button>
+      </div>
+    </div>
+    <p class="ver-intro">Release dates and key changes of each version. PDFs in four languages are provided for download; no web edition is kept for past versions.</p>
+    <div class="ver-list" id="verList">
+<article class="ver-card" id="v1.0.0"><div class="ver-head"><span class="ver-tag">v1.0.0</span><span class="ver-name">August 2026, 1st Edition</span><span class="ver-badge latest">Latest</span></div><div class="ver-date">Released: August 14, 2026</div><ul class="ver-changes"><li>First publication, containing seven chapters: Preface, Team Essentials, Modeling & Design, Hardware & Build, Programming, Outreach & PR, and Afterword.</li><li>Available in four language editions: Simplified Chinese, Traditional Chinese, English (US), and Français.</li><li>The merged PDF comprises a cover, a table of contents, the main text, and a back cover, with continuous page numbering and navigable table-of-contents links.</li></ul><div class="ver-pdfs"><span class="ver-pdf-label">Download:</span><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.0.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.0.0-zh-hans.pdf" target="_blank" rel="noopener">Simplified Chinese</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.0.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.0.0-zh-hant.pdf" target="_blank" rel="noopener">Traditional Chinese</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.0.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.0.0-en-us.pdf" target="_blank" rel="noopener">English (US)</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.0.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.0.0-fr.pdf" target="_blank" rel="noopener">French</a></div></article>
+    </div>
+  </div>
 </main>
 
 <script>
@@ -408,6 +377,18 @@ tr:nth-child(even){background:#fafafa}
   if(ls){ls.addEventListener("change",function(){window.location.href=ls.value})};
   var lss=document.getElementById("langSelectSide");
   if(lss){lss.addEventListener("change",function(){window.location.href=lss.value})};
+  var list=document.getElementById("verList");
+  var nav=document.getElementById("verNav");
+  var asc=document.getElementById("sortAsc");
+  var desc=document.getElementById("sortDesc");
+  function setOrder(ascending){
+    list.classList.toggle("reversed",ascending);
+    nav.classList.toggle("reversed",ascending);
+    asc.classList.toggle("active",ascending);
+    desc.classList.toggle("active",!ascending);
+  }
+  asc.addEventListener("click",function(){setOrder(true)});
+  desc.addEventListener("click",function(){setOrder(false)});
 })();
 </script>
 </body>
