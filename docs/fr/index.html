@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Préface｜Guide de démarrage rapide FTC 32477 Origin</title>
+<title>Guide de démarrage rapide FTC 32477 Origin</title>
 <link rel="icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <link rel="shortcut icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <style>
@@ -280,18 +280,49 @@ tr:nth-child(even){background:#fafafa}
   .img-row .img-fig{flex:1 1 0}
   /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
   html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
+  .align-right{text-align:right}
   /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
   h1{margin:3.2em 0 1em}
   h2{margin:2em 0 .8em}
   h3{margin:1.2em 0 .5em}
 }
+
+
+/* ====== 语言主页 ====== */
+.lh-page{max-width:760px;margin:0 auto}
+.lh-hero{background:linear-gradient(135deg,var(--dark) 0%,var(--slate) 100%);color:#fff;text-align:center;padding:40px 24px 36px;border-radius:12px;margin-bottom:26px}
+.lh-logo{width:72px;height:72px;border-radius:16px;display:block;margin:0 auto 12px;box-shadow:0 4px 16px rgba(0,0,0,.25)}
+.lh-badge{display:inline-block;background:var(--red);padding:4px 14px;border-radius:16px;font-size:11px;font-weight:600;letter-spacing:1px;margin-bottom:12px}
+.lh-hero h1{font-size:24px;line-height:1.4;font-weight:700}
+.lh-slogan{font-size:13px;opacity:.85;margin-top:8px}
+.lh-page section{margin-bottom:30px}
+.lh-page section h2{font-size:19px;font-weight:700;margin-bottom:14px;color:#2c2c2c;padding-bottom:8px;border-bottom:2px solid var(--red)}
+.lh-about{background:#fff;border:1px solid #e0e0e0;border-radius:12px;padding:6px 22px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.lh-line{display:flex;align-items:baseline;gap:14px;padding:12px 0;border-bottom:1px solid #f0f0f0;font-size:14.5px;margin:0}
+.lh-line:last-child{border-bottom:none}
+.lh-tag{font-size:12px;color:#666;min-width:72px;flex-shrink:0;background:#f0f0f0;padding:2px 10px;border-radius:12px;text-align:center}
+.lh-text{font-weight:500}
+.lh-pdf{display:inline-block;background:var(--dark);color:#fff;border-radius:8px;padding:10px 22px;font-size:14px;font-weight:600;text-decoration:none}
+.lh-pdf:hover{background:var(--slate)}
+.lh-download-desc{color:#666;font-size:14px;margin-bottom:12px}
+.lh-note{color:#999;font-size:13px}
+.lh-chapters{margin:0;padding:0;list-style:none}
+.lh-chapters li{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:10px 16px;margin-bottom:8px;font-size:14px}
+.lh-chapters .num{width:26px;height:26px;border-radius:50%;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
+.lh-chapters a{color:#2c2c2c;text-decoration:none;font-weight:600}
+.lh-chapters a:hover{color:var(--red)}
+.lh-versions-desc{color:#666;font-size:14px;margin-bottom:12px}
+.lh-btn{display:inline-block;background:var(--dark);color:#fff;border-radius:8px;padding:10px 22px;font-size:14px;font-weight:600;text-decoration:none}
+.lh-btn:hover{background:var(--slate)}
+.lh-legal{color:#9a9a9a;font-size:11px;line-height:1.8;margin-top:8px}
+@media print{.topbar,.sidebar,.overlay{display:none!important}}
 </style>
 </head>
 <body>
 
 <div class="topbar">
   <img class="topbar-logo" src="../images/basic/team_logo.png" alt="32477 Origin">
-  <span class="brand"><a href="../index.html" title="返回主页">Guide de démarrage rapide FTC 32477 Origin</a></span>
+  <span class="brand"><a href="../index.html" title="返回门户">Guide de démarrage rapide FTC 32477 Origin</a></span>
   <select class="lang-select" id="langSelect" aria-label="Language">
 <option value="../zh-hans/index.html">简体中文</option><option value="../zh-hant/index.html">繁體中文</option><option value="../en-us/index.html">English (US)</option><option value="../fr/index.html" selected>Français</option>
   </select>
@@ -301,7 +332,7 @@ tr:nth-child(even){background:#fafafa}
 
 <nav class="sidebar" id="sidebar">
   <div class="sidebar-header">
-    <a class="home-link" href="../index.html" title="返回主页">
+    <a class="home-link" href="../index.html" title="返回门户">
       <img class="side-logo" src="../images/basic/team_logo.png" alt="32477 Origin Team Logo">
       <div class="logo">FTC 32477<br>Origin</div>
       <div class="sub">Guide de démarrage rapide</div>
@@ -311,7 +342,8 @@ tr:nth-child(even){background:#fafafa}
     </select>
   </div>
   <div class="sidebar-nav">
-<a href="index.html" class="active">Préface</a>
+<a href="index.html" class="active">Accueil</a>
+<a href="preface.html">Préface</a>
 <a href="member.html">Essentiels de l'équipe</a>
 <a href="modeling.html">Modélisation &amp; Conception</a>
 <a href="build.html">Matériel &amp; Construction</a>
@@ -323,22 +355,37 @@ tr:nth-child(even){background:#fafafa}
 </nav>
 
 <main>
-<h1>FIRST® Tech Challenge<br>32477 Origin<br>Guide de démarrage rapide</h1>
-<p>Bienvenue parmi nous, et bienvenue dans le monde de la FTC !</p>
-<p>Que vous soyez un nouveau membre qui vient de franchir la porte du laboratoire de robotique, plein de curiosité, ou un vétéran qui a déjà vécu l'épreuve de la compétition et s'apprête à mener l'équipe vers de nouveaux sommets, ce guide a été conçu pour vous.</p>
-<p>Construire un robot de compétition n'a jamais consisté à assembler simplement du métal et du code : c'est une aventure qui mêle logique d'ingénierie, travail d'équipe et esprit d'innovation. Pour offrir à cette aventure une navigation claire, nous avons décidé de rédiger ce guide.</p>
-<p>Au cours des saisons précédentes, nous avons accumulé une expérience précieuse et rencontré notre lot d'écueils. Nous avons compris que la force d'une équipe ne peut pas reposer sur les exploits de quelques « héros solitaires » ; elle exige des flux de travail unifiés et des mécanismes de collaboration efficaces.</p>
-<blockquote class="bq-info"><strong>L'objectif de ce guide est simple : ne pas réinventer la roue.</strong></blockquote>
-<p>Nous espérons qu'il aidera les nouveaux membres à faire l'économie de la phase de tâtonnement et de confusion, et à acquérir rapidement une vision globale de la FTC ; qu'il servira également de « manuel de référence » et de « mémo » aux membres expérimentés, en normalisant les procédures opérationnelles afin que chaque séance de remue-méninges, chaque assemblage de pièces et chaque commit de code s'enchaînent sans rupture. Ce n'est qu'en consolidant les fondations que le développement de l'équipe devient véritablement durable, et que nous pouvons consacrer davantage d'énergie à l'innovation proprement dite.</p>
-<p>Sur le terrain de la FTC, chacun peut trouver son moment de gloire. Nous avons organisé, autour du cycle de vie d'un robot, quatre volets étroitement liés. Ce guide vous permettra d'explorer vos centres d'intérêt et de définir votre orientation future :</p>
-<ul><li><strong>Modélisation et conception (3D Modeling & Design)</strong> : le pont entre l'imagination et la réalité. Avant que les pièces ne soient réellement fabriquées, vous devez mener dans l'espace virtuel une conception précise, un assemblage minutieux et une analyse mécanique rigoureuse, afin de garantir la faisabilité de votre design.</li><li><strong>Structure et construction (Hardware & Build)</strong> : transformer les plans en réalité. Vous êtes les créateurs du squelette et des muscles du robot, chargés d'assembler engrenages, profilés et moteurs pour en faire un guerrier d'acier stable et puissant sur le terrain.</li><li><strong>Programmation (Programming)</strong> : donner une âme au robot. De la logique de bas niveau aux algorithmes applicatifs, jusqu'à la gestion normalisée des versions du code de l'équipe, vous êtes les créateurs qui dotent le métal inerte d'un cerveau intelligent.</li><li><strong>Relations extérieures (Outreach & PR)</strong> : le porte-voix et les diplomates de l'équipe. Obtenir des sponsors, rédiger le cahier d'ingénierie, promouvoir l'éducation STEM et échanger avec d'autres équipes. Vous étendez l'influence de cette équipe bien au-delà du terrain de compétition.</li></ul>
-<p>Si vous êtes un nouveau membre : ne considérez pas ce guide comme un manuel rébarbatif, mais comme une « carte de planification de carrière ». Commencez par le lire en entier pour comprendre ce que fait chaque division, puis approfondissez le domaine qui vous intéresse le plus. Si vous rencontrez un terme technique inconnu, n'hésitez pas à interroger un membre expérimenté : ce guide est votre passeport d'intégration dans l'équipe.</p>
-<p>Si vous êtes un membre expérimenté : utilisez-le comme votre « référence de base ». Lorsque vous travaillez ou que vous formez de nouveaux membres, suivez les procédures standards décrites dans ce guide, afin que notre savoir-faire technique se transmette avec fidélité.</p>
-<p>La FTC est une compétition technologique exigeante, mais c'est aussi une histoire de croissance et d'entraide. Vous y connaîtrez la frustration des pièces qui ne s'assemblent pas et le découragement face à un code qui renvoie des erreurs, mais surtout la joie intense du problème résolu et les liens profonds tissés en combattant côte à côte avec vos coéquipiers.</p>
-<p>Nous espérons que ce guide deviendra un compagnon fiable tout au long de votre parcours FTC. Que cette nouvelle saison nous voie faire preuve de professionnalisme, oser expérimenter et vérifier avec rigueur.</p>
-<p>Profitez de la compétition, profitez de la création, et atteignons de nouveaux sommets !</p>
-<hr>
-<p>Équipe de rédaction du Guide de démarrage rapide 32477 Origin · Août 2026, 1re édition</p>
+  <div class="lh-page">
+    <div class="lh-hero">
+      <img class="lh-logo" src="../images/basic/team_logo.png" alt="32477 Origin Team Logo">
+      <div class="lh-badge">TEAM 32477 ORIGIN</div>
+      <h1>FIRST® Tech Challenge<br>32477 Origin<br>Guide de démarrage rapide</h1>
+      <div class="lh-slogan">Refuser de réinventer la roue</div>
+    </div>
+    <section id="about">
+      <h2>À propos</h2>
+      <div class="lh-about">
+<p class="lh-line"><span class="lh-tag">Équipe</span><span class="lh-text">FTC Team 32477 Origin</span></p><p class="lh-line"><span class="lh-tag">École</span><span class="lh-text">Beijing National Day Experimental School, district de Haidian, Pékin, Chine</span></p><p class="lh-line"><span class="lh-tag">Adresse</span><span class="lh-text">N° 8 Taiping Road, district de Haidian, Pékin 100039, Chine</span></p><p class="lh-line"><span class="lh-tag">Dernière version</span><span class="lh-text">1re édition · août 2026</span></p>
+      </div>
+    </section>
+    <section id="download">
+      <h2>Télécharger</h2>
+      <p class="lh-download-desc">Téléchargez l'édition hors ligne : lisez-la sans connexion Internet, imprimez-la ou partagez-la et archivez-la.</p>
+      <a class="lh-pdf" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.0.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.0.0-fr.pdf" target="_blank" rel="noopener">↓ Télécharger le PDF</a>
+    </section>
+    <section id="chapters">
+      <h2>Table des matières</h2>
+      <ol class="lh-chapters">
+<li><span class="num">1</span><a href="preface.html">Préface</a></li><li><span class="num">2</span><a href="member.html">Essentiels de l'équipe</a></li><li><span class="num">3</span><a href="modeling.html">Modélisation &amp; Conception</a></li><li><span class="num">4</span><a href="build.html">Matériel &amp; Construction</a></li><li><span class="num">5</span><a href="programming.html">Programmation</a></li><li><span class="num">6</span><a href="outreach.html">Sensibilisation &amp; Relations publiques</a></li><li><span class="num">7</span><a href="afterword.html">Postface</a></li>
+      </ol>
+    </section>
+    <section id="versions">
+      <h2>Historique des versions</h2>
+      <p class="lh-versions-desc">Dates de publication et principaux changements de chaque version, avec téléchargement des PDF en quatre langues.</p>
+      <a class="lh-btn" href="versions.html">Voir l'historique des versions →</a>
+    </section>
+    <p class="lh-legal">Mention légale : ce guide est un produit indépendant de la FTC Team 32477 Origin. Notre équipe n'est ni affiliée à FIRST® (For Inspiration and Recognition of Science and Technology), ni approuvée ni sponsorisée par celui-ci. FIRST®, FIRST® Robotics Competition, FRC®, FIRST® Tech Challenge et FTC® sont des marques déposées de FIRST. Les designs, le code et les ressources partagés dans ce guide sont principalement fournis par les membres de notre équipe et peuvent également intégrer des matériaux open source et les contributions d'autres personnes ; ils ne constituent pas des documents officiels de FIRST.</p>
+  </div>
 </main>
 
 <script>
