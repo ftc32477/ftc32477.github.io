@@ -78,7 +78,8 @@ section>h2 .en{font-size:inherit;color:inherit;font-weight:inherit;margin-left:1
 .lang-card{
   background:var(--card);border-radius:var(--radius);padding:28px 24px;
   box-shadow:0 2px 8px rgba(0,0,0,.05);display:flex;flex-direction:column;
-  transition:transform .18s,box-shadow .18s;border-top:3px solid transparent
+  transition:transform .18s,box-shadow .18s;border-top:3px solid transparent;
+  text-decoration:none;color:inherit
 }
 .lang-card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.09)}
 .lang-card.zh-hans{border-top-color:var(--red)}
@@ -125,6 +126,10 @@ footer .legal{margin-top:20px;font-size:11px;color:#9a9a9a;line-height:1.8;paddi
 footer .legal p{margin:0 0 8px}
 footer .legal p:last-child{margin-bottom:0}
 
+/* 历史版本入口 */
+.version-entry{margin-top:16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.version-entry .btn{display:inline-block;padding:10px 26px;width:auto}
+
 @media(max-width:600px){
   .hero{padding:48px 20px 44px}
   .hero h1{font-size:24px}
@@ -161,95 +166,22 @@ footer .legal p:last-child{margin-bottom:0}
 </div>
 
 <div class="container">
-
-  <section id="about">
-    <h2>项目概况 <span class="en">About Us</span></h2>
-    <div class="about-simple">
-      <p class="about-line">
-        <span class="tag-label">队伍</span>
-        <span class="text">FTC Team 32477 Origin <span class="en">FIRST® Tech Challenge</span></span>
-      </p>
-      <p class="about-line">
-        <span class="tag-label">学校</span>
-        <span class="text">中国北京市海淀区 · 北京十一实验中学 <span class="en">Beijing National Day Experimental School, Haidian District, Beijing, China</span></span>
-      </p>
-      <p class="about-line">
-        <span class="tag-label">地址</span>
-        <span class="text">北京市海淀区太平路8号 · 邮政编码 100039 <span class="en">No. 8 Taiping Road, Haidian District, Beijing 100039, China</span></span>
-      </p>
-      <p class="about-line">
-        <span class="tag-label">最新版本</span>
-        <span class="text">2026年8月第1版 <span class="en">1st Edition · August 2026</span></span>
-      </p>
-    </div>
-  </section>
-
   <section id="languages">
     <h2>选择语言 <span class="en">Choose Your Language</span></h2>
     <div class="lang-grid">
-
-<div class="lang-card zh-hans">
-  <h3>简体中文</h3>
-  <div class="lang-name">Simplified Chinese</div>
-  <div class="desc">面向简体中文使用者的在线版本，含全部 7 个章节。</div>
-  <div class="btn-row">
-    <a class="btn primary" href="zh-hans/index.html">在线浏览 →</a>
-    <a class="btn secondary" href="https://github.com/ftc32477/quick-start-guide/releases/download/v2026.08.01/FTC-Team-32477-Origin-Quick-Start-Guide-2026-08-01-zh-hans.pdf" target="_blank" rel="noopener">↓ 下载 PDF</a>
-  </div>
-</div>
-
-<div class="lang-card zh-hant">
-  <h3>繁体中文</h3>
-  <div class="lang-name">Traditional Chinese</div>
-  <div class="desc">面向繁體中文使用者的線上版本，含全部 7 個章節。</div>
-  <div class="btn-row">
-    <a class="btn primary" href="zh-hant/index.html">在線瀏覽 →</a>
-    <a class="btn secondary" href="https://github.com/ftc32477/quick-start-guide/releases/download/v2026.08.01/FTC-Team-32477-Origin-Quick-Start-Guide-2026-08-01-zh-hant.pdf" target="_blank" rel="noopener">↓ 下载 PDF</a>
-  </div>
-</div>
-
-<div class="lang-card en-us">
-  <h3>English (US)</h3>
-  <div class="lang-name">English · United States</div>
-  <div class="desc">The online edition in English (US), covering all 7 chapters.</div>
-  <div class="btn-row">
-    <a class="btn primary" href="en-us/index.html">Read Online →</a>
-    <a class="btn secondary" href="https://github.com/ftc32477/quick-start-guide/releases/download/v2026.08.01/FTC-Team-32477-Origin-Quick-Start-Guide-2026-08-01-en-us.pdf" target="_blank" rel="noopener">↓ 下载 PDF</a>
-  </div>
-</div>
-
-<div class="lang-card fr">
-  <h3>Français</h3>
-  <div class="lang-name">French · France</div>
-  <div class="desc">Édition en ligne en français, couvrant l'ensemble des 7 chapitres.</div>
-  <div class="btn-row">
-    <a class="btn primary" href="fr/index.html">Consulter en ligne →</a>
-    <a class="btn secondary" href="https://github.com/ftc32477/quick-start-guide/releases/download/v2026.08.01/FTC-Team-32477-Origin-Quick-Start-Guide-2026-08-01-fr.pdf" target="_blank" rel="noopener">↓ 下载 PDF</a>
-  </div>
-</div>
+<a class="lang-card zh-hans" href="zh-hans/index.html"><h3>简体中文</h3><div class="lang-name">Simplified Chinese</div></a>
+<a class="lang-card zh-hant" href="zh-hant/index.html"><h3>繁體中文</h3><div class="lang-name">Traditional Chinese</div></a>
+<a class="lang-card en-us" href="en-us/index.html"><h3>English (US)</h3><div class="lang-name">English · United States</div></a>
+<a class="lang-card fr" href="fr/index.html"><h3>Français</h3><div class="lang-name">French · France</div></a>
     </div>
   </section>
-
-  <section id="chapters">
-    <h2>内容结构 <span class="en">Table of Contents</span></h2>
-    <ul class="chapter-list">
-<li><span class="num">1</span><span class="name">前言</span><span class="names">Preface</span></li>
-<li><span class="num">2</span><span class="name">队员须知</span><span class="names">Team Essentials</span></li>
-<li><span class="num">3</span><span class="name">建模设计</span><span class="names">Modeling & Design</span></li>
-<li><span class="num">4</span><span class="name">结构建造</span><span class="names">Hardware & Build</span></li>
-<li><span class="num">5</span><span class="name">程序设计</span><span class="names">Programming</span></li>
-<li><span class="num">6</span><span class="name">外部联络</span><span class="names">Outreach & PR</span></li>
-<li><span class="num">7</span><span class="name">后记</span><span class="names">Afterword</span></li>
-    </ul>
-  </section>
-
 </div>
 
 <footer>
   32477 Origin 快速入门指南编写小组 · Editorial Team · 2026年8月
   <div class="legal">
-    <p>Legal Notice: This guide is an independent publication of FTC Team 32477 Origin. Our team is not affiliated with, endorsed by, or sponsored by FIRST® (For Inspiration and Recognition of Science and Technology). FIRST®, FIRST® Robotics Competition, FRC®, FIRST® Tech Challenge, and FTC® are registered trademarks of FIRST. All team designs, code, and resources shared in this guide are provided by our team members and do not represent official FIRST materials.</p>
-    <p>法律声明：本指南是 FTC 32477 Origin 队伍的独立出版物。本队伍与 FIRST®（For Inspiration and Recognition of Science and Technology）无隶属、背书或赞助关系。FIRST®、FIRST® Robotics Competition、FRC®、FIRST® Tech Challenge 及 FTC® 均为 FIRST 的注册商标。本指南中分享的所有队伍设计、代码与资源均由队伍成员提供，不代表 FIRST 官方材料。</p>
+    <p>Legal Notice: This guide is an independent product of FTC Team 32477 Origin. Our team is not affiliated with, endorsed by, or sponsored by FIRST® (For Inspiration and Recognition of Science and Technology). FIRST®, FIRST® Robotics Competition, FRC®, FIRST® Tech Challenge, and FTC® are registered trademarks of FIRST. The designs, code, and resources shared in this guide are primarily provided by our team members and may also incorporate open-source materials and contributions from others; they do not represent official FIRST materials.</p>
+    <p>法律声明：本指南是 FTC 32477 Origin 队伍的独立出产品。本队伍与 FIRST®（For Inspiration and Recognition of Science and Technology）无隶属、背书或赞助关系。FIRST®、FIRST® Robotics Competition、FRC®、FIRST® Tech Challenge 及 FTC® 均为 FIRST 的注册商标。本指南中分享的设计、代码与资源以队伍成员提供的内容为主，亦可能包含经整理合并的开源材料与其他贡献者的成果，不代表 FIRST 官方材料。</p>
   </div>
 </footer>
 
