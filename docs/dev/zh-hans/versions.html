@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="zh-hans">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Outreach &amp; PR｜FTC 32477 Origin Quick Start Guide</title>
+<title>历史版本｜FTC 32477 Origin 快速入门指南</title>
 <link rel="icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <link rel="shortcut icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <style>
@@ -285,15 +285,46 @@ tr:nth-child(even){background:#fafafa}
   h2{margin:2em 0 .8em}
   h3{margin:1.2em 0 .5em}
 }
+
+
+/* ====== 历史版本页 ====== */
+.ver-page{max-width:760px;margin:0 auto}
+.ver-top{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.ver-top h1{font-size:28px;color:#2c2c2c}
+.ver-sort{display:inline-flex;border:1px solid #e0e0e0;border-radius:8px;overflow:hidden;background:#fff}
+.ver-sort-btn{background:#fff;border:none;padding:6px 14px;font-size:13px;cursor:pointer;color:#666}
+.ver-sort-btn.active{background:#1a1a2e;color:#fff}
+.ver-intro{color:#666;margin:10px 0 22px;font-size:14px}
+.ver-list{display:flex;flex-direction:column;gap:16px}
+.ver-list.reversed{flex-direction:column-reverse}
+.ver-card{background:#fff;border:1px solid #e0e0e0;border-radius:12px;padding:22px 24px;box-shadow:0 1px 4px rgba(0,0,0,.04);scroll-margin-top:24px}
+.ver-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.ver-tag{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:700;font-size:16px;color:#1a1a2e}
+.ver-name{color:#666;font-size:14px}
+.ver-badge{font-size:11px;font-weight:600;padding:2px 10px;border-radius:12px}
+.ver-badge.latest{background:#d32f2f;color:#fff}
+.ver-badge.preview{background:#f9a825;color:#fff}
+.ver-date{color:#999;font-size:12.5px;margin-top:6px}
+.ver-changes{margin:12px 0 0;padding-left:20px;color:#2c2c2c;font-size:14px;line-height:1.8}
+.ver-changes li{margin:2px 0}
+.ver-pdfs{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.ver-pdf-label{color:#999;font-size:13px}
+.ver-pdf-btn{background:#f0f0f0;color:#2c2c2c;border:1px solid #e0e0e0;border-radius:8px;padding:6px 12px;font-size:13px;font-weight:600;text-decoration:none}
+.ver-pdf-btn:hover{background:#e4e4e4}
+.ver-pdf-note{color:#999;font-size:13px;margin-top:12px}
+#verNav{display:flex;flex-direction:column}
+#verNav.reversed{flex-direction:column-reverse}
+.sidebar-nav a.ver-link{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px}
+@media print{.topbar,.sidebar,.overlay,.ver-sort{display:none!important}}
 </style>
 </head>
 <body>
 
 <div class="topbar">
   <img class="topbar-logo" src="../images/basic/team_logo.png" alt="32477 Origin">
-  <span class="brand"><a href="../index.html" title="返回主页">FTC 32477 Origin Quick Start Guide</a></span>
+  <span class="brand"><a href="../index.html" title="返回主页">FTC 32477 Origin 快速入门指南</a></span>
   <select class="lang-select" id="langSelect" aria-label="Language">
-<option value="../zh-hans/outreach.html">简体中文</option><option value="../zh-hant/outreach.html">繁體中文</option><option value="../en-us/outreach.html" selected>English (US)</option><option value="../fr/outreach.html">Français</option>
+<option value="../zh-hans/versions.html" selected>简体中文</option><option value="../zh-hant/versions.html">繁體中文</option><option value="../en-us/versions.html">English (US)</option><option value="../fr/versions.html">Français</option>
   </select>
   <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
 </div>
@@ -304,83 +335,34 @@ tr:nth-child(even){background:#fafafa}
     <a class="home-link" href="../index.html" title="返回主页">
       <img class="side-logo" src="../images/basic/team_logo.png" alt="32477 Origin Team Logo">
       <div class="logo">FTC 32477<br>Origin</div>
-      <div class="sub">Quick Start Guide</div>
+      <div class="sub">历史版本</div>
     </a>
     <select class="lang-select-sidebar" id="langSelectSide" aria-label="Language">
-<option value="../zh-hans/outreach.html">简体中文</option><option value="../zh-hant/outreach.html">繁體中文</option><option value="../en-us/outreach.html" selected>English (US)</option><option value="../fr/outreach.html">Français</option>
+<option value="../zh-hans/versions.html" selected>简体中文</option><option value="../zh-hant/versions.html">繁體中文</option><option value="../en-us/versions.html">English (US)</option><option value="../fr/versions.html">Français</option>
     </select>
   </div>
-  <div class="sidebar-nav">
-<a href="index.html">Home</a>
-<a href="preface.html">Preface</a>
-<a href="member.html">Team Essentials</a>
-<a href="modeling.html">Modeling &amp; Design</a>
-<a href="build.html">Hardware &amp; Build</a>
-<a href="programming.html">Programming</a>
-<a href="outreach.html" class="active">Outreach &amp; PR</a>
-<a class="sub-link" href="#1BasicRequirements">1. Basic Requirements</a>
-<a class="sub-link sub-3" href="#Applications">Applications</a>
-<a class="sub-link sub-3" href="#OnlineAccounts">Online Accounts</a>
-<a class="sub-link" href="#2Responsibilities">2. Responsibilities</a>
-<a class="sub-link sub-3" href="#EngineeringNotebook">Engineering Notebook</a>
-<a class="sub-link sub-3" href="#PromotionalMaterialCollection">Promotional Material Collection</a>
-<a class="sub-link sub-3" href="#TeamApparelMerchandise">Team Apparel &amp; Merchandise</a>
-<a class="sub-link sub-3" href="#SponsorshipResources">Sponsorship &amp; Resources</a>
-<a class="sub-link sub-3" href="#STEMOutreach">STEM Outreach</a>
-<a class="sub-link sub-3" href="#Inter-TeamExchange">Inter-Team Exchange</a>
-<a class="sub-link sub-3" href="#SocialMediaOperations">Social Media Operations</a>
-<a class="sub-link" href="#3SponsorshipDevelopment">3. Sponsorship Development</a>
-<a class="sub-link sub-3" href="#TheEssenceofSponsorshipExchangeofValue">The Essence of Sponsorship: Exchange of Value</a>
-<a class="sub-link sub-3" href="#BusinessPlans">Business Plans</a>
-<a class="sub-link sub-3" href="#CaseStudyFTCTeam27570sBYNXCommercialDevelopment">Case Study: FTC Team 27570's (BYNX) Commercial Development</a>
-<a class="sub-link sub-3" href="#CaseStudyFGCTeamChina">Case Study: FGC Team China</a>
-<a class="sub-link" href="#4Miscellaneous">4. Miscellaneous</a>
-<a href="afterword.html">Afterword</a>
+  <div class="sidebar-nav" id="verNav">
+<a class="ver-link" href="#v1.0.0">v1.0.0</a>
+<a class="ver-link" href="#v1.1.0-preview">v1.1.0-preview</a>
   </div>
-  <div class="sidebar-footer">Aug 2026, 1st Ed. &middot; Editorial Team</div>
+  <div class="sidebar-footer">2026年8月第1版 &middot; 编写小组</div>
 </nav>
 
 <main>
-<h1>Outreach & Public Relations</h1>
-<h2 id="1BasicRequirements">1. Basic Requirements</h2>
-<p>The following are supplementary requirements for Outreach & Public Relations.</p>
-<h3 id="Applications">Applications</h3>
-<ul><li>Web browser (Chrome, Edge, or Safari)</li><li>LocalSend</li></ul>
-<h3 id="OnlineAccounts">Online Accounts</h3>
-<ul><li>Email address (@gmail.com or @outlook.com recommended)</li><li>WeChat Official Account</li><li>Bilibili</li><li>Douyin</li><li>Xiaohongshu (RED)</li><li>YouTube</li><li>TikTok</li><li>X (Twitter)</li></ul>
-<hr>
-<h2 id="2Responsibilities">2. Responsibilities</h2>
-<p>The Outreach & Public Relations division is the team's megaphone and diplomatic corps. Core responsibilities include:</p>
-<h3 id="EngineeringNotebook">Engineering Notebook</h3>
-<p>The notebook content is written by the Hardware and Programming teams; Outreach is responsible for:</p>
-<ul><li><strong>Layout</strong>: design and typeset the engineering notebook</li><li><strong>Material collection</strong>: proactively accumulate promotional material</li><li>Organizing season engineering documents</li><li>Producing the engineering notebook required for competition</li></ul>
-<h3 id="PromotionalMaterialCollection">Promotional Material Collection</h3>
-<ul><li>Proactively reach out to other school teams to organize friendly matches, scrimmages, and new-season game analysis sessions</li><li>Prioritize high schools in Haidian District that have FTC teams</li><li>Focus on connecting with rookie teams — you are veterans now, and rookie teams need you</li></ul>
-<h3 id="TeamApparelMerchandise">Team Apparel & Merchandise</h3>
-<ul><li>Design team uniforms and the team logo so people see "32477", not "Beijing National Day Experimental School"</li><li>Make merchandise: stickers, badges, towels, scarves, masks, and more</li><li>Goal: have every team wearing our merchandise</li></ul>
-<h3 id="SponsorshipResources">Sponsorship & Resources</h3>
-<ul><li>Identify and reach out to potential sponsors</li><li>Write sponsorship proposals and business plans</li><li>Maintain relationships with sponsors</li><li>Manage the team's budget and finances</li></ul>
-<h3 id="STEMOutreach">STEM Outreach</h3>
-<ul><li>Organize community STEM education events</li><li>Connect with local schools and businesses</li><li>Run robot demonstrations and hands-on experiences</li></ul>
-<h3 id="Inter-TeamExchange">Inter-Team Exchange</h3>
-<ul><li>Establish connections with other FTC teams</li><li>Participate in inter-team exchange events</li><li>Share experience and resources</li></ul>
-<h3 id="SocialMediaOperations">Social Media Operations</h3>
-<ul><li>Manage the team's social media accounts across platforms</li><li>Publish team updates and event information</li><li>Produce promotional content</li></ul>
-<hr>
-<h2 id="3SponsorshipDevelopment">3. Sponsorship Development</h2>
-<h3 id="TheEssenceofSponsorshipExchangeofValue">The Essence of Sponsorship: Exchange of Value</h3>
-<blockquote class="bq-info">Nobody gives you money for nothing. Sponsors provide funding and materials in exchange for exposure and brand recognition.</blockquote>
-<ul><li>Better results mean more exposure, and more exposure makes sponsorships easier to win.</li><li>At this stage, start with small sponsorships: e.g., ask electronics factories to sponsor tools, screws, and other consumables.</li><li>How to reach out: email larger companies; call Taobao vendors directly.</li></ul>
-<h3 id="BusinessPlans">Business Plans</h3>
-<p>A sponsorship business plan should include:</p>
-<ul><li>Event introduction (what FTC is and its influence)</li><li>Team introduction</li><li>Historical results</li><li>Tiered sponsorship benefits: different amounts correspond to different logo exposure tiers</li></ul>
-<h3 id="CaseStudyFTCTeam27570sBYNXCommercialDevelopment">Case Study: FTC Team 27570's (BYNX) Commercial Development</h3>
-<ul><li><strong>Light & sound module</strong>: FTC Team 27570 developed an FTC-specific light and sound module called KIRIN with customizable effects. Their tiered pricing embeds team numbers — 1 unit for ¥180, 4 units for ¥570, 6 units for ¥787 — where 570 and 787 echo the numbers of FTC 27570 and FTC 25787, subtly engraving team numbers into buyers' minds.</li><li><strong>Custom servos</strong>: They partnered with a servo factory to build custom servos under their own brand and developed companion tuning software, selling servos, power distribution boards, and accessories through their website — sales revenue funds the team.</li></ul>
-<h3 id="CaseStudyFGCTeamChina">Case Study: FGC Team China</h3>
-<ul><li>FGC (First Global Challenge) is like the Olympics of robotics. The 2026 event will be held in Incheon, South Korea, with teams from more than 190 countries.</li><li>FGC Team China's business plan includes the event introduction, team introduction, historical results, and tiered sponsorship benefits. It is understood that they have secured sponsorships from brands including Xiaomi and Huawei (via its affiliated brand Huakun Zhenyu).</li></ul>
-<hr>
-<h2 id="4Miscellaneous">4. Miscellaneous</h2>
-<p>(Refer to the relevant documents and handbooks)</p>
+  <div class="ver-page">
+    <div class="ver-top">
+      <h1>历史版本</h1>
+      <div class="ver-sort" role="group" aria-label="Sort">
+        <button id="sortDesc" class="ver-sort-btn active" type="button">最新在前</button>
+        <button id="sortAsc" class="ver-sort-btn" type="button">最早在前</button>
+      </div>
+    </div>
+    <p class="ver-intro">以下列出各版本的发布时间与主要改动，每个版本提供四种语言的 PDF 下载，不提供网页版。</p>
+    <div class="ver-list" id="verList">
+<article class="ver-card" id="v1.0.0"><div class="ver-head"><span class="ver-tag">v1.0.0</span><span class="ver-name">2026年8月第1版</span><span class="ver-badge latest">最新版本</span></div><div class="ver-date">发布时间：2026年8月14日</div><ul class="ver-changes"><li>首次发布：七章完整内容（前言、队员须知、建模设计、结构建造、程序设计、外部联络、后记）</li><li>四语言版本：简体中文、繁體中文、English (US)、Français</li><li>合并版 PDF（封面 + 目录 + 正文 + 封底）与在线网站同步发布</li><li>主页语言选择落地页与响应式布局</li></ul><div class="ver-pdfs"><span class="ver-pdf-label">下载：</span><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.0.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.0.0-zh-hans.pdf" target="_blank" rel="noopener">简体中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.0.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.0.0-zh-hant.pdf" target="_blank" rel="noopener">繁體中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.0.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.0.0-en-us.pdf" target="_blank" rel="noopener">英文（美国）</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.0.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.0.0-fr.pdf" target="_blank" rel="noopener">法文</a></div></article>
+<article class="ver-card" id="v1.1.0-preview"><div class="ver-head"><span class="ver-tag">v1.1.0-preview</span><span class="ver-name">2026年9月第1版（开发中）</span><span class="ver-badge preview">预览</span></div><div class="ver-date">状态：开发中（未发布）</div><ul class="ver-changes"><li>下一版本开发中：本条目仅用于演示开发预览（仅 dev 预览站显示），正式发布后替换为实际改动说明</li></ul><p class="ver-pdf-note">PDF 待正式发布后提供下载。</p></article>
+    </div>
+  </div>
 </main>
 
 <script>
@@ -396,6 +378,18 @@ tr:nth-child(even){background:#fafafa}
   if(ls){ls.addEventListener("change",function(){window.location.href=ls.value})};
   var lss=document.getElementById("langSelectSide");
   if(lss){lss.addEventListener("change",function(){window.location.href=lss.value})};
+  var list=document.getElementById("verList");
+  var nav=document.getElementById("verNav");
+  var asc=document.getElementById("sortAsc");
+  var desc=document.getElementById("sortDesc");
+  function setOrder(ascending){
+    list.classList.toggle("reversed",ascending);
+    nav.classList.toggle("reversed",ascending);
+    asc.classList.toggle("active",ascending);
+    desc.classList.toggle("active",!ascending);
+  }
+  asc.addEventListener("click",function(){setOrder(true)});
+  desc.addEventListener("click",function(){setOrder(false)});
 })();
 </script>
 </body>
