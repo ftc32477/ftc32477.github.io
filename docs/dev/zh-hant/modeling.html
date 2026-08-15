@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>建模設計｜FTC 32477 Origin 快速入門指南</title>
+<link rel="icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
+<style>
+:root {
+  --red: #d32f2f;
+  --dark: #1a1a2e;
+  --slate: #16213e;
+  --card: #ffffff;
+  --text: #2c2c2c;
+  --muted: #666;
+  --border: #e0e0e0;
+  --radius: 10px;
+  --sidebar-w: 260px;
+  --topbar-h: 52px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+  color:var(--text);background:#f8f9fa;line-height:1.8;min-height:100vh
+}
+
+/* ====== TOP BAR (mobile) ====== */
+.topbar{
+  display:none;position:fixed;top:0;left:0;right:0;height:var(--topbar-h);
+  background:var(--dark);color:#fff;z-index:200;align-items:center;
+  padding:0 12px;gap:8px
+}
+.topbar .brand{
+  font-weight:700;font-size:14px;flex:1;min-width:0;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap
+}
+.topbar .brand a{
+  color:#fff;text-decoration:none;cursor:pointer
+}
+.topbar .brand a:hover{opacity:.85}
+.lang-select{
+  background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);
+  border-radius:6px;font-size:13px;padding:6px 26px 6px 10px;max-width:150px;
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 8px center
+}
+.lang-select option{color:#2c2c2c;background:#fff}
+.topbar .menu-btn{
+  background:none;border:none;color:#fff;font-size:24px;cursor:pointer;
+  width:40px;height:40px;flex-shrink:0;display:flex;align-items:center;
+  justify-content:center;border-radius:6px;line-height:1
+}
+.topbar .menu-btn:hover{background:rgba(255,255,255,.1)}
+
+/* ====== SIDEBAR ====== */
+nav.sidebar{
+  position:fixed;top:0;left:0;bottom:0;width:var(--sidebar-w);
+  background:var(--dark);color:#ccc;overflow-y:auto;z-index:100;
+  display:flex;flex-direction:column;transition:transform .28s ease;
+}
+nav.sidebar::-webkit-scrollbar{width:4px}
+nav.sidebar::-webkit-scrollbar-thumb{background:#444;border-radius:2px}
+.sidebar-header{padding:24px 20px 14px;border-bottom:1px solid rgba(255,255,255,.08);text-align:center}
+.sidebar-header .home-link{
+  display:block;text-decoration:none;border-radius:8px;
+  padding:4px 0;transition:background .18s
+}
+.sidebar-header .home-link:hover{background:rgba(255,255,255,.06)}
+.sidebar-header .home-link:hover .sub{color:#fff}
+.sidebar-header .logo{font-size:22px;font-weight:700;color:#fff;line-height:1.3}
+.sidebar-header .sub{font-size:12px;color:#f44336;margin-top:4px;letter-spacing:1px}
+/* 语言切换：侧边栏下拉选项栏（节省空间给目录） */
+.lang-select-sidebar{
+  margin:12px 14px 0;width:calc(100% - 28px);box-sizing:border-box;
+  background:rgba(255,255,255,.1);color:#fff;
+  border:1px solid rgba(255,255,255,.25);border-radius:8px;
+  font-size:13px;padding:7px 26px 7px 10px;
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 8px center
+}
+.lang-select-sidebar option{color:#2c2c2c;background:#fff}
+.sidebar-nav{flex:1;padding:12px 0}
+.sidebar-nav a{
+  display:block;padding:10px 22px;color:#aaa;text-decoration:none;
+  font-size:14px;border-left:3px solid transparent;transition:all .18s
+}
+.sidebar-nav a:hover{color:#fff;background:rgba(255,255,255,.04)}
+.sidebar-nav a.active{color:#fff;background:rgba(244,67,54,.15);border-left-color:#f44336}
+/* 二级目录：仅当前页面显示 */
+.sidebar-nav a.sub-link{
+  padding:5px 22px 5px 34px;font-size:12.5px;color:#8a8a8a;border-left-color:transparent
+}
+.sidebar-nav a.sub-link:hover{color:#fff}
+.sidebar-nav a.sub-link.sub-3{padding-left:46px;font-size:12px;color:#777}
+/* 侧边栏队徽 */
+.side-logo{
+  display:block;width:64px;height:64px;margin:0 auto 10px;
+  border-radius:14px;object-fit:cover
+}
+/* 顶栏队徽（移动端） */
+.topbar-logo{width:22px;height:22px;border-radius:5px;flex-shrink:0}
+.sidebar-footer{padding:16px 20px;font-size:11px;color:#555;border-top:1px solid rgba(255,255,255,.08);text-align:center}
+
+/* ====== OVERLAY (mobile) ====== */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:99}
+
+/* ====== MAIN CONTENT ====== */
+/*
+ * 响应式宽度策略：
+ *   宽屏：内容固定 900px 宽（含 padding），居中于侧边栏右侧
+ *   中屏：随宽度缩小，左右留白逐渐收窄直至消失
+ *   窄屏（<768px）：侧边栏折叠，内容全宽
+ *
+ * 兼容性说明：部分 Chrome 版本对嵌套在自定义属性中的
+ * min()/max()/clamp()（含 vw 单位）存在布局计算 bug（宽度会算成 0，
+ * 正文空白而侧边栏正常）。因此此处只用普通 calc + max-width 封顶，
+ * 并为 min()/max()/clamp() 提供级联回退声明。
+ */
+main{
+  box-sizing:content-box;
+  --pad: 40px;                                        /* 回退：clamp 不支持时 */
+  --pad: clamp(12px, 4vw, 48px);
+  padding: 40px var(--pad);
+  /* 宽度：随视口收缩，上限 900px（含 padding，即内容宽 900-2*pad） */
+  width: calc(100vw - var(--sidebar-w) - 2 * var(--pad));
+  max-width: calc(900px - 2 * var(--pad));
+  /* 左外边距：回退为紧贴侧边栏，支持 max() 时在宽屏居中 */
+  margin-left: var(--sidebar-w);
+  margin-left: calc(var(--sidebar-w) + max(0px, (100vw - var(--sidebar-w) - 900px) / 2));
+  margin-right: auto;
+}
+
+/* Hero */
+.hero{
+  background:linear-gradient(135deg,var(--dark) 0%,var(--slate) 100%);color:#fff;
+  border-radius:var(--radius);padding:44px 40px;margin-bottom:36px;
+  position:relative;overflow:hidden
+}
+.hero::after{
+  content:'';position:absolute;right:-40px;bottom:-40px;
+  width:200px;height:200px;background:var(--red);opacity:.18;border-radius:50%
+}
+.hero h1{font-size:28px;font-weight:700;position:relative;z-index:1}
+.hero .subtitle{font-size:14px;margin-top:10px;opacity:.8;position:relative;z-index:1}
+.hero .badge{
+  display:inline-block;background:var(--red);padding:4px 14px;
+  border-radius:20px;font-size:12px;font-weight:600;margin-bottom:12px;
+  position:relative;z-index:1
+}
+
+/* Sections */
+section{margin-bottom:40px}
+section h2{font-size:22px;font-weight:700;padding-bottom:10px;margin-bottom:20px;border-bottom:2px solid var(--red);color:var(--dark)}
+section h3{font-size:17px;font-weight:600;margin:28px 0 10px;color:var(--slate)}
+section h4,.card h4{font-size:15px;font-weight:600;margin:18px 0 8px}
+.card{background:var(--card);border-radius:var(--radius);padding:24px 28px;box-shadow:0 1px 4px rgba(0,0,0,.04);margin-bottom:16px}
+p{margin-bottom:10px}
+a{color:#1565c0;text-decoration:none;overflow-wrap:anywhere}
+a:hover{text-decoration:underline}
+ul,ol{padding-left:22px;margin-bottom:12px}
+li{margin-bottom:4px}
+code{background:#f0f0f0;padding:2px 6px;border-radius:4px;font-size:13px;font-family:"SF Mono","Fira Code",monospace}
+pre{background:#1a1a2e;color:#e0e0e0;padding:16px 20px;border-radius:var(--radius);overflow-x:auto;margin-bottom:14px;font-size:13px;line-height:1.6}
+pre code{background:none;padding:0;color:inherit}
+blockquote{
+  border-left:4px solid var(--red);background:#fef5f5;padding:12px 18px;
+  margin:14px 0;border-radius:0 var(--radius) var(--radius) 0;font-size:14px;color:#8b0000
+}
+/* 类型化引用块：[!info] 蓝 / [!warning] 黄 / [!danger] 红（仅颜色区分，无标签） */
+blockquote.bq-info{border-left-color:#1565c0;background:#eaf3fb;color:#0d3c66}
+blockquote.bq-warning{border-left-color:#f9a825;background:#fff8e1;color:#6d4c00}
+blockquote.bq-danger{border-left-color:#d32f2f;background:#fef5f5;color:#8b0000}
+hr{border:none;border-top:1px solid var(--border);margin:24px 0}
+img{max-width:100%;border-radius:var(--radius);margin:12px 0}
+/* 锚点跳转留白（避免被固定顶栏遮挡） */
+h2,h3{scroll-margin-top:16px}
+
+/* 图片排布：多图横向，窄屏自动纵向 */
+.img-row{
+  display:flex;flex-wrap:wrap;gap:14px;margin:14px 0
+}
+.img-row .img-fig{
+  flex:1 1 40%;min-width:0;margin:0
+}
+.img-row .img-fig img{
+  width:100%;margin:0;border-radius:var(--radius)
+}
+.img-row figcaption{
+  text-align:center;font-size:12px;color:var(--muted);margin-top:6px
+}
+.img-row-single .img-fig{flex-basis:100%}
+@media(max-width:600px){
+  .img-row{flex-direction:column;gap:12px}
+  h2,h3{scroll-margin-top:64px}
+}
+
+/* Table */
+.table-wrap{overflow-x:auto;margin-bottom:14px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{border:1px solid var(--border);padding:10px 14px;text-align:left}
+th{background:var(--dark);color:#fff;font-weight:600}
+tr:nth-child(even){background:#fafafa}
+
+/* ====== RESPONSIVE ====== */
+
+/* Narrow: collapse sidebar */
+@media(max-width:768px){
+  .topbar{display:flex}
+  nav.sidebar{
+    transform:translateX(-100%);
+    top:var(--topbar-h);z-index:101;
+    width:280px;                        /* 回退：min() 不支持时 */
+    width:min(280px,84vw)
+  }
+  nav.sidebar.open{transform:translateX(0)}
+  .overlay.show{display:block}
+  main{
+    margin-left:0;margin-top:var(--topbar-h);
+    width: calc(100vw - 2 * var(--pad));
+    max-width: none;
+  }
+  .hero{padding:28px 20px}
+  .hero h1{font-size:22px}
+  .card{padding:16px 18px}
+  section h2{font-size:19px}
+  section h3{font-size:16px}
+  .table-wrap{margin-left:-18px;margin-right:-18px;width:calc(100% + 36px)}
+}
+
+/* Very narrow screens */
+@media(max-width:420px){
+  .topbar .brand{font-size:13px}
+  .lang-select{max-width:132px;font-size:12px;padding:5px 22px 5px 8px}
+  main{--pad: 12px}
+  .card{padding:14px 14px}
+  .hero{padding:22px 16px}
+  .hero h1{font-size:20px}
+}
+
+/* ====== PRINT (PDF 导出) ====== */
+/*
+ * 注意：Chrome 打印视口宽度可能低于 768px，导致移动端媒体查询规则
+ * 泄漏到打印渲染。因此必须在打印样式中显式覆盖所有相关属性。
+ */
+@media print{
+  html,body{display:block !important;width:100% !important;max-width:100% !important;overflow:visible !important}
+  nav.sidebar,.topbar,.overlay{display:none !important}
+  body{background:#fff}
+  main{
+    display:block !important;box-sizing:border-box !important;
+    margin:0 !important;padding:0 !important;
+    width:100% !important;max-width:100% !important;
+  }
+  .card{box-shadow:none;border:1px solid var(--border);padding:24px 28px}
+  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:32px 28px}
+  .hero h1{color:var(--dark);font-size:28px}
+  section h2{font-size:22px}
+  section h3{font-size:17px}
+  .hero .badge{background:var(--red);color:#fff}
+  a{color:inherit;overflow-wrap:anywhere !important}
+  /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
+  .table-wrap{
+    overflow:visible !important;
+    margin:0 !important;
+    width:100% !important;
+    max-width:100% !important;
+  }
+  table{
+    width:100% !important;max-width:100% !important;
+    table-layout:fixed;font-size:12px
+  }
+  th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
+  tr{page-break-inside:avoid}
+  .img-row{flex-wrap:nowrap}
+  .img-fig{page-break-inside:avoid}
+  .img-row .img-fig{flex:1 1 0}
+  /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
+  html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
+  /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
+  h1{margin:3.2em 0 1em}
+  h2{margin:2em 0 .8em}
+  h3{margin:1.2em 0 .5em}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <img class="topbar-logo" src="../images/basic/team_logo.png" alt="32477 Origin">
+  <span class="brand"><a href="../index.html" title="返回主页">FTC 32477 Origin 快速入門指南</a></span>
+  <select class="lang-select" id="langSelect" aria-label="Language">
+<option value="../zh-hans/modeling.html">简体中文</option><option value="../zh-hant/modeling.html" selected>繁體中文</option><option value="../en-us/modeling.html">English (US)</option><option value="../fr/modeling.html">Français</option>
+  </select>
+  <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <a class="home-link" href="../index.html" title="返回主页">
+      <img class="side-logo" src="../images/basic/team_logo.png" alt="32477 Origin Team Logo">
+      <div class="logo">FTC 32477<br>Origin</div>
+      <div class="sub">快速入門指南</div>
+    </a>
+    <select class="lang-select-sidebar" id="langSelectSide" aria-label="Language">
+<option value="../zh-hans/modeling.html">简体中文</option><option value="../zh-hant/modeling.html" selected>繁體中文</option><option value="../en-us/modeling.html">English (US)</option><option value="../fr/modeling.html">Français</option>
+    </select>
+  </div>
+  <div class="sidebar-nav">
+<a href="index.html">前言</a>
+<a href="member.html">隊員須知</a>
+<a href="modeling.html" class="active">建模設計</a>
+<a class="sub-link" href="#一基本資料">一、基本資料</a>
+<a class="sub-link sub-3" href="#應用程式">應用程式</a>
+<a class="sub-link sub-3" href="#線上帳戶">線上帳戶</a>
+<a class="sub-link" href="#二環境配置">二、環境配置</a>
+<a class="sub-link sub-3" href="#網路瀏覽器">網路瀏覽器</a>
+<a class="sub-link sub-3" href="#Onshape帳號註冊">Onshape 帳號註冊</a>
+<a class="sub-link sub-3" href="#Onshape環境配置">Onshape 環境配置</a>
+<a class="sub-link sub-3" href="#Onshape外掛">Onshape 外掛</a>
+<a class="sub-link" href="#三建模設計要點">三、建模設計要點</a>
+<a class="sub-link sub-3" href="#零件設計與裝配">零件設計與裝配</a>
+<a class="sub-link sub-3" href="#專案文件與工作區">專案文件與工作區</a>
+<a class="sub-link sub-3" href="#建模基礎流程">建模基礎流程</a>
+<a class="sub-link sub-3" href="#模型強度與設計經驗">模型強度與設計經驗</a>
+<a class="sub-link sub-3" href="#建模思路與賽程參考">建模思路與賽程參考</a>
+<a class="sub-link sub-3" href="#Onshape學習資源">Onshape 學習資源</a>
+<a class="sub-link sub-3" href="#FTC常用零件庫">FTC 常用零件庫</a>
+<a class="sub-link sub-3" href="#設計規範">設計規範</a>
+<a href="build.html">結構建造</a>
+<a href="programming.html">程式設計</a>
+<a href="outreach.html">外部聯絡</a>
+<a href="afterword.html">後記</a>
+  </div>
+  <div class="sidebar-footer">2026年8月第1版 &middot; 編寫小組</div>
+</nav>
+
+<main>
+<h1>建模設計</h1>
+<h2 id="一基本資料">一、基本資料</h2>
+<p>以下是建模設計需要追加的資料。</p>
+<h3 id="應用程式">應用程式</h3>
+<ul><li>網路瀏覽器（Chrome 或 Edge 或 Safari）</li><li>LocalSend</li><li>Onshape FTC 零件庫 — <a href="https://ftconshape.com/" target="_blank">https://ftconshape.com/</a>（FIRST 與 PTC 合作維護；發郵件至 FIRST@ptc.com 可加入共享資料夾）</li><li>FTC Insert Tool 零件庫外掛 — <a href="https://cad.onshape.com/appstore/apps/Design%20&%20Documentation/6515cfb91574253b1b96a6ba" target="_blank">https://cad.onshape.com/appstore/apps/Design%20&%20Documentation/6515cfb91574253b1b96a6ba</a>（Onshape 應用程式商店安裝：Subscribe → Get for Free）</li></ul>
+<h3 id="線上帳戶">線上帳戶</h3>
+<ul><li>CycleZLab — <a href="https://www.cyclezlab.com/" target="_blank">https://www.cyclezlab.com/</a>（免費，需申請加入）</li></ul>
+<hr>
+<h2 id="二環境配置">二、環境配置</h2>
+<p>以下是在正式開始前需要配置的工作環境，請按照說明操作。如有疑問，請向管理員諮詢。</p>
+<h3 id="網路瀏覽器">網路瀏覽器</h3>
+<p>需要追加收藏儲存的網址如下：</p>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">名稱</th><th style="text-align:left">網址</th></tr></thead><tbody><tr><td style="text-align:left">goBILDA</td><td style="text-align:left">https://www.gobilda.com/</td></tr><tr><td style="text-align:left">REV Robotics</td><td style="text-align:left">https://www.revrobotics.com/</td></tr><tr><td style="text-align:left">CycleZLab</td><td style="text-align:left">https://www.cyclezlab.com/</td></tr><tr><td style="text-align:left">Onshape 教育版</td><td style="text-align:left">https://www.onshape.com/en/education/</td></tr></tbody></table></div>
+<h3 id="Onshape帳號註冊">Onshape 帳號註冊</h3>
+<p>Onshape 是我們隊伍所採用的雲端建模平台。相較於 SolidWorks 等工業建模軟體，Onshape 具有不吃配置、工程跨裝置共享方便、易上手、有 FIRST 官方支援等優勢，在保證功能全面的同時，非常適合用來學習 CAD 建模與製作專案。</p>
+<p><strong>註冊流程：</strong></p>
+<ol><li>開啟 <a href="https://www.onshape.com/en/education/" target="_blank">https://www.onshape.com/en/education/</a>，註冊教育版帳號</li><li>填入姓（First name）、名（Last name）以及電子郵件</li></ol>
+<blockquote class="bq-warning">不要使用 QQ 等中國大陸郵箱，有機率收不到驗證碼；推薦使用 @gmail.com 或 @outlook.com。</blockquote>
+<ol start="3"><li>在下一個介面依次選擇身份 "Student"、學校類別 "Grade School / K-12 (Ages <18)"、生日，完成後點擊下一步</li><li>依次填入以下資訊：<ul><li>校名：BEIJING NATIONAL DAY EXPERIMENTAL SCHOOL</li><li>學校官網：<a href="https://sysyzx.bjhdedu.cn/" target="_blank">https://sysyzx.bjhdedu.cn/</a></li><li>預計畢業年份</li><li>註冊原因：I am a member of FTC Team 32477, and I registered this account to use the team's modeling tools.（不知道寫什麼就填這句）</li><li>勾選同意下方三個協議條款，完成註冊</li></ul></li><li>前往電子郵件查收確認郵件</li></ol>
+<blockquote class="bq-info">註冊成功後，請向管理員提供你的帳號，以便將你加入隊伍共享資料夾。</blockquote>
+<p><strong>常見問題：</strong></p>
+<ul><li>最後一步提示 reCAPTCHA 出現問題：說明人機驗證服務未回應，嘗試更換網路環境，確保可以連接 reCAPTCHA 服務</li><li>電子郵件收不到驗證碼：若等待超過 3 分鐘，嘗試更換電子郵件（Outlook 或 Gmail，不要使用 QQ）</li></ul>
+<h3 id="Onshape環境配置">Onshape 環境配置</h3>
+<ol><li>進入工作區，點擊右上角帳號圖示，選擇下拉選單第一個選項「我的账户」</li><li>選擇右側選單從上到下第三個選項「首选项」，將第一個語言選項改為「简体中文」，改完點擊儲存</li><li>在同選單將下方單位選項改為公制（隊伍工作環境中長度預設毫米）</li></ol>
+<blockquote class="bq-info">以上更改只會應用在修改後建立的檔案中，舊檔案的單位不受影響。</blockquote>
+<ol start="4"><li>依照偏好修改個人資料</li></ol>
+<h3 id="Onshape外掛">Onshape 外掛</h3>
+<p>得益於雲端性質，Onshape 具有豐富的共享外掛，取得管道包括 Onshape 應用程式商店、第三方外掛網站、他人分享等。</p>
+<p>隊伍常用的外掛包括（僅供舉例）：</p>
+<ul><li><strong>Onshape FTC 零件庫</strong>（核心，見「一、基本資料」）</li><li><strong>Lighten</strong>（自訂特徵，精簡結構使零件更輕）</li><li><strong>Spur gear</strong>（自訂特徵，齒輪產生器）</li><li><strong>HTD Pulley Generator</strong>（從其他文件派生，同步帶輪產生器）</li></ul>
+<hr>
+<h2 id="三建模設計要點">三、建模設計要點</h2>
+<h3 id="零件設計與裝配">零件設計與裝配</h3>
+<p>在 Onshape 中進行 3D 建模時，需要特別注意以下幾點：</p>
+<ul><li><strong>尺寸精度</strong>：確保模型中所有尺寸與實際零件一致</li><li><strong>裝配關係</strong>：合理設定零件之間的裝配配合（Mate 與 Mate Connector）</li><li><strong>干涉檢查</strong>：在裝配完成後進行干涉檢查</li><li><strong>零件命名</strong>：按照統一規範命名零件和裝配體</li></ul>
+<h3 id="專案文件與工作區">專案文件與工作區</h3>
+<p>在進行隊伍相關專案的製作時，請在隊伍共享資料夾裡建立文件，以便與其他隊員共享。若尚未加入，請聯繫管理員將你加入隊伍共享資料夾。</p>
+<ol><li>在個人工作台左側選單選擇「已与我共享」，開啟「32477」資料夾，即可新建文件或開啟隊伍已建立的文件（一個文件就是一個專案）</li><li>若要新建專案：點擊頁面左上角藍色建立按鈕，選擇「文档」，等待文件建立完成並開啟</li></ol>
+<p>進入工作區後，下方可見「结构体」與「装配体」標籤頁（點擊標籤右側加號可新建）：</p>
+<ul><li><strong>结构体</strong>：單個零件建模的區域（對應 CAD 流程中的草圖與零件），透過草圖約束來製作零件</li><li><strong>装配体</strong>：利用「结构体」中製作的零件或零件庫中現成的零件進行拼裝的區域（對應 CAD 流程中的裝配）</li></ul>
+<p>一個文件中可以建立任意數量的「装配体」與「结构体」。為方便修改與管理，請注意：一個結構體盡量只製作一個零件；將整車分結構進行裝配，最後再在一個總裝配體中合體。</p>
+<h3 id="建模基礎流程">建模基礎流程</h3>
+<p>作為入門手冊，這裡只介紹 Onshape 最基本的操作與工作流程。</p>
+<h4>草圖的繪製</h4>
+<p>在「结构体」中新建草圖，選擇基準面後，使用直線、矩形、圓等草圖工具繪製輪廓，再透過尺寸標註與幾何約束（如水平、垂直、相切）固定形狀。草圖應盡量完全約束，後續特徵操作才能可靠。</p>
+<h4>零件的製作</h4>
+<p>草圖完成後，使用拉伸、旋轉、掃描等特徵工具將二維輪廓轉化為三維實體，並透過孔、倒角、圓角等操作細化零件。所有特徵按順序記錄在特徵列表中，可隨時回退修改。</p>
+<h4>零件裝配</h4>
+<p>在「装配体」中插入「结构体」製作的零件或零件庫中的現成零件，使用 Mate 與 Mate Connector 將其按配合關係連接。裝配完成後應檢查運動是否順暢、有無干涉。</p>
+<h4>工具的使用</h4>
+<p>Onshape 提供測量、剖切、質量屬性等分析工具，可在建模過程中隨時檢查尺寸與重量；右鍵選單中還提供隱藏、隔離、重新命名等快捷操作。</p>
+<h3 id="模型強度與設計經驗">模型強度與設計經驗</h3>
+<p>3D 列印零件的強度與材質、結構有關，以下是常用的結構設計概念：</p>
+<ul><li><strong>核心結構件</strong>（如梁、結構板）：盡量使用 PETG-CF 列印（參數見《結構建造》一章），厚度不小於 4mm</li><li><strong>導向件</strong>（如球軌道、結構限位）：可選 PLA，壁厚不小於 2mm</li><li><strong>保護性裝飾件</strong>（如側板）：壁厚不小於 1.5mm</li><li>對於亞克力等較為脆性的板類或結構，盡量避免設計密集孔（孔間距小於 3mm）；結構間受力連接部分寬度不小於 7mm</li><li>盡量使零件不含銳角，倒角成圓角，防止零件應力集中導致斷裂</li></ul>
+<blockquote class="bq-info">以上資料僅供參考，實際參數需透過實物驗證進行調優。</blockquote>
+<h3 id="建模思路與賽程參考">建模思路與賽程參考</h3>
+<ul><li>構思車輛設計時，可以將賽題任務拆分成小項，分別構思完成各小項的結構，再進行組合</li><li>正式建模前，應向其他隊員徵詢方案意見，基於隊伍得分策略進行設計</li><li>完成整車設計建模後，應考慮實際裝配流程：對於內部的螺絲等難安裝結構，應提前預留安裝通道，並預留走線空間</li><li>可以考慮設計模組化結構，方便後期修理與最佳化</li><li>終版方案盡量設計一體結構，減少不必要的小結構，以提升整體結構強度與輕便性</li></ul>
+<p><strong>賽程參考：</strong></p>
+<ul><li>工期安排上，初代設計可以比較潦草，但必須盡快設計完並製作，給程式偵錯和 Driver 練習留時間，並實測結構進行迭代最佳化；在資格賽前，一輛具備資格的整車要迭代至少 3 次（參考）</li><li>多關注國外隊伍動態，FTC 社群有類似 "Robot in 30 Hours Reveal | FTC" 的活動，參賽隊伍隨時可能分享新賽季方案；也可以參考 FRC、VEX 等賽事的隊伍方案</li></ul>
+<h3 id="Onshape學習資源">Onshape 學習資源</h3>
+<p>Onshape 作為專業的建模平台，具有完整的官方學習資源：<a href="https://learn.onshape.com/" target="_blank">https://learn.onshape.com/</a>；嗶哩嗶哩、YouTube 等影片平台上也有許多教學。</p>
+<ul><li>由於 CAD 軟體工作流程的相似性（草圖、零件、裝配體），SolidWorks、Autodesk Fusion 等軟體的教學同樣具有學習價值，可以幫助培養對零件空間感的把握以及對建模工作流程的熟悉</li><li>學習過程中要牢記實踐重於理論：可以在嗶哩嗶哩找一些模型跟練，先自己嘗試建模，實在不會再查看教學；在生活中也可以觀察、思考一些小結構的建模思路</li><li>對於 FTC 賽事，要多學習其他隊伍的優秀方案：大多數強隊都有自己的網站並開源方案，可以在 YouTube 或 Google 上搜尋 FTC 隊伍號查詢官網；也可以在 CycleZLab 等網站查看其他隊伍的模型</li></ul>
+<blockquote class="bq-info">如有疑問，可諮詢建模前輩或直接上網搜尋。</blockquote>
+<h3 id="FTC常用零件庫">FTC 常用零件庫</h3>
+<p>常用的 FTC 零件供應商與資源平台：</p>
+<ul><li><strong>goBILDA</strong>：提供完整的 FTC 結構件</li><li><strong>REV Robotics</strong>：提供電控模組和結構件</li><li><strong>CycleZLab</strong>：FIRST 機器人社群平台（CAD、程式碼與建造日誌檔案庫）</li></ul>
+<h3 id="設計規範">設計規範</h3>
+<ul><li>使用公制單位（mm）</li><li>所有 3D 列印件需預留適當的間隙（推薦 0.2-0.3mm）</li><li>匯出格式：STEP 檔案用於加工，STL 檔案用於 3D 列印，3MF 檔案用於切片列印</li></ul>
+</main>
+
+<script>
+(function(){
+  var sb=document.getElementById("sidebar");
+  var ol=document.getElementById("overlay");
+  var btn=document.getElementById("menuBtn");
+  function open(){sb.classList.add("open");ol.classList.add("show")}
+  function close(){sb.classList.remove("open");ol.classList.remove("show")}
+  btn.addEventListener("click",function(){sb.classList.contains("open")?close():open()});
+  ol.addEventListener("click",close);
+  var ls=document.getElementById("langSelect");
+  if(ls){ls.addEventListener("change",function(){window.location.href=ls.value})};
+  var lss=document.getElementById("langSelectSide");
+  if(lss){lss.addEventListener("change",function(){window.location.href=lss.value})};
+})();
+</script>
+</body>
+</html>
