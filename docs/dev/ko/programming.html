@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Epílogo｜Guía de inicio rápido de FTC 32477 Origin</title>
+<title>프로그래밍｜FTC 32477 Origin 빠른 시작 가이드</title>
 <link rel="icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <link rel="shortcut icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <style>
@@ -292,9 +292,9 @@ tr:nth-child(even){background:#fafafa}
 
 <div class="topbar">
   <img class="topbar-logo" src="../images/basic/team_logo.png" alt="32477 Origin">
-  <span class="brand"><a href="../index.html" title="返回主页">Guía de inicio rápido de FTC 32477 Origin</a></span>
+  <span class="brand"><a href="../index.html" title="返回主页">FTC 32477 Origin 빠른 시작 가이드</a></span>
   <select class="lang-select" id="langSelect" aria-label="Language">
-<option value="../zh-hans/afterword.html">简体中文</option><option value="../zh-hant/afterword.html">繁體中文</option><option value="../en-us/afterword.html">English (US)</option><option value="../fr/afterword.html">Français</option><option value="../es/afterword.html" selected>Español</option><option value="../ko/afterword.html">한국어</option>
+<option value="../zh-hans/programming.html">简体中文</option><option value="../zh-hant/programming.html">繁體中文</option><option value="../en-us/programming.html">English (US)</option><option value="../fr/programming.html">Français</option><option value="../es/programming.html">Español</option><option value="../ko/programming.html" selected>한국어</option>
   </select>
   <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
 </div>
@@ -305,49 +305,94 @@ tr:nth-child(even){background:#fafafa}
     <a class="home-link" href="../index.html" title="返回主页">
       <img class="side-logo" src="../images/basic/team_logo.png" alt="32477 Origin Team Logo">
       <div class="logo">FTC 32477<br>Origin</div>
-      <div class="sub">Guía de inicio rápido</div>
+      <div class="sub">빠른 시작 가이드</div>
     </a>
     <select class="lang-select-sidebar" id="langSelectSide" aria-label="Language">
-<option value="../zh-hans/afterword.html">简体中文</option><option value="../zh-hant/afterword.html">繁體中文</option><option value="../en-us/afterword.html">English (US)</option><option value="../fr/afterword.html">Français</option><option value="../es/afterword.html" selected>Español</option><option value="../ko/afterword.html">한국어</option>
+<option value="../zh-hans/programming.html">简体中文</option><option value="../zh-hant/programming.html">繁體中文</option><option value="../en-us/programming.html">English (US)</option><option value="../fr/programming.html">Français</option><option value="../es/programming.html">Español</option><option value="../ko/programming.html" selected>한국어</option>
     </select>
   </div>
   <div class="sidebar-nav">
-<a href="index.html">Inicio</a>
-<a href="preface.html">Prefacio</a>
-<a href="member.html">Esenciales del equipo</a>
-<a href="modeling.html">Modelado y diseño</a>
-<a href="build.html">Hardware y construcción</a>
-<a href="programming.html">Programación</a>
-<a href="outreach.html">Divulgación y relaciones públicas</a>
-<a href="afterword.html" class="active">Epílogo</a>
-<a class="sub-link" href="#Todoslosmiembrosdelequipo">Todos los miembros del equipo</a>
-<a class="sub-link" href="#Fotodegrupo">Foto de grupo</a>
+<a href="index.html">홈</a>
+<a href="preface.html">머리말</a>
+<a href="member.html">팀원 필수사항</a>
+<a href="modeling.html">모델링 및 설계</a>
+<a href="build.html">하드웨어 및 제작</a>
+<a href="programming.html" class="active">프로그래밍</a>
+<a class="sub-link" href="#1기본자료">1. 기본 자료</a>
+<a class="sub-link sub-3" href="#애플리케이션">애플리케이션</a>
+<a class="sub-link" href="#2환경설정">2. 환경 설정</a>
+<a class="sub-link sub-3" href="#웹브라우저">웹 브라우저</a>
+<a class="sub-link sub-3" href="#Git">Git</a>
+<a class="sub-link sub-3" href="#AndroidStudio">Android Studio</a>
+<a class="sub-link sub-3" href="#VisualStudioCode">Visual Studio Code</a>
+<a class="sub-link" href="#3도구소개">3. 도구 소개</a>
+<a class="sub-link sub-3" href="#AndroidStudio-1">Android Studio</a>
+<a class="sub-link sub-3" href="#VisualStudioCode-1">Visual Studio Code</a>
+<a class="sub-link sub-3" href="#RobotDashboard">Robot Dashboard</a>
+<a class="sub-link" href="#4작업흐름">4. 작업 흐름</a>
+<a class="sub-link sub-3" href="#디버깅이핵심">디버깅이 핵심</a>
+<a href="outreach.html">아웃리치 및 대외 홍보</a>
+<a href="afterword.html">후기</a>
   </div>
-  <div class="sidebar-footer">Ago. 2026, 3.ª ed. &middot; Equipo editorial</div>
+  <div class="sidebar-footer">2026년 8월 제3판 &middot; 편집팀</div>
 </nav>
 
 <main>
-<h1>Epílogo</h1>
-<p>Los miembros del equipo editorial de esta guía son:</p>
-<ul><li><strong>Redactor jefe</strong>: Fu Xiuqi (付修齐)</li><li><strong>Redactores</strong>: Du Xingzhou (杜星洲), Xie Jincan (谢金灿), et al.</li></ul>
-<p>La redacción de esta guía ha contado con la ayuda de muchas personas.</p>
-<p>Queremos agradecer el gran apoyo de Beijing National Day Experimental School, la orientación técnica del profesor Zou Shusen (邹书森) y la garantía de materiales de la profesora Dong Ying (董莹).</p>
-<p>Agradecemos especialmente la orientación fotográfica de Huang Tianlin (黄天霖) y la orientación en edición de imágenes de Wang Jingyu (王景钰).</p>
-<p>Referencia: <em>Libro de texto de educación secundaria — Física, volumen obligatorio 3 (普通高中教科书 物理 必修 第三册)</em></p>
+<h1>프로그래밍</h1>
+<h2 id="1기본자료">1. 기본 자료</h2>
+<p>다음은 프로그래밍에서 추가로 필요한 자료입니다.</p>
+<h3 id="애플리케이션">애플리케이션</h3>
+<ul><li>Git</li><li>Visual Studio Code</li><li>Android Studio</li></ul>
 <hr>
-<p>FTC es una competición tecnológica exigente, pero sobre todo es una historia de crecimiento y compañerismo. Aquí vivirás la frustración de las piezas que no encajan y la desesperación de los errores de código, pero aún más la euforia de resolver problemas y la profunda amistad que nace al luchar codo con codo con tus compañeros.</p>
-<p>Que en la nueva temporada mantengamos el espíritu profesional, experimentemos con audacia y verifiquemos con rigor.</p>
-<p>¡Disfruta de la competición, disfruta de la creación y consigamos nuevos éxitos!</p>
+<h2 id="2환경설정">2. 환경 설정</h2>
+<p>다음은 본격적으로 시작하기 전에 설정해야 할 작업 환경입니다. 안내에 따라 진행하고, 궁금한 점은 관리자에게 문의하세요.</p>
+<h3 id="웹브라우저">웹 브라우저</h3>
+<p>북마크에 추가로 저장해야 할 웹사이트는 다음과 같습니다.</p>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">이름</th><th style="text-align:left">주소</th></tr></thead><tbody><tr><td style="text-align:left">Programming Resources</td><td style="text-align:left">https://www.firstinspires.org/resources/library/ftc/programming-resources</td></tr><tr><td style="text-align:left">REV Robotics Documentation</td><td style="text-align:left">https://docs.revrobotics.com/duo-control/hello-robot-java/welcome</td></tr><tr><td style="text-align:left">Pedro Pathing</td><td style="text-align:left">https://pedropathing.com/</td></tr><tr><td style="text-align:left">Robot Dashboard</td><td style="text-align:left">http://192.168.43.1:8080/</td></tr></tbody></table></div>
+<h3 id="Git">Git</h3>
+<p>Git은 우리 팀이 사용하는 프로그램 파일 버전 관리 도구입니다. Android Studio에는 Git이 내장되어 있지 않으므로 설치하고 설정해야 하며, 다음 두 가지 방법 중 하나를 선택하면 됩니다.</p>
+<p><strong>방법 1(Android Studio에서 Git 다운로드 및 설치):</strong></p>
+<ol><li>Android Studio를 열고 설정 페이지로 들어갑니다. Windows/Linux는 File → Settings, macOS는 Android Studio → Settings(또는 Preferences)</li><li>왼쪽 메뉴에서 Version Control을 펼치고 Git 클릭</li><li>Git이 감지되지 않으면 인터페이스에 다운로드 입구가 표시됩니다. 클릭해 다운로드하고 설치하면 됩니다</li><li>설치 완료 후 Path to Git executable에서 Git 프로그램 경로를 확인하고(Windows는 git.exe), Test를 클릭해 Successful이 표시되면 Apply와 OK를 눌러 저장합니다</li></ol>
+<p><strong>방법 2(Git을 먼저 별도 설치한 뒤 Android Studio에서 경로 설정):</strong></p>
+<ol><li>Git 공식 사이트 <a href="https://git-scm.com/downloads" target="_blank">https://git-scm.com/downloads</a>에 접속해 자신의 컴퓨터 시스템(Windows / macOS / Linux)에 맞는 설치 패키지를 다운로드합니다</li><li>설치 프로그램을 실행하고 기본 옵션으로 Next를 눌러 설치를 완료합니다</li><li>Android Studio를 열고 설정 → Version Control → Git으로 이동합니다</li><li>Path to Git executable에 Git 프로그램 경로를 입력하거나 선택합니다(환경 변수가 설정되어 있으면 자동으로 감지됨)</li><li>Test를 클릭해 Successful이 표시되면 Apply와 OK를 눌러 저장합니다</li></ol>
+<p>현재 프로젝트에서 버전 관리를 활성화하려면: 상단 메뉴 VCS → Enable Version Control Integration...을 클릭하고 Git을 선택한 뒤 OK를 누릅니다.</p>
+<h3 id="AndroidStudio">Android Studio</h3>
+<p>Android Studio는 우리 팀이 사용하는 프로그램 작성 도구입니다.</p>
+<p><strong>소프트웨어 설치 및 환경 설정 절차:</strong></p>
+<ol><li><a href="https://developer.android.com/studio" target="_blank">https://developer.android.com/studio</a> 열기</li><li>"Download Android Studio"를 클릭해 해당 버전을 다운로드하고 설치합니다.</li></ol>
+<p><strong>Windows에서 설치할 때 주의할 점:</strong></p>
+<ul><li>두 체크박스를 모두 체크해야 합니다</li><li>공간이 충분하고 변경되지 않을 경로를 선택하세요</li></ul>
+<p><strong>초기화:</strong></p>
+<ul><li>"Standard" 모드를 선택하세요</li><li>계약 동의 시 "Accept"를 체크하세요</li><li>나머지는 그대로 두고 "Next"를 선택하세요</li></ul>
+<p><strong>한글화:</strong></p>
+<ol><li><a href="https://github.com/sollyu/AndroidStudioChineseLanguagePack/releases" target="_blank">Android Studio Chinese Language Pack</a> 열기</li><li>최신 언어 확장 패키지(.jar 파일) 다운로드</li><li>메인 페이지 왼쪽 탭 목록에서 "Plugins"를 선택하고 "Install Plugin from Disk" 선택</li><li>다운로드한 .jar 파일을 선택해 열고, 플러그인이 로드되면 활성화 상태인지 확인</li><li>왼쪽 탭 목록에서 "Customize"를 선택하고 "Language and Region"에 들어가 "Language"를 "Chinese (Simplified) 简体中文"으로, "Region"을 "Americas"로 선택한 뒤 재시작</li></ol>
+<p><strong>저장소 클론:</strong></p>
+<ol><li>왼쪽 탭 목록에서 "GitHub" 클릭, "Log In via GitHub"로 인증합니다.</li><li>현재 시즌의 코드 저장소를 선택합니다(예: <code>ftc32477/FTC-32477-Decode-Program</code>)</li><li>경로가 바뀌지 않을 빈 폴더를 선택하고 "Clone" 클릭</li><li>파일 다운로드가 끝날 때까지 기다립니다. 왼쪽 사이드바의 "Build" 탭이나 창 오른쪽 아래의 진행 표시줄에서 진행 상황을 볼 수 있습니다</li></ol>
+<blockquote class="bq-warning">문제가 있으면 관리자에게 문의하세요.</blockquote>
+<h3 id="VisualStudioCode">Visual Studio Code</h3>
+<p>Visual Studio Code는 우리 팀이 사용하는 코드 편집 및 이력 확인 도구입니다.</p>
+<p><strong>소프트웨어 설치 및 환경 설정 절차:</strong></p>
+<ol><li><a href="https://code.visualstudio.com/Download" target="_blank">https://code.visualstudio.com/Download</a> 열기</li><li>해당 버전을 다운로드하고 설치하면 됩니다</li><li><a href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hans" target="_blank">한글화 플러그인</a>을 열어 설치하면 한글화됩니다.</li></ol>
 <hr>
-<h2 id="Todoslosmiembrosdelequipo">Todos los miembros del equipo</h2>
-<ul><li><strong>Presidente</strong>: Du Xingzhou (杜星洲)</li><li><strong>Construcción</strong>: Xie Jincan (谢金灿), Shi Yuguang (时宇光), Jiang Yichen (姜易辰), Xue Chen (薛晨), Du Fengyu (杜丰宇)</li><li><strong>Programación</strong>: Du Xingzhou (杜星洲), Fu Xiuqi (付修齐), Zhang Xipeng (张熙芃), Liu Chuyi (刘楚翌)</li><li><strong>Divulgación</strong>: Han Zixuan (韩子萱), Chen Xibei (陈西贝), Li Jiaoyang (李骄洋), Liu Yuxuan (柳宇轩), Wang Yizhou (王一舟)</li></ul>
+<h2 id="3도구소개">3. 도구 소개</h2>
+<h3 id="AndroidStudio-1">Android Studio</h3>
+<p>공식 문서: <a href="https://developer.android.com/studio/intro?hl=zh-cn" target="_blank">https://developer.android.com/studio/intro?hl=zh-cn</a></p>
+<p>이 프로젝트에서는 FTC 공식 제공 애플리케이션 프레임워크를 기반으로, <code>TeamCode</code> 폴더 아래에서 Java 언어로 로봇 제어 프로그램을 작성해 로봇 구동에 필요한 각종 의존성 라이브러리를 호출합니다.</p>
+<p>Android Studio에서 알아야 할 기본 지식은 공식 문서의 간단한 페이지 안내를 참고하세요.</p>
+<h3 id="VisualStudioCode-1">Visual Studio Code</h3>
+<p>공식 문서: <a href="https://code.visualstudio.com/docs" target="_blank">https://code.visualstudio.com/docs</a></p>
+<p>Visual Studio Code의 조작 로직은 Android Studio와 비슷하고, 이 프로젝트에서는 사용 빈도가 낮으므로 인터페이스 안내는 Android Studio 파트를 참고하세요. 여기서는 반복하지 않습니다.</p>
+<h3 id="RobotDashboard">Robot Dashboard</h3>
+<ul><li>Wi-Fi 네트워크 '<code>32477-RC</code>'에 연결합니다. Wi-Fi 비밀번호: 관리자에게 문의하거나 Driver Hub를 통해 확인합니다.</li><li>주소: <a href="http://192.168.43.1:8080/" target="_blank">http://192.168.43.1:8080/</a></li><li>Control Hub에 내장된 Wi-Fi 모듈의 웹 페이지(공식 명칭 Robot Controller Console, 즉 로봇 컨트롤러 콘솔)로, Control Hub를 관리하는 그래픽 백엔드를 제공합니다.</li></ul>
+<p>Robot Dashboard에서 알아야 할 기본 지식은 공식 문서의 간단한 페이지 안내를 참고하세요.</p>
 <hr>
-<h2 id="Fotodegrupo">Foto de grupo</h2>
-<div class="img-row"><figure class="img-fig"><img src="../images/afterword/group_photo_20251219.jpg" alt="Foto de grupo (19 de diciembre de 2025)" loading="lazy"><figcaption>Foto de grupo (19 de diciembre de 2025)</figcaption></figure><figure class="img-fig"><img src="../images/afterword/group_photo_20260528.jpg" alt="Foto de grupo (28 de mayo de 2026)" loading="lazy"><figcaption>Foto de grupo (28 de mayo de 2026)</figcaption></figure></div>
-<hr>
-<p><strong>Aviso legal:</strong> Esta guía es un producto independiente del equipo FTC 32477 Origin. Nuestro equipo no está afiliado a FIRST® (For Inspiration and Recognition of Science and Technology), ni cuenta con su respaldo ni su patrocinio. FIRST®, FIRST® Robotics Competition, FRC®, FIRST® Tech Challenge y FTC® son marcas registradas de FIRST. Los diseños, el código y los recursos compartidos en esta guía provienen principalmente de los miembros del equipo y pueden incluir también materiales de código abierto y aportaciones de otras personas, debidamente organizados e integrados; no constituyen material oficial de FIRST.</p>
-<hr>
-<p><em>Equipo de redacción de la Guía de inicio rápido de 32477 Origin · 3.ª edición, agosto de 2026</em></p>
+<h2 id="4작업흐름">4. 작업 흐름</h2>
+<p>프로그래밍 팀의 핵심 업무는 세 부분으로 나뉩니다.</p>
+<ul><li><strong>자율 프로그램</strong>: 시즌 자율 단계(Auto)의 제어 로직</li><li><strong>수동 프로그램</strong>: 원격 조종 단계(TeleOp)의 조작 로직</li><li><strong>센서 설정</strong>: 각종 센서와 비전 시스템의 설정</li></ul>
+<h3 id="디버깅이핵심">디버깅이 핵심</h3>
+<blockquote class="bq-info">프로그램 개발의 진짜 어려움은 디버깅에 있습니다. 자율 경로, 수동 조작, PID 매개변수, 비전 설정 — 대부분의 센서에는 바로 재사용할 수 있는 기성 패키지가 있습니다. 여러분이 진짜 해야 할 일은 '튜닝'입니다.</blockquote>
+<p>디버깅은 개발 프로세스 전반을 관통합니다.</p>
+<ol><li><strong>요구 분석</strong>: 현재 시즌의 규칙과 과제 요구를 명확히 합니다</li><li><strong>아키텍처 설계</strong>: 프로그램 전체 아키텍처와 모듈 분할을 설계합니다</li><li><strong>코드 작성</strong>: Android Studio에서 Java 코드를 작성합니다</li><li><strong>버전 관리</strong>: Git으로 코드 버전을 관리합니다</li><li><strong>디버깅</strong>: 자율 경로, 수동 조작, PID 매개변수, 비전 설정을 튜닝합니다</li><li><strong>테스트 검증</strong>: 로봇에서 프로그램 기능을 검증합니다</li><li><strong>코드 리뷰</strong>: GitHub로 코드 리뷰와 병합을 진행합니다</li><li><strong>배포 발표</strong>: 최종 버전을 Robot Controller에 배포합니다</li></ol>
 </main>
 
 <script>
