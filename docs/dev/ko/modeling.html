@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>모델링 및 설계｜FTC 32477 Origin 빠른 시작 가이드</title>
+<link rel="icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
+<style>
+:root {
+  --red: #d32f2f;
+  --dark: #1a1a2e;
+  --slate: #16213e;
+  --card: #ffffff;
+  --text: #2c2c2c;
+  --muted: #666;
+  --border: #e0e0e0;
+  --radius: 10px;
+  --sidebar-w: 260px;
+  --topbar-h: 52px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+  color:var(--text);background:#f8f9fa;line-height:1.8;min-height:100vh
+}
+
+/* ====== TOP BAR (mobile) ====== */
+.topbar{
+  display:none;position:fixed;top:0;left:0;right:0;height:var(--topbar-h);
+  background:var(--dark);color:#fff;z-index:200;align-items:center;
+  padding:0 12px;gap:8px
+}
+.topbar .brand{
+  font-weight:700;font-size:14px;flex:1;min-width:0;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap
+}
+.topbar .brand a{
+  color:#fff;text-decoration:none;cursor:pointer
+}
+.topbar .brand a:hover{opacity:.85}
+.lang-select{
+  background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);
+  border-radius:6px;font-size:13px;padding:6px 26px 6px 10px;max-width:150px;
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 8px center
+}
+.lang-select option{color:#2c2c2c;background:#fff}
+.topbar .menu-btn{
+  background:none;border:none;color:#fff;font-size:24px;cursor:pointer;
+  width:40px;height:40px;flex-shrink:0;display:flex;align-items:center;
+  justify-content:center;border-radius:6px;line-height:1
+}
+.topbar .menu-btn:hover{background:rgba(255,255,255,.1)}
+
+/* ====== SIDEBAR ====== */
+nav.sidebar{
+  position:fixed;top:0;left:0;bottom:0;width:var(--sidebar-w);
+  background:var(--dark);color:#ccc;overflow-y:auto;z-index:100;
+  display:flex;flex-direction:column;transition:transform .28s ease;
+}
+nav.sidebar::-webkit-scrollbar{width:4px}
+nav.sidebar::-webkit-scrollbar-thumb{background:#444;border-radius:2px}
+.sidebar-header{padding:24px 20px 14px;border-bottom:1px solid rgba(255,255,255,.08);text-align:center}
+.sidebar-header .home-link{
+  display:block;text-decoration:none;border-radius:8px;
+  padding:4px 0;transition:background .18s
+}
+.sidebar-header .home-link:hover{background:rgba(255,255,255,.06)}
+.sidebar-header .home-link:hover .sub{color:#fff}
+.sidebar-header .logo{font-size:22px;font-weight:700;color:#fff;line-height:1.3}
+.sidebar-header .sub{font-size:12px;color:#f44336;margin-top:4px;letter-spacing:1px}
+/* 语言切换：侧边栏下拉选项栏（节省空间给目录） */
+.lang-select-sidebar{
+  margin:12px 14px 0;width:calc(100% - 28px);box-sizing:border-box;
+  background:rgba(255,255,255,.1);color:#fff;
+  border:1px solid rgba(255,255,255,.25);border-radius:8px;
+  font-size:13px;padding:7px 26px 7px 10px;
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 8px center
+}
+.lang-select-sidebar option{color:#2c2c2c;background:#fff}
+.sidebar-nav{flex:1;padding:12px 0}
+.sidebar-nav a{
+  display:block;padding:10px 22px;color:#aaa;text-decoration:none;
+  font-size:14px;border-left:3px solid transparent;transition:all .18s
+}
+.sidebar-nav a:hover{color:#fff;background:rgba(255,255,255,.04)}
+.sidebar-nav a.active{color:#fff;background:rgba(244,67,54,.15);border-left-color:#f44336}
+/* 二级目录：仅当前页面显示 */
+.sidebar-nav a.sub-link{
+  padding:5px 22px 5px 34px;font-size:12.5px;color:#8a8a8a;border-left-color:transparent
+}
+.sidebar-nav a.sub-link:hover{color:#fff}
+.sidebar-nav a.sub-link.sub-3{padding-left:46px;font-size:12px;color:#777}
+/* 侧边栏队徽 */
+.side-logo{
+  display:block;width:64px;height:64px;margin:0 auto 10px;
+  border-radius:14px;object-fit:cover
+}
+/* 顶栏队徽（移动端） */
+.topbar-logo{width:22px;height:22px;border-radius:5px;flex-shrink:0}
+.sidebar-footer{padding:16px 20px;font-size:11px;color:#555;border-top:1px solid rgba(255,255,255,.08);text-align:center}
+
+/* ====== OVERLAY (mobile) ====== */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:99}
+
+/* ====== MAIN CONTENT ====== */
+/*
+ * 响应式宽度策略：
+ *   宽屏：内容固定 900px 宽（含 padding），居中于侧边栏右侧
+ *   中屏：随宽度缩小，左右留白逐渐收窄直至消失
+ *   窄屏（<768px）：侧边栏折叠，内容全宽
+ *
+ * 兼容性说明：部分 Chrome 版本对嵌套在自定义属性中的
+ * min()/max()/clamp()（含 vw 单位）存在布局计算 bug（宽度会算成 0，
+ * 正文空白而侧边栏正常）。因此此处只用普通 calc + max-width 封顶，
+ * 并为 min()/max()/clamp() 提供级联回退声明。
+ */
+main{
+  box-sizing:content-box;
+  --pad: 40px;                                        /* 回退：clamp 不支持时 */
+  --pad: clamp(12px, 4vw, 48px);
+  padding: 40px var(--pad);
+  /* 宽度：随视口收缩，上限 900px（含 padding，即内容宽 900-2*pad） */
+  width: calc(100vw - var(--sidebar-w) - 2 * var(--pad));
+  max-width: calc(900px - 2 * var(--pad));
+  /* 左外边距：回退为紧贴侧边栏，支持 max() 时在宽屏居中 */
+  margin-left: var(--sidebar-w);
+  margin-left: calc(var(--sidebar-w) + max(0px, (100vw - var(--sidebar-w) - 900px) / 2));
+  margin-right: auto;
+}
+
+/* Hero */
+.hero{
+  background:linear-gradient(135deg,var(--dark) 0%,var(--slate) 100%);color:#fff;
+  border-radius:var(--radius);padding:44px 40px;margin-bottom:36px;
+  position:relative;overflow:hidden
+}
+.hero::after{
+  content:'';position:absolute;right:-40px;bottom:-40px;
+  width:200px;height:200px;background:var(--red);opacity:.18;border-radius:50%
+}
+.hero h1{font-size:28px;font-weight:700;position:relative;z-index:1}
+.hero .subtitle{font-size:14px;margin-top:10px;opacity:.8;position:relative;z-index:1}
+.hero .badge{
+  display:inline-block;background:var(--red);padding:4px 14px;
+  border-radius:20px;font-size:12px;font-weight:600;margin-bottom:12px;
+  position:relative;z-index:1
+}
+
+/* Sections */
+section{margin-bottom:40px}
+section h2{font-size:22px;font-weight:700;padding-bottom:10px;margin-bottom:20px;border-bottom:2px solid var(--red);color:var(--dark)}
+section h3{font-size:17px;font-weight:600;margin:28px 0 10px;color:var(--slate)}
+section h4,.card h4{font-size:15px;font-weight:600;margin:18px 0 8px}
+.card{background:var(--card);border-radius:var(--radius);padding:24px 28px;box-shadow:0 1px 4px rgba(0,0,0,.04);margin-bottom:16px}
+p{margin-bottom:10px}
+a{color:#1565c0;text-decoration:none;overflow-wrap:anywhere}
+a:hover{text-decoration:underline}
+ul,ol{padding-left:22px;margin-bottom:12px}
+li{margin-bottom:4px}
+code{background:#f0f0f0;padding:2px 6px;border-radius:4px;font-size:13px;font-family:"SF Mono","Fira Code",monospace}
+pre{background:#1a1a2e;color:#e0e0e0;padding:16px 20px;border-radius:var(--radius);overflow-x:auto;margin-bottom:14px;font-size:13px;line-height:1.6}
+pre code{background:none;padding:0;color:inherit}
+blockquote{
+  border-left:4px solid var(--red);background:#fef5f5;padding:12px 18px;
+  margin:14px 0;border-radius:0 var(--radius) var(--radius) 0;font-size:14px;color:#8b0000
+}
+/* 类型化引用块：[!info] 蓝 / [!warning] 黄 / [!danger] 红（仅颜色区分，无标签） */
+blockquote.bq-info{border-left-color:#1565c0;background:#eaf3fb;color:#0d3c66}
+blockquote.bq-warning{border-left-color:#f9a825;background:#fff8e1;color:#6d4c00}
+blockquote.bq-danger{border-left-color:#d32f2f;background:#fef5f5;color:#8b0000}
+hr{border:none;border-top:1px solid var(--border);margin:24px 0}
+img{max-width:100%;border-radius:var(--radius);margin:12px 0}
+/* 锚点跳转留白（避免被固定顶栏遮挡） */
+h2,h3{scroll-margin-top:16px}
+
+/* 图片排布：多图横向，窄屏自动纵向 */
+.img-row{
+  display:flex;flex-wrap:wrap;gap:14px;margin:14px 0
+}
+.img-row .img-fig{
+  flex:1 1 40%;min-width:0;margin:0
+}
+.img-row .img-fig img{
+  width:100%;margin:0;border-radius:var(--radius)
+}
+.img-row figcaption{
+  text-align:center;font-size:12px;color:var(--muted);margin-top:6px
+}
+.img-row-single .img-fig{flex-basis:100%}
+@media(max-width:600px){
+  .img-row{flex-direction:column;gap:12px}
+  h2,h3{scroll-margin-top:64px}
+}
+
+/* Table */
+.table-wrap{overflow-x:auto;margin-bottom:14px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{border:1px solid var(--border);padding:10px 14px;text-align:left}
+th{background:var(--dark);color:#fff;font-weight:600}
+tr:nth-child(even){background:#fafafa}
+
+/* ====== RESPONSIVE ====== */
+
+/* Narrow: collapse sidebar */
+@media(max-width:768px){
+  .topbar{display:flex}
+  nav.sidebar{
+    transform:translateX(-100%);
+    top:var(--topbar-h);z-index:101;
+    width:280px;                        /* 回退：min() 不支持时 */
+    width:min(280px,84vw)
+  }
+  nav.sidebar.open{transform:translateX(0)}
+  .overlay.show{display:block}
+  main{
+    margin-left:0;margin-top:var(--topbar-h);
+    width: calc(100vw - 2 * var(--pad));
+    max-width: none;
+  }
+  .hero{padding:28px 20px}
+  .hero h1{font-size:22px}
+  .card{padding:16px 18px}
+  section h2{font-size:19px}
+  section h3{font-size:16px}
+  .table-wrap{margin-left:-18px;margin-right:-18px;width:calc(100% + 36px)}
+}
+
+/* Very narrow screens */
+@media(max-width:420px){
+  .topbar .brand{font-size:13px}
+  .lang-select{max-width:132px;font-size:12px;padding:5px 22px 5px 8px}
+  main{--pad: 12px}
+  .card{padding:14px 14px}
+  .hero{padding:22px 16px}
+  .hero h1{font-size:20px}
+}
+
+/* ====== PRINT (PDF 导出) ====== */
+/*
+ * 注意：Chrome 打印视口宽度可能低于 768px，导致移动端媒体查询规则
+ * 泄漏到打印渲染。因此必须在打印样式中显式覆盖所有相关属性。
+ */
+@media print{
+  html,body{display:block !important;width:100% !important;max-width:100% !important;overflow:visible !important}
+  nav.sidebar,.topbar,.overlay{display:none !important}
+  body{background:#fff}
+  main{
+    display:block !important;box-sizing:border-box !important;
+    margin:0 !important;padding:0 !important;
+    width:100% !important;max-width:100% !important;
+  }
+  .card{box-shadow:none;border:1px solid var(--border);padding:24px 28px}
+  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:32px 28px}
+  .hero h1{color:var(--dark);font-size:28px}
+  section h2{font-size:22px}
+  section h3{font-size:17px}
+  .hero .badge{background:var(--red);color:#fff}
+  a{color:inherit;overflow-wrap:anywhere !important}
+  /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
+  .table-wrap{
+    overflow:visible !important;
+    margin:0 !important;
+    width:100% !important;
+    max-width:100% !important;
+  }
+  table{
+    width:100% !important;max-width:100% !important;
+    table-layout:fixed;font-size:12px
+  }
+  th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
+  tr{page-break-inside:avoid}
+  .img-row{flex-wrap:nowrap}
+  .img-fig{page-break-inside:avoid}
+  .img-row .img-fig{flex:1 1 0}
+  /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
+  html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
+  .align-right{text-align:right}
+  /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
+  h1{margin:3.2em 0 1em}
+  h2{margin:2em 0 .8em}
+  h3{margin:1.2em 0 .5em}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <img class="topbar-logo" src="../images/basic/team_logo.png" alt="32477 Origin">
+  <span class="brand"><a href="../index.html" title="返回主页">FTC 32477 Origin 빠른 시작 가이드</a></span>
+  <select class="lang-select" id="langSelect" aria-label="Language">
+<option value="../zh-hans/modeling.html">简体中文</option><option value="../zh-hant/modeling.html">繁體中文</option><option value="../en-us/modeling.html">English (US)</option><option value="../fr/modeling.html">Français</option><option value="../es/modeling.html">Español</option><option value="../ko/modeling.html" selected>한국어</option>
+  </select>
+  <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <a class="home-link" href="../index.html" title="返回主页">
+      <img class="side-logo" src="../images/basic/team_logo.png" alt="32477 Origin Team Logo">
+      <div class="logo">FTC 32477<br>Origin</div>
+      <div class="sub">빠른 시작 가이드</div>
+    </a>
+    <select class="lang-select-sidebar" id="langSelectSide" aria-label="Language">
+<option value="../zh-hans/modeling.html">简体中文</option><option value="../zh-hant/modeling.html">繁體中文</option><option value="../en-us/modeling.html">English (US)</option><option value="../fr/modeling.html">Français</option><option value="../es/modeling.html">Español</option><option value="../ko/modeling.html" selected>한국어</option>
+    </select>
+  </div>
+  <div class="sidebar-nav">
+<a href="index.html">홈</a>
+<a href="preface.html">머리말</a>
+<a href="member.html">팀원 필수사항</a>
+<a href="modeling.html" class="active">모델링 및 설계</a>
+<a class="sub-link" href="#1기본자료">1. 기본 자료</a>
+<a class="sub-link sub-3" href="#애플리케이션">애플리케이션</a>
+<a class="sub-link sub-3" href="#온라인계정">온라인 계정</a>
+<a class="sub-link" href="#2환경설정">2. 환경 설정</a>
+<a class="sub-link sub-3" href="#웹브라우저">웹 브라우저</a>
+<a class="sub-link sub-3" href="#Onshape계정가입">Onshape 계정 가입</a>
+<a class="sub-link sub-3" href="#Onshape환경설정">Onshape 환경 설정</a>
+<a class="sub-link sub-3" href="#Onshape플러그인">Onshape 플러그인</a>
+<a class="sub-link" href="#3모델링및설계핵심사항">3. 모델링 및 설계 핵심 사항</a>
+<a class="sub-link sub-3" href="#부품설계와조립">부품 설계와 조립</a>
+<a class="sub-link sub-3" href="#프로젝트문서와작업공간">프로젝트 문서와 작업 공간</a>
+<a class="sub-link sub-3" href="#모델링기본프로세스">모델링 기본 프로세스</a>
+<a class="sub-link sub-3" href="#모델강도와설계경험">모델 강도와 설계 경험</a>
+<a class="sub-link sub-3" href="#모델링아이디어와일정참고">모델링 아이디어와 일정 참고</a>
+<a class="sub-link sub-3" href="#Onshape학습자료">Onshape 학습 자료</a>
+<a class="sub-link sub-3" href="#FTC자주쓰는부품라이브러리">FTC 자주 쓰는 부품 라이브러리</a>
+<a class="sub-link sub-3" href="#설계규칙">설계 규칙</a>
+<a href="build.html">하드웨어 및 제작</a>
+<a href="programming.html">프로그래밍</a>
+<a href="outreach.html">아웃리치 및 대외 홍보</a>
+<a href="afterword.html">후기</a>
+  </div>
+  <div class="sidebar-footer">2026년 8월 제3판 &middot; 편집팀</div>
+</nav>
+
+<main>
+<h1>모델링 및 설계</h1>
+<h2 id="1기본자료">1. 기본 자료</h2>
+<p>다음은 모델링 및 설계에서 추가로 필요한 자료입니다.</p>
+<h3 id="애플리케이션">애플리케이션</h3>
+<ul><li>웹 브라우저(Chrome 또는 Edge 또는 Safari)</li><li>LocalSend</li><li>Onshape FTC 부품 라이브러리 — <a href="https://ftconshape.com/" target="_blank">https://ftconshape.com/</a>(FIRST와 PTC가 공동 운영; FIRST@ptc.com으로 이메일을 보내면 공유 폴더에 참여할 수 있음)</li><li>FTC Insert Tool 부품 라이브러리 플러그인 — <a href="https://cad.onshape.com/appstore/apps/Design%20&%20Documentation/6515cfb91574253b1b96a6ba" target="_blank">https://cad.onshape.com/appstore/apps/Design%20&%20Documentation/6515cfb91574253b1b96a6ba</a>(Onshape 앱 스토어에서 설치: Subscribe → Get for Free)</li></ul>
+<h3 id="온라인계정">온라인 계정</h3>
+<ul><li>CycleZLab — <a href="https://www.cyclezlab.com/" target="_blank">https://www.cyclezlab.com/</a>(무료, 가입 신청 필요)</li></ul>
+<hr>
+<h2 id="2환경설정">2. 환경 설정</h2>
+<p>다음은 본격적으로 시작하기 전에 설정해야 할 작업 환경입니다. 안내에 따라 진행하고, 궁금한 점은 관리자에게 문의하세요.</p>
+<h3 id="웹브라우저">웹 브라우저</h3>
+<p>북마크에 추가로 저장해야 할 웹사이트는 다음과 같습니다.</p>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">이름</th><th style="text-align:left">주소</th></tr></thead><tbody><tr><td style="text-align:left">goBILDA</td><td style="text-align:left">https://www.gobilda.com/</td></tr><tr><td style="text-align:left">REV Robotics</td><td style="text-align:left">https://www.revrobotics.com/</td></tr><tr><td style="text-align:left">CycleZLab</td><td style="text-align:left">https://www.cyclezlab.com/</td></tr><tr><td style="text-align:left">Onshape Education</td><td style="text-align:left">https://www.onshape.com/en/education/</td></tr></tbody></table></div>
+<h3 id="Onshape계정가입">Onshape 계정 가입</h3>
+<p>Onshape는 우리 팀이 사용하는 클라우드 모델링 플랫폼입니다. SolidWorks 같은 산업용 모델링 소프트웨어와 비교해 Onshape는 사양을 많이 타지 않고, 프로젝트를 기기 간에 쉽게 공유할 수 있으며, 배우기 쉽고 FIRST 공식 지원을 받는다는 장점이 있습니다. 기능이 충실하면서 CAD 모델링 학습과 프로젝트 제작에 매우 적합합니다.</p>
+<p><strong>가입 절차:</strong></p>
+<ol><li><a href="https://www.onshape.com/en/education/" target="_blank">https://www.onshape.com/en/education/</a> 열기, 교육 플랜 계정 가입</li><li>이름(First name), 성(Last name), 이메일 입력</li></ol>
+<blockquote class="bq-warning">QQ 등 중국 국내 이메일은 사용하지 마세요. 인증 코드를 받지 못할 가능성이 있습니다. @gmail.com 또는 @outlook.com을 권장합니다.</blockquote>
+<ol start="3"><li>다음 화면에서 신분은 "Student", 학교 유형은 "Grade School / K-12 (Ages <18)", 생일을 차례로 선택한 뒤 다음을 클릭</li><li>다음 정보를 순서대로 입력합니다.<ul><li>학교명: BEIJING NATIONAL DAY EXPERIMENTAL SCHOOL</li><li>학교 웹사이트: <a href="https://sysyzx.bjhdedu.cn/" target="_blank">https://sysyzx.bjhdedu.cn/</a></li><li>예상 졸업 연도</li><li>가입 사유: I am a member of FTC Team 32477, and I registered this account to use the team's modeling tools.(무엇을 쓸지 모르겠다면 이 문장을 넣으세요)</li><li>아래의 세 가지 약관에 동의 체크 후 가입 완료</li></ul></li><li>이메일함에서 확인 메일 확인</li></ol>
+<blockquote class="bq-info">가입 후 관리자에게 계정을 알려 팀 공유 폴더에 추가되도록 하세요.</blockquote>
+<p><strong>자주 묻는 문제:</strong></p>
+<ul><li>마지막 단계에서 reCAPTCHA 오류 발생: 보안 문자 인증 서비스가 응답하지 않는 것입니다. 네트워크 환경을 바꿔 reCAPTCHA 서비스에 연결되는지 확인하세요.</li><li>이메일로 인증 코드가 오지 않음: 3분 이상 기다렸다면 다른 메일함으로 바꿔 보세요(Outlook 또는 Gmail, QQ 사용 금지).</li></ul>
+<h3 id="Onshape환경설정">Onshape 환경 설정</h3>
+<ol><li>작업 공간에 들어가 오른쪽 위 계정 아이콘을 클릭하고, 드롭다운 메뉴의 첫 번째 옵션 '내 계정' 선택</li><li>오른쪽 메뉴에서 위에서 세 번째 옵션 '환경설정' 선택, 첫 번째 언어 옵션을 '简体中文'으로 바꾸고 저장 클릭</li><li>같은 메뉴에서 아래의 단위 옵션을 미터법으로 변경(팀 작업 환경에서 길이는 기본적으로 밀리미터 사용)</li></ol>
+<blockquote class="bq-info">위 변경 사항은 변경 후 생성한 문서에만 적용되며, 기존 문서의 단위에는 영향을 주지 않습니다.</blockquote>
+<ol start="4"><li>선호에 따라 개인 프로필 수정</li></ol>
+<h3 id="Onshape플러그인">Onshape 플러그인</h3>
+<p>클라우드 특성 덕분에 Onshape에는 다양한 공유 플러그인이 있으며, Onshape 앱 스토어, 서드파티 플러그인 사이트, 다른 사람의 공유 등을 통해 얻을 수 있습니다.</p>
+<p>팀이 자주 사용하는 플러그인은 다음과 같습니다(예시일 뿐).</p>
+<ul><li><strong>Onshape FTC 부품 라이브러리</strong>(핵심, '1. 기본 자료' 참고)</li><li><strong>Lighten</strong>(사용자 정의 기능, 구조를 경량화해 부품을 가볍게 만듦)</li><li><strong>Spur gear</strong>(사용자 정의 기능, 기어 생성기)</li><li><strong>HTD Pulley Generator</strong>(다른 문서에서 파생, 타이밍 벨트 풀리 생성기)</li></ul>
+<hr>
+<h2 id="3모델링및설계핵심사항">3. 모델링 및 설계 핵심 사항</h2>
+<h3 id="부품설계와조립">부품 설계와 조립</h3>
+<p>Onshape에서 3D 모델링을 할 때 다음 사항에 특히 주의해야 합니다.</p>
+<ul><li><strong>치수 정밀도</strong>: 모델의 모든 치수가 실제 부품과 일치하도록 하세요</li><li><strong>조립 관계</strong>: 부품 간 조립 메이트(Mate 및 Mate Connector)를 합리적으로 설정하세요</li><li><strong>간섭 검사</strong>: 조립 완료 후 간섭 검사를 수행하세요</li><li><strong>부품 명명</strong>: 통일된 규칙에 따라 부품과 어셈블리의 이름을 지정하세요</li></ul>
+<h3 id="프로젝트문서와작업공간">프로젝트 문서와 작업 공간</h3>
+<p>팀 관련 프로젝트를 제작할 때는 다른 팀원과 공유할 수 있도록 팀 공유 폴더에 문서를 만드세요. 아직 참여하지 않았다면 관리자에게 팀 공유 폴더에 추가해 달라고 요청하세요.</p>
+<ol><li>개인 작업대 왼쪽 메뉴에서 '나와 공유됨'을 선택하고 '32477' 폴더를 열면 새 문서를 만들거나 팀이 이미 만든 문서를 열 수 있습니다(문서 하나가 프로젝트 하나)</li><li>새 프로젝트를 만들려면: 페이지 왼쪽 위 파란색 만들기 버튼을 클릭하고 '문서'를 선택한 뒤 문서가 생성되어 열릴 때까지 기다립니다</li></ol>
+<p>작업 공간에 들어가면 아래쪽에 'Part Studio'와 'Assembly' 탭이 보입니다(탭 오른쪽의 더하기 기호를 클릭하면 새로 만들 수 있음).</p>
+<ul><li><strong>Part Studio</strong>: 개별 부품을 모델링하는 영역(CAD 프로세스의 스케치와 부품에 해당)으로, 스케치 구속을 통해 부품을 제작</li><li><strong>Assembly</strong>: 'Part Studio'에서 만든 부품이나 부품 라이브러리의 기성 부품을 조립하는 영역(CAD 프로세스의 조립에 해당)</li></ul>
+<p>문서 하나에는 'Assembly'와 'Part Studio'를 원하는 만큼 만들 수 있습니다. 수정과 관리를 쉽게 하려면: Part Studio 하나에는 부품 하나만 만드는 것이 좋으며, 로봇을 구조별로 조립하고 마지막에 전체 어셈블리에서 합치세요.</p>
+<h3 id="모델링기본프로세스">모델링 기본 프로세스</h3>
+<p>입문 매뉴얼이므로 여기서는 Onshape의 가장 기본적인 조작과 작업 흐름만 소개합니다.</p>
+<h4>스케치 그리기</h4>
+<p>'Part Studio'에서 새 스케치를 만들고 기준 평면을 선택한 뒤, 직선, 직사각형, 원 등의 스케치 도구로 윤곽을 그린 다음 치수 기입과 기하 구속(수평, 수직, 접선 등)으로 형상을 고정합니다. 스케치는 가능한 한 완전히 구속해야 이후 피처 작업이 안정적입니다.</p>
+<h4>부품 제작</h4>
+<p>스케치가 끝나면 돌출, 회전, 스윕 등의 피처 도구로 2차원 윤곽을 3차원 솔리드로 바꾸고, 구멍, 모따기, 필렛 등의 작업으로 부품을 다듬습니다. 모든 피처는 피처 목록에 순서대로 기록되며 언제든 되돌려 수정할 수 있습니다.</p>
+<h4>부품 조립</h4>
+<p>'Assembly'에 'Part Studio'에서 만든 부품이나 부품 라이브러리의 기성 부품을 넣고, Mate와 Mate Connector를 사용해 결합 관계에 따라 연결합니다. 조립이 끝나면 움직임이 부드러운지, 간섭이 없는지 확인해야 합니다.</p>
+<h4>도구 사용</h4>
+<p>Onshape는 측정, 단면, 질량 속성 등의 분석 도구를 제공하므로 모델링 중 언제든 치수와 무게를 확인할 수 있으며, 오른쪽 클릭 메뉴에는 숨기기, 분리, 이름 바꾸기 등의 빠른 작업도 있습니다.</p>
+<h3 id="모델강도와설계경험">모델 강도와 설계 경험</h3>
+<p>3D 프린팅 부품의 강도는 소재와 구조에 따라 달라집니다. 자주 사용하는 구조 설계 개념은 다음과 같습니다.</p>
+<ul><li><strong>핵심 구조 부품</strong>(보, 구조 판): 가능하면 PETG-CF로 프린팅('하드웨어 및 제작' 장의 매개변수 참고), 두께 4mm 이상</li><li><strong>가이드 부품</strong>(볼 레일, 구조 리미트): PLA 사용 가능, 벽 두께 2mm 이상</li><li><strong>보호 장식 부품</strong>(측면 판): 벽 두께 1.5mm 이상</li><li>아크릴 등 취성이 있는 판재나 구조에는 구멍을 빽빽하게 뚫는 설계(구멍 간격 3mm 미만)를 최대한 피하세요. 구조 간 하중을 받는 연결부의 폭은 7mm 이상이어야 합니다.</li><li>부품에 날카로운 각도가 없도록 최대한 모따기해 둥글게 만들어 응력 집중으로 인한 파손을 방지하세요</li></ul>
+<blockquote class="bq-info">위 수치는 참고용일 뿐이며, 실제 매개변수는 실물 검증을 통해 최적화해야 합니다.</blockquote>
+<h3 id="모델링아이디어와일정참고">모델링 아이디어와 일정 참고</h3>
+<ul><li>차량 설계를 구상할 때 대회 과제를 작은 항목으로 나누고, 각 항목의 구조를 따로 구상한 뒤 조합하세요</li><li>정식 모델링 전에 다른 팀원에게 방안 의견을 구하고, 팀의 득점 전략을 바탕으로 설계하세요</li><li>로봇 전체 설계 모델링이 끝나면 실제 조립 과정을 고려해야 합니다. 내부 나사처럼 설치가 어려운 구조는 미리 설치 통로와 배선 공간을 확보하세요</li><li>모듈식 구조 설계를 고려하면 나중에 수리와 최적화가 쉬워집니다</li><li>최종 방안은 가능한 한 일체형 구조로 설계하고 불필요한 작은 구조를 줄여 전체 구조의 강도와 경량성을 높이세요</li></ul>
+<p><strong>일정 참고:</strong></p>
+<ul><li>공정 일정상 초기 설계는 다소 거칠어도 되지만, 반드시 빨리 설계를 끝내고 제작해 프로그램 디버깅과 Driver 연습 시간을 확보하고 실물 구조를 시험해 반복 개선해야 합니다. 예선 전에 출전 자격을 갖춘 완성차는 최소 3회 이상 반복 개선을 거쳐야 합니다(참고)</li><li>해외 팀 동향을 자주 살펴보세요. FTC 커뮤니티에는 "Robot in 30 Hours Reveal | FTC" 같은 활동이 있으며, 참가 팀이 언제든 새 시즌 방안을 공유할 수 있습니다. FRC, VEX 등 다른 대회 팀의 방안도 참고할 수 있습니다</li></ul>
+<h3 id="Onshape학습자료">Onshape 학습 자료</h3>
+<p>전문 모델링 플랫폼인 Onshape는 완전한 공식 학습 자료를 제공합니다. <a href="https://learn.onshape.com/" target="_blank">https://learn.onshape.com/</a>; 빌리빌리(哔哩哔哩), YouTube 등 동영상 플랫폼에도 많은 튜토리얼이 있습니다.</p>
+<ul><li>CAD 소프트웨어의 작업 흐름이 비슷하므로(스케치, 부품, 어셈블리) SolidWorks, Autodesk Fusion 등 소프트웨어의 튜토리얼도 학습 가치가 있으며, 부품 공간 감각과 모델링 작업 흐름에 대한 익숙함을 기르는 데 도움이 됩니다</li><li>학습 과정에서 이론보다 실천이 중요하다는 것을 기억하세요. 빌리빌리(哔哩哔哩)에서 모델을 찾아 따라 만들어 보고, 먼저 스스로 모델링을 시도한 뒤 정 안 되면 튜토리얼을 보세요. 일상생활에서도 작은 구조의 모델링 아이디어를 관찰하고 생각해 보세요</li><li>FTC 대회에서는 다른 팀의 우수한 방안을 많이 배워야 합니다. 대부분의 강팀은 자체 웹사이트를 두고 방안을 공개하므로, YouTube나 Google에서 FTC 팀 번호를 검색해 공식 사이트를 찾을 수 있으며, CycleZLab 같은 사이트에서 다른 팀의 모델을 볼 수도 있습니다</li></ul>
+<blockquote class="bq-info">궁금한 점이 있으면 모델링 선배에게 묻거나 직접 인터넷에서 검색하세요.</blockquote>
+<h3 id="FTC자주쓰는부품라이브러리">FTC 자주 쓰는 부품 라이브러리</h3>
+<p>FTC에서 자주 쓰는 부품 공급업체와 자료 플랫폼:</p>
+<ul><li><strong>goBILDA</strong>: 완전한 FTC 구조 부품 제공</li><li><strong>REV Robotics</strong>: 전자 제어 모듈과 구조 부품 제공</li><li><strong>CycleZLab</strong>: FIRST 로봇 커뮤니티 플랫폼(CAD, 코드, 제작 일지 아카이브)</li></ul>
+<h3 id="설계규칙">설계 규칙</h3>
+<ul><li>미터법 단위 사용(mm)</li><li>모든 3D 프린팅 부품에는 적절한 여유 공간을 확보(0.2–0.3mm 권장)</li><li>내보내기 형식: STEP 파일은 가공용, STL 파일은 3D 프린팅용, 3MF 파일은 슬라이싱 프린팅용</li></ul>
+</main>
+
+<script>
+(function(){
+  var sb=document.getElementById("sidebar");
+  var ol=document.getElementById("overlay");
+  var btn=document.getElementById("menuBtn");
+  function open(){sb.classList.add("open");ol.classList.add("show")}
+  function close(){sb.classList.remove("open");ol.classList.remove("show")}
+  btn.addEventListener("click",function(){sb.classList.contains("open")?close():open()});
+  ol.addEventListener("click",close);
+  var ls=document.getElementById("langSelect");
+  if(ls){ls.addEventListener("change",function(){window.location.href=ls.value})};
+  var lss=document.getElementById("langSelectSide");
+  if(lss){lss.addEventListener("change",function(){window.location.href=lss.value})};
+})();
+</script>
+</body>
+</html>
