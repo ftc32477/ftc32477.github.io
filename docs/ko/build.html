@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>하드웨어 및 제작｜FTC 32477 Origin 빠른 시작 가이드</title>
+<link rel="icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
+<style>
+:root {
+  --red: #d32f2f;
+  --dark: #1a1a2e;
+  --slate: #16213e;
+  --card: #ffffff;
+  --text: #2c2c2c;
+  --muted: #666;
+  --border: #e0e0e0;
+  --radius: 10px;
+  --sidebar-w: 260px;
+  --topbar-h: 52px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+  color:var(--text);background:#f8f9fa;line-height:1.8;min-height:100vh
+}
+
+/* ====== TOP BAR (mobile) ====== */
+.topbar{
+  display:none;position:fixed;top:0;left:0;right:0;height:var(--topbar-h);
+  background:var(--dark);color:#fff;z-index:200;align-items:center;
+  padding:0 12px;gap:8px
+}
+.topbar .brand{
+  font-weight:700;font-size:14px;flex:1;min-width:0;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap
+}
+.topbar .brand a{
+  color:#fff;text-decoration:none;cursor:pointer
+}
+.topbar .brand a:hover{opacity:.85}
+.lang-select{
+  background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);
+  border-radius:6px;font-size:13px;padding:6px 26px 6px 10px;max-width:150px;
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 8px center
+}
+.lang-select option{color:#2c2c2c;background:#fff}
+.topbar .menu-btn{
+  background:none;border:none;color:#fff;font-size:24px;cursor:pointer;
+  width:40px;height:40px;flex-shrink:0;display:flex;align-items:center;
+  justify-content:center;border-radius:6px;line-height:1
+}
+.topbar .menu-btn:hover{background:rgba(255,255,255,.1)}
+
+/* ====== SIDEBAR ====== */
+nav.sidebar{
+  position:fixed;top:0;left:0;bottom:0;width:var(--sidebar-w);
+  background:var(--dark);color:#ccc;overflow-y:auto;z-index:100;
+  display:flex;flex-direction:column;transition:transform .28s ease;
+}
+nav.sidebar::-webkit-scrollbar{width:4px}
+nav.sidebar::-webkit-scrollbar-thumb{background:#444;border-radius:2px}
+.sidebar-header{padding:24px 20px 14px;border-bottom:1px solid rgba(255,255,255,.08);text-align:center}
+.sidebar-header .home-link{
+  display:block;text-decoration:none;border-radius:8px;
+  padding:4px 0;transition:background .18s
+}
+.sidebar-header .home-link:hover{background:rgba(255,255,255,.06)}
+.sidebar-header .home-link:hover .sub{color:#fff}
+.sidebar-header .logo{font-size:22px;font-weight:700;color:#fff;line-height:1.3}
+.sidebar-header .sub{font-size:12px;color:#f44336;margin-top:4px;letter-spacing:1px}
+/* 语言切换：侧边栏下拉选项栏（节省空间给目录） */
+.lang-select-sidebar{
+  margin:12px 14px 0;width:calc(100% - 28px);box-sizing:border-box;
+  background:rgba(255,255,255,.1);color:#fff;
+  border:1px solid rgba(255,255,255,.25);border-radius:8px;
+  font-size:13px;padding:7px 26px 7px 10px;
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 8px center
+}
+.lang-select-sidebar option{color:#2c2c2c;background:#fff}
+.sidebar-nav{flex:1;padding:12px 0}
+.sidebar-nav a{
+  display:block;padding:10px 22px;color:#aaa;text-decoration:none;
+  font-size:14px;border-left:3px solid transparent;transition:all .18s
+}
+.sidebar-nav a:hover{color:#fff;background:rgba(255,255,255,.04)}
+.sidebar-nav a.active{color:#fff;background:rgba(244,67,54,.15);border-left-color:#f44336}
+/* 二级目录：仅当前页面显示 */
+.sidebar-nav a.sub-link{
+  padding:5px 22px 5px 34px;font-size:12.5px;color:#8a8a8a;border-left-color:transparent
+}
+.sidebar-nav a.sub-link:hover{color:#fff}
+.sidebar-nav a.sub-link.sub-3{padding-left:46px;font-size:12px;color:#777}
+/* 侧边栏队徽 */
+.side-logo{
+  display:block;width:64px;height:64px;margin:0 auto 10px;
+  border-radius:14px;object-fit:cover
+}
+/* 顶栏队徽（移动端） */
+.topbar-logo{width:22px;height:22px;border-radius:5px;flex-shrink:0}
+.sidebar-footer{padding:16px 20px;font-size:11px;color:#555;border-top:1px solid rgba(255,255,255,.08);text-align:center}
+
+/* ====== OVERLAY (mobile) ====== */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:99}
+
+/* ====== MAIN CONTENT ====== */
+/*
+ * 响应式宽度策略：
+ *   宽屏：内容固定 900px 宽（含 padding），居中于侧边栏右侧
+ *   中屏：随宽度缩小，左右留白逐渐收窄直至消失
+ *   窄屏（<768px）：侧边栏折叠，内容全宽
+ *
+ * 兼容性说明：部分 Chrome 版本对嵌套在自定义属性中的
+ * min()/max()/clamp()（含 vw 单位）存在布局计算 bug（宽度会算成 0，
+ * 正文空白而侧边栏正常）。因此此处只用普通 calc + max-width 封顶，
+ * 并为 min()/max()/clamp() 提供级联回退声明。
+ */
+main{
+  box-sizing:content-box;
+  --pad: 40px;                                        /* 回退：clamp 不支持时 */
+  --pad: clamp(12px, 4vw, 48px);
+  padding: 40px var(--pad);
+  /* 宽度：随视口收缩，上限 900px（含 padding，即内容宽 900-2*pad） */
+  width: calc(100vw - var(--sidebar-w) - 2 * var(--pad));
+  max-width: calc(900px - 2 * var(--pad));
+  /* 左外边距：回退为紧贴侧边栏，支持 max() 时在宽屏居中 */
+  margin-left: var(--sidebar-w);
+  margin-left: calc(var(--sidebar-w) + max(0px, (100vw - var(--sidebar-w) - 900px) / 2));
+  margin-right: auto;
+}
+
+/* Hero */
+.hero{
+  background:linear-gradient(135deg,var(--dark) 0%,var(--slate) 100%);color:#fff;
+  border-radius:var(--radius);padding:44px 40px;margin-bottom:36px;
+  position:relative;overflow:hidden
+}
+.hero::after{
+  content:'';position:absolute;right:-40px;bottom:-40px;
+  width:200px;height:200px;background:var(--red);opacity:.18;border-radius:50%
+}
+.hero h1{font-size:28px;font-weight:700;position:relative;z-index:1}
+.hero .subtitle{font-size:14px;margin-top:10px;opacity:.8;position:relative;z-index:1}
+.hero .badge{
+  display:inline-block;background:var(--red);padding:4px 14px;
+  border-radius:20px;font-size:12px;font-weight:600;margin-bottom:12px;
+  position:relative;z-index:1
+}
+
+/* Sections */
+section{margin-bottom:40px}
+section h2{font-size:22px;font-weight:700;padding-bottom:10px;margin-bottom:20px;border-bottom:2px solid var(--red);color:var(--dark)}
+section h3{font-size:17px;font-weight:600;margin:28px 0 10px;color:var(--slate)}
+section h4,.card h4{font-size:15px;font-weight:600;margin:18px 0 8px}
+.card{background:var(--card);border-radius:var(--radius);padding:24px 28px;box-shadow:0 1px 4px rgba(0,0,0,.04);margin-bottom:16px}
+p{margin-bottom:10px}
+a{color:#1565c0;text-decoration:none;overflow-wrap:anywhere}
+a:hover{text-decoration:underline}
+ul,ol{padding-left:22px;margin-bottom:12px}
+li{margin-bottom:4px}
+code{background:#f0f0f0;padding:2px 6px;border-radius:4px;font-size:13px;font-family:"SF Mono","Fira Code",monospace}
+pre{background:#1a1a2e;color:#e0e0e0;padding:16px 20px;border-radius:var(--radius);overflow-x:auto;margin-bottom:14px;font-size:13px;line-height:1.6}
+pre code{background:none;padding:0;color:inherit}
+blockquote{
+  border-left:4px solid var(--red);background:#fef5f5;padding:12px 18px;
+  margin:14px 0;border-radius:0 var(--radius) var(--radius) 0;font-size:14px;color:#8b0000
+}
+/* 类型化引用块：[!info] 蓝 / [!warning] 黄 / [!danger] 红（仅颜色区分，无标签） */
+blockquote.bq-info{border-left-color:#1565c0;background:#eaf3fb;color:#0d3c66}
+blockquote.bq-warning{border-left-color:#f9a825;background:#fff8e1;color:#6d4c00}
+blockquote.bq-danger{border-left-color:#d32f2f;background:#fef5f5;color:#8b0000}
+hr{border:none;border-top:1px solid var(--border);margin:24px 0}
+img{max-width:100%;border-radius:var(--radius);margin:12px 0}
+/* 锚点跳转留白（避免被固定顶栏遮挡） */
+h2,h3{scroll-margin-top:16px}
+
+/* 图片排布：多图横向，窄屏自动纵向 */
+.img-row{
+  display:flex;flex-wrap:wrap;gap:14px;margin:14px 0
+}
+.img-row .img-fig{
+  flex:1 1 40%;min-width:0;margin:0
+}
+.img-row .img-fig img{
+  width:100%;margin:0;border-radius:var(--radius)
+}
+.img-row figcaption{
+  text-align:center;font-size:12px;color:var(--muted);margin-top:6px
+}
+.img-row-single .img-fig{flex-basis:100%}
+@media(max-width:600px){
+  .img-row{flex-direction:column;gap:12px}
+  h2,h3{scroll-margin-top:64px}
+}
+
+/* Table */
+.table-wrap{overflow-x:auto;margin-bottom:14px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{border:1px solid var(--border);padding:10px 14px;text-align:left}
+th{background:var(--dark);color:#fff;font-weight:600}
+tr:nth-child(even){background:#fafafa}
+
+/* ====== RESPONSIVE ====== */
+
+/* Narrow: collapse sidebar */
+@media(max-width:768px){
+  .topbar{display:flex}
+  nav.sidebar{
+    transform:translateX(-100%);
+    top:var(--topbar-h);z-index:101;
+    width:280px;                        /* 回退：min() 不支持时 */
+    width:min(280px,84vw)
+  }
+  nav.sidebar.open{transform:translateX(0)}
+  .overlay.show{display:block}
+  main{
+    margin-left:0;margin-top:var(--topbar-h);
+    width: calc(100vw - 2 * var(--pad));
+    max-width: none;
+  }
+  .hero{padding:28px 20px}
+  .hero h1{font-size:22px}
+  .card{padding:16px 18px}
+  section h2{font-size:19px}
+  section h3{font-size:16px}
+  .table-wrap{margin-left:-18px;margin-right:-18px;width:calc(100% + 36px)}
+}
+
+/* Very narrow screens */
+@media(max-width:420px){
+  .topbar .brand{font-size:13px}
+  .lang-select{max-width:132px;font-size:12px;padding:5px 22px 5px 8px}
+  main{--pad: 12px}
+  .card{padding:14px 14px}
+  .hero{padding:22px 16px}
+  .hero h1{font-size:20px}
+}
+
+/* ====== PRINT (PDF 导出) ====== */
+/*
+ * 注意：Chrome 打印视口宽度可能低于 768px，导致移动端媒体查询规则
+ * 泄漏到打印渲染。因此必须在打印样式中显式覆盖所有相关属性。
+ */
+@media print{
+  html,body{display:block !important;width:100% !important;max-width:100% !important;overflow:visible !important}
+  nav.sidebar,.topbar,.overlay{display:none !important}
+  body{background:#fff}
+  main{
+    display:block !important;box-sizing:border-box !important;
+    margin:0 !important;padding:0 !important;
+    width:100% !important;max-width:100% !important;
+  }
+  .card{box-shadow:none;border:1px solid var(--border);padding:24px 28px}
+  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:32px 28px}
+  .hero h1{color:var(--dark);font-size:28px}
+  section h2{font-size:22px}
+  section h3{font-size:17px}
+  .hero .badge{background:var(--red);color:#fff}
+  a{color:inherit;overflow-wrap:anywhere !important}
+  /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
+  .table-wrap{
+    overflow:visible !important;
+    margin:0 !important;
+    width:100% !important;
+    max-width:100% !important;
+  }
+  table{
+    width:100% !important;max-width:100% !important;
+    table-layout:fixed;font-size:12px
+  }
+  th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
+  tr{page-break-inside:avoid}
+  .img-row{flex-wrap:nowrap}
+  .img-fig{page-break-inside:avoid}
+  .img-row .img-fig{flex:1 1 0}
+  /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
+  html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
+  .align-right{text-align:right}
+  /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
+  h1{margin:3.2em 0 1em}
+  h2{margin:2em 0 .8em}
+  h3{margin:1.2em 0 .5em}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <img class="topbar-logo" src="../images/basic/team_logo.png" alt="32477 Origin">
+  <span class="brand"><a href="../index.html" title="返回主页">FTC 32477 Origin 빠른 시작 가이드</a></span>
+  <select class="lang-select" id="langSelect" aria-label="Language">
+<option value="../zh-hans/build.html">简体中文</option><option value="../zh-hant/build.html">繁體中文</option><option value="../en-us/build.html">English (US)</option><option value="../fr/build.html">Français</option><option value="../es/build.html">Español</option><option value="../ko/build.html" selected>한국어</option>
+  </select>
+  <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <a class="home-link" href="../index.html" title="返回主页">
+      <img class="side-logo" src="../images/basic/team_logo.png" alt="32477 Origin Team Logo">
+      <div class="logo">FTC 32477<br>Origin</div>
+      <div class="sub">빠른 시작 가이드</div>
+    </a>
+    <select class="lang-select-sidebar" id="langSelectSide" aria-label="Language">
+<option value="../zh-hans/build.html">简体中文</option><option value="../zh-hant/build.html">繁體中文</option><option value="../en-us/build.html">English (US)</option><option value="../fr/build.html">Français</option><option value="../es/build.html">Español</option><option value="../ko/build.html" selected>한국어</option>
+    </select>
+  </div>
+  <div class="sidebar-nav">
+<a href="index.html">홈</a>
+<a href="preface.html">머리말</a>
+<a href="member.html">팀원 필수사항</a>
+<a href="modeling.html">모델링 및 설계</a>
+<a href="build.html" class="active">하드웨어 및 제작</a>
+<a class="sub-link" href="#1기본자료">1. 기본 자료</a>
+<a class="sub-link sub-3" href="#애플리케이션">애플리케이션</a>
+<a class="sub-link sub-3" href="#온라인계정">온라인 계정</a>
+<a class="sub-link" href="#2환경설정">2. 환경 설정</a>
+<a class="sub-link sub-3" href="#웹브라우저">웹 브라우저</a>
+<a class="sub-link sub-3" href="#BambuStudio">Bambu Studio</a>
+<a class="sub-link sub-3" href="#RDWorksV8">RD Works V8</a>
+<a class="sub-link" href="#3재료소개">3. 재료 소개</a>
+<a class="sub-link sub-3" href="#자주쓰는공구">자주 쓰는 공구</a>
+<a class="sub-link sub-3" href="#자주쓰는재료">자주 쓰는 재료</a>
+<a class="sub-link" href="#4작업흐름">4. 작업 흐름</a>
+<a class="sub-link sub-3" href="#하드웨어장착">하드웨어 장착</a>
+<a class="sub-link sub-3" href="#전선연결">전선 연결</a>
+<a class="sub-link" href="#5하드웨어및제작입문">5. 하드웨어 및 제작 입문</a>
+<a class="sub-link sub-3" href="#BambuStudio설치및설정">Bambu Studio 설치 및 설정</a>
+<a class="sub-link sub-3" href="#Onshape에서모델링파일내보내기">Onshape에서 모델링 파일 내보내기</a>
+<a class="sub-link sub-3" href="#BambuStudio가져오기와배치">Bambu Studio 가져오기와 배치</a>
+<a class="sub-link sub-3" href="#프린팅매개변수설정">프린팅 매개변수 설정</a>
+<a class="sub-link sub-3" href="#3D프린터연결">3D 프린터 연결</a>
+<a class="sub-link sub-3" href="#프린팅설정">프린팅 설정</a>
+<a class="sub-link sub-3" href="#프린팅이상처리">프린팅 이상 처리</a>
+<a class="sub-link sub-3" href="#RDWorksV8설치및설정">RD Works V8 설치 및 설정</a>
+<a href="programming.html">프로그래밍</a>
+<a href="outreach.html">아웃리치 및 대외 홍보</a>
+<a href="afterword.html">후기</a>
+  </div>
+  <div class="sidebar-footer">2026년 8월 제3판 &middot; 편집팀</div>
+</nav>
+
+<main>
+<h1>하드웨어 및 제작</h1>
+<h2 id="1기본자료">1. 기본 자료</h2>
+<p>다음은 하드웨어 및 제작에서 추가로 필요한 자료입니다.</p>
+<h3 id="애플리케이션">애플리케이션</h3>
+<ul><li>Bambu Studio</li><li>RD Works V8</li></ul>
+<h3 id="온라인계정">온라인 계정</h3>
+<ul><li>이메일(@gmail.com 또는 @outlook.com 권장)</li><li>Bambu Studio — <a href="https://bambulab.cn/" target="_blank">https://bambulab.cn/</a></li><li>Onshape — <a href="https://www.onshape.com/" target="_blank">https://www.onshape.com/</a></li><li>CycleZLab — <a href="https://www.cyclezlab.com/" target="_blank">https://www.cyclezlab.com/</a></li></ul>
+<hr>
+<h2 id="2환경설정">2. 환경 설정</h2>
+<p>다음은 본격적으로 시작하기 전에 설정해야 할 작업 환경입니다. 안내에 따라 진행하고, 궁금한 점은 관리자에게 문의하세요.</p>
+<h3 id="웹브라우저">웹 브라우저</h3>
+<p>북마크에 추가로 저장해야 할 웹사이트는 다음과 같습니다.</p>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">이름</th><th style="text-align:left">주소</th></tr></thead><tbody><tr><td style="text-align:left">goBILDA</td><td style="text-align:left">https://www.gobilda.com/</td></tr><tr><td style="text-align:left">REV Robotics</td><td style="text-align:left">https://www.revrobotics.com/</td></tr><tr><td style="text-align:left">CycleZLab</td><td style="text-align:left">https://www.cyclezlab.com/</td></tr></tbody></table></div>
+<h3 id="BambuStudio">Bambu Studio</h3>
+<p>Bambu Studio는 우리 팀이 사용하는 3D 프린팅 부품 솔루션입니다.</p>
+<p><strong>가입 절차:</strong></p>
+<ol><li><a href="https://bambulab.cn/" target="_blank">https://bambulab.cn/</a>을 열고 오른쪽 위를 클릭해 휴대폰 번호 등으로 계정을 가입합니다.</li></ol>
+<p><strong>소프트웨어 설치 및 환경 설정 절차:</strong></p>
+<ol><li><a href="https://bambulab.cn/zh-cn/download/studio" target="_blank">https://bambulab.cn/zh-cn/download/studio</a> 열기</li><li>적절한 버전을 선택해 다운로드하고 설치하면 됩니다.</li></ol>
+<p><strong>주의할 점:</strong></p>
+<ul><li>Windows에서는 프로그램 설치 경로를 바꿀 수 있으며, 경로가 <code>..\Bambu Studio\</code>로 끝나도록 하면 됩니다. 설치 시 ".3mf 파일을 Bambu Studio로 열기" ".stl 파일을 Bambu Studio로 열기" ".step/.stp 파일을 Bambu Studio로 열기"를 체크해야 합니다.</li><li>macOS에서는 <code>BambuStudio.app</code>을 Applications 폴더에 드래그하면 됩니다.</li><li>Bambu Studio를 실행합니다. 로그인 지역은 '중국 본토'를 선택하고, 프린터는 최소한 <strong>Bambu Lab P1S</strong>와 <strong>Bambu Lab P2S</strong>를 선택하며, 재료는 기본 설정을 유지합니다. "Bambu 네트워크 플러그인 설치"를 체크하세요.</li><li>휴대폰 번호 등으로 Bambu 계정에 로그인하세요.</li></ul>
+<h3 id="RDWorksV8">RD Works V8</h3>
+<blockquote class="bq-danger"><strong>주의:</strong> macOS에 이 프로그램을 설치하는 것은 강력히 권장하지 않습니다. 설치해야 한다면 Parallels Desktop, VMware Fusion, CrossOver 등 가상 머신 지원이 필요합니다.</blockquote>
+<p>RD Works V8은 우리 팀이 사용하는 레이저 커터 전용 드라이버 소프트웨어입니다.</p>
+<p><strong>소프트웨어 설치 및 환경 설정 절차:</strong></p>
+<ol><li>관리자 또는 지도 교사에게 <code>RDWorksV8Setup.exe</code> 설치 파일을 받아 열고 "Install"을 클릭합니다.</li><li>"수동으로 설치 경로 지정"을 체크해 설치 경로를 바꿀 수 있습니다.</li><li>컴퓨터를 레이저 커터에 연결하고 "USB 드라이버 설치"를 클릭합니다.</li><li>나머지 옵션은 기본값을 유지하면 됩니다.</li></ol>
+<hr>
+<h2 id="3재료소개">3. 재료 소개</h2>
+<h3 id="자주쓰는공구">자주 쓰는 공구</h3>
+<blockquote class="bq-danger">어떤 수공구를 사용하기 전에 반드시 공구 상태가 양호한지 확인하고(손잡이가 흔들리지 않는지, 절삭날이 깨지지 않았는지), 작업에 따라 보호 장갑이나 보안경을 착용하세요.</blockquote>
+<blockquote class="bq-info">여기에는 가장 자주 쓰는 공구만 수록했습니다. 나머지 자주 쓰지 않는 공구는 《공구 목록》 부록으로 정리하며, 앞으로 계속 보강할 예정입니다.</blockquote>
+<h4>육각 렌치</h4>
+<p>단면이 정육각형인 L자형 또는 T자형 공구로, 육각 홈 나사 또는 볼트를 조이거나 푸는 데 사용합니다. 사용 시 짧은 쪽 또는 긴 쪽 끝을 나사 머리의 육각 홈에 완전히 넣고, 시계 방향으로 돌리면 조여지고 반시계 방향으로 돌리면 풀립니다. T자형 손잡이 렌치는 보통 더 큰 지렛대 힘이 필요하거나 깊은 구멍 작업에 사용됩니다.</p>
+<blockquote class="bq-info">우리가 가장 자주 쓰는 렌치 규격은 M3과 M4 두 가지입니다. 반드시 항상 휴대하세요.</blockquote>
+<h4>소켓 렌치</h4>
+<p>원통형 조임 공구로, 내벽이 육각형이라 너트나 볼트 머리를 감쌀 수 있습니다. 사용 시 소켓을 너트에 수직으로 씌우고 손잡이로 돌립니다. 접촉 면적이 커서 미끄러지지 않고, 공간이 좁아 일반 렌치가 돌아가지 못하는 곳에서 작업하기 좋다는 장점이 있습니다.</p>
+<h4>멍키 스패너</h4>
+<p>입구 폭을 일정 범위 내에서 조절할 수 있는 범용 렌치로, 다양한 규격의 육각 너트에 사용합니다. 사용 시 렌치의 웜 기어를 돌려 입구 크기를 조절해 너트의 마주 보는 두 면에 꼭 맞게 합니다. 또한 고정 조가 주된 밀기·당기기 힘을 받도록, 즉 힘을 가하는 방향이 고정 조 쪽을 향하도록 해야 렌치가 손상되거나 미끄러지는 것을 방지할 수 있습니다.</p>
+<h4>플라이어(뺀찌)</h4>
+<p>머리가 납작한 집게형 공구로, 마찰력을 높이기 위해 내부에 잔 이빨이 있는 것이 보통입니다. 금속 박판을 구부리거나, 작은 부품을 집거나, 조립 시 보조 인장력을 제공하는 데 사용합니다.</p>
+<h4>롱노즈 플라이어</h4>
+<p>머리가 가늘고 긴 원추형 플라이어로, 좁은 작업 공간에 들어가기 좋습니다. 작은 부품을 집거나, 가는 전선을 구부리거나, 복잡한 회로나 구조에서 이물질을 집어내는 데 자주 사용됩니다. 조 뿌리에는 보통 절단날이 있어 전선 절단용으로도 쓸 수 있습니다.</p>
+<h4>와이어 스트리퍼</h4>
+<p>금속 심선을 손상시키지 않고 전선의 외부 절연 피복을 벗기는 전용 공구입니다. 사용 시 전선 굵기에 맞는 눈금 홈을 선택하고, 전선을 홈에 넣어 손잡이를 조인 뒤, 살짝 돌리면서 바깥쪽으로 잡아당기면 절연 피복을 벗길 수 있습니다.</p>
+<h4>망치(장도리)</h4>
+<p>물체를 두드려 이동시키거나 변형시키는 공구입니다. 장도리의 한쪽 면은 평평해 두드리는 데 쓰고, 다른 쪽은 V자형으로 못을 뽑는 데 씁니다. 손잡이 끝을 잡아 최대 토크를 얻으세요. 두드릴 때는 망치 머리의 평면이 대상 물체 표면과 평행이 되도록 해 옆으로 미끄러지는 것을 방지하세요.</p>
+<h4>줄자</h4>
+<p>스프링 감기 기구가 내장된 유연한 금속 자로, 긴 거리나 비선형 치수를 측정하는 데 사용합니다. 사용 시 테이프를 빼내 앞쪽 갈고리를 물체 가장자리에 걸거나 기준면에 댑니다. 테이프의 눈금을 읽고, 측정이 끝나면 잠금 버튼을 누르거나 자동 복귀 기능을 이용해 테이프를 회수합니다. 갈고리에는 보통 약간의 유격이 있는데, 이는 갈고리 두께를 보정해 안쪽 치수와 바깥쪽 치수 판독이 일치하도록 하기 위한 것입니다.</p>
+<h4>버니어 캘리퍼스</h4>
+<p>버니어 캘리퍼스의 주요 부분은 주척 A와 주척을 따라 미끄러지는 버니어 B입니다.</p>
+<ul><li><strong>원리</strong>: 버니어 캘리퍼스는 주척의 단위 눈금(1mm)과 버니어의 단위 눈금 사이의 고정된 미세 차이를 이용해 측정 정밀도를 높입니다. 흔히 쓰는 버니어 캘리퍼스에는 10분도, 20분도, 50분도 세 가지가 있습니다.</li><li><strong>판독</strong>: 먼저 주척의 눈금을 읽습니다. 버니어의 0 눈금선과 주척 눈금선의 상대적 위치에 따라 주척 판독값을 얻습니다. 다음으로 버니어의 눈금을 읽습니다. 버니어의 몇 번째 눈금선이 주척의 눈금선과 정렬되어 있는지 확인합니다. 주척과 버니어 판독값을 합쳐 측정 길이를 얻습니다.</li><li><strong>사용</strong>: 바깥쪽(또는 안쪽) 측정 조 두 날이 접촉하면 버니어의 0 눈금선이 주척의 0 눈금선과 정확히 정렬됩니다. 측정 대상을 이 두 날 사이에 끼우고(씌우고) 주척 판독값과 버니어 판독값을 합하면 측정 대상의 길이가 됩니다.</li></ul>
+<h4>마이크로미터</h4>
+<p>마이크로미터에서 앤빌 A와 고정 눈금 B는 프레임 C에 고정되어 있고, 회전 눈금 E, 손잡이 D, 미세 조절 손잡이 D'는 스핀들 F와 연결되어 있으며, 정밀 나사산을 통해 B에 장착됩니다.</p>
+<ul><li><strong>원리</strong>: 손잡이 D를 한 바퀴 돌리면 스핀들 F가 회전축 방향을 따라 나사 피치 한 칸만큼 전진하거나 후퇴합니다. 마이크로미터의 고정 눈금 B의 피치는 0.5mm이고, 원주 위의 회전 눈금 E는 50등분되어 있으므로 회전 눈금이 한 칸 돌아갈 때마다 스핀들 F는 0.01mm 전진하거나 후퇴합니다. 마이크로미터로 0.01mm까지 정확하게 측정할 수 있습니다.</li><li><strong>판독</strong>: 먼저 B의 눈금을 읽고 B의 반 밀리미터 눈금선이 드러났는지 확인합니다. 다음으로 E의 눈금을 읽습니다. 한 칸이 0.01mm에 해당합니다. B와 E의 판독값을 합쳐 측정 길이를 얻습니다.</li><li><strong>사용</strong>: 먼저 F와 A를 접촉시켜 E의 왼쪽 가장자리가 B의 0 눈금선과 정렬되게 합니다. 측정 대상을 F와 A 사이에 끼우고 D를 돌리다가, F가 대상에 가까워지면 D 사용을 멈추고 D'를 사용해 '딸깍' 소리가 나면 멈춘 뒤 판독합니다.</li></ul>
+<h3 id="자주쓰는재료">자주 쓰는 재료</h3>
+<h4>범용 재료</h4>
+<p>다양한 경로로 구할 수 있는 것:</p>
+<ul><li>각종 나사, 너트</li><li>육각 기둥</li><li>타이밍 벨트 풀리</li><li>베어링</li></ul>
+<blockquote class="bq-warning">축은 범용 재료에 포함되지 않습니다. 축의 규격 수요는 특수하므로 프로젝트의 실제 필요에 따라 별도로 구매하세요.</blockquote>
+<h4>전용 재료</h4>
+<p>REV와 goBILDA의 공식 전용 프로파일.</p>
+<h4>재료 특성</h4>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">브랜드</th><th style="text-align:left">특징</th></tr></thead><tbody><tr><td style="text-align:left"><strong>REV</strong></td><td style="text-align:left">비교적 오래되었지만 핵심적입니다. 3대 전자 제어 모듈(Driver Hub, Control Hub, Expansion Hub)은 주로 REV 제품을 사용합니다. 구조 부품으로는 각종 알루미늄 프로파일(사용 빈도는 비교적 낮음)이 있으며, 프로파일은 작은 리미트 브래킷이나 비단위 변위 구조 고정에 쓸 수 있습니다. 프로파일은 M3 접시머리 나사(한정), 6mm REX 축, 기어와 체인에 대응하며, 72:1 횡축 모터와 40:1 모터가 비교적 유용하고 자주 쓰입니다.</td></tr><tr><td style="text-align:left"><strong>goBILDA</strong></td><td style="text-align:left">C형 빔, 사각 빔 또는 얇은 빔, 8mm REX 축, 각종 단위화된 연결 부품, 완성도 높은 연결 기능. 주로 M4 나사(공식 10mm)를 사용하며, 모터는 대부분 5203 시리즈입니다. 모터 직결 전동 키트에 적합합니다.</td></tr></tbody></table></div>
+<p><strong>REV 공급업체 세부 사항:</strong></p>
+<ul><li><strong>핵심 전자 제어 모듈</strong>: Driver Hub, Controller Hub(즉 Control Hub), Expansion Hub 3대 전자 제어 모듈은 주로 REV 제품을 사용합니다.</li><li><strong>구조 부품</strong>: 알루미늄 프로파일 위주이며 현재 사용 빈도가 낮습니다. 작은 리미트 브래킷이나 비단위 변위 구조 고정에 쓸 수 있습니다.</li><li><strong>특수 나사</strong>: REV 프로파일은 M3 접시머리(육각 홈) 나사를 사용하며, 이 나사는 알루미늄 프로파일에 끼워지므로 거의 REV 프로파일에서만 쓰입니다.</li><li><strong>축 규격</strong>: REV는 6밀리미터 REX 축에 대응하며, 이는 REV 고유의 규격입니다.</li><li><strong>모터</strong>: REV는 72:1 횡축 모터(공식 명칭 Core Hex, 90° 횡배치 출력, 자체 출력축 없음)와 40:1 표준 모터(공식 명칭 HD Hex)를 제공합니다. 72:1 횡축 모터는 특수한 장착 방안을 제공하지만 구조 설계가 오래되어 현재 환경에서는 호환 대상을 찾기 어렵습니다.</li><li><strong>기어와 체인</strong>: REV도 제공하지만 보통 goBILDA 제품을 우선합니다.</li></ul>
+<p><strong>goBILDA 공급업체 세부 사항:</strong></p>
+<ul><li><strong>C형 빔</strong>: 사각 빔과 얇은 빔 두 종류로 나뉩니다. 사각 빔은 섀시 등 대형 프레임 구조에 적합하고, 얇은 빔은 경간 연결에 적합합니다.</li><li><strong>연결 부품</strong>: 각종 표준화된 연결 부품을 제공하며, 단위화 정도가 높고 자체 재료 및 REV 재료와의 연결 기능이 완성되어 있습니다.</li><li><strong>나사 규격</strong>: 주로 M4 나사를 사용하며, 공식 규격은 M4×10밀리미터 접시머리 나사입니다.</li><li><strong>축 규격</strong>: 8밀리미터 REX 축에 대응합니다.</li><li><strong>모터</strong>: 5203 시리즈가 자주 쓰이며, 표준 직결 전동에 적합합니다. 8mm REX 축의 강도와 모터 장착 방식의 특성 덕분에 goBILDA는 모터 직결 전동에 적합한 키트입니다.</li></ul>
+<h4>3D 프린팅 필라멘트</h4>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">종류</th><th style="text-align:left">프린팅 온도(약)</th><th style="text-align:left">설명</th></tr></thead><tbody><tr><td style="text-align:left">PLA</td><td style="text-align:left">220°C</td><td style="text-align:left">표준 기초 플라스틱 필라멘트</td></tr><tr><td style="text-align:left">PETG-CF</td><td style="text-align:left">240+°C</td><td style="text-align:left">탄소 섬유 함유 플라스틱 필라멘트</td></tr></tbody></table></div>
+<p>구매는 Bambu Lab(拓竹) 공식 또는 SUNLU(三绿) 필라멘트를 사용하며 품질이 비교적 안정적입니다.</p>
+<p><strong>수축률:</strong></p>
+<ul><li>일반적으로 PLA는 수축률 문제를 고려하지 않아도 됩니다.</li><li>축 슬리브를 프린팅할 때 지름의 약 5% 수축이 나타날 수 있으므로 프린팅 형태에 따라 측정해야 합니다.</li><li>PETG-CF의 수축률은 시간, 온도, 배치 등 요인의 영향을 크게 받으므로, 사용 전에 부품 형태에 맞춘 간단한 테스트 피스를 만들어 수축률을 측정하는 것이 좋습니다.</li></ul>
+<h4>레이저 커팅 재료</h4>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">재료</th><th style="text-align:left">특징</th><th style="text-align:left">용도</th></tr></thead><tbody><tr><td style="text-align:left">아크릴 판</td><td style="text-align:left">강도가 비교적 높음</td><td style="text-align:left">큰 경간 하중 지지 판</td></tr><tr><td style="text-align:left">PP 판</td><td style="text-align:left">인성이 비교적 강함</td><td style="text-align:left">보호 부품, 더 많은 연결점 필요, 직접 충격 견딜 수 있음</td></tr><tr><td style="text-align:left">목재</td><td style="text-align:left">비용이 낮음</td><td style="text-align:left">휨이 발생하기 쉬우며 특수한 경우에 사용</td></tr></tbody></table></div>
+<blockquote class="bq-info">재료 자체의 성질은 여기에 고정적으로 기록합니다. 레이저 커팅의 출력, 속도 등 공정 매개변수는 부록에 수록하며 계속 업데이트합니다.</blockquote>
+<h4>전선</h4>
+<p><strong>전원선:</strong></p>
+<ul><li>배터리–Hub 연결선(설계에 따라 배터리가 Control Hub 또는 Expansion Hub에 직접 연결될 수 있음)</li><li>Con–EXP 연결선</li><li>전선이 달린 스위치</li><li>모터 전원선: goBILDA 모터의 경우 전원선 어댑터 단자가 Hub와 호환되지 않으므로 원래 어댑터 단자를 자르고 케이블 러그로 새로 단자를 만들어야 합니다.</li></ul>
+<p><strong>데이터선(모터 인코더선):</strong></p>
+<ul><li>goBILDA의 경우 Hub 어댑터 단자 및 선 배열이 다르므로(노란선과 흰선이 서로 바뀜) 제작 시 특히 주의해야 합니다.</li><li>I2C 센서선: 특별한 요구 없음.</li><li>Con과 EXP 데이터 연결선.</li><li>서보 연장선: 방향에 주의하세요.</li></ul>
+<p><strong>호스트 데이터선:</strong></p>
+<ul><li>Hub–컴퓨터 연결: Control Hub는 USB-A to USB-C 케이블, Expansion Hub는 mini USB 케이블을 사용합니다.</li><li>기타: USB-A to USB-C, USB-A to miniUSB, USB-C to miniUSB 등 각종 변환선.</li><li>랜선(네트워크 보조 연결에 사용 가능, 필수품은 아님).</li><li>컨트롤러 데이터선(USB-A to microUSB).</li></ul>
+<p><strong>인프라(소모품으로 관리):</strong></p>
+<ul><li>WiFi, 모니터링, 랜선, 멀티탭 등 인프라는 모두 소모품으로 관리하며, 제때 보충하세요.</li></ul>
+<hr>
+<h2 id="4작업흐름">4. 작업 흐름</h2>
+<ol><li><strong>부품 구매</strong></li><li><strong>자체 제작 부품 제작</strong><ul><li>3D 프린팅 부품 제작</li><li>레이저 커팅 판재 가공</li></ul></li><li><strong>하드웨어 장착</strong></li><li><strong>전선 연결</strong></li><li><strong>Robot Configuration 작성</strong>(프로그래밍과 협업)</li><li><strong>Driver Station과 Robot Controller 연결</strong>(프로그래밍과 협업)</li></ol>
+<h3 id="하드웨어장착">하드웨어 장착</h3>
+<h4>장착 순서</h4>
+<blockquote class="bq-warning">일반적으로 손으로 로봇을 조립할 때는 섀시부터 만들어 위로 쌓아 올리는 습관이 있습니다. 하지만 대회 로봇은 모델링 도면이 있으므로 이 순서는 부품이 서로 가려 대량의 재작업을 유발하기 쉽습니다.</blockquote>
+<ul><li>장착 시 부품 간 가림 관계에 따라 순서를 조정해야 합니다. <strong>모터, 전자 제어 부품 등에 가려지는 부품을 먼저 장착</strong>하고, 그다음 그것을 가리는 부품을 장착하세요.</li><li>예: 모터 주변에 장착해야 할 부품이 모두 장착되었는지 확인한 뒤 그 모터를 장착하세요.</li></ul>
+<h4>부품 사용 시 주의사항</h4>
+<ul><li>축 위 부품은 세트스크루(무두 나사)가 있는 스타일을 우선 사용하지 마세요. 세트스크루는 축을 손상시킵니다.</li><li>나사를 지나치게 세게 조이지 마세요.</li><li>나머지 부품 사용 규칙은 계속 보충할 예정입니다.</li></ul>
+<h4>수리를 위한 공간 확보</h4>
+<ul><li>로봇을 조립할 때 절대 편한 방법만 찾지 마세요. 나사와 너트를 접근하기 어려운 곳에 숨기지 마세요.</li><li>모든 것은 '수리하기 쉬워야 한다'는 원칙 아래 진행하세요. 차가 고장 났을 때 수리를 위해 차 전체를 분해해야 한다면 경기를 계속할 수 없습니다.</li></ul>
+<h4>정전기 방지</h4>
+<ul><li>건조한 날씨에는 정전기가 생기기 쉬우며, 정전기는 로봇 연결 끊김과 센서 데이터 부정확을 유발합니다.</li><li>방지 조치: 로봇에 접지선을 장착해 정전기를 땅으로 흘려보내고, IMU 등 센서를 은박지로 감싸 정전기 방지를 합니다.</li></ul>
+<h4>배선 정리</h4>
+<ul><li>슬라이드 레일이 있는 신축 구조는 반드시 케이블 튜브를 씌워 전선이 마구 흔들리며 레일을 막거나 끊어지는 것을 방지해야 합니다.</li><li>배선 정리는 로봇 조립에서 기술 요구가 가장 높은 작업입니다. 반드시 신중하게 다루세요.</li></ul>
+<h3 id="전선연결">전선 연결</h3>
+<h4>Control Hub와 Expansion Hub 연결</h4>
+<ul><li><strong>전원 연결</strong>: 수 단자와 암 단자를 서로 연결합니다.</li><li><strong>데이터 연결</strong>: RS-485 포트에 3P 케이블을 사용해 연결합니다. 양쪽에 각각 2개의 RS-485 포트가 있으며, 양쪽에서 하나씩 꽂으면 되고 서로 고정된 위치에 대응할 필요는 없습니다.</li></ul>
+<blockquote class="bq-warning">공식 단자는 모두 방향 반전 방지(防呆) 설계가 되어 있습니다. 이 설계는 실수를 막아 주지만 무리를 막아 주지는 않습니다. 삽입이 안 되는 경우에는 즉시 방향을 확인하고 절대 무리하게 힘을 주어 뽑거나 꽂지 마세요.</blockquote>
+<h4>Driver Station과 Robot Controller 연결</h4>
+<p>네트워크 연결 부분은 구조와 프로그램 부서 모두 숙지해야 하며, 프로그램 파트의 내용을 그대로 재사용할 수 있습니다.</p>
+<h4>Robot Configuration 작성</h4>
+<p>설정 파일 작성은 구조와 프로그램의 공동 업무이며, 자세한 내용은 프로그래밍 파트를 참고하세요.</p>
+<hr>
+<h2 id="5하드웨어및제작입문">5. 하드웨어 및 제작 입문</h2>
+<h3 id="BambuStudio설치및설정">Bambu Studio 설치 및 설정</h3>
+<p>다운로드 후 설치하며 '다음'만 누르면 됩니다. 설치 위치 선택에 주의하고, 폴더는 자동으로 생성됩니다.</p>
+<p><strong>주의사항:</strong></p>
+<ul><li>모든 체크박스를 체크하세요</li><li>실행 후 가입 안내에서 중국 본토 선택</li><li>P1S와 P2S만 선택</li><li>자주 쓰는 재료는 기본 선택 유지</li><li>네트워크 플러그인 설치</li><li>왼쪽 위에서 로그인·가입(휴대폰 번호 또는 서드파티)</li></ul>
+<h3 id="Onshape에서모델링파일내보내기">Onshape에서 모델링 파일 내보내기</h3>
+<ol><li>모델링 파일을 열고 대상 부품을 선택하면 왼쪽 아래에 왼쪽 인스턴스 목록에서 해당 부품의 위치가 표시됩니다.</li><li>해당 부품에 오른쪽 클릭하고 해당 인스턴스에 대응하는 작업 표시줄로 전환을 선택해 부품 구조 영역으로 들어갑니다.</li><li>왼쪽 아래 부품 수 위치에서 오른쪽 클릭하고 내보내기를 선택합니다.<ul><li>주의: 문서의 변경 권한을 얻은 후에만 내보내기 옵션이 나타납니다.</li></ul></li><li>형식을 STEP으로 바꾸고 파일 이름을 필요에 따라 수정하며, 나머지 옵션은 기본값을 유지하면 됩니다.</li></ol>
+<h3 id="BambuStudio가져오기와배치">Bambu Studio 가져오기와 배치</h3>
+<ul><li>Bambu Studio에서 새 프로젝트를 만들고 위쪽 '가져오기' 버튼을 클릭해 STEP 파일을 가져옵니다. 가져오기 옵션은 기본값으로 확인하면 됩니다.</li><li>부품 위치가 기대와 다르면 부품을 아무것도 선택하지 않은 상태에서 프린트 베드에 오른쪽 클릭하고 '자동 배치' 또는 '자동 방향'을 선택합니다.</li><li>수동 조정: 부품을 선택하고 왼쪽 버튼을 길게 눌러 드래그해 이동합니다. 회전 버튼을 클릭해 상대/절대 두 가지 방식으로 회전합니다.</li><li>조작 로직 차이: Bambu Studio는 기본적으로 Onshape와 동일합니다. 왼쪽 버튼 드래그는 뷰 회전, 오른쪽 버튼 드래그는 뷰 이동입니다. 익숙하지 않다면 설정에서 뷰 조작 방식을 조정할 수 있습니다. 부품을 선택한 뒤 왼쪽 버튼으로 드래그하면 부품을 바로 이동할 수 있습니다.</li></ul>
+<h3 id="프린팅매개변수설정">프린팅 매개변수 설정</h3>
+<p><strong>프린터와 필라멘트 선택:</strong></p>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">프린터</th><th style="text-align:left">노즐</th><th style="text-align:left">필라멘트</th></tr></thead><tbody><tr><td style="text-align:left">P1S(노즐 미교체)</td><td style="text-align:left">0.4mm</td><td style="text-align:left">PLA Basic</td></tr><tr><td style="text-align:left">P1S(노즐 교체, 탄소재 전용)</td><td style="text-align:left">0.6mm</td><td style="text-align:left">PETG-CF</td></tr><tr><td style="text-align:left">P2S(2대)</td><td style="text-align:left">0.4mm</td><td style="text-align:left">PLA Basic</td></tr></tbody></table></div>
+<p><strong>부품 유형별 공정 매개변수 선택:</strong></p>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">유형</th><th style="text-align:left">매개변수</th></tr></thead><tbody><tr><td style="text-align:left">장식 부품</td><td style="text-align:left">Bambu Studio 기본 매개변수</td></tr><tr><td style="text-align:left">비하중 구조 부품</td><td style="text-align:left">모델링팀 상용 설정</td></tr><tr><td style="text-align:left">하중 지지 구조 부품</td><td style="text-align:left">모델링팀 상용 설정(고강도)</td></tr></tbody></table></div>
+<blockquote class="bq-info">위 매개변수는 우리 팀의 상용 설정입니다. 특별한 요구가 있으면 직접 수정할 수 있습니다.</blockquote>
+<p><strong>여러 부품 배치:</strong></p>
+<ul><li>같은 베드에 같은 부품 여러 개 필요: 부품을 선택하고 오른쪽 클릭해 '복제' 선택.</li><li>다른 부품 추가: '가져오기' 버튼을 다시 클릭해 가져오면 됩니다.</li></ul>
+<h3 id="3D프린터연결">3D 프린터 연결</h3>
+<ul><li>'기기' 탭에 들어가 LAN 모드를 켜면 LAN 내 프린터가 자동으로 검색됩니다(LAN 모드를 켜면 현재 로그인 계정이 로그아웃될 수 있으니 안내를 무시해도 됩니다).</li><li>대상 프린터를 검색하지 못하면: 먼저 프린터가 LAN 모드를 켰는지 확인하세요. 그래도 인식되지 않으면 IP + 액세스 코드로 수동 바인딩할 수 있습니다. IP는 프린터 설정의 WiFi 페이지에서, 액세스 코드는 LAN 모드 켠 뒤 로그인 아바타에서 확인합니다.</li><li>슬라이싱이 끝나면 '미리보기' 탭에서 확인하고, 프린팅 전에 슬라이싱 미리보기 이미지를 현재 모델링 또는 구조 담당자에게 보내 설정이 맞는지 확인받은 뒤 프린팅을 보내는 것이 좋습니다.</li></ul>
+<h3 id="프린팅설정">프린팅 설정</h3>
+<p><strong>P2S 프린터:</strong></p>
+<ul><li>프린팅 전 타임랩스 켜기.</li><li>자동 베드 레벨링을 반드시 켜야 합니다.</li><li>장착된 필라멘트와 대상 프린터를 선택합니다.</li></ul>
+<p><strong>P1S 프린터:</strong></p>
+<ul><li>타임랩스는 기본 꺼짐을 유지하면 됩니다.</li><li>자동 베드 레벨링과 동적 유량 보정은 반드시 모두 자동으로 설정해야 합니다.</li></ul>
+<h3 id="프린팅이상처리">프린팅 이상 처리</h3>
+<ul><li><strong>P2S</strong>: AI 스파게티 감지 기능이 있어 스파게티(필라멘트 실이 마구 날리는 현상)가 발생하면 기기가 자동으로 프린팅을 멈추고 해당 기기에 로그인된 계정에 알림을 보냅니다. 오류 파일을 정리하면 기기가 자동으로 재시작합니다.</li><li><strong>P1S</strong>: 스파게티 자동 감지 기능이 없으므로 프린팅 중 실시간으로 상태를 지켜봐야 합니다. 스파게티를 발견하면 수동으로 프린팅을 멈추고, 왼쪽 cache 폴더의 과거 프린팅 파일에서 오류 파일을 찾아 정리할 수 있습니다.</li></ul>
+<h3 id="RDWorksV8설치및설정">RD Works V8 설치 및 설정</h3>
+<p><strong>설치 절차:</strong></p>
+<ol><li>관리자 또는 지도 교사에게 exe 설치 파일을 받아 Install 선택</li><li>수동 설치 경로 체크로 위치 변경</li><li>나머지 옵션은 기본값 유지</li><li>레이저 커터에 연결되면 USB 드라이버 설치 선택</li><li>소프트웨어를 닫았다가 다시 열면 됩니다</li></ol>
+</main>
+
+<script>
+(function(){
+  var sb=document.getElementById("sidebar");
+  var ol=document.getElementById("overlay");
+  var btn=document.getElementById("menuBtn");
+  function open(){sb.classList.add("open");ol.classList.add("show")}
+  function close(){sb.classList.remove("open");ol.classList.remove("show")}
+  btn.addEventListener("click",function(){sb.classList.contains("open")?close():open()});
+  ol.addEventListener("click",close);
+  var ls=document.getElementById("langSelect");
+  if(ls){ls.addEventListener("change",function(){window.location.href=ls.value})};
+  var lss=document.getElementById("langSelectSide");
+  if(lss){lss.addEventListener("change",function(){window.location.href=lss.value})};
+})();
+</script>
+</body>
+</html>
