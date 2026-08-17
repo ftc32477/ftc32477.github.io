@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>建模設計｜FTC 32477 Origin 快速入門指南</title>
+<meta name="description" content="FTC 32477 Origin 快速入門指南——拒絕重複造輪子。面向新老隊員的七章完整指南：隊員須知、建模設計、結構建造、程式設計、外部聯絡與後記，提供六種語言版本與可列印 PDF。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="建模設計｜FTC 32477 Origin 快速入門指南">
+<meta property="og:description" content="FTC 32477 Origin 快速入門指南——拒絕重複造輪子。面向新老隊員的七章完整指南：隊員須知、建模設計、結構建造、程式設計、外部聯絡與後記，提供六種語言版本與可列印 PDF。">
+<meta property="og:image" content="https://ftc32477.github.io/docs/images/basic/team_logo.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="建模設計｜FTC 32477 Origin 快速入門指南">
+<meta name="twitter:description" content="FTC 32477 Origin 快速入門指南——拒絕重複造輪子。面向新老隊員的七章完整指南：隊員須知、建模設計、結構建造、程式設計、外部聯絡與後記，提供六種語言版本與可列印 PDF。">
+<meta name="twitter:image" content="https://ftc32477.github.io/docs/images/basic/team_logo.png">
 <link rel="icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <link rel="shortcut icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <style>
@@ -293,10 +302,10 @@ tr:nth-child(even){background:#fafafa}
 <div class="topbar">
   <img class="topbar-logo" src="../images/basic/team_logo.png" alt="32477 Origin">
   <span class="brand"><a href="../index.html" title="返回主页">FTC 32477 Origin 快速入門指南</a></span>
-  <select class="lang-select" id="langSelect" aria-label="Language">
+  <select class="lang-select" id="langSelect" aria-label="語言">
 <option value="../zh-hans/modeling.html">简体中文</option><option value="../zh-hant/modeling.html" selected>繁體中文</option><option value="../en-us/modeling.html">English (US)</option><option value="../fr/modeling.html">Français</option><option value="../es/modeling.html">Español</option><option value="../ko/modeling.html">한국어</option>
   </select>
-  <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+  <button class="menu-btn" id="menuBtn" aria-label="選單" aria-controls="sidebar" aria-expanded="false">☰</button>
 </div>
 <div class="overlay" id="overlay"></div>
 
@@ -307,7 +316,7 @@ tr:nth-child(even){background:#fafafa}
       <div class="logo">FTC 32477<br>Origin</div>
       <div class="sub">快速入門指南</div>
     </a>
-    <select class="lang-select-sidebar" id="langSelectSide" aria-label="Language">
+    <select class="lang-select-sidebar" id="langSelectSide" aria-label="語言">
 <option value="../zh-hans/modeling.html">简体中文</option><option value="../zh-hant/modeling.html" selected>繁體中文</option><option value="../en-us/modeling.html">English (US)</option><option value="../fr/modeling.html">Français</option><option value="../es/modeling.html">Español</option><option value="../ko/modeling.html">한국어</option>
     </select>
   </div>
@@ -338,7 +347,7 @@ tr:nth-child(even){background:#fafafa}
 <a href="outreach.html">外部聯絡</a>
 <a href="afterword.html">後記</a>
   </div>
-  <div class="sidebar-footer">2026年8月第3版 &middot; 編寫小組</div>
+  <div class="sidebar-footer">2026年8月第3版·第2次修訂 &middot; 編寫小組</div>
 </nav>
 
 <main>
@@ -380,17 +389,17 @@ tr:nth-child(even){background:#fafafa}
 <h3 id="專案文件與工作區">專案文件與工作區</h3>
 <p>在進行隊伍相關專案的製作時，請在隊伍共享資料夾裡建立文件，以便與其他隊員共享。若尚未加入，請聯繫管理員將你加入隊伍共享資料夾。</p>
 <ol><li>在個人工作台左側選單選擇「已与我共享」，開啟「32477」資料夾，即可新建文件或開啟隊伍已建立的文件（一個文件就是一個專案）</li><li>若要新建專案：點擊頁面左上角藍色建立按鈕，選擇「文档」，等待文件建立完成並開啟</li></ol>
-<p>進入工作區後，下方可見「结构体（Part Studio）」與「装配体（Assembly）」標籤頁（點擊標籤右側加號可新建）：</p>
-<ul><li><strong>结构体</strong>：單個零件建模的區域（對應 CAD 流程中的草圖與零件），透過草圖約束來製作零件</li><li><strong>装配体</strong>：利用「结构体」中製作的零件或零件庫中現成的零件進行拼裝的區域（對應 CAD 流程中的裝配）</li></ul>
-<p>一個文件中可以建立任意數量的「装配体」與「结构体」。為方便修改與管理，請注意：一個結構體盡量只製作一個零件；將整車分結構進行裝配，最後再在一個總裝配體中合體。</p>
+<p>進入工作區後，下方可見「結構體（Part Studio）」與「裝配體（Assembly）」標籤頁（點擊標籤右側加號可新建）：</p>
+<ul><li><strong>結構體</strong>：單個零件建模的區域（對應 CAD 流程中的草圖與零件），透過草圖約束來製作零件</li><li><strong>裝配體</strong>：利用「結構體」中製作的零件或零件庫中現成的零件進行拼裝的區域（對應 CAD 流程中的裝配）</li></ul>
+<p>一個文件中可以建立任意數量的「裝配體」與「結構體」。為方便修改與管理，請注意：一個結構體盡量只製作一個零件；將整車分結構進行裝配，最後再在一個總裝配體中合體。</p>
 <h3 id="建模基礎流程">建模基礎流程</h3>
 <p>作為入門手冊，這裡只介紹 Onshape 最基本的操作與工作流程。</p>
 <h4>草圖的繪製</h4>
-<p>在「结构体」中新建草圖，選擇基準面後，使用直線、矩形、圓等草圖工具繪製輪廓，再透過尺寸標註與幾何約束（如水平、垂直、相切）固定形狀。草圖應盡量完全約束，後續特徵操作才能可靠。</p>
+<p>在「結構體」中新建草圖，選擇基準面後，使用直線、矩形、圓等草圖工具繪製輪廓，再透過尺寸標註與幾何約束（如水平、垂直、相切）固定形狀。草圖應盡量完全約束，後續特徵操作才能可靠。</p>
 <h4>零件的製作</h4>
 <p>草圖完成後，使用拉伸、旋轉、掃描等特徵工具將二維輪廓轉化為三維實體，並透過孔、倒角、圓角等操作細化零件。所有特徵按順序記錄在特徵列表中，可隨時回退修改。</p>
 <h4>零件裝配</h4>
-<p>在「装配体」中插入「结构体」製作的零件或零件庫中的現成零件，使用 Mate 與 Mate Connector 將其按配合關係連接。裝配完成後應檢查運動是否順暢、有無干涉。</p>
+<p>在「裝配體」中插入「結構體」製作的零件或零件庫中的現成零件，使用 Mate 與 Mate Connector 將其按配合關係連接。裝配完成後應檢查運動是否順暢、有無干涉。</p>
 <h4>工具的使用</h4>
 <p>Onshape 提供測量、剖切、質量屬性等分析工具，可在建模過程中隨時檢查尺寸與重量；右鍵選單中還提供隱藏、隔離、重新命名等快捷操作。</p>
 <h3 id="模型強度與設計經驗">模型強度與設計經驗</h3>
@@ -417,8 +426,8 @@ tr:nth-child(even){background:#fafafa}
   var sb=document.getElementById("sidebar");
   var ol=document.getElementById("overlay");
   var btn=document.getElementById("menuBtn");
-  function open(){sb.classList.add("open");ol.classList.add("show")}
-  function close(){sb.classList.remove("open");ol.classList.remove("show")}
+  function open(){sb.classList.add("open");ol.classList.add("show");btn.setAttribute("aria-expanded","true")}
+  function close(){sb.classList.remove("open");ol.classList.remove("show");btn.setAttribute("aria-expanded","false")}
   btn.addEventListener("click",function(){sb.classList.contains("open")?close():open()});
   ol.addEventListener("click",close);
   var ls=document.getElementById("langSelect");

@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FTC 32477 Origin Quick Start Guide</title>
+<meta name="description" content="The FTC 32477 Origin Quick Start Guide — Refuse to Reinvent the Wheel. A complete seven-chapter guide for new and returning team members, available in six languages with printable PDFs.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FTC 32477 Origin Quick Start Guide">
+<meta property="og:description" content="The FTC 32477 Origin Quick Start Guide — Refuse to Reinvent the Wheel. A complete seven-chapter guide for new and returning team members, available in six languages with printable PDFs.">
+<meta property="og:image" content="https://ftc32477.github.io/docs/images/basic/team_logo.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FTC 32477 Origin Quick Start Guide">
+<meta name="twitter:description" content="The FTC 32477 Origin Quick Start Guide — Refuse to Reinvent the Wheel. A complete seven-chapter guide for new and returning team members, available in six languages with printable PDFs.">
+<meta name="twitter:image" content="https://ftc32477.github.io/docs/images/basic/team_logo.png">
 <link rel="icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <link rel="shortcut icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <style>
@@ -326,7 +335,7 @@ tr:nth-child(even){background:#fafafa}
   <select class="lang-select" id="langSelect" aria-label="Language">
 <option value="../zh-hans/index.html">简体中文</option><option value="../zh-hant/index.html">繁體中文</option><option value="../en-us/index.html" selected>English (US)</option><option value="../fr/index.html">Français</option><option value="../es/index.html">Español</option><option value="../ko/index.html">한국어</option>
   </select>
-  <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+  <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-controls="sidebar" aria-expanded="false">☰</button>
 </div>
 <div class="overlay" id="overlay"></div>
 
@@ -351,7 +360,7 @@ tr:nth-child(even){background:#fafafa}
 <a href="outreach.html">Outreach &amp; PR</a>
 <a href="afterword.html">Afterword</a>
   </div>
-  <div class="sidebar-footer">Aug 2026, 3rd Ed. &middot; Editorial Team</div>
+  <div class="sidebar-footer">August 2026, 3rd Edition, 2nd Revision &middot; Editorial Team</div>
 </nav>
 
 <main>
@@ -365,13 +374,13 @@ tr:nth-child(even){background:#fafafa}
     <section id="about">
       <h2>About Us</h2>
       <div class="lh-about">
-<p class="lh-line"><span class="lh-tag">Team</span><span class="lh-text">FTC Team 32477 Origin</span></p><p class="lh-line"><span class="lh-tag">School</span><span class="lh-text">Beijing National Day Experimental School, Haidian District, Beijing, China</span></p><p class="lh-line"><span class="lh-tag">Address</span><span class="lh-text">No. 8 Taiping Road, Haidian District, Beijing 100039, China</span></p><p class="lh-line"><span class="lh-tag">Latest Version</span><span class="lh-text">3rd Edition · August 2026</span></p>
+<p class="lh-line"><span class="lh-tag">Team</span><span class="lh-text">FTC Team 32477 Origin</span></p><p class="lh-line"><span class="lh-tag">School</span><span class="lh-text">Beijing National Day Experimental School, Haidian District, Beijing, China</span></p><p class="lh-line"><span class="lh-tag">Address</span><span class="lh-text">No. 8 Taiping Road, Haidian District, Beijing 100039, China</span></p><p class="lh-line"><span class="lh-tag">Latest Version</span><span class="lh-text">August 2026, 3rd Edition, 2nd Revision</span></p>
       </div>
     </section>
     <section id="download">
       <h2>Download</h2>
       <p class="lh-download-desc">Download the offline edition: read it without an internet connection, print it, or share and archive it.</p>
-      <a class="lh-pdf" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.1-en-us.pdf" target="_blank" rel="noopener">↓ Download PDF</a>
+      <a class="lh-pdf" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.2-en-us.pdf" target="_blank" rel="noopener">↓ Download PDF</a>
     </section>
     <section id="chapters">
       <h2>Table of Contents</h2>
@@ -393,8 +402,8 @@ tr:nth-child(even){background:#fafafa}
   var sb=document.getElementById("sidebar");
   var ol=document.getElementById("overlay");
   var btn=document.getElementById("menuBtn");
-  function open(){sb.classList.add("open");ol.classList.add("show")}
-  function close(){sb.classList.remove("open");ol.classList.remove("show")}
+  function open(){sb.classList.add("open");ol.classList.add("show");btn.setAttribute("aria-expanded","true")}
+  function close(){sb.classList.remove("open");ol.classList.remove("show");btn.setAttribute("aria-expanded","false")}
   btn.addEventListener("click",function(){sb.classList.contains("open")?close():open()});
   ol.addEventListener("click",close);
   var ls=document.getElementById("langSelect");
