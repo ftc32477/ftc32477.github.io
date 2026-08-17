@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>버전 기록｜FTC 32477 Origin 빠른 시작 가이드</title>
+<meta name="description" content="FTC 32477 Origin 빠른 시작 가이드 — 바퀴를 다시 발명하지 않기. 신입과 베테랑을 위한 7개 장으로 구성된 완전한 가이드로, 6개 언어 버전과 인쇄 가능한 PDF를 제공합니다.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="버전 기록｜FTC 32477 Origin 빠른 시작 가이드">
+<meta property="og:description" content="FTC 32477 Origin 빠른 시작 가이드 — 바퀴를 다시 발명하지 않기. 신입과 베테랑을 위한 7개 장으로 구성된 완전한 가이드로, 6개 언어 버전과 인쇄 가능한 PDF를 제공합니다.">
+<meta property="og:image" content="https://ftc32477.github.io/docs/images/basic/team_logo.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="버전 기록｜FTC 32477 Origin 빠른 시작 가이드">
+<meta name="twitter:description" content="FTC 32477 Origin 빠른 시작 가이드 — 바퀴를 다시 발명하지 않기. 신입과 베테랑을 위한 7개 장으로 구성된 완전한 가이드로, 6개 언어 버전과 인쇄 가능한 PDF를 제공합니다.">
+<meta name="twitter:image" content="https://ftc32477.github.io/docs/images/basic/team_logo.png">
 <link rel="icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <link rel="shortcut icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <style>
@@ -324,10 +333,10 @@ tr:nth-child(even){background:#fafafa}
 <div class="topbar">
   <img class="topbar-logo" src="../images/basic/team_logo.png" alt="32477 Origin">
   <span class="brand"><a href="../index.html" title="返回主页">FTC 32477 Origin 빠른 시작 가이드</a></span>
-  <select class="lang-select" id="langSelect" aria-label="Language">
+  <select class="lang-select" id="langSelect" aria-label="언어">
 <option value="../zh-hans/versions.html">简体中文</option><option value="../zh-hant/versions.html">繁體中文</option><option value="../en-us/versions.html">English (US)</option><option value="../fr/versions.html">Français</option><option value="../es/versions.html">Español</option><option value="../ko/versions.html" selected>한국어</option>
   </select>
-  <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+  <button class="menu-btn" id="menuBtn" aria-label="메뉴" aria-controls="sidebar" aria-expanded="false">☰</button>
 </div>
 <div class="overlay" id="overlay"></div>
 
@@ -338,17 +347,18 @@ tr:nth-child(even){background:#fafafa}
       <div class="logo">FTC 32477<br>Origin</div>
       <div class="sub">버전 기록</div>
     </a>
-    <select class="lang-select-sidebar" id="langSelectSide" aria-label="Language">
+    <select class="lang-select-sidebar" id="langSelectSide" aria-label="언어">
 <option value="../zh-hans/versions.html">简体中文</option><option value="../zh-hant/versions.html">繁體中文</option><option value="../en-us/versions.html">English (US)</option><option value="../fr/versions.html">Français</option><option value="../es/versions.html">Español</option><option value="../ko/versions.html" selected>한국어</option>
     </select>
   </div>
   <div class="sidebar-nav" id="verNav">
+<a class="ver-link" href="#v1.2.2">v1.2.2</a>
 <a class="ver-link" href="#v1.2.1">v1.2.1</a>
 <a class="ver-link" href="#v1.2.0">v1.2.0</a>
 <a class="ver-link" href="#v1.1.0">v1.1.0</a>
 <a class="ver-link" href="#v1.0.0">v1.0.0</a>
   </div>
-  <div class="sidebar-footer">2026년 8월 제3판 &middot; 편집팀</div>
+  <div class="sidebar-footer">2026년 8월 제3판 · 2차 개정 &middot; 편집팀</div>
 </nav>
 
 <main>
@@ -360,9 +370,10 @@ tr:nth-child(even){background:#fafafa}
         <button id="sortAsc" class="ver-sort-btn" type="button">오래된 순</button>
       </div>
     </div>
-    <p class="ver-intro">각 버전의 출시 날짜와 주요 변경 사항입니다. 6개 언어 PDF를 다운로드할 수 있으며, 과거 버전의 웹 버전은 제공하지 않습니다.</p>
+    <p class="ver-intro">각 버전의 출시 날짜와 주요 변경 사항입니다. 6개 언어 PDF를 다운로드할 수 있으며(초기 버전은 출시 당시 제공되던 언어만 포함), 과거 버전의 웹 버전은 제공하지 않습니다.</p>
     <div class="ver-list" id="verList">
-<article class="ver-card" id="v1.2.1"><div class="ver-head"><span class="ver-tag">v1.2.1</span><span class="ver-name">2026년 8월 제3판 · 1차 개정</span><span class="ver-badge latest">최신 버전</span></div><div class="ver-date">출시일: 2026년 8월 16일</div><ul class="ver-changes"><li>중국어 번체판: 인명에 간체 원명을 병기하고(예: 付修齊（付修齐）), 번간체 동형인 이름은 병기하지 않습니다.</li><li>중국어 간체/번체판: 외국어에서 번역된 용어에 출처 언어 원명을 병기합니다(예: 结构体（Part Studio）, 构建（Build）). 모든 언어의 표기 규칙을 README에 문서화했습니다.</li><li>포털: 한국어 언어 카드 상단 색상을 스페인어 카드와 동일하게 변경했습니다(#ffb953).</li></ul><div class="ver-pdfs"><span class="ver-pdf-label">다운로드:</span><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.1-zh-hans.pdf" target="_blank" rel="noopener">简体中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.1-zh-hant.pdf" target="_blank" rel="noopener">繁體中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.1-en-us.pdf" target="_blank" rel="noopener">English (US)</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.1-fr.pdf" target="_blank" rel="noopener">Français</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.1-es.pdf" target="_blank" rel="noopener">Español</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.1-ko.pdf" target="_blank" rel="noopener">한국어</a></div></article>
+<article class="ver-card" id="v1.2.2"><div class="ver-head"><span class="ver-tag">v1.2.2</span><span class="ver-name">2026년 8월 제3판 · 2차 개정</span><span class="ver-badge latest">최신 버전</span></div><div class="ver-date">출시일: 2026년 8월 16일</div><ul class="ver-changes"><li>중국어 번체판: Onshape 용어 「结构体/装配体」를 번체자(結構體/裝配體)로 통일했습니다.</li><li>버전 기록 페이지: 초기 버전에는 출시 당시 제공되던 언어만 포함된다는 설명을 추가했습니다.</li><li>PDF 표지/뒷표지: 버전 정보를 두 줄로 배치하고 줄 간격을 넓혔으며, 뒷표지는 오른쪽 정렬했습니다.</li><li>엔지니어링 개선: 판본 정보를 VERSIONS에서 완전히 데이터 구동(사이드바 푸터, 홈 최신 버전, PDF 표지 날짜)하고, check-dist CI 워크플로와 반자동 발매 스크립트(release.sh)를 추가했으며, Release 설명을 release-notes/에 보관합니다. 모든 페이지에 SEO/소셜 공유 meta 태그와 현지화된 접근성 라벨을 추가했고, --watch가 images/와 build.py도 감시합니다.</li></ul><div class="ver-pdfs"><span class="ver-pdf-label">다운로드:</span><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.2-zh-hans.pdf" target="_blank" rel="noopener">简体中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.2-zh-hant.pdf" target="_blank" rel="noopener">繁體中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.2-en-us.pdf" target="_blank" rel="noopener">English (US)</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.2-fr.pdf" target="_blank" rel="noopener">Français</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.2-es.pdf" target="_blank" rel="noopener">Español</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.2-ko.pdf" target="_blank" rel="noopener">한국어</a></div></article>
+<article class="ver-card" id="v1.2.1"><div class="ver-head"><span class="ver-tag">v1.2.1</span><span class="ver-name">2026년 8월 제3판 · 1차 개정</span></div><div class="ver-date">출시일: 2026년 8월 16일</div><ul class="ver-changes"><li>중국어 번체판: 인명에 간체 원명을 병기하고(예: 付修齊（付修齐）), 번간체 동형인 이름은 병기하지 않습니다.</li><li>중국어 간체/번체판: 외국어에서 번역된 용어에 출처 언어 원명을 병기합니다(예: 结构体（Part Studio）, 构建（Build）). 모든 언어의 표기 규칙을 README에 문서화했습니다.</li><li>포털: 한국어 언어 카드 상단 색상을 스페인어 카드와 동일하게 변경했습니다(#ffb953).</li></ul><div class="ver-pdfs"><span class="ver-pdf-label">다운로드:</span><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.1-zh-hans.pdf" target="_blank" rel="noopener">简体中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.1-zh-hant.pdf" target="_blank" rel="noopener">繁體中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.1-en-us.pdf" target="_blank" rel="noopener">English (US)</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.1-fr.pdf" target="_blank" rel="noopener">Français</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.1-es.pdf" target="_blank" rel="noopener">Español</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.1-ko.pdf" target="_blank" rel="noopener">한국어</a></div></article>
 <article class="ver-card" id="v1.2.0"><div class="ver-head"><span class="ver-tag">v1.2.0</span><span class="ver-name">2026년 8월 제3판</span></div><div class="ver-date">출시일: 2026년 8월 16일</div><ul class="ver-changes"><li>한국어(한국어) 버전 추가: 7개 장 전체 번역과 웹사이트 페이지(언어 홈, 버전 기록)의 한국어 번역을 제공하며 한국어 PDF를 함께 발표합니다.</li><li>모든 언어 버전에서 인명 및 고유명사 표기 규칙 통일: 실존 인명에는 한자 원명을 병기하고(예: Fu Xiuqi (付修齐); 한국어판은 한자 독음으로 표기, 예: 부수제(付修齐)), 플랫폼 등 고유명사에는 출처 언어 원명을 병기합니다(예: KIRIN (麒麟), Bilibili (哔哩哔哩)).</li><li>이번 버전은 2026년 8월 제3판입니다.</li></ul><div class="ver-pdfs"><span class="ver-pdf-label">다운로드:</span><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.0-zh-hans.pdf" target="_blank" rel="noopener">简体中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.0-zh-hant.pdf" target="_blank" rel="noopener">繁體中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.0-en-us.pdf" target="_blank" rel="noopener">English (US)</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.0-fr.pdf" target="_blank" rel="noopener">Français</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.0-es.pdf" target="_blank" rel="noopener">Español</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.0-ko.pdf" target="_blank" rel="noopener">한국어</a></div></article>
 <article class="ver-card" id="v1.1.0"><div class="ver-head"><span class="ver-tag">v1.1.0</span><span class="ver-name">2026년 8월 제2판</span></div><div class="ver-date">출시일: 2026년 8월 16일</div><ul class="ver-changes"><li>스페인어(Español) 버전 추가: 7개 장 전체 번역과 웹사이트 페이지(언어 홈, 버전 기록)의 스페인어 번역을 제공하며 스페인어 PDF를 함께 발표합니다.</li><li>포털 언어 선택 카드 상단 색상 업데이트: 중국어 간체/번체는 #a61615, English (US)/Français는 #d85d23, 새 스페인어 카드는 #ffb953.</li><li>이번 버전은 2026년 8월 제2판입니다.</li></ul><div class="ver-pdfs"><span class="ver-pdf-label">다운로드:</span><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.1.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.1.0-zh-hans.pdf" target="_blank" rel="noopener">简体中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.1.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.1.0-zh-hant.pdf" target="_blank" rel="noopener">繁體中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.1.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.1.0-en-us.pdf" target="_blank" rel="noopener">English (US)</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.1.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.1.0-fr.pdf" target="_blank" rel="noopener">Français</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.1.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.1.0-es.pdf" target="_blank" rel="noopener">Español</a></div></article>
 <article class="ver-card" id="v1.0.0"><div class="ver-head"><span class="ver-tag">v1.0.0</span><span class="ver-name">2026년 8월 제1판</span></div><div class="ver-date">출시일: 2026년 8월 14일</div><ul class="ver-changes"><li>첫 출판. 머리말, 팀원 필수사항, 모델링 및 설계, 하드웨어 및 제작, 프로그래밍, 아웃리치 및 대외 홍보, 후기 총 7개 장을 수록했습니다.</li><li>중국어 간체, 중국어 번체, English (US), Français 4개 언어 버전을 제공합니다.</li><li>병합 PDF에는 표지, 목차, 본문과 뒷표지가 포함되며, 페이지 번호가 연속으로 매겨지고 목차에서 바로 이동할 수 있습니다.</li></ul><div class="ver-pdfs"><span class="ver-pdf-label">다운로드:</span><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.0.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.0.0-zh-hans.pdf" target="_blank" rel="noopener">简体中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.0.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.0.0-zh-hant.pdf" target="_blank" rel="noopener">繁體中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.0.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.0.0-en-us.pdf" target="_blank" rel="noopener">English (US)</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.0.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.0.0-fr.pdf" target="_blank" rel="noopener">Français</a></div></article>
@@ -375,8 +386,8 @@ tr:nth-child(even){background:#fafafa}
   var sb=document.getElementById("sidebar");
   var ol=document.getElementById("overlay");
   var btn=document.getElementById("menuBtn");
-  function open(){sb.classList.add("open");ol.classList.add("show")}
-  function close(){sb.classList.remove("open");ol.classList.remove("show")}
+  function open(){sb.classList.add("open");ol.classList.add("show");btn.setAttribute("aria-expanded","true")}
+  function close(){sb.classList.remove("open");ol.classList.remove("show");btn.setAttribute("aria-expanded","false")}
   btn.addEventListener("click",function(){sb.classList.contains("open")?close():open()});
   ol.addEventListener("click",close);
   var ls=document.getElementById("langSelect");

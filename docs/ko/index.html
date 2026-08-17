@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FTC 32477 Origin 빠른 시작 가이드</title>
+<meta name="description" content="FTC 32477 Origin 빠른 시작 가이드 — 바퀴를 다시 발명하지 않기. 신입과 베테랑을 위한 7개 장으로 구성된 완전한 가이드로, 6개 언어 버전과 인쇄 가능한 PDF를 제공합니다.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="FTC 32477 Origin 빠른 시작 가이드">
+<meta property="og:description" content="FTC 32477 Origin 빠른 시작 가이드 — 바퀴를 다시 발명하지 않기. 신입과 베테랑을 위한 7개 장으로 구성된 완전한 가이드로, 6개 언어 버전과 인쇄 가능한 PDF를 제공합니다.">
+<meta property="og:image" content="https://ftc32477.github.io/docs/images/basic/team_logo.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="FTC 32477 Origin 빠른 시작 가이드">
+<meta name="twitter:description" content="FTC 32477 Origin 빠른 시작 가이드 — 바퀴를 다시 발명하지 않기. 신입과 베테랑을 위한 7개 장으로 구성된 완전한 가이드로, 6개 언어 버전과 인쇄 가능한 PDF를 제공합니다.">
+<meta name="twitter:image" content="https://ftc32477.github.io/docs/images/basic/team_logo.png">
 <link rel="icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <link rel="shortcut icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <style>
@@ -323,10 +332,10 @@ tr:nth-child(even){background:#fafafa}
 <div class="topbar">
   <img class="topbar-logo" src="../images/basic/team_logo.png" alt="32477 Origin">
   <span class="brand"><a href="../index.html" title="返回门户">FTC 32477 Origin 빠른 시작 가이드</a></span>
-  <select class="lang-select" id="langSelect" aria-label="Language">
+  <select class="lang-select" id="langSelect" aria-label="언어">
 <option value="../zh-hans/index.html">简体中文</option><option value="../zh-hant/index.html">繁體中文</option><option value="../en-us/index.html">English (US)</option><option value="../fr/index.html">Français</option><option value="../es/index.html">Español</option><option value="../ko/index.html" selected>한국어</option>
   </select>
-  <button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button>
+  <button class="menu-btn" id="menuBtn" aria-label="메뉴" aria-controls="sidebar" aria-expanded="false">☰</button>
 </div>
 <div class="overlay" id="overlay"></div>
 
@@ -337,7 +346,7 @@ tr:nth-child(even){background:#fafafa}
       <div class="logo">FTC 32477<br>Origin</div>
       <div class="sub">빠른 시작 가이드</div>
     </a>
-    <select class="lang-select-sidebar" id="langSelectSide" aria-label="Language">
+    <select class="lang-select-sidebar" id="langSelectSide" aria-label="언어">
 <option value="../zh-hans/index.html">简体中文</option><option value="../zh-hant/index.html">繁體中文</option><option value="../en-us/index.html">English (US)</option><option value="../fr/index.html">Français</option><option value="../es/index.html">Español</option><option value="../ko/index.html" selected>한국어</option>
     </select>
   </div>
@@ -351,7 +360,7 @@ tr:nth-child(even){background:#fafafa}
 <a href="outreach.html">아웃리치 및 대외 홍보</a>
 <a href="afterword.html">후기</a>
   </div>
-  <div class="sidebar-footer">2026년 8월 제3판 &middot; 편집팀</div>
+  <div class="sidebar-footer">2026년 8월 제3판 · 2차 개정 &middot; 편집팀</div>
 </nav>
 
 <main>
@@ -365,13 +374,13 @@ tr:nth-child(even){background:#fafafa}
     <section id="about">
       <h2>프로젝트 소개</h2>
       <div class="lh-about">
-<p class="lh-line"><span class="lh-tag">팀</span><span class="lh-text">FTC Team 32477 Origin</span></p><p class="lh-line"><span class="lh-tag">학교</span><span class="lh-text">Beijing National Day Experimental School, 중국 베이징시 하이딘구</span></p><p class="lh-line"><span class="lh-tag">주소</span><span class="lh-text">중국 베이징시 하이딘구 타이핑로 8번지, 우편번호 100039</span></p><p class="lh-line"><span class="lh-tag">최신 버전</span><span class="lh-text">2026년 8월 제3판</span></p>
+<p class="lh-line"><span class="lh-tag">팀</span><span class="lh-text">FTC Team 32477 Origin</span></p><p class="lh-line"><span class="lh-tag">학교</span><span class="lh-text">Beijing National Day Experimental School, 중국 베이징시 하이딘구</span></p><p class="lh-line"><span class="lh-tag">주소</span><span class="lh-text">중국 베이징시 하이딘구 타이핑로 8번지, 우편번호 100039</span></p><p class="lh-line"><span class="lh-tag">최신 버전</span><span class="lh-text">2026년 8월 제3판 · 2차 개정</span></p>
       </div>
     </section>
     <section id="download">
       <h2>다운로드</h2>
       <p class="lh-download-desc">오프라인 버전을 다운로드하세요. 인터넷 없이 읽고, 인쇄하거나 공유·보관할 수 있습니다.</p>
-      <a class="lh-pdf" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.1-ko.pdf" target="_blank" rel="noopener">↓ PDF 다운로드</a>
+      <a class="lh-pdf" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.2-ko.pdf" target="_blank" rel="noopener">↓ PDF 다운로드</a>
     </section>
     <section id="chapters">
       <h2>목차</h2>
@@ -393,8 +402,8 @@ tr:nth-child(even){background:#fafafa}
   var sb=document.getElementById("sidebar");
   var ol=document.getElementById("overlay");
   var btn=document.getElementById("menuBtn");
-  function open(){sb.classList.add("open");ol.classList.add("show")}
-  function close(){sb.classList.remove("open");ol.classList.remove("show")}
+  function open(){sb.classList.add("open");ol.classList.add("show");btn.setAttribute("aria-expanded","true")}
+  function close(){sb.classList.remove("open");ol.classList.remove("show");btn.setAttribute("aria-expanded","false")}
   btn.addEventListener("click",function(){sb.classList.contains("open")?close():open()});
   ol.addEventListener("click",close);
   var ls=document.getElementById("langSelect");
