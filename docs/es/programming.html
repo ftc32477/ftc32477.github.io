@@ -258,18 +258,31 @@ tr:nth-child(even){background:#fafafa}
 @media print{
   html,body{display:block !important;width:100% !important;max-width:100% !important;overflow:visible !important}
   nav.sidebar,.topbar,.overlay{display:none !important}
-  body{background:#fff}
+  /* 正文字号与封三正文一致（12px），行距收窄 */
+  body{background:#fff;font-size:12px;line-height:1.6}
   main{
     display:block !important;box-sizing:border-box !important;
     margin:0 !important;padding:0 !important;
     width:100% !important;max-width:100% !important;
   }
-  .card{box-shadow:none;border:1px solid var(--border);padding:24px 28px}
-  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:32px 28px}
-  .hero h1{color:var(--dark);font-size:28px}
-  section h2{font-size:22px}
-  section h3{font-size:17px}
+  .card{box-shadow:none;border:1px solid var(--border);padding:20px 24px}
+  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:28px 24px}
+  .hero h1{color:var(--dark);font-size:24px}
   .hero .badge{background:var(--red);color:#fff}
+  /* 正文标题为裸 h1/h2/h3/h4（无 section 包裹），须用裸元素选择器 */
+  h1{font-size:24px;margin:1.8em 0 .8em}
+  h2{font-size:19px;margin:1.2em 0 .5em}
+  h3{font-size:15px;margin:.8em 0 .3em}
+  h4{font-size:13px;margin:.6em 0 .3em}
+  p{margin-bottom:6px}
+  ul,ol{margin-bottom:8px}
+  li{margin-bottom:2px}
+  blockquote{font-size:11px;padding:10px 14px;margin:8px 0}
+  code{font-size:11px}
+  pre{font-size:11px;line-height:1.4;padding:12px 16px;margin-bottom:10px}
+  hr{margin:12px 0}
+  img{margin:8px 0}
+  .img-row figcaption{font-size:10px}
   a{color:inherit;overflow-wrap:anywhere !important}
   /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
   .table-wrap{
@@ -282,7 +295,7 @@ tr:nth-child(even){background:#fafafa}
     width:100% !important;max-width:100% !important;
     table-layout:fixed;font-size:12px
   }
-  th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
+  th,td{padding:4px 6px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
@@ -290,10 +303,6 @@ tr:nth-child(even){background:#fafafa}
   /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
   html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
   .align-right{text-align:right}
-  /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
-  h1{margin:3.2em 0 1em}
-  h2{margin:2em 0 .8em}
-  h3{margin:1.2em 0 .5em}
 }
 </style>
 </head>
@@ -340,10 +349,11 @@ tr:nth-child(even){background:#fafafa}
 <a class="sub-link sub-3" href="#RobotDashboard">Robot Dashboard</a>
 <a class="sub-link" href="#4Flujodetrabajo">4. Flujo de trabajo</a>
 <a class="sub-link sub-3" href="#Ladepuracióneselnúcleo">La depuración es el núcleo</a>
+<a class="sub-link sub-3" href="#ProgramaciónasistidaporIA">Programación asistida por IA</a>
 <a href="outreach.html">Divulgación y relaciones públicas</a>
 <a href="afterword.html">Epílogo</a>
   </div>
-  <div class="sidebar-footer">3.ª edición, agosto de 2026, 2.ª revisión &middot; Equipo editorial</div>
+  <div class="sidebar-footer">3.ª edición, septiembre de 2026 &middot; Equipo editorial</div>
 </nav>
 
 <main>
@@ -398,10 +408,14 @@ tr:nth-child(even){background:#fafafa}
 <h2 id="4Flujodetrabajo">4. Flujo de trabajo</h2>
 <p>El trabajo central del grupo de Programación se divide en tres partes:</p>
 <ul><li><strong>Programa autónomo</strong>: la lógica de control de la fase autónoma (Auto) de la temporada</li><li><strong>Programa manual</strong>: la lógica de manejo de la fase de control por mando (TeleOp)</li><li><strong>Configuración de sensores</strong>: la configuración de los distintos sensores y del sistema de visión</li></ul>
+<blockquote class="bq-info">Pilotaje (Driver): el robot se pilota con un mando Xbox; oficialmente solo se permite el modelo Xbox 360. Los pilotos se eligen dentro del equipo según su habilidad («quien puede, lo hace»); ser bueno en juegos de mando es una ventaja natural.</blockquote>
 <h3 id="Ladepuracióneselnúcleo">La depuración es el núcleo</h3>
 <blockquote class="bq-info">La verdadera dificultad del desarrollo de programas está en la depuración. Rutas autónomas, manejo manual, parámetros PID, configuración de visión: la mayoría de los sensores disponen de paquetes ya hechos que pueden reutilizarse directamente; lo que de verdad hay que hacer es «ajustar».</blockquote>
 <p>La depuración atraviesa todo el proceso de desarrollo:</p>
 <ol><li><strong>Análisis de requisitos</strong>: clarificar las reglas y las tareas de la temporada actual</li><li><strong>Diseño de la arquitectura</strong>: diseñar la arquitectura general del programa y la división en módulos</li><li><strong>Escritura de código</strong>: escribir el código Java en Android Studio</li><li><strong>Control de versiones</strong>: gestionar las versiones del código con Git</li><li><strong>Depuración</strong>: ajustar las rutas autónomas, el manejo manual, los parámetros PID y la configuración de visión</li><li><strong>Pruebas y verificación</strong>: verificar el funcionamiento del programa en el robot</li><li><strong>Revisión de código</strong>: revisar y fusionar el código mediante GitHub</li><li><strong>Despliegue y publicación</strong>: desplegar la versión final en el Robot Controller</li></ol>
+<h3 id="ProgramaciónasistidaporIA">Programación asistida por IA</h3>
+<blockquote class="bq-info">Escribir código ya no es la parte difícil: puedes apoyarte en herramientas de agente de IA (AI Agent) para programar. La verdadera habilidad clave es <strong>leer el código generado por IA, saber qué cambiar y depurarlo</strong> — no hace falta escribirlo todo a mano.</blockquote>
+<ul><li>La lógica básica de la programación (bucles for, bucles while, etc.) es universal entre lenguajes; solo cambia la sintaxis. Quienes tienen base en C++ se adaptan rápidamente a Java.</li></ul>
 </main>
 
 <script>

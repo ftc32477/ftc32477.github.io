@@ -258,18 +258,31 @@ tr:nth-child(even){background:#fafafa}
 @media print{
   html,body{display:block !important;width:100% !important;max-width:100% !important;overflow:visible !important}
   nav.sidebar,.topbar,.overlay{display:none !important}
-  body{background:#fff}
+  /* 正文字号与封三正文一致（12px），行距收窄 */
+  body{background:#fff;font-size:12px;line-height:1.6}
   main{
     display:block !important;box-sizing:border-box !important;
     margin:0 !important;padding:0 !important;
     width:100% !important;max-width:100% !important;
   }
-  .card{box-shadow:none;border:1px solid var(--border);padding:24px 28px}
-  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:32px 28px}
-  .hero h1{color:var(--dark);font-size:28px}
-  section h2{font-size:22px}
-  section h3{font-size:17px}
+  .card{box-shadow:none;border:1px solid var(--border);padding:20px 24px}
+  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:28px 24px}
+  .hero h1{color:var(--dark);font-size:24px}
   .hero .badge{background:var(--red);color:#fff}
+  /* 正文标题为裸 h1/h2/h3/h4（无 section 包裹），须用裸元素选择器 */
+  h1{font-size:24px;margin:1.8em 0 .8em}
+  h2{font-size:19px;margin:1.2em 0 .5em}
+  h3{font-size:15px;margin:.8em 0 .3em}
+  h4{font-size:13px;margin:.6em 0 .3em}
+  p{margin-bottom:6px}
+  ul,ol{margin-bottom:8px}
+  li{margin-bottom:2px}
+  blockquote{font-size:11px;padding:10px 14px;margin:8px 0}
+  code{font-size:11px}
+  pre{font-size:11px;line-height:1.4;padding:12px 16px;margin-bottom:10px}
+  hr{margin:12px 0}
+  img{margin:8px 0}
+  .img-row figcaption{font-size:10px}
   a{color:inherit;overflow-wrap:anywhere !important}
   /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
   .table-wrap{
@@ -282,7 +295,7 @@ tr:nth-child(even){background:#fafafa}
     width:100% !important;max-width:100% !important;
     table-layout:fixed;font-size:12px
   }
-  th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
+  th,td{padding:4px 6px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
@@ -290,10 +303,6 @@ tr:nth-child(even){background:#fafafa}
   /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
   html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
   .align-right{text-align:right}
-  /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
-  h1{margin:3.2em 0 1em}
-  h2{margin:2em 0 .8em}
-  h3{margin:1.2em 0 .5em}
 }
 </style>
 </head>
@@ -345,9 +354,10 @@ tr:nth-child(even){background:#fafafa}
 <a class="sub-link sub-3" href="#案例FTC27570队BYNX的商业开发">案例：FTC 27570 队（BYNX）的商业开发</a>
 <a class="sub-link sub-3" href="#案例FGC中国国家队">案例：FGC 中国国家队</a>
 <a class="sub-link" href="#四其他事项">四、其他事项</a>
+<a class="sub-link sub-3" href="#启发奖与赛事得分">启发奖与赛事得分</a>
 <a href="afterword.html">后记</a>
   </div>
-  <div class="sidebar-footer">2026年8月第3版·第2次修订 &middot; 编写小组</div>
+  <div class="sidebar-footer">2026年9月第3版 &middot; 编写小组</div>
 </nav>
 
 <main>
@@ -362,7 +372,7 @@ tr:nth-child(even){background:#fafafa}
 <h2 id="二工作职责">二、工作职责</h2>
 <p>外部联络组是队伍的扩音器与外交官。主要职责包括：</p>
 <h3 id="工程笔记">工程笔记</h3>
-<p>工程笔记的内容由结构和程序组撰写，外联组负责：</p>
+<p>工程笔记完整记录赛季内车辆建造过程、外联经历与问题解决思路的全部内容，是答辩环节的重要支撑，也是赛事的核心评分材料之一。其内容由结构和程序组撰写，外联组负责：</p>
 <ul><li><strong>排版</strong>：工程笔记的版式设计与排版</li><li><strong>素材积累</strong>：主动积累宣传素材</li><li>整理赛季工程文档</li><li>编写竞赛所需的工程笔记</li></ul>
 <h3 id="宣传素材积累">宣传素材积累</h3>
 <ul><li>主动联系其他学校队伍，组织友谊赛、模拟训练赛、新赛季赛题分析会</li><li>优先联系海淀区拥有 FTC 队伍的高中</li><li>重点对接新队伍——你们已经是老队了，新队需要你们</li></ul>
@@ -370,6 +380,7 @@ tr:nth-child(even){background:#fafafa}
 <ul><li>设计队服与队徽，让大家看到"32477"而不是"十一实验"</li><li>制作周边：贴纸、胸牌、毛巾、围巾、口罩等</li><li>目标：让每个队伍身上都挂着我们的周边</li></ul>
 <h3 id="赞助与资源">赞助与资源</h3>
 <ul><li>寻找和联系潜在赞助商</li><li>撰写赞助申请材料和商业计划书</li><li>维护与赞助商的关系</li><li>管理队伍预算和财务</li></ul>
+<blockquote class="bq-info">学校提供的赛事经费有限，单台参赛车辆的全套成本约 1 万元，缺口需要通过赞助补充；若队伍成功晋级美国休斯顿国际总决赛，学校会全额报销参赛相关经费。</blockquote>
 <h3 id="STEM推广">STEM 推广</h3>
 <ul><li>组织社区 STEM 教育活动</li><li>联系本地学校和企业</li><li>开展机器人展示和体验活动</li></ul>
 <h3 id="队际交流">队际交流</h3>
@@ -387,10 +398,13 @@ tr:nth-child(even){background:#fafafa}
 <h3 id="案例FTC27570队BYNX的商业开发">案例：FTC 27570 队（BYNX）的商业开发</h3>
 <ul><li><strong>声光模块</strong>：FTC 27570 队开发了专为 FTC 设计的声光模块 KIRIN（麒麟），支持自定义灯效。阶梯定价中嵌入了队号——1 个 180 元、4 个 570 元、6 个 787 元，其中 570 与 787 分别对应 FTC 27570 与 FTC 25787 两队的队号，潜移默化地把队号刻进买家认知。</li><li><strong>定制舵机</strong>：与舵机厂合作定制专属舵机，贴牌后开发配套调参软件，通过官网售卖舵机、分电板等配件，售卖收入作为团队经费。</li></ul>
 <h3 id="案例FGC中国国家队">案例：FGC 中国国家队</h3>
-<ul><li>FGC（First Global Challenge）相当于机器人领域的奥运会，2026 年赛事将在韩国仁川举办，共有 190 多个国家参赛。</li><li>FGC 中国国家队的商业计划书包含赛事介绍、队伍自我介绍、历史成绩、不同档位赞助对应的权益。据了解，该队曾获得小米、华为（贴牌华鲲振宇）等品牌的赞助。</li></ul>
+<ul><li>FGC（First Global Challenge）相当于机器人领域的奥运会，2026 年赛事将在韩国仁川举办，共有 190 多个国家参赛。</li><li>部分强队获得大型企业赞助后，整车几乎不使用官方零件，全部采用定制碳纤维等高端材料，硬件配置远超普通队伍。</li><li>FGC 中国国家队的商业计划书包含赛事介绍、队伍自我介绍、历史成绩、不同档位赞助对应的权益。据了解，该队曾获得小米、华为（贴牌华鲲振宇）等品牌的赞助。</li></ul>
 <hr>
 <h2 id="四其他事项">四、其他事项</h2>
 <p>（详见相关文档和手册）</p>
+<h3 id="启发奖与赛事得分">启发奖与赛事得分</h3>
+<blockquote class="bq-info">竞技类第一名仅能获得 40 分，而启发奖第一名可获得 60 分。启发奖评选的核心依据是队伍在赛事社区的影响力与帮助其他队伍的相关记录。</blockquote>
+<ul><li>宣传素材积累、队际交流与社区服务直接决定启发奖的竞争力，其价值可能超过竞技名次本身</li></ul>
 </main>
 
 <script>

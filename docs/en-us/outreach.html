@@ -258,18 +258,31 @@ tr:nth-child(even){background:#fafafa}
 @media print{
   html,body{display:block !important;width:100% !important;max-width:100% !important;overflow:visible !important}
   nav.sidebar,.topbar,.overlay{display:none !important}
-  body{background:#fff}
+  /* 正文字号与封三正文一致（12px），行距收窄 */
+  body{background:#fff;font-size:12px;line-height:1.6}
   main{
     display:block !important;box-sizing:border-box !important;
     margin:0 !important;padding:0 !important;
     width:100% !important;max-width:100% !important;
   }
-  .card{box-shadow:none;border:1px solid var(--border);padding:24px 28px}
-  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:32px 28px}
-  .hero h1{color:var(--dark);font-size:28px}
-  section h2{font-size:22px}
-  section h3{font-size:17px}
+  .card{box-shadow:none;border:1px solid var(--border);padding:20px 24px}
+  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:28px 24px}
+  .hero h1{color:var(--dark);font-size:24px}
   .hero .badge{background:var(--red);color:#fff}
+  /* 正文标题为裸 h1/h2/h3/h4（无 section 包裹），须用裸元素选择器 */
+  h1{font-size:24px;margin:1.8em 0 .8em}
+  h2{font-size:19px;margin:1.2em 0 .5em}
+  h3{font-size:15px;margin:.8em 0 .3em}
+  h4{font-size:13px;margin:.6em 0 .3em}
+  p{margin-bottom:6px}
+  ul,ol{margin-bottom:8px}
+  li{margin-bottom:2px}
+  blockquote{font-size:11px;padding:10px 14px;margin:8px 0}
+  code{font-size:11px}
+  pre{font-size:11px;line-height:1.4;padding:12px 16px;margin-bottom:10px}
+  hr{margin:12px 0}
+  img{margin:8px 0}
+  .img-row figcaption{font-size:10px}
   a{color:inherit;overflow-wrap:anywhere !important}
   /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
   .table-wrap{
@@ -282,7 +295,7 @@ tr:nth-child(even){background:#fafafa}
     width:100% !important;max-width:100% !important;
     table-layout:fixed;font-size:12px
   }
-  th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
+  th,td{padding:4px 6px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
@@ -290,10 +303,6 @@ tr:nth-child(even){background:#fafafa}
   /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
   html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
   .align-right{text-align:right}
-  /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
-  h1{margin:3.2em 0 1em}
-  h2{margin:2em 0 .8em}
-  h3{margin:1.2em 0 .5em}
 }
 </style>
 </head>
@@ -345,9 +354,10 @@ tr:nth-child(even){background:#fafafa}
 <a class="sub-link sub-3" href="#CaseStudyFTCTeam27570sBYNXCommercialDevelopment">Case Study: FTC Team 27570's (BYNX) Commercial Development</a>
 <a class="sub-link sub-3" href="#CaseStudyFGCTeamChina">Case Study: FGC Team China</a>
 <a class="sub-link" href="#4Miscellaneous">4. Miscellaneous</a>
+<a class="sub-link sub-3" href="#InspireAwardScoring">Inspire Award &amp; Scoring</a>
 <a href="afterword.html">Afterword</a>
   </div>
-  <div class="sidebar-footer">August 2026, 3rd Edition, 2nd Revision &middot; Editorial Team</div>
+  <div class="sidebar-footer">September 2026, 3rd Edition &middot; Editorial Team</div>
 </nav>
 
 <main>
@@ -362,7 +372,7 @@ tr:nth-child(even){background:#fafafa}
 <h2 id="2Responsibilities">2. Responsibilities</h2>
 <p>The Outreach & Public Relations division is the team's megaphone and diplomatic corps. Core responsibilities include:</p>
 <h3 id="EngineeringNotebook">Engineering Notebook</h3>
-<p>The notebook content is written by the Hardware and Programming teams; Outreach is responsible for:</p>
+<p>The engineering notebook documents the entire season: the vehicle build process, outreach activities, and how problems were solved. It is a key supporting material for judging and one of the core scoring materials. Its content is written by the Hardware and Programming teams; Outreach is responsible for:</p>
 <ul><li><strong>Layout</strong>: design and typeset the engineering notebook</li><li><strong>Material collection</strong>: proactively accumulate promotional material</li><li>Organizing season engineering documents</li><li>Producing the engineering notebook required for competition</li></ul>
 <h3 id="PromotionalMaterialCollection">Promotional Material Collection</h3>
 <ul><li>Proactively reach out to other school teams to organize friendly matches, scrimmages, and new-season game analysis sessions</li><li>Prioritize high schools in Haidian District that have FTC teams</li><li>Focus on connecting with rookie teams — you are veterans now, and rookie teams need you</li></ul>
@@ -370,6 +380,7 @@ tr:nth-child(even){background:#fafafa}
 <ul><li>Design team uniforms and the team logo so people see "32477", not "Beijing National Day Experimental School"</li><li>Make merchandise: stickers, badges, towels, scarves, masks, and more</li><li>Goal: have every team wearing our merchandise</li></ul>
 <h3 id="SponsorshipResources">Sponsorship & Resources</h3>
 <ul><li>Identify and reach out to potential sponsors</li><li>Write sponsorship proposals and business plans</li><li>Maintain relationships with sponsors</li><li>Manage the team's budget and finances</li></ul>
+<blockquote class="bq-info">School funding is limited: a complete competition vehicle costs about ¥10,000, and the gap must be filled through sponsorship. If the team advances to the Houston World Championship, the school will fully reimburse the related expenses.</blockquote>
 <h3 id="STEMOutreach">STEM Outreach</h3>
 <ul><li>Organize community STEM education events</li><li>Connect with local schools and businesses</li><li>Run robot demonstrations and hands-on experiences</li></ul>
 <h3 id="Inter-TeamExchange">Inter-Team Exchange</h3>
@@ -387,10 +398,13 @@ tr:nth-child(even){background:#fafafa}
 <h3 id="CaseStudyFTCTeam27570sBYNXCommercialDevelopment">Case Study: FTC Team 27570's (BYNX) Commercial Development</h3>
 <ul><li><strong>Light & sound module</strong>: FTC Team 27570 developed an FTC-specific light and sound module called KIRIN (麒麟) with customizable effects. Their tiered pricing embeds team numbers — 1 unit for ¥180, 4 units for ¥570, 6 units for ¥787 — where 570 and 787 echo the numbers of FTC 27570 and FTC 25787, subtly engraving team numbers into buyers' minds.</li><li><strong>Custom servos</strong>: They partnered with a servo factory to build custom servos under their own brand and developed companion tuning software, selling servos, power distribution boards, and accessories through their website — sales revenue funds the team.</li></ul>
 <h3 id="CaseStudyFGCTeamChina">Case Study: FGC Team China</h3>
-<ul><li>FGC (First Global Challenge) is like the Olympics of robotics. The 2026 event will be held in Incheon, South Korea, with teams from more than 190 countries.</li><li>FGC Team China's business plan includes the event introduction, team introduction, historical results, and tiered sponsorship benefits. It is understood that they have secured sponsorships from brands including Xiaomi and Huawei (via its affiliated brand Huakun Zhenyu (华鲲振宇)).</li></ul>
+<ul><li>FGC (First Global Challenge) is like the Olympics of robotics. The 2026 event will be held in Incheon, South Korea, with teams from more than 190 countries.</li><li>FGC Team China's business plan includes the event introduction, team introduction, historical results, and tiered sponsorship benefits. It is understood that they have secured sponsorships from brands including Xiaomi and Huawei (via its affiliated brand Huakun Zhenyu (华鲲振宇)).</li><li>Some strong teams that have secured major corporate sponsors build their vehicles with almost no official parts, using fully custom materials such as carbon fiber, far beyond the hardware of ordinary teams.</li></ul>
 <hr>
 <h2 id="4Miscellaneous">4. Miscellaneous</h2>
 <p>(Refer to the relevant documents and handbooks)</p>
+<h3 id="InspireAwardScoring">Inspire Award & Scoring</h3>
+<blockquote class="bq-info">Winning first place in the competitive ranking is worth only 40 points, while first place in the Inspire Award is worth 60 points. The Inspire Award is judged primarily on the team's impact in the FTC community and its record of helping other teams.</blockquote>
+<ul><li>Accumulated promotional material, inter-team exchange, and community service directly determine Inspire Award competitiveness — their value may exceed that of competitive ranking itself</li></ul>
 </main>
 
 <script>

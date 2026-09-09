@@ -258,18 +258,31 @@ tr:nth-child(even){background:#fafafa}
 @media print{
   html,body{display:block !important;width:100% !important;max-width:100% !important;overflow:visible !important}
   nav.sidebar,.topbar,.overlay{display:none !important}
-  body{background:#fff}
+  /* 正文字号与封三正文一致（12px），行距收窄 */
+  body{background:#fff;font-size:12px;line-height:1.6}
   main{
     display:block !important;box-sizing:border-box !important;
     margin:0 !important;padding:0 !important;
     width:100% !important;max-width:100% !important;
   }
-  .card{box-shadow:none;border:1px solid var(--border);padding:24px 28px}
-  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:32px 28px}
-  .hero h1{color:var(--dark);font-size:28px}
-  section h2{font-size:22px}
-  section h3{font-size:17px}
+  .card{box-shadow:none;border:1px solid var(--border);padding:20px 24px}
+  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:28px 24px}
+  .hero h1{color:var(--dark);font-size:24px}
   .hero .badge{background:var(--red);color:#fff}
+  /* 正文标题为裸 h1/h2/h3/h4（无 section 包裹），须用裸元素选择器 */
+  h1{font-size:24px;margin:1.8em 0 .8em}
+  h2{font-size:19px;margin:1.2em 0 .5em}
+  h3{font-size:15px;margin:.8em 0 .3em}
+  h4{font-size:13px;margin:.6em 0 .3em}
+  p{margin-bottom:6px}
+  ul,ol{margin-bottom:8px}
+  li{margin-bottom:2px}
+  blockquote{font-size:11px;padding:10px 14px;margin:8px 0}
+  code{font-size:11px}
+  pre{font-size:11px;line-height:1.4;padding:12px 16px;margin-bottom:10px}
+  hr{margin:12px 0}
+  img{margin:8px 0}
+  .img-row figcaption{font-size:10px}
   a{color:inherit;overflow-wrap:anywhere !important}
   /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
   .table-wrap{
@@ -282,7 +295,7 @@ tr:nth-child(even){background:#fafafa}
     width:100% !important;max-width:100% !important;
     table-layout:fixed;font-size:12px
   }
-  th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
+  th,td{padding:4px 6px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
@@ -290,10 +303,6 @@ tr:nth-child(even){background:#fafafa}
   /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
   html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
   .align-right{text-align:right}
-  /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
-  h1{margin:3.2em 0 1em}
-  h2{margin:2em 0 .8em}
-  h3{margin:1.2em 0 .5em}
 }
 </style>
 </head>
@@ -335,13 +344,16 @@ tr:nth-child(even){background:#fafafa}
 <a class="sub-link sub-3" href="#LocalSend">LocalSend</a>
 <a class="sub-link sub-3" href="#GitHub">GitHub</a>
 <a class="sub-link sub-3" href="#Onshape">Onshape</a>
+<a class="sub-link" href="#3Temporadayhorarios">3. Temporada y horarios</a>
+<a class="sub-link sub-3" href="#Calendariodelatemporada">Calendario de la temporada</a>
+<a class="sub-link sub-3" href="#Reglasaconocer">Reglas a conocer</a>
 <a href="modeling.html">Modelado y diseño</a>
 <a href="build.html">Hardware y construcción</a>
 <a href="programming.html">Programación</a>
 <a href="outreach.html">Divulgación y relaciones públicas</a>
 <a href="afterword.html">Epílogo</a>
   </div>
-  <div class="sidebar-footer">3.ª edición, agosto de 2026, 2.ª revisión &middot; Equipo editorial</div>
+  <div class="sidebar-footer">3.ª edición, septiembre de 2026 &middot; Equipo editorial</div>
 </nav>
 
 <main>
@@ -394,6 +406,12 @@ tr:nth-child(even){background:#fafafa}
 <ol><li>Abra la página de registro del plan educativo: <a href="https://www.onshape.com/en/education/sign-up" target="_blank">https://www.onshape.com/en/education/sign-up</a></li><li>Rellene el formulario de registro y envíelo</li></ol>
 <p>Referencias:</p>
 <ul><li><a href="https://www.onshape.com/en/education/plans" target="_blank">Información sobre el plan educativo de Onshape</a></li></ul>
+<hr>
+<h2 id="3Temporadayhorarios">3. Temporada y horarios</h2>
+<h3 id="Calendariodelatemporada">Calendario de la temporada</h3>
+<ul><li>Una temporada FTC completa va de septiembre a junio del año siguiente; el juego de la nueva temporada se publica a mediados de septiembre, dejando unas siete u ocho semanas para el diseño y la depuración del robot</li><li>Las fases de clasificación se celebran en varias ciudades del país; los equipos clasificados disputan el campeonato nacional durante las vacaciones de invierno y, si vuelven a clasificarse, van a Houston (EE. UU.) para la final internacional (hasta ahora solo unos 4 equipos de la China continental han llegado a la final de Houston)</li><li>Los materiales básicos del campo de la nueva temporada se entregan oficialmente tras el inicio del curso; el campo puede montarse en cuanto lleguen</li></ul>
+<h3 id="Reglasaconocer">Reglas a conocer</h3>
+<ul><li>El robot se pilota manualmente con un mando Xbox; oficialmente solo se permite el modelo Xbox 360</li><li>La levitación magnética está prohibida por el reglamento; los imanes ordinarios y los electroimanes están permitidos</li><li>El rango de edad oficial de la FTC es de 12 a 18 años; los estudiantes de secundaria pueden participar</li></ul>
 </main>
 
 <script>

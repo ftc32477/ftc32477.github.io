@@ -258,18 +258,31 @@ tr:nth-child(even){background:#fafafa}
 @media print{
   html,body{display:block !important;width:100% !important;max-width:100% !important;overflow:visible !important}
   nav.sidebar,.topbar,.overlay{display:none !important}
-  body{background:#fff}
+  /* 正文字号与封三正文一致（12px），行距收窄 */
+  body{background:#fff;font-size:12px;line-height:1.6}
   main{
     display:block !important;box-sizing:border-box !important;
     margin:0 !important;padding:0 !important;
     width:100% !important;max-width:100% !important;
   }
-  .card{box-shadow:none;border:1px solid var(--border);padding:24px 28px}
-  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:32px 28px}
-  .hero h1{color:var(--dark);font-size:28px}
-  section h2{font-size:22px}
-  section h3{font-size:17px}
+  .card{box-shadow:none;border:1px solid var(--border);padding:20px 24px}
+  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:28px 24px}
+  .hero h1{color:var(--dark);font-size:24px}
   .hero .badge{background:var(--red);color:#fff}
+  /* 正文标题为裸 h1/h2/h3/h4（无 section 包裹），须用裸元素选择器 */
+  h1{font-size:24px;margin:1.8em 0 .8em}
+  h2{font-size:19px;margin:1.2em 0 .5em}
+  h3{font-size:15px;margin:.8em 0 .3em}
+  h4{font-size:13px;margin:.6em 0 .3em}
+  p{margin-bottom:6px}
+  ul,ol{margin-bottom:8px}
+  li{margin-bottom:2px}
+  blockquote{font-size:11px;padding:10px 14px;margin:8px 0}
+  code{font-size:11px}
+  pre{font-size:11px;line-height:1.4;padding:12px 16px;margin-bottom:10px}
+  hr{margin:12px 0}
+  img{margin:8px 0}
+  .img-row figcaption{font-size:10px}
   a{color:inherit;overflow-wrap:anywhere !important}
   /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
   .table-wrap{
@@ -282,7 +295,7 @@ tr:nth-child(even){background:#fafafa}
     width:100% !important;max-width:100% !important;
     table-layout:fixed;font-size:12px
   }
-  th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
+  th,td{padding:4px 6px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
@@ -290,10 +303,6 @@ tr:nth-child(even){background:#fafafa}
   /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
   html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
   .align-right{text-align:right}
-  /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
-  h1{margin:3.2em 0 1em}
-  h2{margin:2em 0 .8em}
-  h3{margin:1.2em 0 .5em}
 }
 </style>
 </head>
@@ -352,7 +361,7 @@ tr:nth-child(even){background:#fafafa}
 <a href="outreach.html">아웃리치 및 대외 홍보</a>
 <a href="afterword.html">후기</a>
   </div>
-  <div class="sidebar-footer">2026년 8월 제3판 · 2차 개정 &middot; 편집팀</div>
+  <div class="sidebar-footer">2026년 9월 제3판 &middot; 편집팀</div>
 </nav>
 
 <main>
@@ -442,7 +451,7 @@ tr:nth-child(even){background:#fafafa}
 <ul><li>WiFi, 모니터링, 랜선, 멀티탭 등 인프라는 모두 소모품으로 관리하며, 제때 보충하세요.</li></ul>
 <hr>
 <h2 id="4작업흐름">4. 작업 흐름</h2>
-<ol><li><strong>부품 구매</strong></li><li><strong>자체 제작 부품 제작</strong><ul><li>3D 프린팅 부품 제작</li><li>레이저 커팅 판재 가공</li></ul></li><li><strong>하드웨어 장착</strong></li><li><strong>전선 연결</strong></li><li><strong>Robot Configuration 작성</strong>(프로그래밍과 협업)</li><li><strong>Driver Station과 Robot Controller 연결</strong>(프로그래밍과 협업)</li></ol>
+<ol><li><strong>부품 구매</strong><ul><li>FTC 공식 부품 공급업체는 해외에 있어 공식 구매는 기간이 길고 비용이 높습니다. 필수 부품이 아닌 자재는 국내 플랫폼에서 대체품을 찾아 비용과 납기를 절충하세요</li></ul></li><li><strong>자체 제작 부품 제작</strong><ul><li>3D 프린팅 부품 제작</li><li>레이저 커팅 판재 가공</li></ul></li><li><strong>하드웨어 장착</strong></li><li><strong>전선 연결</strong></li><li><strong>Robot Configuration 작성</strong>(프로그래밍과 협업)</li><li><strong>Driver Station과 Robot Controller 연결</strong>(프로그래밍과 협업)</li></ol>
 <h3 id="하드웨어장착">하드웨어 장착</h3>
 <h4>장착 순서</h4>
 <blockquote class="bq-warning">일반적으로 손으로 로봇을 조립할 때는 섀시부터 만들어 위로 쌓아 올리는 습관이 있습니다. 하지만 대회 로봇은 모델링 도면이 있으므로 이 순서는 부품이 서로 가려 대량의 재작업을 유발하기 쉽습니다.</blockquote>

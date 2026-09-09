@@ -258,18 +258,31 @@ tr:nth-child(even){background:#fafafa}
 @media print{
   html,body{display:block !important;width:100% !important;max-width:100% !important;overflow:visible !important}
   nav.sidebar,.topbar,.overlay{display:none !important}
-  body{background:#fff}
+  /* 正文字号与封三正文一致（12px），行距收窄 */
+  body{background:#fff;font-size:12px;line-height:1.6}
   main{
     display:block !important;box-sizing:border-box !important;
     margin:0 !important;padding:0 !important;
     width:100% !important;max-width:100% !important;
   }
-  .card{box-shadow:none;border:1px solid var(--border);padding:24px 28px}
-  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:32px 28px}
-  .hero h1{color:var(--dark);font-size:28px}
-  section h2{font-size:22px}
-  section h3{font-size:17px}
+  .card{box-shadow:none;border:1px solid var(--border);padding:20px 24px}
+  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:28px 24px}
+  .hero h1{color:var(--dark);font-size:24px}
   .hero .badge{background:var(--red);color:#fff}
+  /* 正文标题为裸 h1/h2/h3/h4（无 section 包裹），须用裸元素选择器 */
+  h1{font-size:24px;margin:1.8em 0 .8em}
+  h2{font-size:19px;margin:1.2em 0 .5em}
+  h3{font-size:15px;margin:.8em 0 .3em}
+  h4{font-size:13px;margin:.6em 0 .3em}
+  p{margin-bottom:6px}
+  ul,ol{margin-bottom:8px}
+  li{margin-bottom:2px}
+  blockquote{font-size:11px;padding:10px 14px;margin:8px 0}
+  code{font-size:11px}
+  pre{font-size:11px;line-height:1.4;padding:12px 16px;margin-bottom:10px}
+  hr{margin:12px 0}
+  img{margin:8px 0}
+  .img-row figcaption{font-size:10px}
   a{color:inherit;overflow-wrap:anywhere !important}
   /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
   .table-wrap{
@@ -282,7 +295,7 @@ tr:nth-child(even){background:#fafafa}
     width:100% !important;max-width:100% !important;
     table-layout:fixed;font-size:12px
   }
-  th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
+  th,td{padding:4px 6px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
@@ -290,10 +303,6 @@ tr:nth-child(even){background:#fafafa}
   /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
   html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
   .align-right{text-align:right}
-  /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
-  h1{margin:3.2em 0 1em}
-  h2{margin:2em 0 .8em}
-  h3{margin:1.2em 0 .5em}
 }
 </style>
 </head>
@@ -335,13 +344,16 @@ tr:nth-child(even){background:#fafafa}
 <a class="sub-link sub-3" href="#LocalSend">LocalSend</a>
 <a class="sub-link sub-3" href="#GitHub">GitHub</a>
 <a class="sub-link sub-3" href="#Onshape">Onshape</a>
+<a class="sub-link" href="#三賽季與活動安排">三、賽季與活動安排</a>
+<a class="sub-link sub-3" href="#賽季時間線">賽季時間線</a>
+<a class="sub-link sub-3" href="#賽事規則須知">賽事規則須知</a>
 <a href="modeling.html">建模設計</a>
 <a href="build.html">結構建造</a>
 <a href="programming.html">程式設計</a>
 <a href="outreach.html">外部聯絡</a>
 <a href="afterword.html">後記</a>
   </div>
-  <div class="sidebar-footer">2026年8月第3版·第2次修訂 &middot; 編寫小組</div>
+  <div class="sidebar-footer">2026年9月第3版 &middot; 編寫小組</div>
 </nav>
 
 <main>
@@ -354,6 +366,7 @@ tr:nth-child(even){background:#fafafa}
 <h3 id="網路環境">網路環境</h3>
 <p>需要具備可以取得 Android 支援的網路環境。</p>
 <ul><li>Android 支援：<a href="https://support.google.com/android" target="_blank">https://support.google.com/android</a></li></ul>
+<blockquote class="bq-info">隊伍自建區域網路接入校園獨立閘道，速度較一般校園網路更穩定，但仍保留校園網路的存取限制。程式設計崗位需要存取 Android 支援的境外網路資源，隊伍可提供相關途徑；如有大流量使用需求，建議自行購買相應服務。</blockquote>
 <h3 id="應用程式">應用程式</h3>
 <ul><li>網路瀏覽器（Chrome 或 Edge 或 Safari）</li><li>LocalSend</li></ul>
 <h3 id="線上帳戶">線上帳戶</h3>
@@ -394,6 +407,12 @@ tr:nth-child(even){background:#fafafa}
 <ol><li>開啟教育版註冊頁：<a href="https://www.onshape.com/en/education/sign-up" target="_blank">https://www.onshape.com/en/education/sign-up</a></li><li>填寫註冊表單並提交即可</li></ol>
 <p>參考資料：</p>
 <ul><li><a href="https://www.onshape.com/en/education/plans" target="_blank">Onshape 教育版計畫說明</a></li></ul>
+<hr>
+<h2 id="三賽季與活動安排">三、賽季與活動安排</h2>
+<h3 id="賽季時間線">賽季時間線</h3>
+<ul><li>FTC 一個完整賽季從當年 9 月持續到次年 6 月；每年 9 月中旬發布新賽季賽題，賽題發布後約有七八週時間用於車輛設計與調試</li><li>資格賽在全國多個城市設置分賽場；資格賽晉級後可在寒假參加全國賽事，再晉級可赴美國休士頓參加國際總決賽（截至目前中國大陸僅約 4 支隊伍晉級過休士頓總決賽）</li><li>新賽季基礎場地材料在開學後由官方統一配送，到貨後即可搭建新賽季場地</li></ul>
+<h3 id="賽事規則須知">賽事規則須知</h3>
+<ul><li>參賽車輛使用 Xbox 手把進行手動操控，賽事官方僅允許使用 Xbox 360 型號手把，其他型號不符合規則要求</li><li>賽事規則禁止使用磁浮技術；普通磁鐵、電磁鐵類部件可正常使用</li><li>FTC 官方參賽年齡範圍為 12–18 歲，國中生也可報名參與</li></ul>
 </main>
 
 <script>

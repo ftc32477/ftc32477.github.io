@@ -258,18 +258,31 @@ tr:nth-child(even){background:#fafafa}
 @media print{
   html,body{display:block !important;width:100% !important;max-width:100% !important;overflow:visible !important}
   nav.sidebar,.topbar,.overlay{display:none !important}
-  body{background:#fff}
+  /* 正文字号与封三正文一致（12px），行距收窄 */
+  body{background:#fff;font-size:12px;line-height:1.6}
   main{
     display:block !important;box-sizing:border-box !important;
     margin:0 !important;padding:0 !important;
     width:100% !important;max-width:100% !important;
   }
-  .card{box-shadow:none;border:1px solid var(--border);padding:24px 28px}
-  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:32px 28px}
-  .hero h1{color:var(--dark);font-size:28px}
-  section h2{font-size:22px}
-  section h3{font-size:17px}
+  .card{box-shadow:none;border:1px solid var(--border);padding:20px 24px}
+  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:28px 24px}
+  .hero h1{color:var(--dark);font-size:24px}
   .hero .badge{background:var(--red);color:#fff}
+  /* 正文标题为裸 h1/h2/h3/h4（无 section 包裹），须用裸元素选择器 */
+  h1{font-size:24px;margin:1.8em 0 .8em}
+  h2{font-size:19px;margin:1.2em 0 .5em}
+  h3{font-size:15px;margin:.8em 0 .3em}
+  h4{font-size:13px;margin:.6em 0 .3em}
+  p{margin-bottom:6px}
+  ul,ol{margin-bottom:8px}
+  li{margin-bottom:2px}
+  blockquote{font-size:11px;padding:10px 14px;margin:8px 0}
+  code{font-size:11px}
+  pre{font-size:11px;line-height:1.4;padding:12px 16px;margin-bottom:10px}
+  hr{margin:12px 0}
+  img{margin:8px 0}
+  .img-row figcaption{font-size:10px}
   a{color:inherit;overflow-wrap:anywhere !important}
   /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
   .table-wrap{
@@ -282,7 +295,7 @@ tr:nth-child(even){background:#fafafa}
     width:100% !important;max-width:100% !important;
     table-layout:fixed;font-size:12px
   }
-  th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
+  th,td{padding:4px 6px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
@@ -290,10 +303,6 @@ tr:nth-child(even){background:#fafafa}
   /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
   html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
   .align-right{text-align:right}
-  /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
-  h1{margin:3.2em 0 1em}
-  h2{margin:2em 0 .8em}
-  h3{margin:1.2em 0 .5em}
 }
 </style>
 </head>
@@ -347,7 +356,7 @@ tr:nth-child(even){background:#fafafa}
 <a href="outreach.html">Divulgación y relaciones públicas</a>
 <a href="afterword.html">Epílogo</a>
   </div>
-  <div class="sidebar-footer">3.ª edición, agosto de 2026, 2.ª revisión &middot; Equipo editorial</div>
+  <div class="sidebar-footer">3.ª edición, septiembre de 2026 &middot; Equipo editorial</div>
 </nav>
 
 <main>
@@ -409,7 +418,7 @@ tr:nth-child(even){background:#fafafa}
 <h3 id="Ideasdemodeladoyreferenciadecalendario">Ideas de modelado y referencia de calendario</h3>
 <ul><li>Al concebir el diseño del robot, divida las tareas del juego en elementos pequeños, diseñe por separado la estructura de cada uno y combínelos después</li><li>Antes de modelar formalmente, consulte la opinión de otros miembros y diseñe en función de la estrategia de puntuación del equipo</li><li>Tras completar el modelado del robot, piense en el proceso real de montaje: para estructuras difíciles de instalar, como los tornillos interiores, reserve de antemano canales de instalación y espacio para el cableado</li><li>Considere un diseño modular que facilite la reparación y la optimización posteriores</li><li>En la versión final, procure un diseño integrado y reduzca las estructuras pequeñas innecesarias para aumentar la resistencia y la ligereza del conjunto</li></ul>
 <p><strong>Referencia de calendario:</strong></p>
-<ul><li>En cuanto a los plazos, el primer diseño puede ser tosco, pero debe terminarse y fabricarse cuanto antes para dejar tiempo a la depuración del programa y a los entrenamientos del Driver, y para probar la estructura real e iterar; antes de la fase de clasificación, un robot completo apto para competir debe haber pasado al menos 3 iteraciones (referencia)</li><li>Siga de cerca la actividad de los equipos extranjeros: la comunidad FTC organiza actividades como «Robot in 30 Hours Reveal | FTC», en las que los equipos participantes pueden compartir sus soluciones de la nueva temporada en cualquier momento; también puede consultar las soluciones de los equipos de FRC, VEX y otras competiciones</li></ul>
+<ul><li>En cuanto a los plazos, el primer diseño puede ser tosco, pero debe terminarse y fabricarse cuanto antes para dejar tiempo a la depuración del programa y a los entrenamientos del Driver, y para probar la estructura real e iterar; antes de la fase de clasificación, un robot completo apto para competir debe haber pasado al menos 3 iteraciones (referencia)</li><li>Siga de cerca la actividad de los equipos extranjeros: la comunidad FTC organiza actividades como «Robot in 30 Hours Reveal | FTC», en las que los equipos participantes pueden compartir sus soluciones de la nueva temporada en cualquier momento; también puede consultar las soluciones de los equipos de FRC, VEX y otras competiciones</li><li>Los archivos CAD de la mayoría de los equipos se comparten públicamente; pedir directamente los modelos a un equipo no suele ser rechazado. Estudia buenos diseños para mejorar el tuyo — equipos como Beijing National Day School (sede principal) merecen especialmente ser estudiados</li></ul>
 <h3 id="RecursosdeaprendizajedeOnshape">Recursos de aprendizaje de Onshape</h3>
 <p>Como plataforma de modelado profesional, Onshape cuenta con recursos oficiales de aprendizaje completos: <a href="https://learn.onshape.com/" target="_blank">https://learn.onshape.com/</a>; también hay muchos tutoriales en plataformas de vídeo como Bilibili (哔哩哔哩) o YouTube.</p>
 <ul><li>Dada la similitud del flujo de trabajo entre programas CAD (boceto, pieza, ensamblaje), los tutoriales de SolidWorks, Autodesk Fusion y otros programas también tienen valor didáctico y ayudan a desarrollar la percepción espacial de las piezas y la familiaridad con el flujo de modelado</li><li>Recuerde siempre que la práctica es más importante que la teoría: busque modelos en Bilibili (哔哩哔哩) para practicar, intente primero modelarlos por su cuenta y consulte el tutorial solo si de verdad no le sale; en la vida cotidiana también puede observar y reflexionar sobre las ideas de modelado de estructuras pequeñas</li><li>En la FTC conviene estudiar las buenas soluciones de otros equipos: la mayoría de los equipos punteros tienen su propio sitio web y publican sus soluciones en abierto; puede buscar el número del equipo FTC en YouTube o Google para encontrar su sitio oficial; también puede consultar los modelos de otros equipos en CycleZLab y sitios similares</li></ul>

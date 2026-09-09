@@ -258,18 +258,31 @@ tr:nth-child(even){background:#fafafa}
 @media print{
   html,body{display:block !important;width:100% !important;max-width:100% !important;overflow:visible !important}
   nav.sidebar,.topbar,.overlay{display:none !important}
-  body{background:#fff}
+  /* 正文字号与封三正文一致（12px），行距收窄 */
+  body{background:#fff;font-size:12px;line-height:1.6}
   main{
     display:block !important;box-sizing:border-box !important;
     margin:0 !important;padding:0 !important;
     width:100% !important;max-width:100% !important;
   }
-  .card{box-shadow:none;border:1px solid var(--border);padding:24px 28px}
-  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:32px 28px}
-  .hero h1{color:var(--dark);font-size:28px}
-  section h2{font-size:22px}
-  section h3{font-size:17px}
+  .card{box-shadow:none;border:1px solid var(--border);padding:20px 24px}
+  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:28px 24px}
+  .hero h1{color:var(--dark);font-size:24px}
   .hero .badge{background:var(--red);color:#fff}
+  /* 正文标题为裸 h1/h2/h3/h4（无 section 包裹），须用裸元素选择器 */
+  h1{font-size:24px;margin:1.8em 0 .8em}
+  h2{font-size:19px;margin:1.2em 0 .5em}
+  h3{font-size:15px;margin:.8em 0 .3em}
+  h4{font-size:13px;margin:.6em 0 .3em}
+  p{margin-bottom:6px}
+  ul,ol{margin-bottom:8px}
+  li{margin-bottom:2px}
+  blockquote{font-size:11px;padding:10px 14px;margin:8px 0}
+  code{font-size:11px}
+  pre{font-size:11px;line-height:1.4;padding:12px 16px;margin-bottom:10px}
+  hr{margin:12px 0}
+  img{margin:8px 0}
+  .img-row figcaption{font-size:10px}
   a{color:inherit;overflow-wrap:anywhere !important}
   /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
   .table-wrap{
@@ -282,7 +295,7 @@ tr:nth-child(even){background:#fafafa}
     width:100% !important;max-width:100% !important;
     table-layout:fixed;font-size:12px
   }
-  th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
+  th,td{padding:4px 6px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
@@ -290,10 +303,6 @@ tr:nth-child(even){background:#fafafa}
   /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
   html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
   .align-right{text-align:right}
-  /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
-  h1{margin:3.2em 0 1em}
-  h2{margin:2em 0 .8em}
-  h3{margin:1.2em 0 .5em}
 }
 </style>
 </head>
@@ -345,9 +354,10 @@ tr:nth-child(even){background:#fafafa}
 <a class="sub-link sub-3" href="#사례FTC27570팀BYNX의비즈니스개발">사례: FTC 27570 팀(BYNX)의 비즈니스 개발</a>
 <a class="sub-link sub-3" href="#사례FGC중국국가대표팀">사례: FGC 중국 국가대표팀</a>
 <a class="sub-link" href="#4기타사항">4. 기타 사항</a>
+<a class="sub-link sub-3" href="#Inspire어워드와점수">Inspire 어워드와 점수</a>
 <a href="afterword.html">후기</a>
   </div>
-  <div class="sidebar-footer">2026년 8월 제3판 · 2차 개정 &middot; 편집팀</div>
+  <div class="sidebar-footer">2026년 9월 제3판 &middot; 편집팀</div>
 </nav>
 
 <main>
@@ -362,7 +372,7 @@ tr:nth-child(even){background:#fafafa}
 <h2 id="2업무책임">2. 업무 책임</h2>
 <p>아웃리치 및 대외 홍보 팀은 팀의 확성기이자 외교관입니다. 주요 책임은 다음과 같습니다.</p>
 <h3 id="엔지니어링노트">엔지니어링 노트</h3>
-<p>엔지니어링 노트의 내용은 구조 팀과 프로그램 팀이 작성하며, 아웃리치 팀은 다음을 담당합니다.</p>
+<p>엔지니어링 노트는 시즌 내내 로봇 제작 과정, 아웃리치 활동, 문제 해결 방법을 기록합니다. 심사(발표)의 핵심 근거 자료이자 가장 중요한 평가 자료 중 하나입니다. 내용은 구조 팀과 프로그램 팀이 작성하며, 아웃리치 팀은 다음을 담당합니다.</p>
 <ul><li><strong>편집 디자인</strong>: 엔지니어링 노트의 레이아웃 설계와 편집</li><li><strong>자료 축적</strong>: 홍보 자료를 적극적으로 축적</li><li>시즌 엔지니어링 문서 정리</li><li>대회에 필요한 엔지니어링 노트 작성</li></ul>
 <h3 id="홍보자료축적">홍보 자료 축적</h3>
 <ul><li>다른 학교 팀에 적극적으로 연락해 친선 경기, 모의 훈련 경기, 새 시즌 과제 분석회를 조직</li><li>하이뎬구에 FTC 팀이 있는 고등학교를 우선적으로 접촉</li><li>신규 팀에 집중하세요. 여러분은 이미 오래된 팀이고, 신규 팀에는 여러분이 필요합니다</li></ul>
@@ -370,6 +380,7 @@ tr:nth-child(even){background:#fafafa}
 <ul><li>팀복과 팀 로고를 디자인해 사람들이 '32477'을 보게 하고 'Beijing National Day Experimental School'이 보이지 않게 하세요</li><li>굿즈 제작: 스티커, 이름표, 수건, 목도리, 마스크 등</li><li>목표: 모든 팀이 우리 굿즈를 걸고 다니게 하는 것</li></ul>
 <h3 id="스폰서십과자원">스폰서십과 자원</h3>
 <ul><li>잠재 스폰서를 찾고 연락</li><li>스폰서 신청 자료와 사업계획서 작성</li><li>스폰서와의 관계 유지</li><li>팀 예산과 재정 관리</li></ul>
+<blockquote class="bq-info">학교 지원 예산은 한정되어 있으며, 완성된 로봇 한 대의 전체 비용은 약 1만 위안입니다. 부족분은 스폰서십으로 채워야 하며, 팀이 미국 휴스턴 세계 대회에 진출하면 학교가 관련 경비를 전액 지원합니다.</blockquote>
 <h3 id="STEM홍보">STEM 홍보</h3>
 <ul><li>커뮤니티 STEM 교육 활동 조직</li><li>지역 학교와 기업에 연락</li><li>로봇 전시와 체험 활동 진행</li></ul>
 <h3 id="팀간교류">팀 간 교류</h3>
@@ -387,10 +398,13 @@ tr:nth-child(even){background:#fafafa}
 <h3 id="사례FTC27570팀BYNX의비즈니스개발">사례: FTC 27570 팀(BYNX)의 비즈니스 개발</h3>
 <ul><li><strong>사운드·라이트 모듈</strong>: FTC 27570 팀은 FTC 전용 사운드·라이트 모듈 KIRIN(麒麟)을 개발했으며 커스텀 조명 효과를 지원합니다. 단계별 가격에는 팀 번호가 숨어 있습니다. 1개 180위안, 4개 570위안, 6개 787위안인데, 570과 787은 각각 FTC 27570팀과 FTC 25787팀의 팀 번호에 대응하여 팀 번호를 구매자의 인식에 은연중에 각인시킵니다.</li><li><strong>커스텀 서보</strong>: 서보 공장과 협력해 전용 서보를 커스텀 제작하고, 브랜드 부착 후 전용 튜닝 소프트웨어를 개발해 공식 사이트에서 서보, 분전반 등 부속품을 판매하며, 판매 수입은 팀 경비로 사용합니다.</li></ul>
 <h3 id="사례FGC중국국가대표팀">사례: FGC 중국 국가대표팀</h3>
-<ul><li>FGC(First Global Challenge)는 로봇 분야의 올림픽에 해당하며, 2026년 대회는 한국 인천에서 열리고 190여 개 국가가 참가합니다.</li><li>FGC 중국 국가대표팀의 사업계획서에는 대회 소개, 팀 자기소개, 역대 성적, 등급별 스폰서 권리가 포함됩니다. 알려진 바에 따르면 이 팀은 샤오미(Xiaomi), 화웨이(Huawei, 계열 브랜드 Huakun Zhenyu(华鲲振宇) 명의) 등 브랜드의 스폰서를 받은 적이 있습니다.</li></ul>
+<ul><li>FGC(First Global Challenge)는 로봇 분야의 올림픽에 해당하며, 2026년 대회는 한국 인천에서 열리고 190여 개 국가가 참가합니다.</li><li>FGC 중국 국가대표팀의 사업계획서에는 대회 소개, 팀 자기소개, 역대 성적, 등급별 스폰서 권리가 포함됩니다. 알려진 바에 따르면 이 팀은 샤오미(Xiaomi), 화웨이(Huawei, 계열 브랜드 Huakun Zhenyu(华鲲振宇) 명의) 등 브랜드의 스폰서를 받은 적이 있습니다.</li><li>대형 기업 스폰서를 확보한 일부 강팀은 공식 부품을 거의 사용하지 않고 카본 섬유 등 완전 맞춤형 소재로 로봇을 제작해 일반 팀의 하드웨어를 크게 뛰어넘습니다.</li></ul>
 <hr>
 <h2 id="4기타사항">4. 기타 사항</h2>
 <p>(관련 문서와 매뉴얼 참조)</p>
+<h3 id="Inspire어워드와점수">Inspire 어워드와 점수</h3>
+<blockquote class="bq-info">경기 부문 1위는 40점에 불과하지만 Inspire 어워드 1위는 60점을 받습니다. Inspire 어워드의 핵심 평가 기준은 FTC 커뮤니티에서의 팀 영향력과 다른 팀을 도운 기록입니다.</blockquote>
+<ul><li>홍보 자료 축적, 팀 간 교류, 커뮤니티 봉사는 Inspire 어워드 경쟁력을 직접 결정하며, 그 가치는 경기 순위 자체를 능가할 수 있습니다</li></ul>
 </main>
 
 <script>

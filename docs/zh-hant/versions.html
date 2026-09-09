@@ -258,18 +258,31 @@ tr:nth-child(even){background:#fafafa}
 @media print{
   html,body{display:block !important;width:100% !important;max-width:100% !important;overflow:visible !important}
   nav.sidebar,.topbar,.overlay{display:none !important}
-  body{background:#fff}
+  /* 正文字号与封三正文一致（12px），行距收窄 */
+  body{background:#fff;font-size:12px;line-height:1.6}
   main{
     display:block !important;box-sizing:border-box !important;
     margin:0 !important;padding:0 !important;
     width:100% !important;max-width:100% !important;
   }
-  .card{box-shadow:none;border:1px solid var(--border);padding:24px 28px}
-  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:32px 28px}
-  .hero h1{color:var(--dark);font-size:28px}
-  section h2{font-size:22px}
-  section h3{font-size:17px}
+  .card{box-shadow:none;border:1px solid var(--border);padding:20px 24px}
+  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:28px 24px}
+  .hero h1{color:var(--dark);font-size:24px}
   .hero .badge{background:var(--red);color:#fff}
+  /* 正文标题为裸 h1/h2/h3/h4（无 section 包裹），须用裸元素选择器 */
+  h1{font-size:24px;margin:1.8em 0 .8em}
+  h2{font-size:19px;margin:1.2em 0 .5em}
+  h3{font-size:15px;margin:.8em 0 .3em}
+  h4{font-size:13px;margin:.6em 0 .3em}
+  p{margin-bottom:6px}
+  ul,ol{margin-bottom:8px}
+  li{margin-bottom:2px}
+  blockquote{font-size:11px;padding:10px 14px;margin:8px 0}
+  code{font-size:11px}
+  pre{font-size:11px;line-height:1.4;padding:12px 16px;margin-bottom:10px}
+  hr{margin:12px 0}
+  img{margin:8px 0}
+  .img-row figcaption{font-size:10px}
   a{color:inherit;overflow-wrap:anywhere !important}
   /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
   .table-wrap{
@@ -282,7 +295,7 @@ tr:nth-child(even){background:#fafafa}
     width:100% !important;max-width:100% !important;
     table-layout:fixed;font-size:12px
   }
-  th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
+  th,td{padding:4px 6px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
@@ -290,10 +303,6 @@ tr:nth-child(even){background:#fafafa}
   /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
   html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
   .align-right{text-align:right}
-  /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
-  h1{margin:3.2em 0 1em}
-  h2{margin:2em 0 .8em}
-  h3{margin:1.2em 0 .5em}
 }
 
 
@@ -352,13 +361,14 @@ tr:nth-child(even){background:#fafafa}
     </select>
   </div>
   <div class="sidebar-nav" id="verNav">
+<a class="ver-link" href="#v1.3.0">v1.3.0</a>
 <a class="ver-link" href="#v1.2.2">v1.2.2</a>
 <a class="ver-link" href="#v1.2.1">v1.2.1</a>
 <a class="ver-link" href="#v1.2.0">v1.2.0</a>
 <a class="ver-link" href="#v1.1.0">v1.1.0</a>
 <a class="ver-link" href="#v1.0.0">v1.0.0</a>
   </div>
-  <div class="sidebar-footer">2026年8月第3版·第2次修訂 &middot; 編寫小組</div>
+  <div class="sidebar-footer">2026年9月第3版 &middot; 編寫小組</div>
 </nav>
 
 <main>
@@ -372,7 +382,8 @@ tr:nth-child(even){background:#fafafa}
     </div>
     <p class="ver-intro">以下列出各版本的發布時間與主要改動，每個版本提供六種語言的 PDF 下載（早期版本僅含發布時已有的語言），不提供網頁版。</p>
     <div class="ver-list" id="verList">
-<article class="ver-card" id="v1.2.2"><div class="ver-head"><span class="ver-tag">v1.2.2</span><span class="ver-name">2026年8月第3版·第2次修訂</span><span class="ver-badge latest">最新版本</span></div><div class="ver-date">發布時間：2026年8月17日</div><ul class="ver-changes"><li>繁體中文版「结构体/装配体」術語統一為繁體字形（結構體/裝配體）。</li><li>歷史版本頁說明補充：早期版本僅含發布時已有的語言。</li><li>PDF 封面/封底版本資訊改為兩行排版並加大行距，封底右對齊。</li><li>工程化更新：版次資訊全面資料驅動（側邊欄頁尾、首頁最新版本、PDF 封面日期自動取自 VERSIONS）；新增 check-dist CI 校驗與 release.sh 半自動發版腳本；Release 說明歸檔至 release-notes/；全站新增 SEO 社交分享 meta 與本地化無障礙標籤；--watch 擴展監聽 images/ 與 build.py。</li></ul><div class="ver-pdfs"><span class="ver-pdf-label">下載：</span><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.2-zh-hans.pdf" target="_blank" rel="noopener">简体中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.2-zh-hant.pdf" target="_blank" rel="noopener">繁體中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.2-en-us.pdf" target="_blank" rel="noopener">English (US)</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.2-fr.pdf" target="_blank" rel="noopener">Français</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.2-es.pdf" target="_blank" rel="noopener">Español</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.2-ko.pdf" target="_blank" rel="noopener">한국어</a></div></article>
+<article class="ver-card" id="v1.3.0"><div class="ver-head"><span class="ver-tag">v1.3.0</span><span class="ver-name">2026年9月第3版</span><span class="ver-badge latest">最新版本</span></div><div class="ver-date">發布時間：2026年9月9日</div><ul class="ver-changes"><li>隊員須知新增「賽季與活動安排」章節：賽季時間線與賽事規則須知（僅限 Xbox 360 手把、磁浮禁令、參賽年齡 12–18 歲），並細化隊伍區域網路說明。</li><li>程式設計新增「AI 輔助程式設計」小節（配合 AI Agent 等工具）與 Driver 手把操作說明。</li><li>外部聯絡補充工程筆記定位、經費說明與「啟發獎與賽事得分」（競技第一 40 分、啟發獎第一 60 分），並補充強隊訂製車案例。</li><li>結構建造補充官方器材採購平替策略；建模設計補充建模檔案共享經驗。</li></ul><div class="ver-pdfs"><span class="ver-pdf-label">下載：</span><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.0-zh-hans.pdf" target="_blank" rel="noopener">简体中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.0-zh-hant.pdf" target="_blank" rel="noopener">繁體中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.0-en-us.pdf" target="_blank" rel="noopener">English (US)</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.0-fr.pdf" target="_blank" rel="noopener">Français</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.0-es.pdf" target="_blank" rel="noopener">Español</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.0-ko.pdf" target="_blank" rel="noopener">한국어</a></div></article>
+<article class="ver-card" id="v1.2.2"><div class="ver-head"><span class="ver-tag">v1.2.2</span><span class="ver-name">2026年8月第3版·第2次修訂</span></div><div class="ver-date">發布時間：2026年8月17日</div><ul class="ver-changes"><li>繁體中文版「结构体/装配体」術語統一為繁體字形（結構體/裝配體）。</li><li>歷史版本頁說明補充：早期版本僅含發布時已有的語言。</li><li>PDF 封面/封底版本資訊改為兩行排版並加大行距，封底右對齊。</li><li>工程化更新：版次資訊全面資料驅動（側邊欄頁尾、首頁最新版本、PDF 封面日期自動取自 VERSIONS）；新增 check-dist CI 校驗與 release.sh 半自動發版腳本；Release 說明歸檔至 release-notes/；全站新增 SEO 社交分享 meta 與本地化無障礙標籤；--watch 擴展監聽 images/ 與 build.py。</li></ul><div class="ver-pdfs"><span class="ver-pdf-label">下載：</span><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.2-zh-hans.pdf" target="_blank" rel="noopener">简体中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.2-zh-hant.pdf" target="_blank" rel="noopener">繁體中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.2-en-us.pdf" target="_blank" rel="noopener">English (US)</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.2-fr.pdf" target="_blank" rel="noopener">Français</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.2-es.pdf" target="_blank" rel="noopener">Español</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.2-ko.pdf" target="_blank" rel="noopener">한국어</a></div></article>
 <article class="ver-card" id="v1.2.1"><div class="ver-head"><span class="ver-tag">v1.2.1</span><span class="ver-name">2026年8月第3版·第1次修訂</span></div><div class="ver-date">發布時間：2026年8月16日</div><ul class="ver-changes"><li>繁體中文版人名附註簡體原名（如 付修齊（付修齐）），繁簡同形者不加註。</li><li>簡體/繁體中文版中外來譯名附註來源語言原名（如 结构体（Part Studio）、建置（Build））；全語言標註規範寫入 README。</li><li>入口韓語語言卡片上沿配色與西班牙語一致（#ffb953）。</li></ul><div class="ver-pdfs"><span class="ver-pdf-label">下載：</span><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.1-zh-hans.pdf" target="_blank" rel="noopener">简体中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.1-zh-hant.pdf" target="_blank" rel="noopener">繁體中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.1-en-us.pdf" target="_blank" rel="noopener">English (US)</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.1-fr.pdf" target="_blank" rel="noopener">Français</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.1-es.pdf" target="_blank" rel="noopener">Español</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.1-ko.pdf" target="_blank" rel="noopener">한국어</a></div></article>
 <article class="ver-card" id="v1.2.0"><div class="ver-head"><span class="ver-tag">v1.2.0</span><span class="ver-name">2026年8月第3版</span></div><div class="ver-date">發布時間：2026年8月16日</div><ul class="ver-changes"><li>新增韓語（한국어）版本：七章全文與網站頁面（語言首頁、歷史版本頁）同步提供韓語譯本，並發布韓語 PDF。</li><li>全部語言版本統一人名與專有名詞標註規範：真實人名附註漢字原名（如 Fu Xiuqi (付修齊)，韓語版用漢字讀音加註，如 부수제(付修齊)），平台與專有物名附註來源語言原名（如 KIRIN (麒麟)、Bilibili (嗶哩嗶哩)）。</li><li>本版為 2026年8月第3版。</li></ul><div class="ver-pdfs"><span class="ver-pdf-label">下載：</span><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.0-zh-hans.pdf" target="_blank" rel="noopener">简体中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.0-zh-hant.pdf" target="_blank" rel="noopener">繁體中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.0-en-us.pdf" target="_blank" rel="noopener">English (US)</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.0-fr.pdf" target="_blank" rel="noopener">Français</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.0-es.pdf" target="_blank" rel="noopener">Español</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.0-ko.pdf" target="_blank" rel="noopener">한국어</a></div></article>
 <article class="ver-card" id="v1.1.0"><div class="ver-head"><span class="ver-tag">v1.1.0</span><span class="ver-name">2026年8月第2版</span></div><div class="ver-date">發布時間：2026年8月15日</div><ul class="ver-changes"><li>新增西班牙語（Español）版本：七章全文與網站頁面（語言首頁、歷史版本頁）同步提供西班牙語譯本，並發布西班牙語 PDF。</li><li>入口語言選擇卡片上沿配色更新：簡體/繁體中文為 #a61615，English (US)/Français 為 #d85d23，新增的西班牙語卡片為 #ffb953。</li><li>本版為 2026年8月第2版，正式發布。</li></ul><div class="ver-pdfs"><span class="ver-pdf-label">下載：</span><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.1.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.1.0-zh-hans.pdf" target="_blank" rel="noopener">简体中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.1.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.1.0-zh-hant.pdf" target="_blank" rel="noopener">繁體中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.1.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.1.0-en-us.pdf" target="_blank" rel="noopener">English (US)</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.1.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.1.0-fr.pdf" target="_blank" rel="noopener">Français</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.1.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.1.0-es.pdf" target="_blank" rel="noopener">Español</a></div></article>
