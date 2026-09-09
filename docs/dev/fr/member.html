@@ -258,18 +258,31 @@ tr:nth-child(even){background:#fafafa}
 @media print{
   html,body{display:block !important;width:100% !important;max-width:100% !important;overflow:visible !important}
   nav.sidebar,.topbar,.overlay{display:none !important}
-  body{background:#fff}
+  /* 正文字号与封三正文一致（12px），行距收窄 */
+  body{background:#fff;font-size:12px;line-height:1.6}
   main{
     display:block !important;box-sizing:border-box !important;
     margin:0 !important;padding:0 !important;
     width:100% !important;max-width:100% !important;
   }
-  .card{box-shadow:none;border:1px solid var(--border);padding:24px 28px}
-  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:32px 28px}
-  .hero h1{color:var(--dark);font-size:28px}
-  section h2{font-size:22px}
-  section h3{font-size:17px}
+  .card{box-shadow:none;border:1px solid var(--border);padding:20px 24px}
+  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:28px 24px}
+  .hero h1{color:var(--dark);font-size:24px}
   .hero .badge{background:var(--red);color:#fff}
+  /* 正文标题为裸 h1/h2/h3/h4（无 section 包裹），须用裸元素选择器 */
+  h1{font-size:24px;margin:1.8em 0 .8em}
+  h2{font-size:19px;margin:1.2em 0 .5em}
+  h3{font-size:15px;margin:.8em 0 .3em}
+  h4{font-size:13px;margin:.6em 0 .3em}
+  p{margin-bottom:6px}
+  ul,ol{margin-bottom:8px}
+  li{margin-bottom:2px}
+  blockquote{font-size:11px;padding:10px 14px;margin:8px 0}
+  code{font-size:11px}
+  pre{font-size:11px;line-height:1.4;padding:12px 16px;margin-bottom:10px}
+  hr{margin:12px 0}
+  img{margin:8px 0}
+  .img-row figcaption{font-size:10px}
   a{color:inherit;overflow-wrap:anywhere !important}
   /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
   .table-wrap{
@@ -282,7 +295,7 @@ tr:nth-child(even){background:#fafafa}
     width:100% !important;max-width:100% !important;
     table-layout:fixed;font-size:12px
   }
-  th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
+  th,td{padding:4px 6px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
@@ -290,10 +303,6 @@ tr:nth-child(even){background:#fafafa}
   /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
   html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
   .align-right{text-align:right}
-  /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
-  h1{margin:3.2em 0 1em}
-  h2{margin:2em 0 .8em}
-  h3{margin:1.2em 0 .5em}
 }
 </style>
 </head>
@@ -335,13 +344,16 @@ tr:nth-child(even){background:#fafafa}
 <a class="sub-link sub-3" href="#LocalSend">LocalSend</a>
 <a class="sub-link sub-3" href="#GitHub">GitHub</a>
 <a class="sub-link sub-3" href="#Onshape">Onshape</a>
+<a class="sub-link" href="#3Saisonetemploidutemps">3. Saison et emploi du temps</a>
+<a class="sub-link sub-3" href="#Calendrierdelasaison">Calendrier de la saison</a>
+<a class="sub-link sub-3" href="#Règlesàconnaître">Règles à connaître</a>
 <a href="modeling.html">Modélisation &amp; Conception</a>
 <a href="build.html">Matériel &amp; Construction</a>
 <a href="programming.html">Programmation</a>
 <a href="outreach.html">Sensibilisation &amp; Relations publiques</a>
 <a href="afterword.html">Postface</a>
   </div>
-  <div class="sidebar-footer">Août 2026, 3e édition, 2e révision &middot; Équipe éditoriale</div>
+  <div class="sidebar-footer">Septembre 2026, 3e édition &middot; Équipe éditoriale</div>
 </nav>
 
 <main>
@@ -354,6 +366,7 @@ tr:nth-child(even){background:#fafafa}
 <h3 id="Environnementréseau">Environnement réseau</h3>
 <p>Un environnement réseau permettant d'accéder à l'assistance Android est requis.</p>
 <ul><li>Assistance Android : <a href="https://support.google.com/android" target="_blank">https://support.google.com/android</a></li></ul>
+<blockquote class="bq-info">Le réseau local de l'équipe passe par une passerelle dédiée du campus : il est plus stable que le réseau ordinaire du campus, mais conserve les restrictions d'accès de celui-ci. Le poste Programmation nécessite un accès aux ressources réseau à l'étranger pour l'assistance Android ; l'équipe peut fournir un moyen d'accès, mais si vous prévoyez un usage intensif, il est conseillé d'acheter votre propre service.</blockquote>
 <h3 id="Applications">Applications</h3>
 <ul><li>Navigateur web (Chrome, Edge ou Safari)</li><li>LocalSend</li></ul>
 <h3 id="Comptesenligne">Comptes en ligne</h3>
@@ -394,6 +407,12 @@ tr:nth-child(even){background:#fafafa}
 <ol><li>Ouvrez la page d'inscription au plan Éducation : <a href="https://www.onshape.com/en/education/sign-up" target="_blank">https://www.onshape.com/en/education/sign-up</a></li><li>Remplissez le formulaire d'inscription et soumettez-le</li></ol>
 <p>Références :</p>
 <ul><li><a href="https://www.onshape.com/en/education/plans" target="_blank">Présentation des plans Éducation Onshape</a></li></ul>
+<hr>
+<h2 id="3Saisonetemploidutemps">3. Saison et emploi du temps</h2>
+<h3 id="Calendrierdelasaison">Calendrier de la saison</h3>
+<ul><li>Une saison FTC complète s'étend de septembre à juin de l'année suivante ; le thème du jeu de la nouvelle saison est publié à la mi-septembre, laissant environ sept à huit semaines pour la conception et la mise au point du robot</li><li>Les qualifications ont lieu dans plusieurs villes du pays ; les équipes qualifiées disputent la compétition nationale pendant les vacances d'hiver, puis peuvent se rendre à Houston (États-Unis) pour la finale internationale (à ce jour, seules environ 4 équipes de Chine continentale ont atteint la finale de Houston)</li><li>Les matériaux de base du terrain de la nouvelle saison sont livrés officiellement après la rentrée ; le terrain peut être monté dès leur arrivée</li></ul>
+<h3 id="Règlesàconnaître">Règles à connaître</h3>
+<ul><li>Le robot est piloté manuellement avec une manette Xbox ; officiellement, seul le modèle Xbox 360 est autorisé</li><li>La sustentation magnétique est interdite par le règlement ; les aimants ordinaires et les électroaimants sont autorisés</li><li>La tranche d'âge officielle de la FTC est de 12 à 18 ans ; les collégiens peuvent participer</li></ul>
 </main>
 
 <script>

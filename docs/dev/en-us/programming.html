@@ -258,18 +258,31 @@ tr:nth-child(even){background:#fafafa}
 @media print{
   html,body{display:block !important;width:100% !important;max-width:100% !important;overflow:visible !important}
   nav.sidebar,.topbar,.overlay{display:none !important}
-  body{background:#fff}
+  /* 正文字号与封三正文一致（12px），行距收窄 */
+  body{background:#fff;font-size:12px;line-height:1.6}
   main{
     display:block !important;box-sizing:border-box !important;
     margin:0 !important;padding:0 !important;
     width:100% !important;max-width:100% !important;
   }
-  .card{box-shadow:none;border:1px solid var(--border);padding:24px 28px}
-  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:32px 28px}
-  .hero h1{color:var(--dark);font-size:28px}
-  section h2{font-size:22px}
-  section h3{font-size:17px}
+  .card{box-shadow:none;border:1px solid var(--border);padding:20px 24px}
+  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:28px 24px}
+  .hero h1{color:var(--dark);font-size:24px}
   .hero .badge{background:var(--red);color:#fff}
+  /* 正文标题为裸 h1/h2/h3/h4（无 section 包裹），须用裸元素选择器 */
+  h1{font-size:24px;margin:1.8em 0 .8em}
+  h2{font-size:19px;margin:1.2em 0 .5em}
+  h3{font-size:15px;margin:.8em 0 .3em}
+  h4{font-size:13px;margin:.6em 0 .3em}
+  p{margin-bottom:6px}
+  ul,ol{margin-bottom:8px}
+  li{margin-bottom:2px}
+  blockquote{font-size:11px;padding:10px 14px;margin:8px 0}
+  code{font-size:11px}
+  pre{font-size:11px;line-height:1.4;padding:12px 16px;margin-bottom:10px}
+  hr{margin:12px 0}
+  img{margin:8px 0}
+  .img-row figcaption{font-size:10px}
   a{color:inherit;overflow-wrap:anywhere !important}
   /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
   .table-wrap{
@@ -282,7 +295,7 @@ tr:nth-child(even){background:#fafafa}
     width:100% !important;max-width:100% !important;
     table-layout:fixed;font-size:12px
   }
-  th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
+  th,td{padding:4px 6px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
@@ -290,10 +303,6 @@ tr:nth-child(even){background:#fafafa}
   /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
   html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
   .align-right{text-align:right}
-  /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
-  h1{margin:3.2em 0 1em}
-  h2{margin:2em 0 .8em}
-  h3{margin:1.2em 0 .5em}
 }
 </style>
 </head>
@@ -340,10 +349,11 @@ tr:nth-child(even){background:#fafafa}
 <a class="sub-link sub-3" href="#RobotDashboard">Robot Dashboard</a>
 <a class="sub-link" href="#4Workflow">4. Workflow</a>
 <a class="sub-link sub-3" href="#DebuggingIstheCore">Debugging Is the Core</a>
+<a class="sub-link sub-3" href="#AI-AssistedProgramming">AI-Assisted Programming</a>
 <a href="outreach.html">Outreach &amp; PR</a>
 <a href="afterword.html">Afterword</a>
   </div>
-  <div class="sidebar-footer">August 2026, 3rd Edition, 2nd Revision &middot; Editorial Team</div>
+  <div class="sidebar-footer">September 2026, 3rd Edition &middot; Editorial Team</div>
 </nav>
 
 <main>
@@ -398,10 +408,14 @@ tr:nth-child(even){background:#fafafa}
 <h2 id="4Workflow">4. Workflow</h2>
 <p>The Programming team's core work consists of three parts:</p>
 <ul><li><strong>Autonomous programs</strong>: control logic for the season's Autonomous period</li><li><strong>TeleOp programs</strong>: operation logic for the driver-controlled period</li><li><strong>Sensor configuration</strong>: configuration of sensors and vision systems</li></ul>
+<blockquote class="bq-info">Driver operation: the robot is driven with an Xbox controller; officially only the Xbox 360 model is permitted. Drivers are picked from the team on merit ("whoever can do it, does it"); being good at controller-based games is a natural advantage.</blockquote>
 <h3 id="DebuggingIstheCore">Debugging Is the Core</h3>
 <blockquote class="bq-info">The real difficulty in program development lies in debugging. Autonomous paths, driver controls, PID parameters, vision configuration — most sensors come with ready-made packages you can reuse. What you really do is <em>tune</em>.</blockquote>
 <p>Debugging runs through the entire development workflow:</p>
 <ol><li><strong>Requirements analysis</strong>: clarify the rules and task requirements of the current season</li><li><strong>Architecture design</strong>: design the overall program architecture and module breakdown</li><li><strong>Implementation</strong>: write Java code in Android Studio</li><li><strong>Version control</strong>: manage code versions with Git</li><li><strong>Debugging</strong>: tune autonomous paths, driver controls, PID parameters, and vision configuration</li><li><strong>Testing & verification</strong>: verify program functionality on the robot</li><li><strong>Code review</strong>: review and merge code via GitHub</li><li><strong>Deployment</strong>: deploy the final build to the Robot Controller</li></ol>
+<h3 id="AI-AssistedProgramming">AI-Assisted Programming</h3>
+<blockquote class="bq-info">Writing code is no longer the hard part: you can work with AI Agent tools to assist programming. The real core skill is being able to <strong>read AI-generated code, know what to change, and debug it</strong> — you don't need to write everything from scratch.</blockquote>
+<ul><li>Core programming logic (e.g., for loops, while loops) is universal across languages; only the syntax differs. Students with C++ experience can adapt to Java quickly</li></ul>
 </main>
 
 <script>

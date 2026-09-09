@@ -258,18 +258,31 @@ tr:nth-child(even){background:#fafafa}
 @media print{
   html,body{display:block !important;width:100% !important;max-width:100% !important;overflow:visible !important}
   nav.sidebar,.topbar,.overlay{display:none !important}
-  body{background:#fff}
+  /* 正文字号与封三正文一致（12px），行距收窄 */
+  body{background:#fff;font-size:12px;line-height:1.6}
   main{
     display:block !important;box-sizing:border-box !important;
     margin:0 !important;padding:0 !important;
     width:100% !important;max-width:100% !important;
   }
-  .card{box-shadow:none;border:1px solid var(--border);padding:24px 28px}
-  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:32px 28px}
-  .hero h1{color:var(--dark);font-size:28px}
-  section h2{font-size:22px}
-  section h3{font-size:17px}
+  .card{box-shadow:none;border:1px solid var(--border);padding:20px 24px}
+  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:28px 24px}
+  .hero h1{color:var(--dark);font-size:24px}
   .hero .badge{background:var(--red);color:#fff}
+  /* 正文标题为裸 h1/h2/h3/h4（无 section 包裹），须用裸元素选择器 */
+  h1{font-size:24px;margin:1.8em 0 .8em}
+  h2{font-size:19px;margin:1.2em 0 .5em}
+  h3{font-size:15px;margin:.8em 0 .3em}
+  h4{font-size:13px;margin:.6em 0 .3em}
+  p{margin-bottom:6px}
+  ul,ol{margin-bottom:8px}
+  li{margin-bottom:2px}
+  blockquote{font-size:11px;padding:10px 14px;margin:8px 0}
+  code{font-size:11px}
+  pre{font-size:11px;line-height:1.4;padding:12px 16px;margin-bottom:10px}
+  hr{margin:12px 0}
+  img{margin:8px 0}
+  .img-row figcaption{font-size:10px}
   a{color:inherit;overflow-wrap:anywhere !important}
   /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
   .table-wrap{
@@ -282,7 +295,7 @@ tr:nth-child(even){background:#fafafa}
     width:100% !important;max-width:100% !important;
     table-layout:fixed;font-size:12px
   }
-  th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
+  th,td{padding:4px 6px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
@@ -290,10 +303,6 @@ tr:nth-child(even){background:#fafafa}
   /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
   html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
   .align-right{text-align:right}
-  /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
-  h1{margin:3.2em 0 1em}
-  h2{margin:2em 0 .8em}
-  h3{margin:1.2em 0 .5em}
 }
 </style>
 </head>
@@ -345,9 +354,10 @@ tr:nth-child(even){background:#fafafa}
 <a class="sub-link sub-3" href="#CasodesarrollocomercialdelequipoFTC27570BYNX">Caso: desarrollo comercial del equipo FTC 27570 (BYNX)</a>
 <a class="sub-link sub-3" href="#CasoselecciónnacionalchinadeFGC">Caso: selección nacional china de FGC</a>
 <a class="sub-link" href="#4Otrosasuntos">4. Otros asuntos</a>
+<a class="sub-link sub-3" href="#PremioInspireypuntuación">Premio Inspire y puntuación</a>
 <a href="afterword.html">Epílogo</a>
   </div>
-  <div class="sidebar-footer">3.ª edición, agosto de 2026, 2.ª revisión &middot; Equipo editorial</div>
+  <div class="sidebar-footer">3.ª edición, septiembre de 2026 &middot; Equipo editorial</div>
 </nav>
 
 <main>
@@ -362,7 +372,7 @@ tr:nth-child(even){background:#fafafa}
 <h2 id="2Responsabilidades">2. Responsabilidades</h2>
 <p>El grupo de Divulgación y relaciones públicas es el altavoz y la diplomacia del equipo. Sus principales responsabilidades:</p>
 <h3 id="Cuadernodeingeniería">Cuaderno de ingeniería</h3>
-<p>El contenido del cuaderno de ingeniería lo redactan los grupos de Construcción y Programación; el grupo de Divulgación se encarga de:</p>
+<p>El cuaderno de ingeniería documenta toda la temporada: el proceso de construcción del robot, las actividades de divulgación y cómo se resolvieron los problemas. Es un material de apoyo clave para las presentaciones y uno de los principales materiales de puntuación. Su contenido lo redactan los grupos de Construcción y Programación; el grupo de Divulgación se encarga de:</p>
 <ul><li><strong>Maquetación</strong>: el diseño y la maquetación del cuaderno de ingeniería</li><li><strong>Acumulación de material</strong>: acumular de forma proactiva material de promoción</li><li>Organizar la documentación de ingeniería de la temporada</li><li>Redactar el cuaderno de ingeniería que exige la competición</li></ul>
 <h3 id="Acumulacióndematerialpromocional">Acumulación de material promocional</h3>
 <ul><li>Contactar de forma proactiva con equipos de otros centros y organizar partidos amistosos, entrenamientos de simulación y sesiones de análisis del juego de la nueva temporada</li><li>Dar prioridad al contacto con institutos del distrito de Haidian que tengan equipos FTC</li><li>Centrarse en los equipos nuevos: vosotros ya sois un equipo veterano; los nuevos os necesitan</li></ul>
@@ -370,6 +380,7 @@ tr:nth-child(even){background:#fafafa}
 <ul><li>Diseñar el uniforme y el escudo del equipo para que la gente vea «32477» y no «Beijing National Day Experimental School»</li><li>Crear merchandising: pegatinas, tarjetas identificativas, toallas, bufandas, mascarillas, etc.</li><li>Objetivo: que cada equipo lleve colgado nuestro merchandising</li></ul>
 <h3 id="Patrocinioyrecursos">Patrocinio y recursos</h3>
 <ul><li>Buscar y contactar patrocinadores potenciales</li><li>Redactar materiales de solicitud de patrocinio y planes de negocio</li><li>Mantener las relaciones con los patrocinadores</li><li>Gestionar el presupuesto y las finanzas del equipo</li></ul>
+<blockquote class="bq-info">La financiación de la escuela es limitada: un robot de competición completo cuesta unos 10 000 ¥, y la diferencia debe cubrirse mediante patrocinios. Si el equipo se clasifica para la final internacional de Houston, la escuela reembolsará íntegramente los gastos correspondientes.</blockquote>
 <h3 id="PromocióndeSTEM">Promoción de STEM</h3>
 <ul><li>Organizar actividades comunitarias de educación STEM</li><li>Contactar con centros educativos y empresas locales</li><li>Realizar exhibiciones de robots y actividades de experiencia</li></ul>
 <h3 id="Intercambioentreequipos">Intercambio entre equipos</h3>
@@ -387,10 +398,13 @@ tr:nth-child(even){background:#fafafa}
 <h3 id="CasodesarrollocomercialdelequipoFTC27570BYNX">Caso: desarrollo comercial del equipo FTC 27570 (BYNX)</h3>
 <ul><li><strong>Módulo de luz y sonido</strong>: el equipo FTC 27570 desarrolló KIRIN (麒麟), un módulo de luz y sonido diseñado específicamente para FTC, con efectos de iluminación personalizables. La tarifa escalonada incorpora números de equipo: 1 unidad por 180 yuanes, 4 por 570 yuanes y 6 por 787 yuanes; 570 y 787 corresponden respectivamente a los números de los equipos FTC 27570 y FTC 25787, grabando así sutilmente el número del equipo en la percepción de los compradores.</li><li><strong>Servos personalizados</strong>: colaboran con una fábrica de servos para producir servos exclusivos; tras ponerles su marca, desarrollan software de ajuste de parámetros y venden servos, placas de distribución y otros accesorios a través de su web, destinando los ingresos a la financiación del equipo.</li></ul>
 <h3 id="CasoselecciónnacionalchinadeFGC">Caso: selección nacional china de FGC</h3>
-<ul><li>FGC (First Global Challenge) equivale a las Olimpiadas de la robótica; la edición de 2026 se celebrará en Incheon (Corea del Sur), con más de 190 países participantes.</li><li>El plan de negocio de la selección nacional china de FGC incluye la presentación de la competición, la presentación del equipo, el historial de resultados y los derechos correspondientes a cada nivel de patrocinio. Según se sabe, el equipo ha conseguido patrocinios de marcas como Xiaomi y Huawei (a través de su marca afiliada Huakun Zhenyu (华鲲振宇)).</li></ul>
+<ul><li>FGC (First Global Challenge) equivale a las Olimpiadas de la robótica; la edición de 2026 se celebrará en Incheon (Corea del Sur), con más de 190 países participantes.</li><li>El plan de negocio de la selección nacional china de FGC incluye la presentación de la competición, la presentación del equipo, el historial de resultados y los derechos correspondientes a cada nivel de patrocinio. Según se sabe, el equipo ha conseguido patrocinios de marcas como Xiaomi y Huawei (a través de su marca afiliada Huakun Zhenyu (华鲲振宇)).</li><li>Algunos equipos fuertes que han conseguido grandes patrocinadores construyen su robot casi sin piezas oficiales, con materiales totalmente personalizados como la fibra de carbono, muy por encima del hardware de los equipos normales.</li></ul>
 <hr>
 <h2 id="4Otrosasuntos">4. Otros asuntos</h2>
 <p>(Véanse los documentos y manuales correspondientes)</p>
+<h3 id="PremioInspireypuntuación">Premio Inspire y puntuación</h3>
+<blockquote class="bq-info">El primer puesto en la clasificación competitiva solo vale 40 puntos, mientras que el primer puesto del Premio Inspire vale 60. El Premio Inspire se evalúa principalmente por la influencia del equipo en la comunidad FTC y su historial de ayuda a otros equipos.</blockquote>
+<ul><li>El material promocional acumulado, el intercambio entre equipos y el servicio comunitario determinan directamente la competitividad para el Premio Inspire: su valor puede superar al del propio puesto competitivo.</li></ul>
 </main>
 
 <script>

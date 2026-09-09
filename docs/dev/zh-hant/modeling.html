@@ -258,18 +258,31 @@ tr:nth-child(even){background:#fafafa}
 @media print{
   html,body{display:block !important;width:100% !important;max-width:100% !important;overflow:visible !important}
   nav.sidebar,.topbar,.overlay{display:none !important}
-  body{background:#fff}
+  /* 正文字号与封三正文一致（12px），行距收窄 */
+  body{background:#fff;font-size:12px;line-height:1.6}
   main{
     display:block !important;box-sizing:border-box !important;
     margin:0 !important;padding:0 !important;
     width:100% !important;max-width:100% !important;
   }
-  .card{box-shadow:none;border:1px solid var(--border);padding:24px 28px}
-  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:32px 28px}
-  .hero h1{color:var(--dark);font-size:28px}
-  section h2{font-size:22px}
-  section h3{font-size:17px}
+  .card{box-shadow:none;border:1px solid var(--border);padding:20px 24px}
+  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:28px 24px}
+  .hero h1{color:var(--dark);font-size:24px}
   .hero .badge{background:var(--red);color:#fff}
+  /* 正文标题为裸 h1/h2/h3/h4（无 section 包裹），须用裸元素选择器 */
+  h1{font-size:24px;margin:1.8em 0 .8em}
+  h2{font-size:19px;margin:1.2em 0 .5em}
+  h3{font-size:15px;margin:.8em 0 .3em}
+  h4{font-size:13px;margin:.6em 0 .3em}
+  p{margin-bottom:6px}
+  ul,ol{margin-bottom:8px}
+  li{margin-bottom:2px}
+  blockquote{font-size:11px;padding:10px 14px;margin:8px 0}
+  code{font-size:11px}
+  pre{font-size:11px;line-height:1.4;padding:12px 16px;margin-bottom:10px}
+  hr{margin:12px 0}
+  img{margin:8px 0}
+  .img-row figcaption{font-size:10px}
   a{color:inherit;overflow-wrap:anywhere !important}
   /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
   .table-wrap{
@@ -282,7 +295,7 @@ tr:nth-child(even){background:#fafafa}
     width:100% !important;max-width:100% !important;
     table-layout:fixed;font-size:12px
   }
-  th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
+  th,td{padding:4px 6px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
@@ -290,10 +303,6 @@ tr:nth-child(even){background:#fafafa}
   /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
   html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
   .align-right{text-align:right}
-  /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
-  h1{margin:3.2em 0 1em}
-  h2{margin:2em 0 .8em}
-  h3{margin:1.2em 0 .5em}
 }
 </style>
 </head>
@@ -347,7 +356,7 @@ tr:nth-child(even){background:#fafafa}
 <a href="outreach.html">外部聯絡</a>
 <a href="afterword.html">後記</a>
   </div>
-  <div class="sidebar-footer">2026年8月第3版·第2次修訂 &middot; 編寫小組</div>
+  <div class="sidebar-footer">2026年9月第3版 &middot; 編寫小組</div>
 </nav>
 
 <main>
@@ -409,7 +418,7 @@ tr:nth-child(even){background:#fafafa}
 <h3 id="建模思路與賽程參考">建模思路與賽程參考</h3>
 <ul><li>構思車輛設計時，可以將賽題任務拆分成小項，分別構思完成各小項的結構，再進行組合</li><li>正式建模前，應向其他隊員徵詢方案意見，基於隊伍得分策略進行設計</li><li>完成整車設計建模後，應考慮實際裝配流程：對於內部的螺絲等難安裝結構，應提前預留安裝通道，並預留走線空間</li><li>可以考慮設計模組化結構，方便後期修理與最佳化</li><li>終版方案盡量設計一體結構，減少不必要的小結構，以提升整體結構強度與輕便性</li></ul>
 <p><strong>賽程參考：</strong></p>
-<ul><li>工期安排上，初代設計可以比較潦草，但必須盡快設計完並製作，給程式偵錯和 Driver 練習留時間，並實測結構進行迭代最佳化；在資格賽前，一輛具備資格的整車要迭代至少 3 次（參考）</li><li>多關注國外隊伍動態，FTC 社群有類似 "Robot in 30 Hours Reveal | FTC" 的活動，參賽隊伍隨時可能分享新賽季方案；也可以參考 FRC、VEX 等賽事的隊伍方案</li></ul>
+<ul><li>工期安排上，初代設計可以比較潦草，但必須盡快設計完並製作，給程式偵錯和 Driver 練習留時間，並實測結構進行迭代最佳化；在資格賽前，一輛具備資格的整車要迭代至少 3 次（參考）</li><li>多關注國外隊伍動態，FTC 社群有類似 "Robot in 30 Hours Reveal | FTC" 的活動，參賽隊伍隨時可能分享新賽季方案；也可以參考 FRC、VEX 等賽事的隊伍方案</li><li>其他隊伍的建模檔案大多公開分享，主動向對方索要通常不會被拒絕，可參考優秀設計優化自身方案；北京十一學校本部等強隊的經驗尤其值得學習</li></ul>
 <h3 id="Onshape學習資源">Onshape 學習資源</h3>
 <p>Onshape 作為專業的建模平台，具有完整的官方學習資源：<a href="https://learn.onshape.com/" target="_blank">https://learn.onshape.com/</a>；嗶哩嗶哩、YouTube 等影片平台上也有許多教學。</p>
 <ul><li>由於 CAD 軟體工作流程的相似性（草圖、零件、裝配體），SolidWorks、Autodesk Fusion 等軟體的教學同樣具有學習價值，可以幫助培養對零件空間感的把握以及對建模工作流程的熟悉</li><li>學習過程中要牢記實踐重於理論：可以在嗶哩嗶哩找一些模型跟練，先自己嘗試建模，實在不會再查看教學；在生活中也可以觀察、思考一些小結構的建模思路</li><li>對於 FTC 賽事，要多學習其他隊伍的優秀方案：大多數強隊都有自己的網站並開源方案，可以在 YouTube 或 Google 上搜尋 FTC 隊伍號查詢官網；也可以在 CycleZLab 等網站查看其他隊伍的模型</li></ul>

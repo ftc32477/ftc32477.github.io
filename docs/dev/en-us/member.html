@@ -258,18 +258,31 @@ tr:nth-child(even){background:#fafafa}
 @media print{
   html,body{display:block !important;width:100% !important;max-width:100% !important;overflow:visible !important}
   nav.sidebar,.topbar,.overlay{display:none !important}
-  body{background:#fff}
+  /* 正文字号与封三正文一致（12px），行距收窄 */
+  body{background:#fff;font-size:12px;line-height:1.6}
   main{
     display:block !important;box-sizing:border-box !important;
     margin:0 !important;padding:0 !important;
     width:100% !important;max-width:100% !important;
   }
-  .card{box-shadow:none;border:1px solid var(--border);padding:24px 28px}
-  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:32px 28px}
-  .hero h1{color:var(--dark);font-size:28px}
-  section h2{font-size:22px}
-  section h3{font-size:17px}
+  .card{box-shadow:none;border:1px solid var(--border);padding:20px 24px}
+  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:28px 24px}
+  .hero h1{color:var(--dark);font-size:24px}
   .hero .badge{background:var(--red);color:#fff}
+  /* 正文标题为裸 h1/h2/h3/h4（无 section 包裹），须用裸元素选择器 */
+  h1{font-size:24px;margin:1.8em 0 .8em}
+  h2{font-size:19px;margin:1.2em 0 .5em}
+  h3{font-size:15px;margin:.8em 0 .3em}
+  h4{font-size:13px;margin:.6em 0 .3em}
+  p{margin-bottom:6px}
+  ul,ol{margin-bottom:8px}
+  li{margin-bottom:2px}
+  blockquote{font-size:11px;padding:10px 14px;margin:8px 0}
+  code{font-size:11px}
+  pre{font-size:11px;line-height:1.4;padding:12px 16px;margin-bottom:10px}
+  hr{margin:12px 0}
+  img{margin:8px 0}
+  .img-row figcaption{font-size:10px}
   a{color:inherit;overflow-wrap:anywhere !important}
   /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
   .table-wrap{
@@ -282,7 +295,7 @@ tr:nth-child(even){background:#fafafa}
     width:100% !important;max-width:100% !important;
     table-layout:fixed;font-size:12px
   }
-  th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
+  th,td{padding:4px 6px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
@@ -290,10 +303,6 @@ tr:nth-child(even){background:#fafafa}
   /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
   html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
   .align-right{text-align:right}
-  /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
-  h1{margin:3.2em 0 1em}
-  h2{margin:2em 0 .8em}
-  h3{margin:1.2em 0 .5em}
 }
 </style>
 </head>
@@ -335,13 +344,16 @@ tr:nth-child(even){background:#fafafa}
 <a class="sub-link sub-3" href="#LocalSend">LocalSend</a>
 <a class="sub-link sub-3" href="#GitHub">GitHub</a>
 <a class="sub-link sub-3" href="#Onshape">Onshape</a>
+<a class="sub-link" href="#3SeasonSchedule">3. Season &amp; Schedule</a>
+<a class="sub-link sub-3" href="#SeasonTimeline">Season Timeline</a>
+<a class="sub-link sub-3" href="#CompetitionRulesNotes">Competition Rules Notes</a>
 <a href="modeling.html">Modeling &amp; Design</a>
 <a href="build.html">Hardware &amp; Build</a>
 <a href="programming.html">Programming</a>
 <a href="outreach.html">Outreach &amp; PR</a>
 <a href="afterword.html">Afterword</a>
   </div>
-  <div class="sidebar-footer">August 2026, 3rd Edition, 2nd Revision &middot; Editorial Team</div>
+  <div class="sidebar-footer">September 2026, 3rd Edition &middot; Editorial Team</div>
 </nav>
 
 <main>
@@ -354,6 +366,7 @@ tr:nth-child(even){background:#fafafa}
 <h3 id="NetworkEnvironment">Network Environment</h3>
 <p>You need a network environment that can access Android support resources.</p>
 <ul><li>Android support: <a href="https://support.google.com/android" target="_blank">https://support.google.com/android</a></li></ul>
+<blockquote class="bq-info">The team maintains its own LAN connected to a dedicated campus gateway: it is more stable than the regular campus network but keeps the campus network's access restrictions. Programming requires access to overseas network resources for Android support; the team can provide an access route, but if you expect heavy usage, purchasing your own service is recommended.</blockquote>
 <h3 id="Applications">Applications</h3>
 <ul><li>Web browser (Chrome, Edge, or Safari)</li><li>LocalSend</li></ul>
 <h3 id="OnlineAccounts">Online Accounts</h3>
@@ -394,6 +407,12 @@ tr:nth-child(even){background:#fafafa}
 <ol><li>Open the education sign-up page: <a href="https://www.onshape.com/en/education/sign-up" target="_blank">https://www.onshape.com/en/education/sign-up</a></li><li>Fill out and submit the registration form.</li></ol>
 <p>References:</p>
 <ul><li><a href="https://www.onshape.com/en/education/plans" target="_blank">Onshape education plans</a></li></ul>
+<hr>
+<h2 id="3SeasonSchedule">3. Season & Schedule</h2>
+<h3 id="SeasonTimeline">Season Timeline</h3>
+<ul><li>A full FTC season runs from September through June of the following year; the new season game is released in mid-September, leaving about seven to eight weeks for vehicle design and debugging</li><li>Qualifiers are held in several cities across the country; teams that advance play in the national championship during the winter break, and those that advance again go to Houston, USA, for the World Championship (so far only about 4 teams from mainland China have reached the Houston Championship)</li><li>The official basic field materials are delivered after the school year begins, and the new season field can be assembled once they arrive</li></ul>
+<h3 id="CompetitionRulesNotes">Competition Rules Notes</h3>
+<ul><li>The robot is manually driven with an Xbox controller; officially only the Xbox 360 model is permitted</li><li>Magnetic levitation technology is prohibited by the rules; ordinary magnets and electromagnets are allowed</li><li>The official FTC age range is 12–18; middle school students may join</li></ul>
 </main>
 
 <script>

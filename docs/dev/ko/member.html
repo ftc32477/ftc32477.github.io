@@ -258,18 +258,31 @@ tr:nth-child(even){background:#fafafa}
 @media print{
   html,body{display:block !important;width:100% !important;max-width:100% !important;overflow:visible !important}
   nav.sidebar,.topbar,.overlay{display:none !important}
-  body{background:#fff}
+  /* 正文字号与封三正文一致（12px），行距收窄 */
+  body{background:#fff;font-size:12px;line-height:1.6}
   main{
     display:block !important;box-sizing:border-box !important;
     margin:0 !important;padding:0 !important;
     width:100% !important;max-width:100% !important;
   }
-  .card{box-shadow:none;border:1px solid var(--border);padding:24px 28px}
-  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:32px 28px}
-  .hero h1{color:var(--dark);font-size:28px}
-  section h2{font-size:22px}
-  section h3{font-size:17px}
+  .card{box-shadow:none;border:1px solid var(--border);padding:20px 24px}
+  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:28px 24px}
+  .hero h1{color:var(--dark);font-size:24px}
   .hero .badge{background:var(--red);color:#fff}
+  /* 正文标题为裸 h1/h2/h3/h4（无 section 包裹），须用裸元素选择器 */
+  h1{font-size:24px;margin:1.8em 0 .8em}
+  h2{font-size:19px;margin:1.2em 0 .5em}
+  h3{font-size:15px;margin:.8em 0 .3em}
+  h4{font-size:13px;margin:.6em 0 .3em}
+  p{margin-bottom:6px}
+  ul,ol{margin-bottom:8px}
+  li{margin-bottom:2px}
+  blockquote{font-size:11px;padding:10px 14px;margin:8px 0}
+  code{font-size:11px}
+  pre{font-size:11px;line-height:1.4;padding:12px 16px;margin-bottom:10px}
+  hr{margin:12px 0}
+  img{margin:8px 0}
+  .img-row figcaption{font-size:10px}
   a{color:inherit;overflow-wrap:anywhere !important}
   /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
   .table-wrap{
@@ -282,7 +295,7 @@ tr:nth-child(even){background:#fafafa}
     width:100% !important;max-width:100% !important;
     table-layout:fixed;font-size:12px
   }
-  th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
+  th,td{padding:4px 6px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
@@ -290,10 +303,6 @@ tr:nth-child(even){background:#fafafa}
   /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
   html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
   .align-right{text-align:right}
-  /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
-  h1{margin:3.2em 0 1em}
-  h2{margin:2em 0 .8em}
-  h3{margin:1.2em 0 .5em}
 }
 </style>
 </head>
@@ -335,13 +344,16 @@ tr:nth-child(even){background:#fafafa}
 <a class="sub-link sub-3" href="#LocalSend">LocalSend</a>
 <a class="sub-link sub-3" href="#GitHub">GitHub</a>
 <a class="sub-link sub-3" href="#Onshape">Onshape</a>
+<a class="sub-link" href="#3시즌과활동일정">3. 시즌과 활동 일정</a>
+<a class="sub-link sub-3" href="#시즌일정">시즌 일정</a>
+<a class="sub-link sub-3" href="#알아두어야할규칙">알아두어야 할 규칙</a>
 <a href="modeling.html">모델링 및 설계</a>
 <a href="build.html">하드웨어 및 제작</a>
 <a href="programming.html">프로그래밍</a>
 <a href="outreach.html">아웃리치 및 대외 홍보</a>
 <a href="afterword.html">후기</a>
   </div>
-  <div class="sidebar-footer">2026년 8월 제3판 · 2차 개정 &middot; 편집팀</div>
+  <div class="sidebar-footer">2026년 9월 제3판 &middot; 편집팀</div>
 </nav>
 
 <main>
@@ -394,6 +406,12 @@ tr:nth-child(even){background:#fafafa}
 <ol><li>교육 플랜 가입 페이지 열기: <a href="https://www.onshape.com/en/education/sign-up" target="_blank">https://www.onshape.com/en/education/sign-up</a></li><li>가입 양식을 작성하고 제출하면 됩니다</li></ol>
 <p>참고 자료:</p>
 <ul><li><a href="https://www.onshape.com/en/education/plans" target="_blank">Onshape 교육 플랜 안내</a></li></ul>
+<hr>
+<h2 id="3시즌과활동일정">3. 시즌과 활동 일정</h2>
+<h3 id="시즌일정">시즌 일정</h3>
+<ul><li>FTC 한 시즌은 그해 9월부터 다음 해 6월까지 이어집니다. 새 시즌 과제는 매년 9월 중순에 발표되며, 발표 후 로봇 설계와 디버깅에 약 7~8주가 주어집니다</li><li>예선전은 전국 여러 도시에서 열립니다. 예선을 통과하면 겨울방학에 전국 대회에 출전하고, 다시 통과하면 미국 휴스턴에서 열리는 세계 대회에 참가합니다(현재까지 중국 본토에서 휴스턴 세계 대회에 진출한 팀은 약 4팀뿐입니다)</li><li>새 시즌 기본 경기장 자재는 개학 후 공식적으로 일괄 배송되며, 도착하면 바로 새 시즌 경기장을 조립할 수 있습니다</li></ul>
+<h3 id="알아두어야할규칙">알아두어야 할 규칙</h3>
+<ul><li>로봇은 Xbox 컨트롤러로 수동 조종하며, 공식적으로 Xbox 360 모델만 허용됩니다</li><li>규칙상 자기 부상 기술은 금지되지만 일반 자석과 전자석 부품은 사용할 수 있습니다</li><li>FTC 공식 참가 연령은 12~18세이며, 중학생도 참가할 수 있습니다</li></ul>
 </main>
 
 <script>

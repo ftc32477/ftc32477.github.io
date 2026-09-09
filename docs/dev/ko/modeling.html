@@ -258,18 +258,31 @@ tr:nth-child(even){background:#fafafa}
 @media print{
   html,body{display:block !important;width:100% !important;max-width:100% !important;overflow:visible !important}
   nav.sidebar,.topbar,.overlay{display:none !important}
-  body{background:#fff}
+  /* 正文字号与封三正文一致（12px），行距收窄 */
+  body{background:#fff;font-size:12px;line-height:1.6}
   main{
     display:block !important;box-sizing:border-box !important;
     margin:0 !important;padding:0 !important;
     width:100% !important;max-width:100% !important;
   }
-  .card{box-shadow:none;border:1px solid var(--border);padding:24px 28px}
-  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:32px 28px}
-  .hero h1{color:var(--dark);font-size:28px}
-  section h2{font-size:22px}
-  section h3{font-size:17px}
+  .card{box-shadow:none;border:1px solid var(--border);padding:20px 24px}
+  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:28px 24px}
+  .hero h1{color:var(--dark);font-size:24px}
   .hero .badge{background:var(--red);color:#fff}
+  /* 正文标题为裸 h1/h2/h3/h4（无 section 包裹），须用裸元素选择器 */
+  h1{font-size:24px;margin:1.8em 0 .8em}
+  h2{font-size:19px;margin:1.2em 0 .5em}
+  h3{font-size:15px;margin:.8em 0 .3em}
+  h4{font-size:13px;margin:.6em 0 .3em}
+  p{margin-bottom:6px}
+  ul,ol{margin-bottom:8px}
+  li{margin-bottom:2px}
+  blockquote{font-size:11px;padding:10px 14px;margin:8px 0}
+  code{font-size:11px}
+  pre{font-size:11px;line-height:1.4;padding:12px 16px;margin-bottom:10px}
+  hr{margin:12px 0}
+  img{margin:8px 0}
+  .img-row figcaption{font-size:10px}
   a{color:inherit;overflow-wrap:anywhere !important}
   /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
   .table-wrap{
@@ -282,7 +295,7 @@ tr:nth-child(even){background:#fafafa}
     width:100% !important;max-width:100% !important;
     table-layout:fixed;font-size:12px
   }
-  th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
+  th,td{padding:4px 6px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
@@ -290,10 +303,6 @@ tr:nth-child(even){background:#fafafa}
   /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
   html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
   .align-right{text-align:right}
-  /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
-  h1{margin:3.2em 0 1em}
-  h2{margin:2em 0 .8em}
-  h3{margin:1.2em 0 .5em}
 }
 </style>
 </head>
@@ -347,7 +356,7 @@ tr:nth-child(even){background:#fafafa}
 <a href="outreach.html">아웃리치 및 대외 홍보</a>
 <a href="afterword.html">후기</a>
   </div>
-  <div class="sidebar-footer">2026년 8월 제3판 · 2차 개정 &middot; 편집팀</div>
+  <div class="sidebar-footer">2026년 9월 제3판 &middot; 편집팀</div>
 </nav>
 
 <main>
@@ -409,7 +418,7 @@ tr:nth-child(even){background:#fafafa}
 <h3 id="모델링아이디어와일정참고">모델링 아이디어와 일정 참고</h3>
 <ul><li>차량 설계를 구상할 때 대회 과제를 작은 항목으로 나누고, 각 항목의 구조를 따로 구상한 뒤 조합하세요</li><li>정식 모델링 전에 다른 팀원에게 방안 의견을 구하고, 팀의 득점 전략을 바탕으로 설계하세요</li><li>로봇 전체 설계 모델링이 끝나면 실제 조립 과정을 고려해야 합니다. 내부 나사처럼 설치가 어려운 구조는 미리 설치 통로와 배선 공간을 확보하세요</li><li>모듈식 구조 설계를 고려하면 나중에 수리와 최적화가 쉬워집니다</li><li>최종 방안은 가능한 한 일체형 구조로 설계하고 불필요한 작은 구조를 줄여 전체 구조의 강도와 경량성을 높이세요</li></ul>
 <p><strong>일정 참고:</strong></p>
-<ul><li>공정 일정상 초기 설계는 다소 거칠어도 되지만, 반드시 빨리 설계를 끝내고 제작해 프로그램 디버깅과 Driver 연습 시간을 확보하고 실물 구조를 시험해 반복 개선해야 합니다. 예선 전에 출전 자격을 갖춘 완성차는 최소 3회 이상 반복 개선을 거쳐야 합니다(참고)</li><li>해외 팀 동향을 자주 살펴보세요. FTC 커뮤니티에는 "Robot in 30 Hours Reveal | FTC" 같은 활동이 있으며, 참가 팀이 언제든 새 시즌 방안을 공유할 수 있습니다. FRC, VEX 등 다른 대회 팀의 방안도 참고할 수 있습니다</li></ul>
+<ul><li>공정 일정상 초기 설계는 다소 거칠어도 되지만, 반드시 빨리 설계를 끝내고 제작해 프로그램 디버깅과 Driver 연습 시간을 확보하고 실물 구조를 시험해 반복 개선해야 합니다. 예선 전에 출전 자격을 갖춘 완성차는 최소 3회 이상 반복 개선을 거쳐야 합니다(참고)</li><li>해외 팀 동향을 자주 살펴보세요. FTC 커뮤니티에는 "Robot in 30 Hours Reveal | FTC" 같은 활동이 있으며, 참가 팀이 언제든 새 시즌 방안을 공유할 수 있습니다. FRC, VEX 등 다른 대회 팀의 방안도 참고할 수 있습니다</li><li>대부분 팀의 모델링 파일은 공개적으로 공유됩니다. 상대 팀에 직접 요청해도 보통 거절당하지 않으며, 우수한 설계를 참고해 우리 방안을 개선할 수 있습니다. 베이징 11학교(Beijing National Day School) 본부 등 강팀의 경험이 특히 배울 만합니다</li></ul>
 <h3 id="Onshape학습자료">Onshape 학습 자료</h3>
 <p>전문 모델링 플랫폼인 Onshape는 완전한 공식 학습 자료를 제공합니다. <a href="https://learn.onshape.com/" target="_blank">https://learn.onshape.com/</a>; 빌리빌리(哔哩哔哩), YouTube 등 동영상 플랫폼에도 많은 튜토리얼이 있습니다.</p>
 <ul><li>CAD 소프트웨어의 작업 흐름이 비슷하므로(스케치, 부품, 어셈블리) SolidWorks, Autodesk Fusion 등 소프트웨어의 튜토리얼도 학습 가치가 있으며, 부품 공간 감각과 모델링 작업 흐름에 대한 익숙함을 기르는 데 도움이 됩니다</li><li>학습 과정에서 이론보다 실천이 중요하다는 것을 기억하세요. 빌리빌리(哔哩哔哩)에서 모델을 찾아 따라 만들어 보고, 먼저 스스로 모델링을 시도한 뒤 정 안 되면 튜토리얼을 보세요. 일상생활에서도 작은 구조의 모델링 아이디어를 관찰하고 생각해 보세요</li><li>FTC 대회에서는 다른 팀의 우수한 방안을 많이 배워야 합니다. 대부분의 강팀은 자체 웹사이트를 두고 방안을 공개하므로, YouTube나 Google에서 FTC 팀 번호를 검색해 공식 사이트를 찾을 수 있으며, CycleZLab 같은 사이트에서 다른 팀의 모델을 볼 수도 있습니다</li></ul>
