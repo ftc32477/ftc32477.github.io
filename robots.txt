@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /docs/dev/
+
+Sitemap: https://ftc32477.github.io/sitemap.xml
