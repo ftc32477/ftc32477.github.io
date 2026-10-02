@@ -4,17 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Programación｜Guía de inicio rápido de FTC 32477 Origin</title>
-<meta name="description" content="La Guía de inicio rápido de FTC 32477 Origin — Negarse a reinventar la rueda. Una guía completa de siete capítulos para los miembros del equipo, disponible en seis idiomas con PDF imprimibles.">
+<meta name="description" content="A continuación se indican los materiales adicionales que requiere Programación.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Programación｜Guía de inicio rápido de FTC 32477 Origin">
-<meta property="og:description" content="La Guía de inicio rápido de FTC 32477 Origin — Negarse a reinventar la rueda. Una guía completa de siete capítulos para los miembros del equipo, disponible en seis idiomas con PDF imprimibles.">
+<meta property="og:description" content="A continuación se indican los materiales adicionales que requiere Programación.">
 <meta property="og:image" content="https://ftc32477.github.io/docs/images/basic/team_logo.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Programación｜Guía de inicio rápido de FTC 32477 Origin">
-<meta name="twitter:description" content="La Guía de inicio rápido de FTC 32477 Origin — Negarse a reinventar la rueda. Una guía completa de siete capítulos para los miembros del equipo, disponible en seis idiomas con PDF imprimibles.">
+<meta name="twitter:description" content="A continuación se indican los materiales adicionales que requiere Programación.">
 <meta name="twitter:image" content="https://ftc32477.github.io/docs/images/basic/team_logo.png">
+<meta name="robots" content="noindex,nofollow">
 <link rel="icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <link rel="shortcut icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/basic/icon_team_logo_32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../images/basic/apple-touch-icon.png">
 <style>
 :root {
   --red: #d32f2f;
@@ -300,8 +303,8 @@ tr:nth-child(even){background:#fafafa}
 <body>
 
 <div class="topbar">
-  <img class="topbar-logo" src="../images/basic/team_logo.png" alt="32477 Origin">
-  <span class="brand"><a href="../index.html" title="返回主页">Guía de inicio rápido de FTC 32477 Origin</a></span>
+  <img class="topbar-logo" src="../images/basic/team_logo_small.png" alt="32477 Origin">
+  <span class="brand"><a href="../index.html" title="Volver al inicio">Guía de inicio rápido de FTC 32477 Origin</a></span>
   <select class="lang-select" id="langSelect" aria-label="Idioma">
 <option value="../zh-hans/programming.html">简体中文</option><option value="../zh-hant/programming.html">繁體中文</option><option value="../en-us/programming.html">English (US)</option><option value="../fr/programming.html">Français</option><option value="../es/programming.html" selected>Español</option><option value="../ko/programming.html">한국어</option>
   </select>
@@ -311,8 +314,8 @@ tr:nth-child(even){background:#fafafa}
 
 <nav class="sidebar" id="sidebar">
   <div class="sidebar-header">
-    <a class="home-link" href="../index.html" title="返回主页">
-      <img class="side-logo" src="../images/basic/team_logo.png" alt="32477 Origin Team Logo">
+    <a class="home-link" href="../index.html" title="Volver al inicio">
+      <img class="side-logo" src="../images/basic/team_logo_small.png" alt="32477 Origin Team Logo">
       <div class="logo">FTC 32477<br>Origin</div>
       <div class="sub">Guía de inicio rápido</div>
     </a>
@@ -344,7 +347,7 @@ tr:nth-child(even){background:#fafafa}
 <a href="outreach.html">Divulgación y relaciones públicas</a>
 <a href="afterword.html">Epílogo</a>
   </div>
-  <div class="sidebar-footer">1.ª edición, septiembre de 2026 · revisión 1 &middot; Equipo editorial</div>
+  <div class="sidebar-footer">1.ª edición, septiembre de 2026 · revisión 2 &middot; Equipo editorial</div>
 </nav>
 
 <main>
@@ -364,36 +367,36 @@ tr:nth-child(even){background:#fafafa}
 <p><strong>Método 1 (descargar e instalar Git desde Android Studio):</strong></p>
 <ol><li>Abra Android Studio y entre en los ajustes: en Windows/Linux, File → Settings; en macOS, Android Studio → Settings (o Preferences)</li><li>En el menú de la izquierda, despliegue Version Control y pulse Git</li><li>Si no se detecta Git, la interfaz ofrece un acceso de descarga; púlselo, descárguelo e instálelo</li><li>Tras la instalación, confirme la ruta del ejecutable de Git en Path to Git executable (git.exe en Windows); pulse Test y, cuando muestre Successful, pulse Apply y OK para guardar</li></ol>
 <p><strong>Método 2 (instalar primero Git por separado y configurar la ruta después en Android Studio):</strong></p>
-<ol><li>Visite el sitio oficial de Git <a href="https://git-scm.com/downloads" target="_blank">https://git-scm.com/downloads</a> y descargue el instalador adecuado para su sistema (Windows / macOS / Linux)</li><li>Ejecute el instalador y complete la instalación con las opciones predeterminadas pulsando Next</li><li>Abra Android Studio y vaya a Ajustes → Version Control → Git</li><li>En Path to Git executable, introduzca o seleccione la ruta del ejecutable de Git (se detecta automáticamente si la variable de entorno está configurada)</li><li>Pulse Test; cuando muestre Successful, pulse Apply y OK para guardar</li></ol>
+<ol><li>Visite el sitio oficial de Git <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a> y descargue el instalador adecuado para su sistema (Windows / macOS / Linux)</li><li>Ejecute el instalador y complete la instalación con las opciones predeterminadas pulsando Next</li><li>Abra Android Studio y vaya a Ajustes → Version Control → Git</li><li>En Path to Git executable, introduzca o seleccione la ruta del ejecutable de Git (se detecta automáticamente si la variable de entorno está configurada)</li><li>Pulse Test; cuando muestre Successful, pulse Apply y OK para guardar</li></ol>
 <p>Si necesita activar el control de versiones en el proyecto actual: pulse en el menú superior VCS → Enable Version Control Integration..., elija Git y pulse OK.</p>
 <h3 id="AndroidStudio">Android Studio</h3>
 <p>Android Studio es la herramienta de escritura de programas que utiliza nuestro equipo.</p>
 <p><strong>Proceso de instalación y configuración del entorno:</strong></p>
-<ol><li>Abra <a href="https://developer.android.com/studio" target="_blank">https://developer.android.com/studio</a></li><li>Pulse «Download Android Studio», descargue la versión correspondiente e instálela.</li></ol>
+<ol><li>Abra <a href="https://developer.android.com/studio" target="_blank" rel="noopener">https://developer.android.com/studio</a></li><li>Pulse «Download Android Studio», descargue la versión correspondiente e instálela.</li></ol>
 <p><strong>A tener en cuenta al instalar en Windows:</strong></p>
 <ul><li>Marque las dos casillas</li><li>Elija una ruta con espacio suficiente y que no vaya a cambiar</li></ul>
 <p><strong>Inicialización:</strong></p>
 <ul><li>Elija el modo «Standard»</li><li>Al aceptar el acuerdo, marque «Accept»</li><li>Deje el resto tal cual y pulse «Next»</li></ul>
 <p><strong>Traducción al chino:</strong></p>
-<ol><li>Abra <a href="https://github.com/sollyu/AndroidStudioChineseLanguagePack/releases" target="_blank">Android Studio Chinese Language Pack</a></li><li>Descargue el paquete de idioma más reciente (archivo .jar)</li><li>En la lista de pestañas de la izquierda de la pantalla principal, elija «Plugins» y después «Install Plugin from Disk»</li><li>Elija el archivo .jar descargado y ábralo; cuando el complemento se cargue, asegúrese de que queda activado</li><li>En la lista de pestañas de la izquierda, elija «Customize», entre en «Language and Region», seleccione «Chinese (Simplified) 简体中文» en «Language» y «Americas» en «Region», y reinicie</li></ol>
+<ol><li>Abra <a href="https://github.com/sollyu/AndroidStudioChineseLanguagePack/releases" target="_blank" rel="noopener">Android Studio Chinese Language Pack</a></li><li>Descargue el paquete de idioma más reciente (archivo .jar)</li><li>En la lista de pestañas de la izquierda de la pantalla principal, elija «Plugins» y después «Install Plugin from Disk»</li><li>Elija el archivo .jar descargado y ábralo; cuando el complemento se cargue, asegúrese de que queda activado</li><li>En la lista de pestañas de la izquierda, elija «Customize», entre en «Language and Region», seleccione «Chinese (Simplified) 简体中文» en «Language» y «Americas» en «Region», y reinicie</li></ol>
 <p><strong>Clonar el repositorio:</strong></p>
 <ol><li>En la lista de pestañas de la izquierda, pulse «GitHub» y autorice con «Log In via GitHub».</li><li>Elija el repositorio de código de la temporada actual (p. ej., <code>ftc32477/FTC-32477-Decode-Program</code>)</li><li>Elija una carpeta vacía cuya ruta no vaya a cambiar y pulse «Clone»</li><li>Espere a que termine la descarga; puede ver el progreso en la pestaña «Build» de la barra lateral izquierda o mediante la barra de progreso de la esquina inferior derecha</li></ol>
 <blockquote class="bq-warning">Si tiene problemas, consulte al administrador.</blockquote>
 <h3 id="VisualStudioCode">Visual Studio Code</h3>
 <p>Visual Studio Code es la herramienta de edición de código y consulta del historial que utiliza nuestro equipo.</p>
 <p><strong>Proceso de instalación y configuración del entorno:</strong></p>
-<ol><li>Abra <a href="https://code.visualstudio.com/Download" target="_blank">https://code.visualstudio.com/Download</a></li><li>Descargue la versión correspondiente e instálela</li><li>Abra el <a href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hans" target="_blank">complemento de traducción al chino</a> e instálelo.</li></ol>
+<ol><li>Abra <a href="https://code.visualstudio.com/Download" target="_blank" rel="noopener">https://code.visualstudio.com/Download</a></li><li>Descargue la versión correspondiente e instálela</li><li>Abra el <a href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hans" target="_blank" rel="noopener">complemento de traducción al chino</a> e instálelo.</li></ol>
 <hr>
 <h2 id="3Presentacióndelasherramientas">3. Presentación de las herramientas</h2>
 <h3 id="AndroidStudio-1">Android Studio</h3>
-<p>Documentación oficial: <a href="https://developer.android.com/studio/intro?hl=zh-cn" target="_blank">https://developer.android.com/studio/intro?hl=zh-cn</a></p>
+<p>Documentación oficial: <a href="https://developer.android.com/studio/intro?hl=es" target="_blank" rel="noopener">https://developer.android.com/studio/intro?hl=es</a></p>
 <p>En este proyecto, partimos del marco de aplicaciones oficial de FTC y escribimos el programa de control del robot en Java dentro de la carpeta <code>TeamCode</code>, para invocar las distintas bibliotecas de dependencias que el robot necesita para funcionar.</p>
 <p>Sobre los conocimientos básicos de Android Studio, consulte las páginas sencillas de la documentación oficial.</p>
 <h3 id="VisualStudioCode-1">Visual Studio Code</h3>
-<p>Documentación oficial: <a href="https://code.visualstudio.com/docs" target="_blank">https://code.visualstudio.com/docs</a></p>
+<p>Documentación oficial: <a href="https://code.visualstudio.com/docs" target="_blank" rel="noopener">https://code.visualstudio.com/docs</a></p>
 <p>Dado que la lógica de manejo de Visual Studio Code es similar a la de Android Studio, y que en este proyecto se usa con menos frecuencia, para las guías de interfaz consulte la parte de Android Studio; no se repite aquí.</p>
 <h3 id="RobotDashboard">Robot Dashboard</h3>
-<ul><li>Conéctese a la red wifi «<code>32477-RC</code>». Contraseña wifi: pregunte al administrador u obténgala a través del Driver Hub.</li><li>La dirección es: <a href="http://192.168.43.1:8080/" target="_blank">http://192.168.43.1:8080/</a></li><li>Es la página web del módulo wifi integrado del Control Hub (nombre oficial: Robot Controller Console, es decir, la consola del controlador del robot), que ofrece un panel gráfico de administración del Control Hub.</li></ul>
+<ul><li>Conéctese a la red wifi «<code>32477-RC</code>». Contraseña wifi: pregunte al administrador u obténgala a través del Driver Hub.</li><li>La dirección es: <a href="http://192.168.43.1:8080/" target="_blank" rel="noopener">http://192.168.43.1:8080/</a> (solo accesible desde la red local del robot)</li><li>Es la página web del módulo wifi integrado del Control Hub (nombre oficial: Robot Controller Console, es decir, la consola del controlador del robot), que ofrece un panel gráfico de administración del Control Hub.</li></ul>
 <p>Sobre los conocimientos básicos de Robot Dashboard, consulte las páginas sencillas de la documentación oficial.</p>
 <hr>
 <h2 id="4Flujodetrabajo">4. Flujo de trabajo</h2>

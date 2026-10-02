@@ -4,17 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>프로그래밍｜FTC 32477 Origin 빠른 시작 가이드</title>
-<meta name="description" content="FTC 32477 Origin 빠른 시작 가이드 — 바퀴를 다시 발명하지 않기. 신입과 베테랑을 위한 7개 장으로 구성된 완전한 가이드로, 6개 언어 버전과 인쇄 가능한 PDF를 제공합니다.">
+<meta name="description" content="다음은 프로그래밍에서 추가로 필요한 자료입니다.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="프로그래밍｜FTC 32477 Origin 빠른 시작 가이드">
-<meta property="og:description" content="FTC 32477 Origin 빠른 시작 가이드 — 바퀴를 다시 발명하지 않기. 신입과 베테랑을 위한 7개 장으로 구성된 완전한 가이드로, 6개 언어 버전과 인쇄 가능한 PDF를 제공합니다.">
+<meta property="og:description" content="다음은 프로그래밍에서 추가로 필요한 자료입니다.">
 <meta property="og:image" content="https://ftc32477.github.io/docs/images/basic/team_logo.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="프로그래밍｜FTC 32477 Origin 빠른 시작 가이드">
-<meta name="twitter:description" content="FTC 32477 Origin 빠른 시작 가이드 — 바퀴를 다시 발명하지 않기. 신입과 베테랑을 위한 7개 장으로 구성된 완전한 가이드로, 6개 언어 버전과 인쇄 가능한 PDF를 제공합니다.">
+<meta name="twitter:description" content="다음은 프로그래밍에서 추가로 필요한 자료입니다.">
 <meta name="twitter:image" content="https://ftc32477.github.io/docs/images/basic/team_logo.png">
+<meta name="robots" content="noindex,nofollow">
 <link rel="icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <link rel="shortcut icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/basic/icon_team_logo_32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../images/basic/apple-touch-icon.png">
 <style>
 :root {
   --red: #d32f2f;
@@ -300,8 +303,8 @@ tr:nth-child(even){background:#fafafa}
 <body>
 
 <div class="topbar">
-  <img class="topbar-logo" src="../images/basic/team_logo.png" alt="32477 Origin">
-  <span class="brand"><a href="../index.html" title="返回主页">FTC 32477 Origin 빠른 시작 가이드</a></span>
+  <img class="topbar-logo" src="../images/basic/team_logo_small.png" alt="32477 Origin">
+  <span class="brand"><a href="../index.html" title="홈으로 돌아가기">FTC 32477 Origin 빠른 시작 가이드</a></span>
   <select class="lang-select" id="langSelect" aria-label="언어">
 <option value="../zh-hans/programming.html">简体中文</option><option value="../zh-hant/programming.html">繁體中文</option><option value="../en-us/programming.html">English (US)</option><option value="../fr/programming.html">Français</option><option value="../es/programming.html">Español</option><option value="../ko/programming.html" selected>한국어</option>
   </select>
@@ -311,8 +314,8 @@ tr:nth-child(even){background:#fafafa}
 
 <nav class="sidebar" id="sidebar">
   <div class="sidebar-header">
-    <a class="home-link" href="../index.html" title="返回主页">
-      <img class="side-logo" src="../images/basic/team_logo.png" alt="32477 Origin Team Logo">
+    <a class="home-link" href="../index.html" title="홈으로 돌아가기">
+      <img class="side-logo" src="../images/basic/team_logo_small.png" alt="32477 Origin Team Logo">
       <div class="logo">FTC 32477<br>Origin</div>
       <div class="sub">빠른 시작 가이드</div>
     </a>
@@ -344,7 +347,7 @@ tr:nth-child(even){background:#fafafa}
 <a href="outreach.html">아웃리치 및 대외 홍보</a>
 <a href="afterword.html">후기</a>
   </div>
-  <div class="sidebar-footer">2026년 9월 제1판 · 1차 개정 &middot; 편집팀</div>
+  <div class="sidebar-footer">2026년 9월 제1판 · 2차 개정 &middot; 편집팀</div>
 </nav>
 
 <main>
@@ -364,36 +367,36 @@ tr:nth-child(even){background:#fafafa}
 <p><strong>방법 1(Android Studio에서 Git 다운로드 및 설치):</strong></p>
 <ol><li>Android Studio를 열고 설정 페이지로 들어갑니다. Windows/Linux는 File → Settings, macOS는 Android Studio → Settings(또는 Preferences)</li><li>왼쪽 메뉴에서 Version Control을 펼치고 Git 클릭</li><li>Git이 감지되지 않으면 인터페이스에 다운로드 입구가 표시됩니다. 클릭해 다운로드하고 설치하면 됩니다</li><li>설치 완료 후 Path to Git executable에서 Git 프로그램 경로를 확인하고(Windows는 git.exe), Test를 클릭해 Successful이 표시되면 Apply와 OK를 눌러 저장합니다</li></ol>
 <p><strong>방법 2(Git을 먼저 별도 설치한 뒤 Android Studio에서 경로 설정):</strong></p>
-<ol><li>Git 공식 사이트 <a href="https://git-scm.com/downloads" target="_blank">https://git-scm.com/downloads</a>에 접속해 자신의 컴퓨터 시스템(Windows / macOS / Linux)에 맞는 설치 패키지를 다운로드합니다</li><li>설치 프로그램을 실행하고 기본 옵션으로 Next를 눌러 설치를 완료합니다</li><li>Android Studio를 열고 설정 → Version Control → Git으로 이동합니다</li><li>Path to Git executable에 Git 프로그램 경로를 입력하거나 선택합니다(환경 변수가 설정되어 있으면 자동으로 감지됨)</li><li>Test를 클릭해 Successful이 표시되면 Apply와 OK를 눌러 저장합니다</li></ol>
+<ol><li>Git 공식 사이트 <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a>에 접속해 자신의 컴퓨터 시스템(Windows / macOS / Linux)에 맞는 설치 패키지를 다운로드합니다</li><li>설치 프로그램을 실행하고 기본 옵션으로 Next를 눌러 설치를 완료합니다</li><li>Android Studio를 열고 설정 → Version Control → Git으로 이동합니다</li><li>Path to Git executable에 Git 프로그램 경로를 입력하거나 선택합니다(환경 변수가 설정되어 있으면 자동으로 감지됨)</li><li>Test를 클릭해 Successful이 표시되면 Apply와 OK를 눌러 저장합니다</li></ol>
 <p>현재 프로젝트에서 버전 관리를 활성화하려면: 상단 메뉴 VCS → Enable Version Control Integration...을 클릭하고 Git을 선택한 뒤 OK를 누릅니다.</p>
 <h3 id="AndroidStudio">Android Studio</h3>
 <p>Android Studio는 우리 팀이 사용하는 프로그램 작성 도구입니다.</p>
 <p><strong>소프트웨어 설치 및 환경 설정 절차:</strong></p>
-<ol><li><a href="https://developer.android.com/studio" target="_blank">https://developer.android.com/studio</a> 열기</li><li>"Download Android Studio"를 클릭해 해당 버전을 다운로드하고 설치합니다.</li></ol>
+<ol><li><a href="https://developer.android.com/studio" target="_blank" rel="noopener">https://developer.android.com/studio</a> 열기</li><li>"Download Android Studio"를 클릭해 해당 버전을 다운로드하고 설치합니다.</li></ol>
 <p><strong>Windows에서 설치할 때 주의할 점:</strong></p>
 <ul><li>두 체크박스를 모두 체크해야 합니다</li><li>공간이 충분하고 변경되지 않을 경로를 선택하세요</li></ul>
 <p><strong>초기화:</strong></p>
 <ul><li>"Standard" 모드를 선택하세요</li><li>계약 동의 시 "Accept"를 체크하세요</li><li>나머지는 그대로 두고 "Next"를 선택하세요</li></ul>
 <p><strong>한글화:</strong></p>
-<ol><li><a href="https://github.com/sollyu/AndroidStudioChineseLanguagePack/releases" target="_blank">Android Studio Chinese Language Pack</a> 열기</li><li>최신 언어 확장 패키지(.jar 파일) 다운로드</li><li>메인 페이지 왼쪽 탭 목록에서 "Plugins"를 선택하고 "Install Plugin from Disk" 선택</li><li>다운로드한 .jar 파일을 선택해 열고, 플러그인이 로드되면 활성화 상태인지 확인</li><li>왼쪽 탭 목록에서 "Customize"를 선택하고 "Language and Region"에 들어가 "Language"를 "Chinese (Simplified) 简体中文"으로, "Region"을 "Americas"로 선택한 뒤 재시작</li></ol>
+<ol><li><a href="https://github.com/sollyu/AndroidStudioChineseLanguagePack/releases" target="_blank" rel="noopener">Android Studio Chinese Language Pack</a> 열기</li><li>최신 언어 확장 패키지(.jar 파일) 다운로드</li><li>메인 페이지 왼쪽 탭 목록에서 "Plugins"를 선택하고 "Install Plugin from Disk" 선택</li><li>다운로드한 .jar 파일을 선택해 열고, 플러그인이 로드되면 활성화 상태인지 확인</li><li>왼쪽 탭 목록에서 "Customize"를 선택하고 "Language and Region"에 들어가 "Language"를 "Chinese (Simplified) 简体中文"으로, "Region"을 "Americas"로 선택한 뒤 재시작</li></ol>
 <p><strong>저장소 클론:</strong></p>
 <ol><li>왼쪽 탭 목록에서 "GitHub" 클릭, "Log In via GitHub"로 인증합니다.</li><li>현재 시즌의 코드 저장소를 선택합니다(예: <code>ftc32477/FTC-32477-Decode-Program</code>)</li><li>경로가 바뀌지 않을 빈 폴더를 선택하고 "Clone" 클릭</li><li>파일 다운로드가 끝날 때까지 기다립니다. 왼쪽 사이드바의 "Build" 탭이나 창 오른쪽 아래의 진행 표시줄에서 진행 상황을 볼 수 있습니다</li></ol>
 <blockquote class="bq-warning">문제가 있으면 관리자에게 문의하세요.</blockquote>
 <h3 id="VisualStudioCode">Visual Studio Code</h3>
 <p>Visual Studio Code는 우리 팀이 사용하는 코드 편집 및 이력 확인 도구입니다.</p>
 <p><strong>소프트웨어 설치 및 환경 설정 절차:</strong></p>
-<ol><li><a href="https://code.visualstudio.com/Download" target="_blank">https://code.visualstudio.com/Download</a> 열기</li><li>해당 버전을 다운로드하고 설치하면 됩니다</li><li><a href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hans" target="_blank">한글화 플러그인</a>을 열어 설치하면 한글화됩니다.</li></ol>
+<ol><li><a href="https://code.visualstudio.com/Download" target="_blank" rel="noopener">https://code.visualstudio.com/Download</a> 열기</li><li>해당 버전을 다운로드하고 설치하면 됩니다</li><li><a href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hans" target="_blank" rel="noopener">한글화 플러그인</a>을 열어 설치하면 한글화됩니다.</li></ol>
 <hr>
 <h2 id="3도구소개">3. 도구 소개</h2>
 <h3 id="AndroidStudio-1">Android Studio</h3>
-<p>공식 문서: <a href="https://developer.android.com/studio/intro?hl=zh-cn" target="_blank">https://developer.android.com/studio/intro?hl=zh-cn</a></p>
+<p>공식 문서: <a href="https://developer.android.com/studio/intro?hl=ko" target="_blank" rel="noopener">https://developer.android.com/studio/intro?hl=ko</a></p>
 <p>이 프로젝트에서는 FTC 공식 제공 애플리케이션 프레임워크를 기반으로, <code>TeamCode</code> 폴더 아래에서 Java 언어로 로봇 제어 프로그램을 작성해 로봇 구동에 필요한 각종 의존성 라이브러리를 호출합니다.</p>
 <p>Android Studio에서 알아야 할 기본 지식은 공식 문서의 간단한 페이지 안내를 참고하세요.</p>
 <h3 id="VisualStudioCode-1">Visual Studio Code</h3>
-<p>공식 문서: <a href="https://code.visualstudio.com/docs" target="_blank">https://code.visualstudio.com/docs</a></p>
+<p>공식 문서: <a href="https://code.visualstudio.com/docs" target="_blank" rel="noopener">https://code.visualstudio.com/docs</a></p>
 <p>Visual Studio Code의 조작 로직은 Android Studio와 비슷하고, 이 프로젝트에서는 사용 빈도가 낮으므로 인터페이스 안내는 Android Studio 파트를 참고하세요. 여기서는 반복하지 않습니다.</p>
 <h3 id="RobotDashboard">Robot Dashboard</h3>
-<ul><li>Wi-Fi 네트워크 '<code>32477-RC</code>'에 연결합니다. Wi-Fi 비밀번호: 관리자에게 문의하거나 Driver Hub를 통해 확인합니다.</li><li>주소: <a href="http://192.168.43.1:8080/" target="_blank">http://192.168.43.1:8080/</a></li><li>Control Hub에 내장된 Wi-Fi 모듈의 웹 페이지(공식 명칭 Robot Controller Console, 즉 로봇 컨트롤러 콘솔)로, Control Hub를 관리하는 그래픽 백엔드를 제공합니다.</li></ul>
+<ul><li>Wi-Fi 네트워크 '<code>32477-RC</code>'에 연결합니다. Wi-Fi 비밀번호: 관리자에게 문의하거나 Driver Hub를 통해 확인합니다.</li><li>주소: <a href="http://192.168.43.1:8080/" target="_blank" rel="noopener">http://192.168.43.1:8080/</a> (로봇 로컬 네트워크에서만 접속 가능)</li><li>Control Hub에 내장된 Wi-Fi 모듈의 웹 페이지(공식 명칭 Robot Controller Console, 즉 로봇 컨트롤러 콘솔)로, Control Hub를 관리하는 그래픽 백엔드를 제공합니다.</li></ul>
 <p>Robot Dashboard에서 알아야 할 기본 지식은 공식 문서의 간단한 페이지 안내를 참고하세요.</p>
 <hr>
 <h2 id="4작업흐름">4. 작업 흐름</h2>
