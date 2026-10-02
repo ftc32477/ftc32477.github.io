@@ -4,17 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Programming｜FTC 32477 Origin Quick Start Guide</title>
-<meta name="description" content="The FTC 32477 Origin Quick Start Guide — Refuse to Reinvent the Wheel. A complete seven-chapter guide for new and returning team members, available in six languages with printable PDFs.">
+<meta name="description" content="The following are supplementary requirements for Programming.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Programming｜FTC 32477 Origin Quick Start Guide">
-<meta property="og:description" content="The FTC 32477 Origin Quick Start Guide — Refuse to Reinvent the Wheel. A complete seven-chapter guide for new and returning team members, available in six languages with printable PDFs.">
+<meta property="og:description" content="The following are supplementary requirements for Programming.">
 <meta property="og:image" content="https://ftc32477.github.io/docs/images/basic/team_logo.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Programming｜FTC 32477 Origin Quick Start Guide">
-<meta name="twitter:description" content="The FTC 32477 Origin Quick Start Guide — Refuse to Reinvent the Wheel. A complete seven-chapter guide for new and returning team members, available in six languages with printable PDFs.">
+<meta name="twitter:description" content="The following are supplementary requirements for Programming.">
 <meta name="twitter:image" content="https://ftc32477.github.io/docs/images/basic/team_logo.png">
+<link rel="canonical" href="https://ftc32477.github.io/docs/en-us/programming.html">
+<link rel="alternate" hreflang="zh-hans" href="https://ftc32477.github.io/docs/zh-hans/programming.html">
+<link rel="alternate" hreflang="zh-hant" href="https://ftc32477.github.io/docs/zh-hant/programming.html">
+<link rel="alternate" hreflang="en-us" href="https://ftc32477.github.io/docs/en-us/programming.html">
+<link rel="alternate" hreflang="fr" href="https://ftc32477.github.io/docs/fr/programming.html">
+<link rel="alternate" hreflang="es" href="https://ftc32477.github.io/docs/es/programming.html">
+<link rel="alternate" hreflang="ko" href="https://ftc32477.github.io/docs/ko/programming.html">
+<link rel="alternate" hreflang="x-default" href="https://ftc32477.github.io/docs/en-us/programming.html">
 <link rel="icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <link rel="shortcut icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/basic/icon_team_logo_32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../images/basic/apple-touch-icon.png">
 <style>
 :root {
   --red: #d32f2f;
@@ -300,8 +310,8 @@ tr:nth-child(even){background:#fafafa}
 <body>
 
 <div class="topbar">
-  <img class="topbar-logo" src="../images/basic/team_logo.png" alt="32477 Origin">
-  <span class="brand"><a href="../index.html" title="返回主页">FTC 32477 Origin Quick Start Guide</a></span>
+  <img class="topbar-logo" src="../images/basic/team_logo_small.png" alt="32477 Origin">
+  <span class="brand"><a href="../index.html" title="Back to home">FTC 32477 Origin Quick Start Guide</a></span>
   <select class="lang-select" id="langSelect" aria-label="Language">
 <option value="../zh-hans/programming.html">简体中文</option><option value="../zh-hant/programming.html">繁體中文</option><option value="../en-us/programming.html" selected>English (US)</option><option value="../fr/programming.html">Français</option><option value="../es/programming.html">Español</option><option value="../ko/programming.html">한국어</option>
   </select>
@@ -311,8 +321,8 @@ tr:nth-child(even){background:#fafafa}
 
 <nav class="sidebar" id="sidebar">
   <div class="sidebar-header">
-    <a class="home-link" href="../index.html" title="返回主页">
-      <img class="side-logo" src="../images/basic/team_logo.png" alt="32477 Origin Team Logo">
+    <a class="home-link" href="../index.html" title="Back to home">
+      <img class="side-logo" src="../images/basic/team_logo_small.png" alt="32477 Origin Team Logo">
       <div class="logo">FTC 32477<br>Origin</div>
       <div class="sub">Quick Start Guide</div>
     </a>
@@ -344,7 +354,7 @@ tr:nth-child(even){background:#fafafa}
 <a href="outreach.html">Outreach &amp; PR</a>
 <a href="afterword.html">Afterword</a>
   </div>
-  <div class="sidebar-footer">September 2026, 1st Edition · Revision 1 &middot; Editorial Team</div>
+  <div class="sidebar-footer">September 2026, 1st Edition · Revision 2 &middot; Editorial Team</div>
 </nav>
 
 <main>
@@ -364,36 +374,36 @@ tr:nth-child(even){background:#fafafa}
 <p><strong>Method 1 (download and install Git within Android Studio):</strong></p>
 <ol><li>Open Android Studio and go to Settings: File → Settings on Windows/Linux; Android Studio → Settings (or Preferences) on macOS</li><li>Expand Version Control in the left menu and click Git</li><li>If Git is not detected, the dialog provides a download entry — click it to download and install Git</li><li>After installation, confirm the Git executable path under Path to Git executable (git.exe on Windows); click Test until it shows Successful, then click Apply and OK</li></ol>
 <p><strong>Method 2 (install Git separately first, then configure the path in Android Studio):</strong></p>
-<ol><li>Visit the official Git website at <a href="https://git-scm.com/downloads" target="_blank">https://git-scm.com/downloads</a> and download the installer for your system (Windows / macOS / Linux)</li><li>Run the installer and accept the defaults by clicking Next</li><li>Open Android Studio and go to Settings → Version Control → Git</li><li>Enter or browse to the Git executable path under Path to Git executable (auto-detected if the PATH environment variable is set)</li><li>Click Test; once it shows Successful, click Apply and OK</li></ol>
+<ol><li>Visit the official Git website at <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">https://git-scm.com/downloads</a> and download the installer for your system (Windows / macOS / Linux)</li><li>Run the installer and accept the defaults by clicking Next</li><li>Open Android Studio and go to Settings → Version Control → Git</li><li>Enter or browse to the Git executable path under Path to Git executable (auto-detected if the PATH environment variable is set)</li><li>Click Test; once it shows Successful, click Apply and OK</li></ol>
 <p>To enable version control for the current project: click VCS in the top menu → Enable Version Control Integration..., choose Git, and click OK.</p>
 <h3 id="AndroidStudio">Android Studio</h3>
 <p>Android Studio is the IDE adopted by our team for writing programs.</p>
 <p><strong>Software installation and configuration:</strong></p>
-<ol><li>Open <a href="https://developer.android.com/studio" target="_blank">https://developer.android.com/studio</a></li><li>Click "Download Android Studio" and install the version for your platform.</li></ol>
+<ol><li>Open <a href="https://developer.android.com/studio" target="_blank" rel="noopener">https://developer.android.com/studio</a></li><li>Click "Download Android Studio" and install the version for your platform.</li></ol>
 <p><strong>On Windows, note the following during installation:</strong></p>
 <ul><li>Both checkboxes must be checked</li><li>Choose a path with sufficient space that will not be moved</li></ul>
 <p><strong>Initialization:</strong></p>
 <ul><li>Select "Standard" mode</li><li>Check "Accept" when agreeing to the licenses</li><li>Keep everything else unchanged and click "Next"</li></ul>
 <p><strong>Installing the Chinese language pack (optional):</strong></p>
-<ol><li>Open the <a href="https://github.com/sollyu/AndroidStudioChineseLanguagePack/releases" target="_blank">Android Studio Chinese Language Pack releases</a></li><li>Download the latest language pack (.jar file)</li><li>In the left tab list on the welcome screen, select "Plugins", then "Install Plugin from Disk"</li><li>Select the downloaded .jar file and open it; make sure the plugin is enabled once loaded</li><li>In the left tab list, select "Customize", open "Language and Region", select "Chinese (Simplified)" under "Language", choose "Americas" under "Region", then restart</li></ol>
+<ol><li>Open the <a href="https://github.com/sollyu/AndroidStudioChineseLanguagePack/releases" target="_blank" rel="noopener">Android Studio Chinese Language Pack releases</a></li><li>Download the latest language pack (.jar file)</li><li>In the left tab list on the welcome screen, select "Plugins", then "Install Plugin from Disk"</li><li>Select the downloaded .jar file and open it; make sure the plugin is enabled once loaded</li><li>In the left tab list, select "Customize", open "Language and Region", select "Chinese (Simplified)" under "Language", choose "Americas" under "Region", then restart</li></ol>
 <p><strong>Cloning the repository:</strong></p>
 <ol><li>Click "GitHub" in the left tab list and sign in via "Log in with GitHub" to authorize.</li><li>Select the current season's code repository (e.g., <code>ftc32477/FTC-32477-Decode-Program</code>)</li><li>Choose an empty folder on a path that will not change and click "Clone"</li><li>Wait for the download to finish; track progress via the "Build" tab in the left sidebar or the progress bar in the bottom-right corner</li></ol>
 <blockquote class="bq-warning">If you run into problems, ask an administrator.</blockquote>
 <h3 id="VisualStudioCode">Visual Studio Code</h3>
 <p>Visual Studio Code is the tool adopted by our team for code editing and history viewing.</p>
 <p><strong>Software installation and configuration:</strong></p>
-<ol><li>Open <a href="https://code.visualstudio.com/Download" target="_blank">https://code.visualstudio.com/Download</a></li><li>Download and install the build for your platform</li><li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hans" target="_blank">Chinese language pack</a> if you want the UI in Chinese.</li></ol>
+<ol><li>Open <a href="https://code.visualstudio.com/Download" target="_blank" rel="noopener">https://code.visualstudio.com/Download</a></li><li>Download and install the build for your platform</li><li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hans" target="_blank" rel="noopener">Chinese language pack</a> if you want the UI in Chinese.</li></ol>
 <hr>
 <h2 id="3ToolsOverview">3. Tools Overview</h2>
 <h3 id="AndroidStudio-1">Android Studio</h3>
-<p>Official documentation: <a href="https://developer.android.com/studio/intro?hl=en" target="_blank">https://developer.android.com/studio/intro?hl=en</a></p>
+<p>Official documentation: <a href="https://developer.android.com/studio/intro?hl=en" target="_blank" rel="noopener">https://developer.android.com/studio/intro?hl=en</a></p>
 <p>In this project, we build on the official FTC application framework and write robot control programs in Java under the <code>TeamCode</code> folder, calling upon the various dependency libraries needed for robot operation.</p>
 <p>For the essentials you need to know about Android Studio, refer to the quick UI walkthrough in the official documentation.</p>
 <h3 id="VisualStudioCode-1">Visual Studio Code</h3>
-<p>Official documentation: <a href="https://code.visualstudio.com/docs" target="_blank">https://code.visualstudio.com/docs</a></p>
+<p>Official documentation: <a href="https://code.visualstudio.com/docs" target="_blank" rel="noopener">https://code.visualstudio.com/docs</a></p>
 <p>Since Visual Studio Code follows similar operating logic to Android Studio and is used less frequently in this project, refer to the Android Studio section for interface guidance.</p>
 <h3 id="RobotDashboard">Robot Dashboard</h3>
-<ul><li>Connect to the Wi-Fi network "<code>32477-RC</code>". Wi-Fi password: ask an administrator or obtain it via the Driver Hub.</li><li>URL: <a href="http://192.168.43.1:8080/" target="_blank">http://192.168.43.1:8080/</a></li><li>This is the web page of the Wi-Fi module built into the Control Hub (officially called the Robot Controller Console), providing a graphical management console for the Control Hub.</li></ul>
+<ul><li>Connect to the Wi-Fi network "<code>32477-RC</code>". Wi-Fi password: ask an administrator or obtain it via the Driver Hub.</li><li>URL: <a href="http://192.168.43.1:8080/" target="_blank" rel="noopener">http://192.168.43.1:8080/</a> (accessible only within the robot's local network)</li><li>This is the web page of the Wi-Fi module built into the Control Hub (officially called the Robot Controller Console), providing a graphical management console for the Control Hub.</li></ul>
 <p>For the essentials you need to know about the Robot Dashboard, refer to the quick UI walkthrough in the official documentation.</p>
 <hr>
 <h2 id="4Workflow">4. Workflow</h2>
@@ -403,7 +413,7 @@ tr:nth-child(even){background:#fafafa}
 <h3 id="DebuggingIstheCore">Debugging Is the Core</h3>
 <blockquote class="bq-info">The real difficulty in program development lies in debugging. Autonomous paths, driver controls, PID parameters, vision configuration — most sensors come with ready-made packages you can reuse. What you really do is <em>tune</em>.</blockquote>
 <p>Debugging runs through the entire development workflow:</p>
-<ol><li><strong>Requirements analysis</strong>: clarify the rules and task requirements of the current season</li><li><strong>Architecture design</strong>: design the overall program architecture and module breakdown</li><li><strong>Implementation</strong>: write Java code in Android Studio</li><li><strong>Version control</strong>: manage code versions with Git</li><li><strong>Debugging</strong>: tune autonomous paths, driver controls, PID parameters, and vision configuration</li><li><strong>Testing & verification</strong>: verify program functionality on the robot</li><li><strong>Code review</strong>: review and merge code via GitHub</li><li><strong>Deployment</strong>: deploy the final build to the Robot Controller</li></ol>
+<ol><li><strong>Requirements analysis</strong>: clarify the rules and task requirements of the current season</li><li><strong>Architecture design</strong>: design the overall program architecture and module breakdown</li><li><strong>Implementation</strong>: write Java code in Android Studio</li><li><strong>Version control</strong>: manage code versions with Git</li><li><strong>Debugging</strong>: tune autonomous paths, driver controls, PID parameters, and vision configuration</li><li><strong>Testing &amp; verification</strong>: verify program functionality on the robot</li><li><strong>Code review</strong>: review and merge code via GitHub</li><li><strong>Deployment</strong>: deploy the final build to the Robot Controller</li></ol>
 <h3 id="AI-AssistedProgramming">AI-Assisted Programming</h3>
 <blockquote class="bq-info">Writing code is no longer the hard part: you can work with AI Agent tools to assist programming. The real core skill is being able to <strong>read AI-generated code, know what to change, and debug it</strong> — you don't need to write everything from scratch.</blockquote>
 <ul><li>Core programming logic (e.g., for loops, while loops) is universal across languages; only the syntax differs. Students with C++ experience can adapt to Java quickly</li></ul>

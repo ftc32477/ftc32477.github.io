@@ -4,17 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>建模设计｜FTC 32477 Origin 快速入门指南</title>
-<meta name="description" content="FTC 32477 Origin 快速入门指南——拒绝重复造轮子。面向新老队员的七章完整指南：队员须知、建模设计、结构建造、程序设计、外部联络与后记，提供六种语言版本与可打印 PDF。">
+<meta name="description" content="以下是建模设计需要追加的资料。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="建模设计｜FTC 32477 Origin 快速入门指南">
-<meta property="og:description" content="FTC 32477 Origin 快速入门指南——拒绝重复造轮子。面向新老队员的七章完整指南：队员须知、建模设计、结构建造、程序设计、外部联络与后记，提供六种语言版本与可打印 PDF。">
+<meta property="og:description" content="以下是建模设计需要追加的资料。">
 <meta property="og:image" content="https://ftc32477.github.io/docs/images/basic/team_logo.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="建模设计｜FTC 32477 Origin 快速入门指南">
-<meta name="twitter:description" content="FTC 32477 Origin 快速入门指南——拒绝重复造轮子。面向新老队员的七章完整指南：队员须知、建模设计、结构建造、程序设计、外部联络与后记，提供六种语言版本与可打印 PDF。">
+<meta name="twitter:description" content="以下是建模设计需要追加的资料。">
 <meta name="twitter:image" content="https://ftc32477.github.io/docs/images/basic/team_logo.png">
+<link rel="canonical" href="https://ftc32477.github.io/docs/zh-hans/modeling.html">
+<link rel="alternate" hreflang="zh-hans" href="https://ftc32477.github.io/docs/zh-hans/modeling.html">
+<link rel="alternate" hreflang="zh-hant" href="https://ftc32477.github.io/docs/zh-hant/modeling.html">
+<link rel="alternate" hreflang="en-us" href="https://ftc32477.github.io/docs/en-us/modeling.html">
+<link rel="alternate" hreflang="fr" href="https://ftc32477.github.io/docs/fr/modeling.html">
+<link rel="alternate" hreflang="es" href="https://ftc32477.github.io/docs/es/modeling.html">
+<link rel="alternate" hreflang="ko" href="https://ftc32477.github.io/docs/ko/modeling.html">
+<link rel="alternate" hreflang="x-default" href="https://ftc32477.github.io/docs/en-us/modeling.html">
 <link rel="icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
 <link rel="shortcut icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/basic/icon_team_logo_32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../images/basic/apple-touch-icon.png">
 <style>
 :root {
   --red: #d32f2f;
@@ -300,7 +310,7 @@ tr:nth-child(even){background:#fafafa}
 <body>
 
 <div class="topbar">
-  <img class="topbar-logo" src="../images/basic/team_logo.png" alt="32477 Origin">
+  <img class="topbar-logo" src="../images/basic/team_logo_small.png" alt="32477 Origin">
   <span class="brand"><a href="../index.html" title="返回主页">FTC 32477 Origin 快速入门指南</a></span>
   <select class="lang-select" id="langSelect" aria-label="语言">
 <option value="../zh-hans/modeling.html" selected>简体中文</option><option value="../zh-hant/modeling.html">繁體中文</option><option value="../en-us/modeling.html">English (US)</option><option value="../fr/modeling.html">Français</option><option value="../es/modeling.html">Español</option><option value="../ko/modeling.html">한국어</option>
@@ -312,7 +322,7 @@ tr:nth-child(even){background:#fafafa}
 <nav class="sidebar" id="sidebar">
   <div class="sidebar-header">
     <a class="home-link" href="../index.html" title="返回主页">
-      <img class="side-logo" src="../images/basic/team_logo.png" alt="32477 Origin Team Logo">
+      <img class="side-logo" src="../images/basic/team_logo_small.png" alt="32477 Origin Team Logo">
       <div class="logo">FTC 32477<br>Origin</div>
       <div class="sub">快速入门指南</div>
     </a>
@@ -347,7 +357,7 @@ tr:nth-child(even){background:#fafafa}
 <a href="outreach.html">外部联络</a>
 <a href="afterword.html">后记</a>
   </div>
-  <div class="sidebar-footer">2026年9月第1版·第1次修订 &middot; 编写小组</div>
+  <div class="sidebar-footer">2026年9月第1版·第2次修订 &middot; 编写小组</div>
 </nav>
 
 <main>
@@ -355,9 +365,9 @@ tr:nth-child(even){background:#fafafa}
 <h2 id="一基本资料">一、基本资料</h2>
 <p>以下是建模设计需要追加的资料。</p>
 <h3 id="应用程序">应用程序</h3>
-<ul><li>网络浏览器（Chrome 或 Edge 或 Safari）</li><li>LocalSend</li><li>Onshape FTC 零件库 — <a href="https://ftconshape.com/" target="_blank">https://ftconshape.com/</a>（FIRST 与 PTC 合作维护；发邮件至 FIRST@ptc.com 可加入共享文件夹）</li><li>FTC Insert Tool 零件库插件 — <a href="https://cad.onshape.com/appstore/apps/Design%20&%20Documentation/6515cfb91574253b1b96a6ba" target="_blank">https://cad.onshape.com/appstore/apps/Design%20&%20Documentation/6515cfb91574253b1b96a6ba</a>（Onshape 应用商店安装：Subscribe → Get for Free）</li></ul>
+<ul><li>网络浏览器（Chrome 或 Edge 或 Safari）</li><li>LocalSend</li><li>Onshape FTC 零件库 — <a href="https://ftconshape.com/" target="_blank" rel="noopener">https://ftconshape.com/</a>（FIRST 与 PTC 合作维护；发邮件至 FIRST@ptc.com 可加入共享文件夹）</li><li>FTC Insert Tool 零件库插件 — <a href="https://cad.onshape.com/appstore/apps/Design%20&amp;%20Documentation/6515cfb91574253b1b96a6ba" target="_blank" rel="noopener">https://cad.onshape.com/appstore/apps/Design%20&amp;%20Documentation/6515cfb91574253b1b96a6ba</a>（Onshape 应用商店安装：Subscribe → Get for Free）</li></ul>
 <h3 id="在线账户">在线账户</h3>
-<ul><li>CycleZLab — <a href="https://www.cyclezlab.com/" target="_blank">https://www.cyclezlab.com/</a>（免费，需申请加入）</li></ul>
+<ul><li>CycleZLab — <a href="https://www.cyclezlab.com/" target="_blank" rel="noopener">https://www.cyclezlab.com/</a>（免费，需申请加入）</li></ul>
 <hr>
 <h2 id="二环境配置">二、环境配置</h2>
 <p>以下是在正式开始前需要配置的工作环境，请按照说明操作。如有疑问，请向管理员咨询。</p>
@@ -367,9 +377,9 @@ tr:nth-child(even){background:#fafafa}
 <h3 id="Onshape账号注册">Onshape 账号注册</h3>
 <p>Onshape 是我们队伍所采用的云端建模平台。相较于 SolidWorks 等工业建模软件，Onshape 具有不吃配置、工程跨设备共享方便、易上手、有 FIRST 官方支持等优势，在保证功能全面的同时，非常适合用来学习 CAD 建模与制作项目。</p>
 <p><strong>注册流程：</strong></p>
-<ol><li>打开 <a href="https://www.onshape.com/en/education/" target="_blank">https://www.onshape.com/en/education/</a>，注册教育版账号</li><li>填入姓（First name）、名（Last name）以及邮箱</li></ol>
+<ol><li>打开 <a href="https://www.onshape.com/en/education/" target="_blank" rel="noopener">https://www.onshape.com/en/education/</a>，注册教育版账号</li><li>填入姓（First name）、名（Last name）以及邮箱</li></ol>
 <blockquote class="bq-warning">不要使用 QQ 等国内邮箱，有概率收不到验证码；推荐使用 @gmail.com 或 @outlook.com。</blockquote>
-<ol start="3"><li>在下一个界面依次选择身份 "Student"、学校类别 "Grade School / K-12 (Ages <18)"、生日，完成后点击下一步</li><li>依次填入以下信息：<ul><li>校名：BEIJING NATIONAL DAY EXPERIMENTAL SCHOOL</li><li>学校官网：<a href="https://sysyzx.bjhdedu.cn/" target="_blank">https://sysyzx.bjhdedu.cn/</a></li><li>预计毕业年份</li><li>注册原因：I am a member of FTC Team 32477, and I registered this account to use the team's modeling tools.（不知道写什么就填这句）</li><li>勾选同意下方三个协议条款，完成注册</li></ul></li><li>前往邮箱查收确认邮件</li></ol>
+<ol start="3"><li>在下一个界面依次选择身份 "Student"、学校类别 "Grade School / K-12 (Ages <18)"、生日，完成后点击下一步</li><li>依次填入以下信息：<ul><li>校名：BEIJING NATIONAL DAY EXPERIMENTAL SCHOOL</li><li>学校官网：<a href="https://sysyzx.bjhdedu.cn/" target="_blank" rel="noopener">https://sysyzx.bjhdedu.cn/</a></li><li>预计毕业年份</li><li>注册原因：I am a member of FTC Team 32477, and I registered this account to use the team's modeling tools.（不知道写什么就填这句）</li><li>勾选同意下方三个协议条款，完成注册</li></ul></li><li>前往邮箱查收确认邮件</li></ol>
 <blockquote class="bq-info">注册成功后，请向管理员提供你的账号，以便将你加入队伍共享文件夹。</blockquote>
 <p><strong>常见问题：</strong></p>
 <ul><li>最后一步提示 reCAPTCHA 出现问题：说明人机验证服务未响应，尝试更换网络环境，确保可以连接 reCAPTCHA 服务</li><li>邮箱收不到验证码：若等待超过 3 分钟，尝试更换邮箱（Outlook 或 Gmail，不要使用 QQ）</li></ul>
@@ -411,7 +421,7 @@ tr:nth-child(even){background:#fafafa}
 <p><strong>赛程参考：</strong></p>
 <ul><li>工期安排上，初代设计可以比较潦草，但必须尽快设计完并制作，给程序调试和 Driver 练习留时间，并实测结构进行迭代优化；在资格赛前，一辆具备资格的整车要迭代至少 3 次（参考）</li><li>多关注国外队伍动态，FTC 社区有类似 "Robot in 30 Hours Reveal | FTC" 的活动，参赛队伍随时可能分享新赛季方案；也可以参考 FRC、VEX 等赛事的队伍方案</li><li>其他队伍的建模文件大多公开分享，主动向对方索要通常不会被拒绝，可参考优秀设计优化自身方案；北京十一学校本部等强队的经验尤其值得学习</li></ul>
 <h3 id="Onshape学习资源">Onshape 学习资源</h3>
-<p>Onshape 作为专业的建模平台，具有完整的官方学习资源：<a href="https://learn.onshape.com/" target="_blank">https://learn.onshape.com/</a>；哔哩哔哩、YouTube 等视频平台上也有许多教程。</p>
+<p>Onshape 作为专业的建模平台，具有完整的官方学习资源：<a href="https://learn.onshape.com/" target="_blank" rel="noopener">https://learn.onshape.com/</a>；哔哩哔哩、YouTube 等视频平台上也有许多教程。</p>
 <ul><li>由于 CAD 软件工作流程的相似性（草图、零件、装配体），SolidWorks、Autodesk Fusion 等软件的教程同样具有学习价值，可以帮助培养对零件空间感的把握以及对建模工作流程的熟悉</li><li>学习过程中要牢记实践重于理论：可以在哔哩哔哩找一些模型跟练，先自己尝试建模，实在不会再查看教程；在生活中也可以观察、思考一些小结构的建模思路</li><li>对于 FTC 赛事，要多学习其他队伍的优秀方案：大多数强队都有自己的网站并开源方案，可以在 YouTube 或 Google 上搜索 FTC 队伍号查找官网；也可以在 CycleZLab 等网站查看其他队伍的模型</li></ul>
 <blockquote class="bq-info">如有疑问，可咨询建模前辈或直接上网搜索。</blockquote>
 <h3 id="FTC常用零件库">FTC 常用零件库</h3>
