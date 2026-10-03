@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Histórico de versões｜Guia de início rápido do FTC 32477 Origin</title>
+<meta name="description" content="O Guia de início rápido do FTC 32477 Origin — Recuse reinventar a roda. Um guia completo em sete capítulos para novos membros e veteranos da equipe, disponível em sete idiomas com PDFs para impressão.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Histórico de versões｜Guia de início rápido do FTC 32477 Origin">
+<meta property="og:description" content="O Guia de início rápido do FTC 32477 Origin — Recuse reinventar a roda. Um guia completo em sete capítulos para novos membros e veteranos da equipe, disponível em sete idiomas com PDFs para impressão.">
+<meta property="og:image" content="https://ftc32477.github.io/docs/images/basic/team_logo.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Histórico de versões｜Guia de início rápido do FTC 32477 Origin">
+<meta name="twitter:description" content="O Guia de início rápido do FTC 32477 Origin — Recuse reinventar a roda. Um guia completo em sete capítulos para novos membros e veteranos da equipe, disponível em sete idiomas com PDFs para impressão.">
+<meta name="twitter:image" content="https://ftc32477.github.io/docs/images/basic/team_logo.png">
+<link rel="canonical" href="https://ftc32477.github.io/docs/pt-br/versions.html">
+<link rel="alternate" hreflang="zh-hans" href="https://ftc32477.github.io/docs/zh-hans/versions.html">
+<link rel="alternate" hreflang="zh-hant" href="https://ftc32477.github.io/docs/zh-hant/versions.html">
+<link rel="alternate" hreflang="en-us" href="https://ftc32477.github.io/docs/en-us/versions.html">
+<link rel="alternate" hreflang="fr" href="https://ftc32477.github.io/docs/fr/versions.html">
+<link rel="alternate" hreflang="es" href="https://ftc32477.github.io/docs/es/versions.html">
+<link rel="alternate" hreflang="ko" href="https://ftc32477.github.io/docs/ko/versions.html">
+<link rel="alternate" hreflang="pt-br" href="https://ftc32477.github.io/docs/pt-br/versions.html">
+<link rel="alternate" hreflang="x-default" href="https://ftc32477.github.io/docs/en-us/versions.html">
+<link rel="icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/basic/icon_team_logo_32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../images/basic/apple-touch-icon.png">
+<style>
+:root {
+  --red: #d32f2f;
+  --dark: #1a1a2e;
+  --slate: #16213e;
+  --card: #ffffff;
+  --text: #2c2c2c;
+  --muted: #666;
+  --border: #e0e0e0;
+  --radius: 10px;
+  --sidebar-w: 260px;
+  --topbar-h: 52px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+  color:var(--text);background:#f8f9fa;line-height:1.8;min-height:100vh
+}
+
+/* ====== TOP BAR (mobile) ====== */
+.topbar{
+  display:none;position:fixed;top:0;left:0;right:0;height:var(--topbar-h);
+  background:var(--dark);color:#fff;z-index:200;align-items:center;
+  padding:0 12px;gap:8px
+}
+.topbar .brand{
+  font-weight:700;font-size:14px;flex:1;min-width:0;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap
+}
+.topbar .brand a{
+  color:#fff;text-decoration:none;cursor:pointer
+}
+.topbar .brand a:hover{opacity:.85}
+.lang-select{
+  background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);
+  border-radius:6px;font-size:13px;padding:6px 26px 6px 10px;max-width:150px;
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 8px center
+}
+.lang-select option{color:#2c2c2c;background:#fff}
+.topbar .menu-btn{
+  background:none;border:none;color:#fff;font-size:24px;cursor:pointer;
+  width:40px;height:40px;flex-shrink:0;display:flex;align-items:center;
+  justify-content:center;border-radius:6px;line-height:1
+}
+.topbar .menu-btn:hover{background:rgba(255,255,255,.1)}
+
+/* ====== SIDEBAR ====== */
+nav.sidebar{
+  position:fixed;top:0;left:0;bottom:0;width:var(--sidebar-w);
+  background:var(--dark);color:#ccc;overflow-y:auto;z-index:100;
+  display:flex;flex-direction:column;transition:transform .28s ease;
+}
+nav.sidebar::-webkit-scrollbar{width:4px}
+nav.sidebar::-webkit-scrollbar-thumb{background:#444;border-radius:2px}
+.sidebar-header{padding:24px 20px 14px;border-bottom:1px solid rgba(255,255,255,.08);text-align:center}
+.sidebar-header .home-link{
+  display:block;text-decoration:none;border-radius:8px;
+  padding:4px 0;transition:background .18s
+}
+.sidebar-header .home-link:hover{background:rgba(255,255,255,.06)}
+.sidebar-header .home-link:hover .sub{color:#fff}
+.sidebar-header .logo{font-size:22px;font-weight:700;color:#fff;line-height:1.3}
+.sidebar-header .sub{font-size:12px;color:#f44336;margin-top:4px;letter-spacing:1px}
+/* 语言切换：侧边栏下拉选项栏（节省空间给目录） */
+.lang-select-sidebar{
+  margin:12px 14px 0;width:calc(100% - 28px);box-sizing:border-box;
+  background:rgba(255,255,255,.1);color:#fff;
+  border:1px solid rgba(255,255,255,.25);border-radius:8px;
+  font-size:13px;padding:7px 26px 7px 10px;
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 8px center
+}
+.lang-select-sidebar option{color:#2c2c2c;background:#fff}
+.sidebar-nav{flex:1;padding:12px 0}
+.sidebar-nav a{
+  display:block;padding:10px 22px;color:#aaa;text-decoration:none;
+  font-size:14px;border-left:3px solid transparent;transition:all .18s
+}
+.sidebar-nav a:hover{color:#fff;background:rgba(255,255,255,.04)}
+.sidebar-nav a.active{color:#fff;background:rgba(244,67,54,.15);border-left-color:#f44336}
+/* 二级目录：仅当前页面显示 */
+.sidebar-nav a.sub-link{
+  padding:5px 22px 5px 34px;font-size:12.5px;color:#8a8a8a;border-left-color:transparent
+}
+.sidebar-nav a.sub-link:hover{color:#fff}
+.sidebar-nav a.sub-link.sub-3{padding-left:46px;font-size:12px;color:#777}
+/* 侧边栏队徽 */
+.side-logo{
+  display:block;width:64px;height:64px;margin:0 auto 10px;
+  border-radius:14px;object-fit:cover
+}
+/* 顶栏队徽（移动端） */
+.topbar-logo{width:22px;height:22px;border-radius:5px;flex-shrink:0}
+.sidebar-footer{padding:16px 20px;font-size:11px;color:#555;border-top:1px solid rgba(255,255,255,.08);text-align:center}
+
+/* ====== OVERLAY (mobile) ====== */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:99}
+
+/* ====== MAIN CONTENT ====== */
+/*
+ * 响应式宽度策略：
+ *   宽屏：内容固定 900px 宽（含 padding），居中于侧边栏右侧
+ *   中屏：随宽度缩小，左右留白逐渐收窄直至消失
+ *   窄屏（<768px）：侧边栏折叠，内容全宽
+ *
+ * 兼容性说明：部分 Chrome 版本对嵌套在自定义属性中的
+ * min()/max()/clamp()（含 vw 单位）存在布局计算 bug（宽度会算成 0，
+ * 正文空白而侧边栏正常）。因此此处只用普通 calc + max-width 封顶，
+ * 并为 min()/max()/clamp() 提供级联回退声明。
+ */
+main{
+  box-sizing:content-box;
+  --pad: 40px;                                        /* 回退：clamp 不支持时 */
+  --pad: clamp(12px, 4vw, 48px);
+  padding: 40px var(--pad);
+  /* 宽度：随视口收缩，上限 900px（含 padding，即内容宽 900-2*pad） */
+  width: calc(100vw - var(--sidebar-w) - 2 * var(--pad));
+  max-width: calc(900px - 2 * var(--pad));
+  /* 左外边距：回退为紧贴侧边栏，支持 max() 时在宽屏居中 */
+  margin-left: var(--sidebar-w);
+  margin-left: calc(var(--sidebar-w) + max(0px, (100vw - var(--sidebar-w) - 900px) / 2));
+  margin-right: auto;
+}
+
+/* Hero */
+.hero{
+  background:linear-gradient(135deg,var(--dark) 0%,var(--slate) 100%);color:#fff;
+  border-radius:var(--radius);padding:44px 40px;margin-bottom:36px;
+  position:relative;overflow:hidden
+}
+.hero::after{
+  content:'';position:absolute;right:-40px;bottom:-40px;
+  width:200px;height:200px;background:var(--red);opacity:.18;border-radius:50%
+}
+.hero h1{font-size:28px;font-weight:700;position:relative;z-index:1}
+.hero .subtitle{font-size:14px;margin-top:10px;opacity:.8;position:relative;z-index:1}
+.hero .badge{
+  display:inline-block;background:var(--red);padding:4px 14px;
+  border-radius:20px;font-size:12px;font-weight:600;margin-bottom:12px;
+  position:relative;z-index:1
+}
+
+/* Sections */
+section{margin-bottom:40px}
+section h2{font-size:22px;font-weight:700;padding-bottom:10px;margin-bottom:20px;border-bottom:2px solid var(--red);color:var(--dark)}
+section h3{font-size:17px;font-weight:600;margin:28px 0 10px;color:var(--slate)}
+section h4,.card h4{font-size:15px;font-weight:600;margin:18px 0 8px}
+.card{background:var(--card);border-radius:var(--radius);padding:24px 28px;box-shadow:0 1px 4px rgba(0,0,0,.04);margin-bottom:16px}
+p{margin-bottom:10px}
+a{color:#1565c0;text-decoration:none;overflow-wrap:anywhere}
+a:hover{text-decoration:underline}
+ul,ol{padding-left:22px;margin-bottom:12px}
+li{margin-bottom:4px}
+code{background:#f0f0f0;padding:2px 6px;border-radius:4px;font-size:13px;font-family:"SF Mono","Fira Code",monospace}
+pre{background:#1a1a2e;color:#e0e0e0;padding:16px 20px;border-radius:var(--radius);overflow-x:auto;margin-bottom:14px;font-size:13px;line-height:1.6}
+pre code{background:none;padding:0;color:inherit}
+blockquote{
+  border-left:4px solid var(--red);background:#fef5f5;padding:12px 18px;
+  margin:14px 0;border-radius:0 var(--radius) var(--radius) 0;font-size:14px;color:#8b0000
+}
+/* 类型化引用块：[!info] 蓝 / [!warning] 黄 / [!danger] 红（仅颜色区分，无标签） */
+blockquote.bq-info{border-left-color:#1565c0;background:#eaf3fb;color:#0d3c66}
+blockquote.bq-warning{border-left-color:#f9a825;background:#fff8e1;color:#6d4c00}
+blockquote.bq-danger{border-left-color:#d32f2f;background:#fef5f5;color:#8b0000}
+hr{border:none;border-top:1px solid var(--border);margin:24px 0}
+img{max-width:100%;border-radius:var(--radius);margin:12px 0}
+/* 锚点跳转留白（避免被固定顶栏遮挡） */
+h2,h3{scroll-margin-top:16px}
+
+/* 图片排布：多图横向，窄屏自动纵向 */
+.img-row{
+  display:flex;flex-wrap:wrap;gap:14px;margin:14px 0
+}
+.img-row .img-fig{
+  flex:1 1 40%;min-width:0;margin:0
+}
+.img-row .img-fig img{
+  width:100%;margin:0;border-radius:var(--radius)
+}
+.img-row figcaption{
+  text-align:center;font-size:12px;color:var(--muted);margin-top:6px
+}
+.img-row-single .img-fig{flex-basis:100%}
+@media(max-width:600px){
+  .img-row{flex-direction:column;gap:12px}
+  h2,h3{scroll-margin-top:64px}
+}
+
+/* Table */
+.table-wrap{overflow-x:auto;margin-bottom:14px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{border:1px solid var(--border);padding:10px 14px;text-align:left}
+th{background:var(--dark);color:#fff;font-weight:600}
+tr:nth-child(even){background:#fafafa}
+
+/* ====== RESPONSIVE ====== */
+
+/* Narrow: collapse sidebar */
+@media(max-width:768px){
+  .topbar{display:flex}
+  nav.sidebar{
+    transform:translateX(-100%);
+    top:var(--topbar-h);z-index:101;
+    width:280px;                        /* 回退：min() 不支持时 */
+    width:min(280px,84vw)
+  }
+  nav.sidebar.open{transform:translateX(0)}
+  .overlay.show{display:block}
+  main{
+    margin-left:0;margin-top:var(--topbar-h);
+    width: calc(100vw - 2 * var(--pad));
+    max-width: none;
+  }
+  .hero{padding:28px 20px}
+  .hero h1{font-size:22px}
+  .card{padding:16px 18px}
+  section h2{font-size:19px}
+  section h3{font-size:16px}
+  .table-wrap{margin-left:-18px;margin-right:-18px;width:calc(100% + 36px)}
+}
+
+/* Very narrow screens */
+@media(max-width:420px){
+  .topbar .brand{font-size:13px}
+  .lang-select{max-width:132px;font-size:12px;padding:5px 22px 5px 8px}
+  main{--pad: 12px}
+  .card{padding:14px 14px}
+  .hero{padding:22px 16px}
+  .hero h1{font-size:20px}
+}
+
+/* dev 预览标识（仅 dev 通道构建时输出；打印隐藏） */
+.dev-badge{
+  position:fixed;right:14px;bottom:14px;z-index:400;
+  background:#d32f2f;color:#fff;padding:6px 14px;border-radius:999px;
+  font-size:12px;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,.25);opacity:.92
+}
+@media print{.dev-badge{display:none!important}}
+/* ====== PRINT (PDF 导出) ====== */
+/*
+ * 注意：Chrome 打印视口宽度可能低于 768px，导致移动端媒体查询规则
+ * 泄漏到打印渲染。因此必须在打印样式中显式覆盖所有相关属性。
+ */
+@media print{
+  html,body{display:block !important;width:100% !important;max-width:100% !important;overflow:visible !important}
+  nav.sidebar,.topbar,.overlay{display:none !important}
+  body{background:#fff}
+  main{
+    display:block !important;box-sizing:border-box !important;
+    margin:0 !important;padding:0 !important;
+    width:100% !important;max-width:100% !important;
+  }
+  .card{box-shadow:none;border:1px solid var(--border);padding:24px 28px}
+  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:32px 28px}
+  .hero h1{color:var(--dark);font-size:28px}
+  section h2{font-size:22px}
+  section h3{font-size:17px}
+  .hero .badge{background:var(--red);color:#fff}
+  a{color:inherit;overflow-wrap:anywhere !important}
+  /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
+  .table-wrap{
+    overflow:visible !important;
+    margin:0 !important;
+    width:100% !important;
+    max-width:100% !important;
+  }
+  table{
+    width:100% !important;max-width:100% !important;
+    table-layout:fixed;font-size:12px
+  }
+  th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
+  tr{page-break-inside:avoid}
+  .img-row{flex-wrap:nowrap}
+  .img-fig{page-break-inside:avoid}
+  .img-row .img-fig{flex:1 1 0}
+  /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
+  html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
+  .align-right{text-align:right}
+  /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
+  h1{margin:3.2em 0 1em}
+  h2{margin:2em 0 .8em}
+  h3{margin:1.2em 0 .5em}
+}
+
+
+/* ====== 历史版本页 ====== */
+.ver-page{max-width:760px;margin:0 auto}
+.ver-top{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.ver-top h1{font-size:28px;color:#2c2c2c}
+.ver-sort{display:inline-flex;border:1px solid #e0e0e0;border-radius:8px;overflow:hidden;background:#fff}
+.ver-sort-btn{background:#fff;border:none;padding:6px 14px;font-size:13px;cursor:pointer;color:#666}
+.ver-sort-btn.active{background:#1a1a2e;color:#fff}
+.ver-intro{color:#666;margin:10px 0 22px;font-size:14px}
+.ver-list{display:flex;flex-direction:column;gap:16px}
+.ver-list.reversed{flex-direction:column-reverse}
+.ver-card{background:#fff;border:1px solid #e0e0e0;border-radius:12px;padding:22px 24px;box-shadow:0 1px 4px rgba(0,0,0,.04);scroll-margin-top:24px}
+.ver-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.ver-tag{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:700;font-size:16px;color:#1a1a2e}
+.ver-name{color:#666;font-size:14px}
+.ver-badge{font-size:11px;font-weight:600;padding:2px 10px;border-radius:12px}
+.ver-badge.latest{background:#d32f2f;color:#fff}
+.ver-badge.preview{background:#f9a825;color:#fff}
+.ver-date{color:#999;font-size:12.5px;margin-top:6px}
+.ver-changes{margin:12px 0 0;padding-left:20px;color:#2c2c2c;font-size:14px;line-height:1.8}
+.ver-changes li{margin:2px 0}
+.ver-pdfs{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.ver-pdf-label{color:#999;font-size:13px}
+.ver-pdf-btn{background:#f0f0f0;color:#2c2c2c;border:1px solid #e0e0e0;border-radius:8px;padding:6px 12px;font-size:13px;font-weight:600;text-decoration:none}
+.ver-pdf-btn:hover{background:#e4e4e4}
+.ver-pdf-note{color:#999;font-size:13px;margin-top:12px}
+#verNav{display:flex;flex-direction:column}
+#verNav.reversed{flex-direction:column-reverse}
+.sidebar-nav a.ver-link{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px}
+/* dev 预览标识（仅 dev 通道构建时输出；打印隐藏） */
+.dev-badge{
+  position:fixed;right:14px;bottom:14px;z-index:400;
+  background:#d32f2f;color:#fff;padding:6px 14px;border-radius:999px;
+  font-size:12px;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,.25);opacity:.92
+}
+@media print{.dev-badge{display:none!important}}
+@media print{.topbar,.sidebar,.overlay,.ver-sort{display:none!important}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <img class="topbar-logo" src="../images/basic/team_logo_small.png" alt="32477 Origin">
+  <span class="brand"><a href="../index.html" title="Voltar ao início">Guia de início rápido do FTC 32477 Origin</a></span>
+  <select class="lang-select" id="langSelect" aria-label="Idioma">
+<option value="../zh-hans/versions.html">简体中文</option><option value="../zh-hant/versions.html">繁體中文</option><option value="../en-us/versions.html">English (US)</option><option value="../fr/versions.html">Français</option><option value="../es/versions.html">Español</option><option value="../ko/versions.html">한국어</option><option value="../pt-br/versions.html" selected>Português (BR)</option>
+  </select>
+  <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-controls="sidebar" aria-expanded="false">☰</button>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <a class="home-link" href="../index.html" title="Voltar ao início">
+      <img class="side-logo" src="../images/basic/team_logo_small.png" alt="32477 Origin Team Logo">
+      <div class="logo">FTC 32477<br>Origin</div>
+      <div class="sub">Histórico de versões</div>
+    </a>
+    <select class="lang-select-sidebar" id="langSelectSide" aria-label="Idioma">
+<option value="../zh-hans/versions.html">简体中文</option><option value="../zh-hant/versions.html">繁體中文</option><option value="../en-us/versions.html">English (US)</option><option value="../fr/versions.html">Français</option><option value="../es/versions.html">Español</option><option value="../ko/versions.html">한국어</option><option value="../pt-br/versions.html" selected>Português (BR)</option>
+    </select>
+  </div>
+  <div class="sidebar-nav" id="verNav">
+<a class="ver-link" href="#v1.4.0">v1.4.0</a>
+<a class="ver-link" href="#v1.3.3">v1.3.3</a>
+<a class="ver-link" href="#v1.3.2">v1.3.2</a>
+<a class="ver-link" href="#v1.3.1">v1.3.1</a>
+<a class="ver-link" href="#v1.3.0">v1.3.0</a>
+<a class="ver-link" href="#v1.2.2">v1.2.2</a>
+<a class="ver-link" href="#v1.2.1">v1.2.1</a>
+<a class="ver-link" href="#v1.2.0">v1.2.0</a>
+<a class="ver-link" href="#v1.1.0">v1.1.0</a>
+<a class="ver-link" href="#v1.0.0">v1.0.0</a>
+  </div>
+  <div class="sidebar-footer">Outubro de 2026, 1.ª edição &middot; Equipe editorial</div>
+</nav>
+
+<main>
+  <div class="ver-page">
+    <div class="ver-top">
+      <h1>Histórico de versões</h1>
+      <div class="ver-sort" role="group" aria-label="Ordenar">
+        <button id="sortDesc" class="ver-sort-btn active" type="button">Mais recentes primeiro</button>
+        <button id="sortAsc" class="ver-sort-btn" type="button">Mais antigas primeiro</button>
+      </div>
+    </div>
+    <p class="ver-intro">Datas de publicação e principais mudanças de cada versão. Há PDFs em sete idiomas para download (as versões anteriores incluem apenas os idiomas disponíveis na época do lançamento); não mantemos edições web de versões anteriores.</p>
+    <div class="ver-list" id="verList">
+<article class="ver-card" id="v1.4.0"><div class="ver-head"><span class="ver-tag">v1.4.0</span><span class="ver-name">Outubro de 2026, 1.ª edição</span><span class="ver-badge latest">Mais recente</span></div><div class="ver-date">Publicado em 3 de outubro de 2026</div><ul class="ver-changes"><li>Adicionada a edição em português do Brasil (Português (BR)): tradução completa dos sete capítulos, das páginas do site e do PDF.</li><li>O portal agora inclui o cartão de idioma português, e a página de histórico de versões traz nomes de edição e notas de mudança em português para todas as versões anteriores, sem recair no inglês.</li></ul><div class="ver-pdfs"><span class="ver-pdf-label">Baixar:</span><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.4.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.4.0-zh-hans.pdf" target="_blank" rel="noopener">简体中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.4.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.4.0-zh-hant.pdf" target="_blank" rel="noopener">繁體中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.4.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.4.0-en-us.pdf" target="_blank" rel="noopener">English (US)</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.4.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.4.0-fr.pdf" target="_blank" rel="noopener">Français</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.4.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.4.0-es.pdf" target="_blank" rel="noopener">Español</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.4.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.4.0-pt-br.pdf" target="_blank" rel="noopener">Português (BR)</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.4.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.4.0-ko.pdf" target="_blank" rel="noopener">한국어</a></div></article>
+<article class="ver-card" id="v1.3.3"><div class="ver-head"><span class="ver-tag">v1.3.3</span><span class="ver-name">Setembro de 2026, 1.ª edição · revisão 3</span></div><div class="ver-date">Publicado em 3 de outubro de 2026</div><ul class="ver-changes"><li>Listas de nomes adicionadas sob as duas fotos de grupo do posfácio (filas de cima/baixo, da esquerda para a direita), sincronizadas nos seis idiomas.</li><li>README reestruturado: adicionado um guia de leitura no início do arquivo, com links por tarefa, além de uma seção de "Diretrizes de imagens" (tamanhos, remoção de EXIF, higiene de capturas de tela, grupos de imagens, regras para fotos de grupo).</li><li>O site de prévia de desenvolvimento agora exibe um selo visível de "Prévia de desenvolvimento" (oculto automaticamente na impressão).</li><li>Todos os tamanhos de página dos PDFs foram unificados para A4 exato (595,276×841,89 pt) na build, sem escalar o conteúdo.</li></ul><div class="ver-pdfs"><span class="ver-pdf-label">Baixar:</span><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.3/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.3-zh-hans.pdf" target="_blank" rel="noopener">简体中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.3/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.3-zh-hant.pdf" target="_blank" rel="noopener">繁體中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.3/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.3-en-us.pdf" target="_blank" rel="noopener">English (US)</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.3/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.3-fr.pdf" target="_blank" rel="noopener">Français</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.3/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.3-es.pdf" target="_blank" rel="noopener">Español</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.3/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.3-ko.pdf" target="_blank" rel="noopener">한국어</a></div></article>
+<article class="ver-card" id="v1.3.2"><div class="ver-head"><span class="ver-tag">v1.3.2</span><span class="ver-name">Setembro de 2026, 1.ª edição · revisão 2</span></div><div class="ver-date">Publicado em 3 de outubro de 2026</div><ul class="ver-changes"><li>Corrigido o link de download do LocalSend na edição em inglês (o antigo caminho /en/download estava quebrado) e restaurado o quadro informativo "rede local da equipe / gateway do campus" que faltava nas edições em espanhol e coreano.</li><li>As edições em francês, espanhol e coreano agora apontam para as páginas no idioma correspondente para LocalSend, Bambu Studio, documentação do GitHub e Android Studio; ordem dos casos e anotações de terminologia alinhadas.</li><li>Engenharia e site: a CI agora recompila e verifica antes de implantar, com proteção contra execuções concorrentes; corrigida a detecção do canal dev na CI; o site dev recebe noindex enquanto a produção ganha canonical/hreflang; PDFs históricos removidos do repositório de publicação, com entrada raiz, robots, 404 e sitemap adicionados.</li><li>PDF: adicionados sumário de capítulos/seções e metadados do documento, tamanhos de página unificados, melhor contraste do texto legal da página de créditos e esclarecimento do endereço acessível somente na rede local.</li></ul><div class="ver-pdfs"><span class="ver-pdf-label">Baixar:</span><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.2-zh-hans.pdf" target="_blank" rel="noopener">简体中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.2-zh-hant.pdf" target="_blank" rel="noopener">繁體中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.2-en-us.pdf" target="_blank" rel="noopener">English (US)</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.2-fr.pdf" target="_blank" rel="noopener">Français</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.2-es.pdf" target="_blank" rel="noopener">Español</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.2-ko.pdf" target="_blank" rel="noopener">한국어</a></div></article>
+<article class="ver-card" id="v1.3.1"><div class="ver-head"><span class="ver-tag">v1.3.1</span><span class="ver-name">Setembro de 2026, 1.ª edição · revisão 1</span></div><div class="ver-date">Publicado em 3 de outubro de 2026</div><ul class="ver-changes"><li>Reformulação tipográfica dos PDFs: texto corrido em Source Han Serif, títulos em Source Han Sans, citações/legendas/prefácio em LXGW WenKai (Kai) e textos e números em latim em Times New Roman (Tinos como alternativa).</li><li>Cabeçalhos e rodapés agora são carimbados pelo script de build com subconjuntos de fontes embutidos, garantindo glifos consistentes em todas as plataformas.</li><li>As fontes são reduzidas aos caracteres realmente usados e distribuídas com o repositório (cerca de 10 MB): builds offline sem instalar fontes, além de verificação automática de cobertura de caracteres na build.</li><li>Textos CJK agora usam subconjuntos Type0 embutidos adequados, em vez de muitas fontes Type3 fragmentadas: o texto é pesquisável e copiável, e o tamanho dos PDFs caiu cerca de metade. O site não foi afetado.</li></ul><div class="ver-pdfs"><span class="ver-pdf-label">Baixar:</span><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.1-zh-hans.pdf" target="_blank" rel="noopener">简体中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.1-zh-hant.pdf" target="_blank" rel="noopener">繁體中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.1-en-us.pdf" target="_blank" rel="noopener">English (US)</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.1-fr.pdf" target="_blank" rel="noopener">Français</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.1-es.pdf" target="_blank" rel="noopener">Español</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.1-ko.pdf" target="_blank" rel="noopener">한국어</a></div></article>
+<article class="ver-card" id="v1.3.0"><div class="ver-head"><span class="ver-tag">v1.3.0</span><span class="ver-name">Setembro de 2026, 1.ª edição</span></div><div class="ver-date">Publicado em 9 de setembro de 2026</div><ul class="ver-changes"><li>Essenciais da equipe: adicionada a seção "Temporada e calendário" (linha do tempo da temporada e observações de regras — somente controle Xbox 360, proibição de levitação magnética, faixa etária de 12 a 18 anos) e refinada a descrição da rede local da equipe.</li><li>Programação: adicionada a seção "Programação assistida por IA" (uso de ferramentas de agente de IA) e uma observação sobre o Driver/controle.</li><li>Divulgação e relações públicas: esclarecido o papel do caderno de engenharia, adicionadas notas de financiamento e a seção "Prêmio Inspiração e pontuação" (40 pontos para o primeiro lugar na competição contra 60 do Prêmio Inspiração), além de um caso de equipes fortes com robôs totalmente personalizados.</li><li>Hardware e construção: adicionada a estratégia de substituição na compra de peças oficiais; Modelagem e design: adicionada experiência sobre compartilhamento de arquivos CAD entre equipes.</li></ul><div class="ver-pdfs"><span class="ver-pdf-label">Baixar:</span><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.0-zh-hans.pdf" target="_blank" rel="noopener">简体中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.0-zh-hant.pdf" target="_blank" rel="noopener">繁體中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.0-en-us.pdf" target="_blank" rel="noopener">English (US)</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.0-fr.pdf" target="_blank" rel="noopener">Français</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.0-es.pdf" target="_blank" rel="noopener">Español</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.3.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.3.0-ko.pdf" target="_blank" rel="noopener">한국어</a></div></article>
+<article class="ver-card" id="v1.2.2"><div class="ver-head"><span class="ver-tag">v1.2.2</span><span class="ver-name">Agosto de 2026, 3.ª edição, 2.ª revisão</span></div><div class="ver-date">Publicado em 17 de agosto de 2026</div><ul class="ver-changes"><li>Edição em chinês tradicional: os termos do Onshape 「结构体/装配体」 agora são escritos em caracteres tradicionais (結構體/裝配體).</li><li>Página de histórico de versões: esclarecido que as versões anteriores incluem apenas os idiomas disponíveis na época do lançamento.</li><li>Capa e contracapa dos PDFs: as informações de versão agora são dispostas em duas linhas, com espaçamento maior, e as linhas da contracapa ficam alinhadas à direita.</li><li>Atualizações de engenharia: os dados de edição agora são totalmente orientados por VERSIONS (rodapé da barra lateral, versão mais recente da página inicial, data da capa do PDF); adicionados o workflow de CI check-dist e o script semiautomático de release (release.sh); as notas de versão são arquivadas em release-notes/; todas as páginas passam a incluir meta tags de SEO/compartilhamento social e rótulos de acessibilidade localizados; --watch agora também monitora images/ e build.py.</li></ul><div class="ver-pdfs"><span class="ver-pdf-label">Baixar:</span><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.2-zh-hans.pdf" target="_blank" rel="noopener">简体中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.2-zh-hant.pdf" target="_blank" rel="noopener">繁體中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.2-en-us.pdf" target="_blank" rel="noopener">English (US)</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.2-fr.pdf" target="_blank" rel="noopener">Français</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.2-es.pdf" target="_blank" rel="noopener">Español</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.2/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.2-ko.pdf" target="_blank" rel="noopener">한국어</a></div></article>
+<article class="ver-card" id="v1.2.1"><div class="ver-head"><span class="ver-tag">v1.2.1</span><span class="ver-name">Agosto de 2026, 3.ª edição, 1.ª revisão</span></div><div class="ver-date">Publicado em 16 de agosto de 2026</div><ul class="ver-changes"><li>Edição em chinês tradicional: os nomes de pessoas agora trazem o original em chinês simplificado (por exemplo, 付修齊（付修齐）); nomes idênticos nos dois conjuntos de caracteres não recebem anotação.</li><li>Edições em chinês simplificado e tradicional: termos traduzidos de origem estrangeira agora trazem o nome no idioma de origem (por exemplo, 结构体（Part Studio）, 构建（Build）); a convenção de anotação para todos os idiomas está documentada no README do projeto.</li><li>Portal: a cor de destaque do cartão de coreano agora combina com a do cartão de espanhol (#ffb953).</li></ul><div class="ver-pdfs"><span class="ver-pdf-label">Baixar:</span><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.1-zh-hans.pdf" target="_blank" rel="noopener">简体中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.1-zh-hant.pdf" target="_blank" rel="noopener">繁體中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.1-en-us.pdf" target="_blank" rel="noopener">English (US)</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.1-fr.pdf" target="_blank" rel="noopener">Français</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.1-es.pdf" target="_blank" rel="noopener">Español</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.1/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.1-ko.pdf" target="_blank" rel="noopener">한국어</a></div></article>
+<article class="ver-card" id="v1.2.0"><div class="ver-head"><span class="ver-tag">v1.2.0</span><span class="ver-name">Agosto de 2026, 3.ª edição</span></div><div class="ver-date">Publicado em 16 de agosto de 2026</div><ul class="ver-changes"><li>Adicionada a edição em coreano (한국어): tradução completa dos sete capítulos e das páginas do site (página inicial do idioma, histórico de versões), com PDF em coreano incluído.</li><li>Padronizadas as anotações de nomes em todas as edições: nomes reais de pessoas agora trazem os caracteres chineses originais (por exemplo, Fu Xiuqi (付修齐); em coreano, os nomes usam a leitura em hanja, por exemplo, 부수제(付修齐)), e nomes próprios como plataformas trazem o nome no idioma de origem (por exemplo, KIRIN (麒麟), Bilibili (哔哩哔哩)).</li><li>Esta versão é a 3.ª edição de agosto de 2026.</li></ul><div class="ver-pdfs"><span class="ver-pdf-label">Baixar:</span><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.0-zh-hans.pdf" target="_blank" rel="noopener">简体中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.0-zh-hant.pdf" target="_blank" rel="noopener">繁體中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.0-en-us.pdf" target="_blank" rel="noopener">English (US)</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.0-fr.pdf" target="_blank" rel="noopener">Français</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.0-es.pdf" target="_blank" rel="noopener">Español</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.2.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.2.0-ko.pdf" target="_blank" rel="noopener">한국어</a></div></article>
+<article class="ver-card" id="v1.1.0"><div class="ver-head"><span class="ver-tag">v1.1.0</span><span class="ver-name">Agosto de 2026, 2.ª edição</span></div><div class="ver-date">Publicado em 15 de agosto de 2026</div><ul class="ver-changes"><li>Adicionada a edição em espanhol (Español): tradução completa dos sete capítulos e das páginas do site (página inicial do idioma, histórico de versões), com PDF em espanhol incluído.</li><li>Atualizadas as cores de destaque dos cartões de idioma do portal: #a61615 para chinês simplificado/tradicional, #d85d23 para inglês (EUA)/francês e #ffb953 para o novo cartão de espanhol.</li><li>Esta versão é a 2.ª edição de agosto de 2026.</li></ul><div class="ver-pdfs"><span class="ver-pdf-label">Baixar:</span><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.1.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.1.0-zh-hans.pdf" target="_blank" rel="noopener">简体中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.1.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.1.0-zh-hant.pdf" target="_blank" rel="noopener">繁體中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.1.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.1.0-en-us.pdf" target="_blank" rel="noopener">English (US)</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.1.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.1.0-fr.pdf" target="_blank" rel="noopener">Français</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.1.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.1.0-es.pdf" target="_blank" rel="noopener">Español</a></div></article>
+<article class="ver-card" id="v1.0.0"><div class="ver-head"><span class="ver-tag">v1.0.0</span><span class="ver-name">Agosto de 2026, 1.ª edição</span></div><div class="ver-date">Publicado em 14 de agosto de 2026</div><ul class="ver-changes"><li>Primeira publicação, com sete capítulos: Prefácio, Essenciais da equipe, Modelagem e design, Hardware e construção, Programação, Divulgação e relações públicas e Posfácio.</li><li>Disponível em quatro edições de idioma: chinês simplificado, chinês tradicional, inglês (EUA) e francês.</li><li>O PDF unificado é composto por capa, sumário, texto principal e contracapa, com numeração contínua de páginas e links navegáveis no sumário.</li></ul><div class="ver-pdfs"><span class="ver-pdf-label">Baixar:</span><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.0.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.0.0-zh-hans.pdf" target="_blank" rel="noopener">简体中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.0.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.0.0-zh-hant.pdf" target="_blank" rel="noopener">繁體中文</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.0.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.0.0-en-us.pdf" target="_blank" rel="noopener">English (US)</a><a class="ver-pdf-btn" href="https://github.com/ftc32477/quick-start-guide/releases/download/v1.0.0/FTC-Team-32477-Origin-Quick-Start-Guide-v1.0.0-fr.pdf" target="_blank" rel="noopener">Français</a></div></article>
+    </div>
+  </div>
+</main>
+
+<script>
+(function(){
+  var sb=document.getElementById("sidebar");
+  var ol=document.getElementById("overlay");
+  var btn=document.getElementById("menuBtn");
+  function open(){sb.classList.add("open");ol.classList.add("show");btn.setAttribute("aria-expanded","true")}
+  function close(){sb.classList.remove("open");ol.classList.remove("show");btn.setAttribute("aria-expanded","false")}
+  btn.addEventListener("click",function(){sb.classList.contains("open")?close():open()});
+  ol.addEventListener("click",close);
+  var ls=document.getElementById("langSelect");
+  if(ls){ls.addEventListener("change",function(){window.location.href=ls.value})};
+  var lss=document.getElementById("langSelectSide");
+  if(lss){lss.addEventListener("change",function(){window.location.href=lss.value})};
+  var list=document.getElementById("verList");
+  var nav=document.getElementById("verNav");
+  var asc=document.getElementById("sortAsc");
+  var desc=document.getElementById("sortDesc");
+  function setOrder(ascending){
+    list.classList.toggle("reversed",ascending);
+    nav.classList.toggle("reversed",ascending);
+    asc.classList.toggle("active",ascending);
+    desc.classList.toggle("active",!ascending);
+  }
+  asc.addEventListener("click",function(){setOrder(true)});
+  desc.addEventListener("click",function(){setOrder(false)});
+})();
+</script>
+
+</body>
+</html>

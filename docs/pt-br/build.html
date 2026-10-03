@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hardware e construção｜Guia de início rápido do FTC 32477 Origin</title>
+<meta name="description" content="Os itens a seguir são requisitos complementares de Hardware e construção.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hardware e construção｜Guia de início rápido do FTC 32477 Origin">
+<meta property="og:description" content="Os itens a seguir são requisitos complementares de Hardware e construção.">
+<meta property="og:image" content="https://ftc32477.github.io/docs/images/basic/team_logo.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hardware e construção｜Guia de início rápido do FTC 32477 Origin">
+<meta name="twitter:description" content="Os itens a seguir são requisitos complementares de Hardware e construção.">
+<meta name="twitter:image" content="https://ftc32477.github.io/docs/images/basic/team_logo.png">
+<link rel="canonical" href="https://ftc32477.github.io/docs/pt-br/build.html">
+<link rel="alternate" hreflang="zh-hans" href="https://ftc32477.github.io/docs/zh-hans/build.html">
+<link rel="alternate" hreflang="zh-hant" href="https://ftc32477.github.io/docs/zh-hant/build.html">
+<link rel="alternate" hreflang="en-us" href="https://ftc32477.github.io/docs/en-us/build.html">
+<link rel="alternate" hreflang="fr" href="https://ftc32477.github.io/docs/fr/build.html">
+<link rel="alternate" hreflang="es" href="https://ftc32477.github.io/docs/es/build.html">
+<link rel="alternate" hreflang="ko" href="https://ftc32477.github.io/docs/ko/build.html">
+<link rel="alternate" hreflang="pt-br" href="https://ftc32477.github.io/docs/pt-br/build.html">
+<link rel="alternate" hreflang="x-default" href="https://ftc32477.github.io/docs/en-us/build.html">
+<link rel="icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/basic/icon_team_logo_32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../images/basic/apple-touch-icon.png">
+<style>
+:root {
+  --red: #d32f2f;
+  --dark: #1a1a2e;
+  --slate: #16213e;
+  --card: #ffffff;
+  --text: #2c2c2c;
+  --muted: #666;
+  --border: #e0e0e0;
+  --radius: 10px;
+  --sidebar-w: 260px;
+  --topbar-h: 52px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+  color:var(--text);background:#f8f9fa;line-height:1.8;min-height:100vh
+}
+
+/* ====== TOP BAR (mobile) ====== */
+.topbar{
+  display:none;position:fixed;top:0;left:0;right:0;height:var(--topbar-h);
+  background:var(--dark);color:#fff;z-index:200;align-items:center;
+  padding:0 12px;gap:8px
+}
+.topbar .brand{
+  font-weight:700;font-size:14px;flex:1;min-width:0;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap
+}
+.topbar .brand a{
+  color:#fff;text-decoration:none;cursor:pointer
+}
+.topbar .brand a:hover{opacity:.85}
+.lang-select{
+  background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);
+  border-radius:6px;font-size:13px;padding:6px 26px 6px 10px;max-width:150px;
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 8px center
+}
+.lang-select option{color:#2c2c2c;background:#fff}
+.topbar .menu-btn{
+  background:none;border:none;color:#fff;font-size:24px;cursor:pointer;
+  width:40px;height:40px;flex-shrink:0;display:flex;align-items:center;
+  justify-content:center;border-radius:6px;line-height:1
+}
+.topbar .menu-btn:hover{background:rgba(255,255,255,.1)}
+
+/* ====== SIDEBAR ====== */
+nav.sidebar{
+  position:fixed;top:0;left:0;bottom:0;width:var(--sidebar-w);
+  background:var(--dark);color:#ccc;overflow-y:auto;z-index:100;
+  display:flex;flex-direction:column;transition:transform .28s ease;
+}
+nav.sidebar::-webkit-scrollbar{width:4px}
+nav.sidebar::-webkit-scrollbar-thumb{background:#444;border-radius:2px}
+.sidebar-header{padding:24px 20px 14px;border-bottom:1px solid rgba(255,255,255,.08);text-align:center}
+.sidebar-header .home-link{
+  display:block;text-decoration:none;border-radius:8px;
+  padding:4px 0;transition:background .18s
+}
+.sidebar-header .home-link:hover{background:rgba(255,255,255,.06)}
+.sidebar-header .home-link:hover .sub{color:#fff}
+.sidebar-header .logo{font-size:22px;font-weight:700;color:#fff;line-height:1.3}
+.sidebar-header .sub{font-size:12px;color:#f44336;margin-top:4px;letter-spacing:1px}
+/* 语言切换：侧边栏下拉选项栏（节省空间给目录） */
+.lang-select-sidebar{
+  margin:12px 14px 0;width:calc(100% - 28px);box-sizing:border-box;
+  background:rgba(255,255,255,.1);color:#fff;
+  border:1px solid rgba(255,255,255,.25);border-radius:8px;
+  font-size:13px;padding:7px 26px 7px 10px;
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 8px center
+}
+.lang-select-sidebar option{color:#2c2c2c;background:#fff}
+.sidebar-nav{flex:1;padding:12px 0}
+.sidebar-nav a{
+  display:block;padding:10px 22px;color:#aaa;text-decoration:none;
+  font-size:14px;border-left:3px solid transparent;transition:all .18s
+}
+.sidebar-nav a:hover{color:#fff;background:rgba(255,255,255,.04)}
+.sidebar-nav a.active{color:#fff;background:rgba(244,67,54,.15);border-left-color:#f44336}
+/* 二级目录：仅当前页面显示 */
+.sidebar-nav a.sub-link{
+  padding:5px 22px 5px 34px;font-size:12.5px;color:#8a8a8a;border-left-color:transparent
+}
+.sidebar-nav a.sub-link:hover{color:#fff}
+.sidebar-nav a.sub-link.sub-3{padding-left:46px;font-size:12px;color:#777}
+/* 侧边栏队徽 */
+.side-logo{
+  display:block;width:64px;height:64px;margin:0 auto 10px;
+  border-radius:14px;object-fit:cover
+}
+/* 顶栏队徽（移动端） */
+.topbar-logo{width:22px;height:22px;border-radius:5px;flex-shrink:0}
+.sidebar-footer{padding:16px 20px;font-size:11px;color:#555;border-top:1px solid rgba(255,255,255,.08);text-align:center}
+
+/* ====== OVERLAY (mobile) ====== */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:99}
+
+/* ====== MAIN CONTENT ====== */
+/*
+ * 响应式宽度策略：
+ *   宽屏：内容固定 900px 宽（含 padding），居中于侧边栏右侧
+ *   中屏：随宽度缩小，左右留白逐渐收窄直至消失
+ *   窄屏（<768px）：侧边栏折叠，内容全宽
+ *
+ * 兼容性说明：部分 Chrome 版本对嵌套在自定义属性中的
+ * min()/max()/clamp()（含 vw 单位）存在布局计算 bug（宽度会算成 0，
+ * 正文空白而侧边栏正常）。因此此处只用普通 calc + max-width 封顶，
+ * 并为 min()/max()/clamp() 提供级联回退声明。
+ */
+main{
+  box-sizing:content-box;
+  --pad: 40px;                                        /* 回退：clamp 不支持时 */
+  --pad: clamp(12px, 4vw, 48px);
+  padding: 40px var(--pad);
+  /* 宽度：随视口收缩，上限 900px（含 padding，即内容宽 900-2*pad） */
+  width: calc(100vw - var(--sidebar-w) - 2 * var(--pad));
+  max-width: calc(900px - 2 * var(--pad));
+  /* 左外边距：回退为紧贴侧边栏，支持 max() 时在宽屏居中 */
+  margin-left: var(--sidebar-w);
+  margin-left: calc(var(--sidebar-w) + max(0px, (100vw - var(--sidebar-w) - 900px) / 2));
+  margin-right: auto;
+}
+
+/* Hero */
+.hero{
+  background:linear-gradient(135deg,var(--dark) 0%,var(--slate) 100%);color:#fff;
+  border-radius:var(--radius);padding:44px 40px;margin-bottom:36px;
+  position:relative;overflow:hidden
+}
+.hero::after{
+  content:'';position:absolute;right:-40px;bottom:-40px;
+  width:200px;height:200px;background:var(--red);opacity:.18;border-radius:50%
+}
+.hero h1{font-size:28px;font-weight:700;position:relative;z-index:1}
+.hero .subtitle{font-size:14px;margin-top:10px;opacity:.8;position:relative;z-index:1}
+.hero .badge{
+  display:inline-block;background:var(--red);padding:4px 14px;
+  border-radius:20px;font-size:12px;font-weight:600;margin-bottom:12px;
+  position:relative;z-index:1
+}
+
+/* Sections */
+section{margin-bottom:40px}
+section h2{font-size:22px;font-weight:700;padding-bottom:10px;margin-bottom:20px;border-bottom:2px solid var(--red);color:var(--dark)}
+section h3{font-size:17px;font-weight:600;margin:28px 0 10px;color:var(--slate)}
+section h4,.card h4{font-size:15px;font-weight:600;margin:18px 0 8px}
+.card{background:var(--card);border-radius:var(--radius);padding:24px 28px;box-shadow:0 1px 4px rgba(0,0,0,.04);margin-bottom:16px}
+p{margin-bottom:10px}
+a{color:#1565c0;text-decoration:none;overflow-wrap:anywhere}
+a:hover{text-decoration:underline}
+ul,ol{padding-left:22px;margin-bottom:12px}
+li{margin-bottom:4px}
+code{background:#f0f0f0;padding:2px 6px;border-radius:4px;font-size:13px;font-family:"SF Mono","Fira Code",monospace}
+pre{background:#1a1a2e;color:#e0e0e0;padding:16px 20px;border-radius:var(--radius);overflow-x:auto;margin-bottom:14px;font-size:13px;line-height:1.6}
+pre code{background:none;padding:0;color:inherit}
+blockquote{
+  border-left:4px solid var(--red);background:#fef5f5;padding:12px 18px;
+  margin:14px 0;border-radius:0 var(--radius) var(--radius) 0;font-size:14px;color:#8b0000
+}
+/* 类型化引用块：[!info] 蓝 / [!warning] 黄 / [!danger] 红（仅颜色区分，无标签） */
+blockquote.bq-info{border-left-color:#1565c0;background:#eaf3fb;color:#0d3c66}
+blockquote.bq-warning{border-left-color:#f9a825;background:#fff8e1;color:#6d4c00}
+blockquote.bq-danger{border-left-color:#d32f2f;background:#fef5f5;color:#8b0000}
+hr{border:none;border-top:1px solid var(--border);margin:24px 0}
+img{max-width:100%;border-radius:var(--radius);margin:12px 0}
+/* 锚点跳转留白（避免被固定顶栏遮挡） */
+h2,h3{scroll-margin-top:16px}
+
+/* 图片排布：多图横向，窄屏自动纵向 */
+.img-row{
+  display:flex;flex-wrap:wrap;gap:14px;margin:14px 0
+}
+.img-row .img-fig{
+  flex:1 1 40%;min-width:0;margin:0
+}
+.img-row .img-fig img{
+  width:100%;margin:0;border-radius:var(--radius)
+}
+.img-row figcaption{
+  text-align:center;font-size:12px;color:var(--muted);margin-top:6px
+}
+.img-row-single .img-fig{flex-basis:100%}
+@media(max-width:600px){
+  .img-row{flex-direction:column;gap:12px}
+  h2,h3{scroll-margin-top:64px}
+}
+
+/* Table */
+.table-wrap{overflow-x:auto;margin-bottom:14px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{border:1px solid var(--border);padding:10px 14px;text-align:left}
+th{background:var(--dark);color:#fff;font-weight:600}
+tr:nth-child(even){background:#fafafa}
+
+/* ====== RESPONSIVE ====== */
+
+/* Narrow: collapse sidebar */
+@media(max-width:768px){
+  .topbar{display:flex}
+  nav.sidebar{
+    transform:translateX(-100%);
+    top:var(--topbar-h);z-index:101;
+    width:280px;                        /* 回退：min() 不支持时 */
+    width:min(280px,84vw)
+  }
+  nav.sidebar.open{transform:translateX(0)}
+  .overlay.show{display:block}
+  main{
+    margin-left:0;margin-top:var(--topbar-h);
+    width: calc(100vw - 2 * var(--pad));
+    max-width: none;
+  }
+  .hero{padding:28px 20px}
+  .hero h1{font-size:22px}
+  .card{padding:16px 18px}
+  section h2{font-size:19px}
+  section h3{font-size:16px}
+  .table-wrap{margin-left:-18px;margin-right:-18px;width:calc(100% + 36px)}
+}
+
+/* Very narrow screens */
+@media(max-width:420px){
+  .topbar .brand{font-size:13px}
+  .lang-select{max-width:132px;font-size:12px;padding:5px 22px 5px 8px}
+  main{--pad: 12px}
+  .card{padding:14px 14px}
+  .hero{padding:22px 16px}
+  .hero h1{font-size:20px}
+}
+
+/* dev 预览标识（仅 dev 通道构建时输出；打印隐藏） */
+.dev-badge{
+  position:fixed;right:14px;bottom:14px;z-index:400;
+  background:#d32f2f;color:#fff;padding:6px 14px;border-radius:999px;
+  font-size:12px;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,.25);opacity:.92
+}
+@media print{.dev-badge{display:none!important}}
+/* ====== PRINT (PDF 导出) ====== */
+/*
+ * 注意：Chrome 打印视口宽度可能低于 768px，导致移动端媒体查询规则
+ * 泄漏到打印渲染。因此必须在打印样式中显式覆盖所有相关属性。
+ */
+@media print{
+  html,body{display:block !important;width:100% !important;max-width:100% !important;overflow:visible !important}
+  nav.sidebar,.topbar,.overlay{display:none !important}
+  body{background:#fff}
+  main{
+    display:block !important;box-sizing:border-box !important;
+    margin:0 !important;padding:0 !important;
+    width:100% !important;max-width:100% !important;
+  }
+  .card{box-shadow:none;border:1px solid var(--border);padding:24px 28px}
+  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:32px 28px}
+  .hero h1{color:var(--dark);font-size:28px}
+  section h2{font-size:22px}
+  section h3{font-size:17px}
+  .hero .badge{background:var(--red);color:#fff}
+  a{color:inherit;overflow-wrap:anywhere !important}
+  /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
+  .table-wrap{
+    overflow:visible !important;
+    margin:0 !important;
+    width:100% !important;
+    max-width:100% !important;
+  }
+  table{
+    width:100% !important;max-width:100% !important;
+    table-layout:fixed;font-size:12px
+  }
+  th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
+  tr{page-break-inside:avoid}
+  .img-row{flex-wrap:nowrap}
+  .img-fig{page-break-inside:avoid}
+  .img-row .img-fig{flex:1 1 0}
+  /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
+  html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
+  .align-right{text-align:right}
+  /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
+  h1{margin:3.2em 0 1em}
+  h2{margin:2em 0 .8em}
+  h3{margin:1.2em 0 .5em}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <img class="topbar-logo" src="../images/basic/team_logo_small.png" alt="32477 Origin">
+  <span class="brand"><a href="../index.html" title="Voltar ao início">Guia de início rápido do FTC 32477 Origin</a></span>
+  <select class="lang-select" id="langSelect" aria-label="Idioma">
+<option value="../zh-hans/build.html">简体中文</option><option value="../zh-hant/build.html">繁體中文</option><option value="../en-us/build.html">English (US)</option><option value="../fr/build.html">Français</option><option value="../es/build.html">Español</option><option value="../ko/build.html">한국어</option><option value="../pt-br/build.html" selected>Português (BR)</option>
+  </select>
+  <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-controls="sidebar" aria-expanded="false">☰</button>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <a class="home-link" href="../index.html" title="Voltar ao início">
+      <img class="side-logo" src="../images/basic/team_logo_small.png" alt="32477 Origin Team Logo">
+      <div class="logo">FTC 32477<br>Origin</div>
+      <div class="sub">Guia de início rápido</div>
+    </a>
+    <select class="lang-select-sidebar" id="langSelectSide" aria-label="Idioma">
+<option value="../zh-hans/build.html">简体中文</option><option value="../zh-hant/build.html">繁體中文</option><option value="../en-us/build.html">English (US)</option><option value="../fr/build.html">Français</option><option value="../es/build.html">Español</option><option value="../ko/build.html">한국어</option><option value="../pt-br/build.html" selected>Português (BR)</option>
+    </select>
+  </div>
+  <div class="sidebar-nav">
+<a href="index.html">Início</a>
+<a href="preface.html">Prefácio</a>
+<a href="member.html">Essenciais da equipe</a>
+<a href="modeling.html">Modelagem e design</a>
+<a href="build.html" class="active">Hardware e construção</a>
+<a class="sub-link" href="#1Requisitosbásicos">1. Requisitos básicos</a>
+<a class="sub-link sub-3" href="#Aplicativos">Aplicativos</a>
+<a class="sub-link sub-3" href="#Contasonline">Contas online</a>
+<a class="sub-link" href="#2Configuraçãodoambiente">2. Configuração do ambiente</a>
+<a class="sub-link sub-3" href="#Navegadordeinternet">Navegador de internet</a>
+<a class="sub-link sub-3" href="#BambuStudio">Bambu Studio</a>
+<a class="sub-link sub-3" href="#RDWorksV8">RD Works V8</a>
+<a class="sub-link" href="#3Introduçãoaferramentasemateriais">3. Introdução a ferramentas e materiais</a>
+<a class="sub-link sub-3" href="#Ferramentascomuns">Ferramentas comuns</a>
+<a class="sub-link sub-3" href="#Materiaiscomuns">Materiais comuns</a>
+<a class="sub-link" href="#4Fluxodetrabalho">4. Fluxo de trabalho</a>
+<a class="sub-link sub-3" href="#Montagemdohardware">Montagem do hardware</a>
+<a class="sub-link sub-3" href="#Conexãodoscabos">Conexão dos cabos</a>
+<a class="sub-link" href="#5Primeirospassosnaconstrução">5. Primeiros passos na construção</a>
+<a class="sub-link sub-3" href="#InstalareconfiguraroBambuStudio">Instalar e configurar o Bambu Studio</a>
+<a class="sub-link sub-3" href="#ExportaroarquivodemodelagemdoOnshape">Exportar o arquivo de modelagem do Onshape</a>
+<a class="sub-link sub-3" href="#ImportareposicionarnoBambuStudio">Importar e posicionar no Bambu Studio</a>
+<a class="sub-link sub-3" href="#Configurarosparâmetrosdeimpressão">Configurar os parâmetros de impressão</a>
+<a class="sub-link sub-3" href="#Conectaraimpressora3D">Conectar a impressora 3D</a>
+<a class="sub-link sub-3" href="#Ajustesdeimpressão">Ajustes de impressão</a>
+<a class="sub-link sub-3" href="#Tratamentodefalhasdeimpressão">Tratamento de falhas de impressão</a>
+<a class="sub-link sub-3" href="#InstalareconfiguraroRDWorksV8">Instalar e configurar o RD Works V8</a>
+<a href="programming.html">Programação</a>
+<a href="outreach.html">Divulgação e relações públicas</a>
+<a href="afterword.html">Posfácio</a>
+  </div>
+  <div class="sidebar-footer">Outubro de 2026, 1.ª edição &middot; Equipe editorial</div>
+</nav>
+
+<main>
+<h1>Hardware e construção</h1>
+<h2 id="1Requisitosbásicos">1. Requisitos básicos</h2>
+<p>Os itens a seguir são requisitos complementares de Hardware e construção.</p>
+<h3 id="Aplicativos">Aplicativos</h3>
+<ul><li>Bambu Studio</li><li>RD Works V8</li></ul>
+<h3 id="Contasonline">Contas online</h3>
+<ul><li>E-mail (recomendamos @gmail.com ou @outlook.com)</li><li>Bambu Studio — <a href="https://bambulab.cn/" target="_blank" rel="noopener">https://bambulab.cn/</a></li><li>Onshape — <a href="https://www.onshape.com/" target="_blank" rel="noopener">https://www.onshape.com/</a></li><li>CycleZLab — <a href="https://www.cyclezlab.com/" target="_blank" rel="noopener">https://www.cyclezlab.com/</a></li></ul>
+<hr>
+<h2 id="2Configuraçãodoambiente">2. Configuração do ambiente</h2>
+<p>O ambiente de trabalho abaixo deve ser configurado antes do início oficial. Siga as instruções; em caso de dúvidas, consulte um administrador.</p>
+<h3 id="Navegadordeinternet">Navegador de internet</h3>
+<p>Salve também os seguintes sites nos favoritos:</p>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">Nome</th><th style="text-align:left">Endereço</th></tr></thead><tbody><tr><td style="text-align:left">goBILDA</td><td style="text-align:left">https://www.gobilda.com/</td></tr><tr><td style="text-align:left">REV Robotics</td><td style="text-align:left">https://www.revrobotics.com/</td></tr><tr><td style="text-align:left">CycleZLab</td><td style="text-align:left">https://www.cyclezlab.com/</td></tr></tbody></table></div>
+<h3 id="BambuStudio">Bambu Studio</h3>
+<p>O Bambu Studio é a solução de impressão 3D adotada pela nossa equipe.</p>
+<p><strong>Registro:</strong></p>
+<ol><li>Abra <a href="https://bambulab.cn/" target="_blank" rel="noopener">https://bambulab.cn/</a>, clique no canto superior direito e registre uma conta com número de celular ou outro método.</li></ol>
+<p><strong>Instalação e configuração do ambiente:</strong></p>
+<ol><li>Abra <a href="https://bambulab.cn/en/download/studio" target="_blank" rel="noopener">https://bambulab.cn/en/download/studio</a></li><li>Escolha a versão adequada, baixe e instale.</li></ol>
+<p><strong>Atenção:</strong></p>
+<ul><li>No Windows, você pode alterar o diretório de instalação, desde que o caminho termine em <code>..\Bambu Studio\</code>. Ao concluir a instalação, marque as opções "abrir arquivos .3mf com o Bambu Studio", "abrir arquivos .stl com o Bambu Studio" e "abrir arquivos .step/.stp com o Bambu Studio".</li><li>No macOS, basta arrastar o <code>BambuStudio.app</code> para a pasta Aplicativos.</li><li>Abra o Bambu Studio. Na tela de login, escolha "China continental". Em impressoras, selecione pelo menos a <strong>Bambu Lab P1S</strong> e a <strong>Bambu Lab P2S</strong>; materiais podem ficar na configuração padrão. Marque "Instalar plugin de rede do Bambu".</li><li>Faça login na conta Bambu com número de celular ou outro método.</li></ul>
+<h3 id="RDWorksV8">RD Works V8</h3>
+<blockquote class="bq-danger"><strong>Atenção:</strong> instalar este programa no macOS não é nada recomendado; seria necessário usar uma máquina virtual como Parallels Desktop, VMware Fusion ou CrossOver.</blockquote>
+<p>O RD Works V8 é o software que acompanha a cortadora a laser adotada pela nossa equipe.</p>
+<p><strong>Instalação e configuração do ambiente:</strong></p>
+<ol><li>Obtenha o instalador <code>RDWorksV8Setup.exe</code> com um administrador ou com o professor orientador, abra-o e clique em "Install".</li><li>Você pode marcar "posicionar manualmente o caminho de instalação" para alterar o local.</li><li>Conecte o computador à cortadora a laser e clique em "Instalar driver USB".</li><li>Mantenha as demais opções padrão.</li></ol>
+<hr>
+<h2 id="3Introduçãoaferramentasemateriais">3. Introdução a ferramentas e materiais</h2>
+<h3 id="Ferramentascomuns">Ferramentas comuns</h3>
+<blockquote class="bq-danger">Antes de usar qualquer ferramenta manual, verifique se ela está em bom estado (por exemplo, se o cabo está solto ou se a mandíbula está lascada) e use luvas de proteção ou óculos de proteção quando necessário.</blockquote>
+<blockquote class="bq-info">Aqui listamos apenas as ferramentas mais usadas. As demais serão reunidas no apêndice "Lista de ferramentas", que será ampliado continuamente.</blockquote>
+<h4>Chave Allen (sextavada)</h4>
+<p>Ferramenta em L ou T de seção hexagonal, usada para girar parafusos com sextavado interno. Ao usar, insira completamente a ponta curta ou longa no encaixe hexagonal do parafuso: girar no sentido horário aperta; no sentido anti-horário, solta. Chaves com cabo em T costumam ser usadas para dar mais alavanca ou trabalhar em furos profundos.</p>
+<blockquote class="bq-info">Nossos tamanhos mais usados são M3 e M4; mantenha sempre os dois por perto.</blockquote>
+<h4>Soquete</h4>
+<p>Ferramenta cilíndrica de aperto com interior hexagonal, capaz de envolver porcas ou cabeças de parafuso. Ao usar, encaixe o soquete na vertical sobre a porca e gire com o cabo. A vantagem é a grande área de contato, que reduz o deslizamento, e a facilidade de trabalhar em espaços apertados onde uma chave comum não gira.</p>
+<h4>Chave inglesa</h4>
+<p>Chave universal com abertura ajustável dentro de um intervalo, adequada para porcas hexagonais de diferentes tamanhos. Ao usar, gire a rosca sem fim para ajustar a abertura até ela encostar nos lados opostos da porca. Além disso, garanta que a mandíbula fixa receba o esforço principal — a força deve ser aplicada na direção da mandíbula fixa — para evitar que a chave quebre ou escorregue.</p>
+<h4>Alicate de bico chato</h4>
+<p>Ferramenta de preensão com bico achatado, geralmente com dentes finos internos para aumentar o atrito. Ao usar, serve para dobrar chapas metálicas finas, segurar peças pequenas ou dar apoio durante a montagem.</p>
+<h4>Alicate de bico fino</h4>
+<p>Alicate de bico longo e cônico, ideal para espaços estreitos. Ao usar, costuma segurar peças pequenas, dobrar fios finos ou retirar objetos presos em circuitos e estruturas densas. A base do bico geralmente tem lâmina de corte, podendo ser usado também como alicate de corte.</p>
+<h4>Alicate decapador</h4>
+<p>Ferramenta específica para remover o isolamento dos fios sem ferir o condutor metálico. Ao usar, escolha o entalhe correspondente à espessura do fio, encaixe o fio no entalhe, aperte o cabo, gire levemente e puxe para fora para desencapar.</p>
+<h4>Martelo de unha</h4>
+<p>Ferramenta para golpear objetos e movê-los ou deformá-los. Uma face é plana, para bater, e a outra tem formato em V, para arrancar pregos. Ao usar, segure a extremidade do cabo para obter o máximo de torque. Ao bater, mantenha a face plana paralela à superfície do alvo para evitar escorregões laterais.</p>
+<h4>Trena</h4>
+<p>Fita métrica metálica flexível com mola de recolhimento, usada para medir distâncias maiores ou dimensões não lineares. Ao usar, puxe a fita e prenda o gancho na borda do objeto ou apoie-o em uma superfície de referência. Leia as marcações e, ao terminar, pressione a trava ou deixe a fita recolher sozinha. Observe que o gancho tem uma pequena folga; isso compensa a espessura do gancho para que as medições internas e externas sejam consistentes.</p>
+<h4>Paquímetro</h4>
+<p>As partes principais do paquímetro são a escala principal A e a escala móvel (vernier) B, que desliza sobre ela.</p>
+<ul><li><strong>Princípio</strong>: o paquímetro usa a diferença fixa entre a menor divisão da escala principal (1 mm) e a da escala móvel para aumentar a precisão. Os mais comuns têm 10, 20 ou 50 divisões.</li><li><strong>Leitura</strong>: primeiro leia a escala principal, conforme a posição do zero da escala móvel; depois veja qual linha da escala móvel coincide com uma linha da escala principal; combine as duas leituras para obter o comprimento medido.</li><li><strong>Uso</strong>: quando as duas garras de medição externa (ou interna) se tocam, o zero da escala móvel coincide com o zero da escala principal. Prenda (ou encaixe) o objeto entre as garras e combine as leituras da escala principal e da móvel para obter o comprimento do objeto.</li></ul>
+<h4>Micrômetro</h4>
+<p>No micrômetro, a bigorna A e a escala fixa B ficam presas à estrutura C; o tambor móvel E, o catraca D e o parafuso de ajuste fino D' ficam ligados ao fuso F, que se move por uma rosca de precisão dentro de B.</p>
+<ul><li><strong>Princípio</strong>: quando o tambor D dá uma volta completa, o fuso F avança ou recua um passo da rosca na direção do eixo. O passo da escala fixa B do micrômetro é 0,5 mm, e o tambor E tem 50 divisões iguais; assim, cada divisão do tambor corresponde a 0,01 mm de avanço ou recuo do fuso F. O micrômetro mede com precisão de 0,01 mm.</li><li><strong>Leitura</strong>: primeiro leia a escala B, observando se a marca de meio milímetro ficou visível; depois leia a escala E, em que cada divisão vale 0,01 mm. Combine as leituras de B e E para obter o comprimento medido.</li><li><strong>Uso</strong>: primeiro encoste F em A, alinhando a borda esquerda de E com o zero de B; prenda o objeto entre F e A, gire D e, quando F estiver perto do objeto, pare de usar D e passe para D'; ao ouvir o som de "clique", pare e faça a leitura.</li></ul>
+<h3 id="Materiaiscomuns">Materiais comuns</h3>
+<h4>Materiais gerais</h4>
+<p>Itens que podem ser comprados em qualquer canal:</p>
+<ul><li>Parafusos e porcas diversos</li><li>Colunas sextavadas</li><li>Polias de correia dentada</li><li>Rolamentos</li></ul>
+<blockquote class="bq-warning">Eixos não entram nos materiais gerais: as especificações de eixo são bem específicas, então compre conforme a necessidade real de cada projeto.</blockquote>
+<h4>Materiais específicos</h4>
+<p>Perfis específicos oficiais da REV e da goBILDA.</p>
+<h4>Características dos materiais</h4>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">Marca</th><th style="text-align:left">Características</th></tr></thead><tbody><tr><td style="text-align:left"><strong>REV</strong></td><td style="text-align:left">Mais antiga, porém essencial. Os três módulos de controle eletrônico (Driver Hub, Control Hub e Expansion Hub) usam principalmente produtos REV. As peças estruturais incluem perfis de alumínio variados (uso relativamente menor), úteis para pequenos batentes e para fixar estruturas com deslocamentos fora do padrão. Os perfis usam principalmente parafusos Allen M3 de cabeça cilíndrica, eixos REX de 6 mm, engrenagens e correntes; o motor de eixo transversal 72:1 e o motor 40:1 são os mais úteis e usados.</td></tr><tr><td style="text-align:left"><strong>goBILDA</strong></td><td style="text-align:left">Vigas em C, vigas quadradas ou vigas finas, eixos REX de 8 mm, conectores padronizados de vários tipos e excelente compatibilidade de fixação. Usa principalmente parafusos M4 (oficialmente de 10 mm) e motores da linha 5203. Ideal para kits com transmissão direta do motor.</td></tr></tbody></table></div>
+<p><strong>Detalhes do fornecedor REV:</strong></p>
+<ul><li><strong>Módulos de controle eletrônico</strong>: os três módulos Driver Hub, Controller Hub (ou seja, Control Hub) e Expansion Hub são principalmente produtos REV.</li><li><strong>Peças estruturais</strong>: predominam os perfis de alumínio; hoje são menos usados, mas servem para pequenos batentes e para fixar estruturas com deslocamentos fora do padrão.</li><li><strong>Parafusos especiais</strong>: os perfis REV usam parafusos Allen M3 de cabeça cilíndrica; esse parafuso fica preso dentro do perfil de alumínio e praticamente só os perfis REV o utilizam.</li><li><strong>Especificação de eixo</strong>: a REV usa eixos REX de 6 mm, uma medida exclusiva da marca.</li><li><strong>Motores</strong>: a REV oferece o motor de eixo transversal 72:1 (nome oficial Core Hex, saída transversal a 90°, sem eixo de saída próprio) e o motor padrão 40:1 (nome oficial HD Hex). O motor transversal 72:1 permite soluções de montagem especiais, mas seu projeto estrutural é antigo e, no ambiente atual, é difícil encontrar com o que combiná-lo.</li><li><strong>Engrenagens e correntes</strong>: a REV também fornece, mas normalmente damos preferência aos produtos goBILDA.</li></ul>
+<p><strong>Detalhes do fornecedor goBILDA:</strong></p>
+<ul><li><strong>Vigas em C</strong>: há os modelos quadrado e fino. A viga quadrada serve para estruturas grandes, como o chassi; a fina, para ligações de maior vão.</li><li><strong>Conectores</strong>: oferece conectores padronizados de todos os tipos, com alto grau de padronização e ótima compatibilidade com os próprios materiais e com os da REV.</li><li><strong>Parafusos</strong>: usa principalmente M4; o parafuso oficial é o M4 de 10 mm com cabeça cilíndrica.</li><li><strong>Especificação de eixo</strong>: eixos REX de 8 mm.</li><li><strong>Motores</strong>: a linha 5203 é a mais usada e serve bem para transmissão direta padrão. Pela resistência do eixo REX de 8 mm e pela forma de montagem dos motores, a goBILDA é o kit mais adequado para transmissão direta do motor.</li></ul>
+<h4>Filamentos de impressão 3D</h4>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">Tipo</th><th style="text-align:left">Temperatura de impressão (aprox.)</th><th style="text-align:left">Descrição</th></tr></thead><tbody><tr><td style="text-align:left">PLA</td><td style="text-align:left">220 °C</td><td style="text-align:left">Filamento plástico básico padrão</td></tr><tr><td style="text-align:left">PETG-CF</td><td style="text-align:left">240+ °C</td><td style="text-align:left">Filamento plástico com fibra de carbono</td></tr></tbody></table></div>
+<p>Compre filamentos oficiais da Bambu Lab (拓竹) ou da SUNLU (三绿), de qualidade relativamente estável.</p>
+<p><strong>Contração:</strong></p>
+<ul><li>Em geral, o PLA não exige preocupação com contração.</li><li>Ao imprimir buchas de eixo, pode ocorrer contração de cerca de 5% no diâmetro, que deve ser medida conforme o formato impresso.</li><li>A contração do PETG-CF varia bastante com tempo, temperatura e lote; antes de usar, recomendamos imprimir uma peça simples de teste no formato do componente para medir a contração.</li></ul>
+<h4>Materiais de corte a laser</h4>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">Material</th><th style="text-align:left">Características</th><th style="text-align:left">Uso</th></tr></thead><tbody><tr><td style="text-align:left">Placa de acrílico</td><td style="text-align:left">Resistência relativamente alta</td><td style="text-align:left">Chapas de carga em grandes vãos</td></tr><tr><td style="text-align:left">Placa de PP</td><td style="text-align:left">Bastante tenaz</td><td style="text-align:left">Peças de proteção; exigem mais pontos de fixação e suportam impacto direto</td></tr><tr><td style="text-align:left">Placa de madeira</td><td style="text-align:left">Custo relativamente baixo</td><td style="text-align:left">Empena com facilidade; usar em casos especiais</td></tr></tbody></table></div>
+<blockquote class="bq-info">As propriedades dos materiais ficam registradas aqui de forma fixa. Os parâmetros de processo do corte a laser, como potência e velocidade, ficam em um apêndice atualizado continuamente.</blockquote>
+<h4>Cabos</h4>
+<p><strong>Cabos de alimentação:</strong></p>
+<ul><li>Cabo bateria–Hub (conforme o projeto, a bateria pode ligar direto no Control Hub ou no Expansion Hub)</li><li>Cabo Con–EXP</li><li>Interruptor com cabo próprio</li><li>Cabos de alimentação dos motores: nos motores goBILDA, o conector de alimentação não é compatível com o Hub; é preciso cortar o conector original e refazer a ponta usando terminais.</li></ul>
+<p><strong>Cabos de dados (cabo do encoder do motor):</strong></p>
+<ul><li>Na goBILDA, o conector e a ordem dos fios são diferentes dos do Hub (o fio amarelo e o branco são invertidos); atenção especial ao montar.</li><li>Cabos de sensores I2C: sem exigências especiais.</li><li>Cabos de dados Con e EXP.</li><li>Extensores de servo: atenção à orientação.</li></ul>
+<p><strong>Cabos de dados do computador principal:</strong></p>
+<ul><li>Hub para computador: o Control Hub usa cabo USB-A para USB-C; o Expansion Hub usa cabo mini USB.</li><li>Outros: cabos adaptadores USB-A para USB-C, USB-A para mini USB, USB-C para mini USB etc.</li><li>Cabo de rede (pode ser usado como conexão auxiliar; não é obrigatório).</li><li>Cabo de dados do controle (USB-A para micro USB).</li></ul>
+<p><strong>Infraestrutura (tratada como consumível):</strong></p>
+<ul><li>Wi-Fi, câmeras de monitoramento, cabos de rede, réguas de tomada e outros itens de infraestrutura são geridos como consumíveis; reponha em tempo.</li></ul>
+<hr>
+<h2 id="4Fluxodetrabalho">4. Fluxo de trabalho</h2>
+<ol><li><strong>Compra de peças</strong><ul><li>Os fornecedores oficiais de equipamentos do FTC ficam no exterior, com prazo longo e preço alto; para materiais não urgentes, é possível buscar alternativas em plataformas nacionais, equilibrando custo e velocidade de entrega</li></ul></li><li><strong>Fabricação de peças próprias</strong><ul><li>Produção de peças por impressão 3D</li><li>Corte a laser de chapas</li></ul></li><li><strong>Montagem do hardware</strong></li><li><strong>Conexão dos cabos</strong></li><li><strong>Escrita da Robot Configuration</strong> (em conjunto com Programação)</li><li><strong>Conexão entre Driver Station e Robot Controller</strong> (em conjunto com Programação)</li></ol>
+<h3 id="Montagemdohardware">Montagem do hardware</h3>
+<h4>Ordem de montagem</h4>
+<blockquote class="bq-warning">Na montagem manual comum, costuma-se fazer o chassi primeiro e ir somando por cima. Em um robô de competição temos os desenhos de modelagem, e essa ordem pode causar muito retrabalho por causa de peças que ficam encobertas.</blockquote>
+<ul><li>A ordem deve ser ajustada conforme as relações de oclusão: <strong>instale primeiro as peças que ficam escondidas atrás de motores, módulos de controle etc.</strong>, e depois as peças que os cobrem.</li><li>Por exemplo: confirme que todas as peças ao redor do motor já foram instaladas e só então instale o motor.</li></ul>
+<h4>Cuidados no uso das peças</h4>
+<ul><li>Em peças presas ao eixo, evite os modelos com parafuso de fixação (set screw): ele danifica o eixo.</li><li>Não aperte demais os parafusos.</li><li>Outras regras de uso de peças serão acrescentadas continuamente.</li></ul>
+<h4>Espaço reservado para manutenção</h4>
+<ul><li>Não tenha preguiça na hora de montar: não esconda parafusos e porcas em lugares difíceis de alcançar.</li><li>O princípio é "fácil de consertar" — se, para reparar o robô, for preciso desmontá-lo inteiro, a competição não pode continuar.</li></ul>
+<h4>Proteção contra estática</h4>
+<ul><li>Em tempo seco, a estática aparece com facilidade e causa perda de conexão do robô e leituras imprecisas dos sensores.</li><li>Medidas de proteção: instale um fio de aterramento no robô para descarregar a estática no chão; envolva sensores como a IMU com papel-alumínio para proteção.</li></ul>
+<h4>Organização dos cabos</h4>
+<ul><li>Estruturas retráteis com trilhos devem usar espaguete (tubo de proteção) nos fios, para que eles não fiquem soltos, travem o trilho ou até se rompam.</li><li>A organização dos cabos é o trabalho mais técnico da montagem; leve a sério.</li></ul>
+<h3 id="Conexãodoscabos">Conexão dos cabos</h3>
+<h4>Conexão entre Control Hub e Expansion Hub</h4>
+<ul><li><strong>Alimentação</strong>: conector macho no fêmea.</li><li><strong>Dados</strong>: use as portas RS-485 com cabos de 3 vias. Cada lado tem 2 portas RS-485; basta escolher uma de cada lado, sem necessidade de correspondência fixa.</li></ul>
+<blockquote class="bq-warning">Os conectores oficiais têm encaixe à prova de erro — mas o encaixe à prova de erro não protege contra insistência. Se não entrar, confira a orientação do conector; nunca force.</blockquote>
+<h4>Conexão entre Driver Station e Robot Controller</h4>
+<p>A parte de rede, tanto na estrutura quanto no programa, pode reaproveitar diretamente o conteúdo da seção de Programação.</p>
+<h4>Escrita da Robot Configuration</h4>
+<p>O arquivo de configuração é conteúdo conjunto de estrutura e programação; veja a seção de Programação.</p>
+<hr>
+<h2 id="5Primeirospassosnaconstrução">5. Primeiros passos na construção</h2>
+<h3 id="InstalareconfiguraroBambuStudio">Instalar e configurar o Bambu Studio</h3>
+<p>Baixe, instale e avance; escolha o local de instalação, e a pasta é criada automaticamente.</p>
+<p><strong>Observações:</strong></p>
+<ul><li>Marque todas as caixas de seleção</li><li>Ao abrir, siga o guia de registro e escolha China continental</li><li>Selecione apenas as impressoras P1S e P2S</li><li>Mantenha os materiais padrão mais usados</li><li>Instale o plugin de rede</li><li>Faça login no canto superior esquerdo (número de celular ou terceiros)</li></ul>
+<h3 id="ExportaroarquivodemodelagemdoOnshape">Exportar o arquivo de modelagem do Onshape</h3>
+<ol><li>Abra o arquivo de modelagem e selecione a peça desejada; no canto inferior esquerdo, o Onshape marca a posição dessa peça na lista de instâncias à esquerda.</li><li>Clique com o botão direito na peça e escolha abrir a aba correspondente à instância para entrar na área de construção da peça.</li><li>Clique com o botão direito sobre o número da peça, no canto inferior esquerdo, e escolha exportar.<ul><li>Atenção: a opção de exportar só aparece depois que você obtém permissão de edição do documento.</li></ul></li><li>Altere o formato para STEP, renomeie o arquivo conforme a necessidade e mantenha as demais opções padrão.</li></ol>
+<h3 id="ImportareposicionarnoBambuStudio">Importar e posicionar no Bambu Studio</h3>
+<ul><li>Crie um novo projeto no Bambu Studio, clique no botão "Importar" na parte superior e importe o arquivo STEP; confirme as opções de importação padrão.</li><li>Se a posição da peça não ficar como esperado, não selecione nenhuma peça, clique com o botão direito na mesa de impressão e escolha "organizar automaticamente" (Auto Arrange) ou "orientar automaticamente" (Auto Orient).</li><li>Ajuste manual: selecione a peça e segure o botão esquerdo para arrastar; clique no botão de rotação para girar nos modos relativo ou absoluto.</li><li>Diferença de operação: por padrão, o Bambu Studio funciona como o Onshape — arrastar com o botão esquerdo gira a vista e com o direito desloca; se preferir, altere o modo de operação nas configurações. Com uma peça selecionada, arrastar com o botão esquerdo move a peça diretamente.</li></ul>
+<h3 id="Configurarosparâmetrosdeimpressão">Configurar os parâmetros de impressão</h3>
+<p><strong>Escolha de impressora e filamento:</strong></p>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">Impressora</th><th style="text-align:left">Bico</th><th style="text-align:left">Filamento</th></tr></thead><tbody><tr><td style="text-align:left">P1S (bico original)</td><td style="text-align:left">0,4 mm</td><td style="text-align:left">PLA Basic</td></tr><tr><td style="text-align:left">P1S (bico trocado, dedicada a fibra de carbono)</td><td style="text-align:left">0,6 mm</td><td style="text-align:left">PETG-CF</td></tr><tr><td style="text-align:left">P2S (duas unidades)</td><td style="text-align:left">0,4 mm</td><td style="text-align:left">PLA Basic</td></tr></tbody></table></div>
+<p><strong>Escolha dos parâmetros conforme o tipo de peça:</strong></p>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">Tipo</th><th style="text-align:left">Parâmetros</th></tr></thead><tbody><tr><td style="text-align:left">Peças decorativas</td><td style="text-align:left">Parâmetros padrão do Bambu Studio</td></tr><tr><td style="text-align:left">Peças estruturais sem carga</td><td style="text-align:left">Configuração usual da equipe de modelagem</td></tr><tr><td style="text-align:left">Peças estruturais de carga</td><td style="text-align:left">Configuração usual da equipe de modelagem (alta resistência)</td></tr></tbody></table></div>
+<blockquote class="bq-info">Os parâmetros acima são as configurações usuais da nossa equipe; ajuste conforme a necessidade.</blockquote>
+<p><strong>Várias peças na mesma mesa:</strong></p>
+<ul><li>Várias cópias da mesma peça: selecione a peça, clique com o botão direito e escolha "clonar".</li><li>Peças diferentes: clique de novo em "Importar" e importe o arquivo.</li></ul>
+<h3 id="Conectaraimpressora3D">Conectar a impressora 3D</h3>
+<ul><li>Entre na aba "Dispositivo", ative o modo LAN e a impressora na rede local será detectada automaticamente (ativar o modo LAN pode desconectar a conta atual; ignore o aviso).</li><li>Se a impressora não for encontrada: confirme primeiro se o modo LAN está ativado; se ainda não aparecer, vincule manualmente por IP + código de acesso. O IP fica na página de Wi-Fi das configurações da impressora, e o código de acesso, no avatar da conta após ativar o modo LAN.</li><li>Depois de fatiar, confira na aba "Visualizar" e, antes de imprimir, envie a pré-visualização ao responsável atual de modelagem ou de estrutura para confirmar a configuração antes de mandar imprimir.</li></ul>
+<h3 id="Ajustesdeimpressão">Ajustes de impressão</h3>
+<p><strong>Impressora P2S:</strong></p>
+<ul><li>Ative o timelapse antes de imprimir.</li><li>O nivelamento automático da mesa é obrigatório.</li><li>Selecione o filamento carregado e a impressora de destino.</li></ul>
+<p><strong>Impressora P1S:</strong></p>
+<ul><li>O timelapse pode ficar desativado por padrão.</li><li>O nivelamento automático da mesa e a calibração dinâmica de fluxo devem estar ambos em automático.</li></ul>
+<h3 id="Tratamentodefalhasdeimpressão">Tratamento de falhas de impressão</h3>
+<ul><li><strong>P2S</strong>: tem detecção de "spaghetti" (macarrão) por IA; quando ocorre o emaranhado de filamento, a máquina para a impressão sozinha e envia um aviso à conta logada. Depois de limpar o arquivo com erro, o equipamento reinicia automaticamente.</li><li><strong>P1S</strong>: não tem reconhecimento automático de spaghetti; acompanhe o estado em tempo real durante a impressão. Ao detectar o problema, pare manualmente a impressão e localize o arquivo com erro no histórico de impressões, na pasta cache à esquerda, para limpá-lo.</li></ul>
+<h3 id="InstalareconfiguraroRDWorksV8">Instalar e configurar o RD Works V8</h3>
+<p><strong>Instalação:</strong></p>
+<ol><li>Obtenha o instalador .exe com um administrador ou com o professor orientador e escolha Install</li><li>Marque a instalação manual de caminho para alterar o local</li><li>Mantenha as demais opções padrão</li><li>Depois de conectar a cortadora a laser, escolha instalar o driver USB</li><li>Feche e abra o software novamente</li></ol>
+</main>
+
+<script>
+(function(){
+  var sb=document.getElementById("sidebar");
+  var ol=document.getElementById("overlay");
+  var btn=document.getElementById("menuBtn");
+  function open(){sb.classList.add("open");ol.classList.add("show");btn.setAttribute("aria-expanded","true")}
+  function close(){sb.classList.remove("open");ol.classList.remove("show");btn.setAttribute("aria-expanded","false")}
+  btn.addEventListener("click",function(){sb.classList.contains("open")?close():open()});
+  ol.addEventListener("click",close);
+  var ls=document.getElementById("langSelect");
+  if(ls){ls.addEventListener("change",function(){window.location.href=ls.value})};
+  var lss=document.getElementById("langSelectSide");
+  if(lss){lss.addEventListener("change",function(){window.location.href=lss.value})};
+})();
+</script>
+
+</body>
+</html>
