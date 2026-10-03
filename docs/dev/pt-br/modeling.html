@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modelagem e design｜Guia de início rápido do FTC 32477 Origin</title>
+<meta name="description" content="Os itens a seguir são requisitos complementares de Modelagem e design.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Modelagem e design｜Guia de início rápido do FTC 32477 Origin">
+<meta property="og:description" content="Os itens a seguir são requisitos complementares de Modelagem e design.">
+<meta property="og:image" content="https://ftc32477.github.io/docs/images/basic/team_logo.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Modelagem e design｜Guia de início rápido do FTC 32477 Origin">
+<meta name="twitter:description" content="Os itens a seguir são requisitos complementares de Modelagem e design.">
+<meta name="twitter:image" content="https://ftc32477.github.io/docs/images/basic/team_logo.png">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/basic/icon_team_logo_32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../images/basic/apple-touch-icon.png">
+<style>
+:root {
+  --red: #d32f2f;
+  --dark: #1a1a2e;
+  --slate: #16213e;
+  --card: #ffffff;
+  --text: #2c2c2c;
+  --muted: #666;
+  --border: #e0e0e0;
+  --radius: 10px;
+  --sidebar-w: 260px;
+  --topbar-h: 52px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+  color:var(--text);background:#f8f9fa;line-height:1.8;min-height:100vh
+}
+
+/* ====== TOP BAR (mobile) ====== */
+.topbar{
+  display:none;position:fixed;top:0;left:0;right:0;height:var(--topbar-h);
+  background:var(--dark);color:#fff;z-index:200;align-items:center;
+  padding:0 12px;gap:8px
+}
+.topbar .brand{
+  font-weight:700;font-size:14px;flex:1;min-width:0;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap
+}
+.topbar .brand a{
+  color:#fff;text-decoration:none;cursor:pointer
+}
+.topbar .brand a:hover{opacity:.85}
+.lang-select{
+  background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);
+  border-radius:6px;font-size:13px;padding:6px 26px 6px 10px;max-width:150px;
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 8px center
+}
+.lang-select option{color:#2c2c2c;background:#fff}
+.topbar .menu-btn{
+  background:none;border:none;color:#fff;font-size:24px;cursor:pointer;
+  width:40px;height:40px;flex-shrink:0;display:flex;align-items:center;
+  justify-content:center;border-radius:6px;line-height:1
+}
+.topbar .menu-btn:hover{background:rgba(255,255,255,.1)}
+
+/* ====== SIDEBAR ====== */
+nav.sidebar{
+  position:fixed;top:0;left:0;bottom:0;width:var(--sidebar-w);
+  background:var(--dark);color:#ccc;overflow-y:auto;z-index:100;
+  display:flex;flex-direction:column;transition:transform .28s ease;
+}
+nav.sidebar::-webkit-scrollbar{width:4px}
+nav.sidebar::-webkit-scrollbar-thumb{background:#444;border-radius:2px}
+.sidebar-header{padding:24px 20px 14px;border-bottom:1px solid rgba(255,255,255,.08);text-align:center}
+.sidebar-header .home-link{
+  display:block;text-decoration:none;border-radius:8px;
+  padding:4px 0;transition:background .18s
+}
+.sidebar-header .home-link:hover{background:rgba(255,255,255,.06)}
+.sidebar-header .home-link:hover .sub{color:#fff}
+.sidebar-header .logo{font-size:22px;font-weight:700;color:#fff;line-height:1.3}
+.sidebar-header .sub{font-size:12px;color:#f44336;margin-top:4px;letter-spacing:1px}
+/* 语言切换：侧边栏下拉选项栏（节省空间给目录） */
+.lang-select-sidebar{
+  margin:12px 14px 0;width:calc(100% - 28px);box-sizing:border-box;
+  background:rgba(255,255,255,.1);color:#fff;
+  border:1px solid rgba(255,255,255,.25);border-radius:8px;
+  font-size:13px;padding:7px 26px 7px 10px;
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 8px center
+}
+.lang-select-sidebar option{color:#2c2c2c;background:#fff}
+.sidebar-nav{flex:1;padding:12px 0}
+.sidebar-nav a{
+  display:block;padding:10px 22px;color:#aaa;text-decoration:none;
+  font-size:14px;border-left:3px solid transparent;transition:all .18s
+}
+.sidebar-nav a:hover{color:#fff;background:rgba(255,255,255,.04)}
+.sidebar-nav a.active{color:#fff;background:rgba(244,67,54,.15);border-left-color:#f44336}
+/* 二级目录：仅当前页面显示 */
+.sidebar-nav a.sub-link{
+  padding:5px 22px 5px 34px;font-size:12.5px;color:#8a8a8a;border-left-color:transparent
+}
+.sidebar-nav a.sub-link:hover{color:#fff}
+.sidebar-nav a.sub-link.sub-3{padding-left:46px;font-size:12px;color:#777}
+/* 侧边栏队徽 */
+.side-logo{
+  display:block;width:64px;height:64px;margin:0 auto 10px;
+  border-radius:14px;object-fit:cover
+}
+/* 顶栏队徽（移动端） */
+.topbar-logo{width:22px;height:22px;border-radius:5px;flex-shrink:0}
+.sidebar-footer{padding:16px 20px;font-size:11px;color:#555;border-top:1px solid rgba(255,255,255,.08);text-align:center}
+
+/* ====== OVERLAY (mobile) ====== */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:99}
+
+/* ====== MAIN CONTENT ====== */
+/*
+ * 响应式宽度策略：
+ *   宽屏：内容固定 900px 宽（含 padding），居中于侧边栏右侧
+ *   中屏：随宽度缩小，左右留白逐渐收窄直至消失
+ *   窄屏（<768px）：侧边栏折叠，内容全宽
+ *
+ * 兼容性说明：部分 Chrome 版本对嵌套在自定义属性中的
+ * min()/max()/clamp()（含 vw 单位）存在布局计算 bug（宽度会算成 0，
+ * 正文空白而侧边栏正常）。因此此处只用普通 calc + max-width 封顶，
+ * 并为 min()/max()/clamp() 提供级联回退声明。
+ */
+main{
+  box-sizing:content-box;
+  --pad: 40px;                                        /* 回退：clamp 不支持时 */
+  --pad: clamp(12px, 4vw, 48px);
+  padding: 40px var(--pad);
+  /* 宽度：随视口收缩，上限 900px（含 padding，即内容宽 900-2*pad） */
+  width: calc(100vw - var(--sidebar-w) - 2 * var(--pad));
+  max-width: calc(900px - 2 * var(--pad));
+  /* 左外边距：回退为紧贴侧边栏，支持 max() 时在宽屏居中 */
+  margin-left: var(--sidebar-w);
+  margin-left: calc(var(--sidebar-w) + max(0px, (100vw - var(--sidebar-w) - 900px) / 2));
+  margin-right: auto;
+}
+
+/* Hero */
+.hero{
+  background:linear-gradient(135deg,var(--dark) 0%,var(--slate) 100%);color:#fff;
+  border-radius:var(--radius);padding:44px 40px;margin-bottom:36px;
+  position:relative;overflow:hidden
+}
+.hero::after{
+  content:'';position:absolute;right:-40px;bottom:-40px;
+  width:200px;height:200px;background:var(--red);opacity:.18;border-radius:50%
+}
+.hero h1{font-size:28px;font-weight:700;position:relative;z-index:1}
+.hero .subtitle{font-size:14px;margin-top:10px;opacity:.8;position:relative;z-index:1}
+.hero .badge{
+  display:inline-block;background:var(--red);padding:4px 14px;
+  border-radius:20px;font-size:12px;font-weight:600;margin-bottom:12px;
+  position:relative;z-index:1
+}
+
+/* Sections */
+section{margin-bottom:40px}
+section h2{font-size:22px;font-weight:700;padding-bottom:10px;margin-bottom:20px;border-bottom:2px solid var(--red);color:var(--dark)}
+section h3{font-size:17px;font-weight:600;margin:28px 0 10px;color:var(--slate)}
+section h4,.card h4{font-size:15px;font-weight:600;margin:18px 0 8px}
+.card{background:var(--card);border-radius:var(--radius);padding:24px 28px;box-shadow:0 1px 4px rgba(0,0,0,.04);margin-bottom:16px}
+p{margin-bottom:10px}
+a{color:#1565c0;text-decoration:none;overflow-wrap:anywhere}
+a:hover{text-decoration:underline}
+ul,ol{padding-left:22px;margin-bottom:12px}
+li{margin-bottom:4px}
+code{background:#f0f0f0;padding:2px 6px;border-radius:4px;font-size:13px;font-family:"SF Mono","Fira Code",monospace}
+pre{background:#1a1a2e;color:#e0e0e0;padding:16px 20px;border-radius:var(--radius);overflow-x:auto;margin-bottom:14px;font-size:13px;line-height:1.6}
+pre code{background:none;padding:0;color:inherit}
+blockquote{
+  border-left:4px solid var(--red);background:#fef5f5;padding:12px 18px;
+  margin:14px 0;border-radius:0 var(--radius) var(--radius) 0;font-size:14px;color:#8b0000
+}
+/* 类型化引用块：[!info] 蓝 / [!warning] 黄 / [!danger] 红（仅颜色区分，无标签） */
+blockquote.bq-info{border-left-color:#1565c0;background:#eaf3fb;color:#0d3c66}
+blockquote.bq-warning{border-left-color:#f9a825;background:#fff8e1;color:#6d4c00}
+blockquote.bq-danger{border-left-color:#d32f2f;background:#fef5f5;color:#8b0000}
+hr{border:none;border-top:1px solid var(--border);margin:24px 0}
+img{max-width:100%;border-radius:var(--radius);margin:12px 0}
+/* 锚点跳转留白（避免被固定顶栏遮挡） */
+h2,h3{scroll-margin-top:16px}
+
+/* 图片排布：多图横向，窄屏自动纵向 */
+.img-row{
+  display:flex;flex-wrap:wrap;gap:14px;margin:14px 0
+}
+.img-row .img-fig{
+  flex:1 1 40%;min-width:0;margin:0
+}
+.img-row .img-fig img{
+  width:100%;margin:0;border-radius:var(--radius)
+}
+.img-row figcaption{
+  text-align:center;font-size:12px;color:var(--muted);margin-top:6px
+}
+.img-row-single .img-fig{flex-basis:100%}
+@media(max-width:600px){
+  .img-row{flex-direction:column;gap:12px}
+  h2,h3{scroll-margin-top:64px}
+}
+
+/* Table */
+.table-wrap{overflow-x:auto;margin-bottom:14px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{border:1px solid var(--border);padding:10px 14px;text-align:left}
+th{background:var(--dark);color:#fff;font-weight:600}
+tr:nth-child(even){background:#fafafa}
+
+/* ====== RESPONSIVE ====== */
+
+/* Narrow: collapse sidebar */
+@media(max-width:768px){
+  .topbar{display:flex}
+  nav.sidebar{
+    transform:translateX(-100%);
+    top:var(--topbar-h);z-index:101;
+    width:280px;                        /* 回退：min() 不支持时 */
+    width:min(280px,84vw)
+  }
+  nav.sidebar.open{transform:translateX(0)}
+  .overlay.show{display:block}
+  main{
+    margin-left:0;margin-top:var(--topbar-h);
+    width: calc(100vw - 2 * var(--pad));
+    max-width: none;
+  }
+  .hero{padding:28px 20px}
+  .hero h1{font-size:22px}
+  .card{padding:16px 18px}
+  section h2{font-size:19px}
+  section h3{font-size:16px}
+  .table-wrap{margin-left:-18px;margin-right:-18px;width:calc(100% + 36px)}
+}
+
+/* Very narrow screens */
+@media(max-width:420px){
+  .topbar .brand{font-size:13px}
+  .lang-select{max-width:132px;font-size:12px;padding:5px 22px 5px 8px}
+  main{--pad: 12px}
+  .card{padding:14px 14px}
+  .hero{padding:22px 16px}
+  .hero h1{font-size:20px}
+}
+
+/* dev 预览标识（仅 dev 通道构建时输出；打印隐藏） */
+.dev-badge{
+  position:fixed;right:14px;bottom:14px;z-index:400;
+  background:#d32f2f;color:#fff;padding:6px 14px;border-radius:999px;
+  font-size:12px;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,.25);opacity:.92
+}
+@media print{.dev-badge{display:none!important}}
+/* ====== PRINT (PDF 导出) ====== */
+/*
+ * 注意：Chrome 打印视口宽度可能低于 768px，导致移动端媒体查询规则
+ * 泄漏到打印渲染。因此必须在打印样式中显式覆盖所有相关属性。
+ */
+@media print{
+  html,body{display:block !important;width:100% !important;max-width:100% !important;overflow:visible !important}
+  nav.sidebar,.topbar,.overlay{display:none !important}
+  body{background:#fff}
+  main{
+    display:block !important;box-sizing:border-box !important;
+    margin:0 !important;padding:0 !important;
+    width:100% !important;max-width:100% !important;
+  }
+  .card{box-shadow:none;border:1px solid var(--border);padding:24px 28px}
+  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:32px 28px}
+  .hero h1{color:var(--dark);font-size:28px}
+  section h2{font-size:22px}
+  section h3{font-size:17px}
+  .hero .badge{background:var(--red);color:#fff}
+  a{color:inherit;overflow-wrap:anywhere !important}
+  /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
+  .table-wrap{
+    overflow:visible !important;
+    margin:0 !important;
+    width:100% !important;
+    max-width:100% !important;
+  }
+  table{
+    width:100% !important;max-width:100% !important;
+    table-layout:fixed;font-size:12px
+  }
+  th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
+  tr{page-break-inside:avoid}
+  .img-row{flex-wrap:nowrap}
+  .img-fig{page-break-inside:avoid}
+  .img-row .img-fig{flex:1 1 0}
+  /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
+  html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
+  .align-right{text-align:right}
+  /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
+  h1{margin:3.2em 0 1em}
+  h2{margin:2em 0 .8em}
+  h3{margin:1.2em 0 .5em}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <img class="topbar-logo" src="../images/basic/team_logo_small.png" alt="32477 Origin">
+  <span class="brand"><a href="../index.html" title="Voltar ao início">Guia de início rápido do FTC 32477 Origin</a></span>
+  <select class="lang-select" id="langSelect" aria-label="Idioma">
+<option value="../zh-hans/modeling.html">简体中文</option><option value="../zh-hant/modeling.html">繁體中文</option><option value="../en-us/modeling.html">English (US)</option><option value="../fr/modeling.html">Français</option><option value="../es/modeling.html">Español</option><option value="../ko/modeling.html">한국어</option><option value="../pt-br/modeling.html" selected>Português (BR)</option>
+  </select>
+  <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-controls="sidebar" aria-expanded="false">☰</button>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <a class="home-link" href="../index.html" title="Voltar ao início">
+      <img class="side-logo" src="../images/basic/team_logo_small.png" alt="32477 Origin Team Logo">
+      <div class="logo">FTC 32477<br>Origin</div>
+      <div class="sub">Guia de início rápido</div>
+    </a>
+    <select class="lang-select-sidebar" id="langSelectSide" aria-label="Idioma">
+<option value="../zh-hans/modeling.html">简体中文</option><option value="../zh-hant/modeling.html">繁體中文</option><option value="../en-us/modeling.html">English (US)</option><option value="../fr/modeling.html">Français</option><option value="../es/modeling.html">Español</option><option value="../ko/modeling.html">한국어</option><option value="../pt-br/modeling.html" selected>Português (BR)</option>
+    </select>
+  </div>
+  <div class="sidebar-nav">
+<a href="index.html">Início</a>
+<a href="preface.html">Prefácio</a>
+<a href="member.html">Essenciais da equipe</a>
+<a href="modeling.html" class="active">Modelagem e design</a>
+<a class="sub-link" href="#1Requisitosbásicos">1. Requisitos básicos</a>
+<a class="sub-link sub-3" href="#Aplicativos">Aplicativos</a>
+<a class="sub-link sub-3" href="#Contasonline">Contas online</a>
+<a class="sub-link" href="#2Configuraçãodoambiente">2. Configuração do ambiente</a>
+<a class="sub-link sub-3" href="#Navegadordeinternet">Navegador de internet</a>
+<a class="sub-link sub-3" href="#RegistrodacontaOnshape">Registro da conta Onshape</a>
+<a class="sub-link sub-3" href="#ConfiguraçãodepreferênciasdoOnshape">Configuração de preferências do Onshape</a>
+<a class="sub-link sub-3" href="#PluginsdoOnshape">Plugins do Onshape</a>
+<a class="sub-link" href="#3Pontosessenciaisdamodelagem">3. Pontos essenciais da modelagem</a>
+<a class="sub-link sub-3" href="#Projetoemontagemdepeças">Projeto e montagem de peças</a>
+<a class="sub-link sub-3" href="#Documentosdeprojetoeespaçodetrabalho">Documentos de projeto e espaço de trabalho</a>
+<a class="sub-link sub-3" href="#Fluxobásicodemodelagem">Fluxo básico de modelagem</a>
+<a class="sub-link sub-3" href="#Resistênciadomodeloeexperiênciadedesign">Resistência do modelo e experiência de design</a>
+<a class="sub-link sub-3" href="#Estratégiadedesignereferênciasdetemporada">Estratégia de design e referências de temporada</a>
+<a class="sub-link sub-3" href="#RecursosdeaprendizadodoOnshape">Recursos de aprendizado do Onshape</a>
+<a class="sub-link sub-3" href="#BibliotecasdepeçascomunsdoFTC">Bibliotecas de peças comuns do FTC</a>
+<a class="sub-link sub-3" href="#Padrõesdeprojeto">Padrões de projeto</a>
+<a href="build.html">Hardware e construção</a>
+<a href="programming.html">Programação</a>
+<a href="outreach.html">Divulgação e relações públicas</a>
+<a href="afterword.html">Posfácio</a>
+  </div>
+  <div class="sidebar-footer">September 2026, 1st Edition · Revision 3 &middot; Equipe editorial</div>
+</nav>
+
+<main>
+<h1>Modelagem e design</h1>
+<h2 id="1Requisitosbásicos">1. Requisitos básicos</h2>
+<p>Os itens a seguir são requisitos complementares de Modelagem e design.</p>
+<h3 id="Aplicativos">Aplicativos</h3>
+<ul><li>Navegador de internet (Chrome, Edge ou Safari)</li><li>LocalSend</li><li>Biblioteca de peças FTC do Onshape — <a href="https://ftconshape.com/" target="_blank" rel="noopener">https://ftconshape.com/</a> (mantida pela FIRST em parceria com a PTC; envie um e-mail para FIRST@ptc.com para entrar na pasta compartilhada)</li><li>Plugin da biblioteca de peças FTC Insert Tool — <a href="https://cad.onshape.com/appstore/apps/Design%20&amp;%20Documentation/6515cfb91574253b1b96a6ba" target="_blank" rel="noopener">https://cad.onshape.com/appstore/apps/Design%20&amp;%20Documentation/6515cfb91574253b1b96a6ba</a> (instale pela Onshape App Store: Subscribe → Get for Free)</li></ul>
+<h3 id="Contasonline">Contas online</h3>
+<ul><li>CycleZLab — <a href="https://www.cyclezlab.com/" target="_blank" rel="noopener">https://www.cyclezlab.com/</a> (gratuito, é preciso solicitar entrada)</li></ul>
+<hr>
+<h2 id="2Configuraçãodoambiente">2. Configuração do ambiente</h2>
+<p>O ambiente de trabalho abaixo deve ser configurado antes do início oficial. Siga as instruções; em caso de dúvidas, consulte um administrador.</p>
+<h3 id="Navegadordeinternet">Navegador de internet</h3>
+<p>Salve também os seguintes sites nos favoritos:</p>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">Nome</th><th style="text-align:left">Endereço</th></tr></thead><tbody><tr><td style="text-align:left">goBILDA</td><td style="text-align:left">https://www.gobilda.com/</td></tr><tr><td style="text-align:left">REV Robotics</td><td style="text-align:left">https://www.revrobotics.com/</td></tr><tr><td style="text-align:left">CycleZLab</td><td style="text-align:left">https://www.cyclezlab.com/</td></tr><tr><td style="text-align:left">Onshape para Educação</td><td style="text-align:left">https://www.onshape.com/en/education/</td></tr></tbody></table></div>
+<h3 id="RegistrodacontaOnshape">Registro da conta Onshape</h3>
+<p>O Onshape é a plataforma de modelagem CAD em nuvem adotada pela nossa equipe. Em comparação com softwares industriais como o SolidWorks, o Onshape exige pouco do computador, facilita o compartilhamento de projetos entre dispositivos, é fácil de aprender e tem suporte oficial da FIRST — além de ser completo em recursos, é ideal para aprender modelagem CAD e desenvolver projetos.</p>
+<p><strong>Registro:</strong></p>
+<ol><li>Abra <a href="https://www.onshape.com/en/education/" target="_blank" rel="noopener">https://www.onshape.com/en/education/</a> e cadastre uma conta educacional</li><li>Preencha nome (First name), sobrenome (Last name) e e-mail</li></ol>
+<blockquote class="bq-warning">Não use provedores de e-mail chineses, como o QQ: é provável que o código de verificação não chegue. Recomendamos @gmail.com ou @outlook.com.</blockquote>
+<ol start="3"><li>Na tela seguinte, selecione o perfil "Student", o nível escolar "Grade School / K-12 (Ages <18)" e a data de nascimento; depois clique em avançar</li><li>Preencha as informações a seguir:<ul><li>Nome da escola: BEIJING NATIONAL DAY EXPERIMENTAL SCHOOL</li><li>Site da escola: <a href="https://sysyzx.bjhdedu.cn/" target="_blank" rel="noopener">https://sysyzx.bjhdedu.cn/</a></li><li>Ano previsto de formatura</li><li>Motivo do cadastro: I am a member of FTC Team 32477, and I registered this account to use the team's modeling tools. (use esta frase se não souber o que escrever)</li><li>Marque os três termos de concordância para concluir o cadastro</li></ul></li><li>Verifique seu e-mail para confirmar o cadastro</li></ol>
+<blockquote class="bq-info">Após concluir o cadastro, informe sua conta a um administrador para que ele adicione você à pasta compartilhada da equipe.</blockquote>
+<p><strong>Dúvidas frequentes:</strong></p>
+<ul><li>Erro de reCAPTCHA na última etapa: o serviço de verificação humana não respondeu. Tente trocar de rede e garanta que o serviço reCAPTCHA esteja acessível</li><li>Código de verificação não recebido: se esperar mais de 3 minutos, tente outro e-mail (Outlook ou Gmail, não use QQ)</li></ul>
+<h3 id="ConfiguraçãodepreferênciasdoOnshape">Configuração de preferências do Onshape</h3>
+<ol><li>Entre no espaço de trabalho, clique no ícone da conta no canto superior direito e escolha a primeira opção do menu, "Minha conta"</li><li>No menu à direita, escolha a terceira opção a partir do topo, "Preferências", altere a primeira opção de idioma para "Português (Brasil)" e clique em salvar</li><li>No mesmo menu, altere a opção de unidades para o sistema métrico (no ambiente de trabalho da equipe, o comprimento padrão é em milímetros)</li></ol>
+<blockquote class="bq-info">As alterações acima só valem para documentos criados depois da mudança; documentos antigos mantêm as unidades originais.</blockquote>
+<ol start="4"><li>Ajuste seu perfil pessoal como preferir</li></ol>
+<h3 id="PluginsdoOnshape">Plugins do Onshape</h3>
+<p>Por ser uma plataforma em nuvem, o Onshape tem um ecossistema rico de plugins compartilhados, disponíveis na Onshape App Store, em sites de terceiros e por compartilhamento direto.</p>
+<p>Os plugins mais usados pela equipe incluem (apenas exemplos):</p>
+<ul><li><strong>Biblioteca de peças FTC do Onshape</strong> (essencial; veja "1. Requisitos básicos")</li><li><strong>Lighten</strong> (recurso personalizado que enxuga a estrutura para deixar a peça mais leve)</li><li><strong>Spur gear</strong> (recurso personalizado, gerador de engrenagens)</li><li><strong>HTD Pulley Generator</strong> (derivado de outro documento, gerador de polias de correia dentada)</li></ul>
+<hr>
+<h2 id="3Pontosessenciaisdamodelagem">3. Pontos essenciais da modelagem</h2>
+<h3 id="Projetoemontagemdepeças">Projeto e montagem de peças</h3>
+<p>Ao modelar em 3D no Onshape, preste atenção especial aos pontos a seguir:</p>
+<ul><li><strong>Precisão dimensional</strong>: garanta que todas as dimensões do modelo correspondam às peças reais</li><li><strong>Relações de montagem</strong>: defina corretamente os encaixes entre peças (Encaixes/Mates e Conectores de Encaixe/Mate Connectors)</li><li><strong>Verificação de interferência</strong>: faça a checagem de interferências após a montagem</li><li><strong>Nomenclatura de peças</strong>: nomeie peças e montagens seguindo um padrão unificado</li></ul>
+<h3 id="Documentosdeprojetoeespaçodetrabalho">Documentos de projeto e espaço de trabalho</h3>
+<p>Ao desenvolver projetos da equipe, crie os documentos na pasta compartilhada da equipe para que outros membros tenham acesso. Se você ainda não foi adicionado, fale com um administrador para entrar na pasta compartilhada.</p>
+<ol><li>No menu à esquerda da sua área de trabalho pessoal, selecione "Compartilhados comigo" e abra a pasta "32477": ali você pode criar um novo documento ou abrir um documento já criado pela equipe (um documento é um projeto)</li><li>Para criar um novo projeto: clique no botão azul de criação no canto superior esquerdo, escolha "Documento" e aguarde a criação e a abertura</li></ol>
+<p>Depois de entrar no espaço de trabalho, você verá as abas "Estúdio de Peças (Part Studio)" e "Montagem (Assembly)" na parte inferior (clique no sinal de mais ao lado das abas para criar novas):</p>
+<ul><li><strong>Estúdio de Peças</strong>: a área onde uma peça individual é modelada (corresponde às etapas de esboço e peça do fluxo CAD); as peças são criadas com restrições de esboço</li><li><strong>Montagem</strong>: a área onde as peças feitas no Estúdio de Peças ou peças prontas da biblioteca são unidas (corresponde à etapa de montagem do fluxo CAD)</li></ul>
+<p>Um documento pode conter qualquer número de Montagens e Estúdios de Peças. Para facilitar a edição e o gerenciamento: modele, se possível, apenas uma peça por Estúdio de Peças; monte o robô por subsistemas e, no final, junte tudo em uma montagem principal.</p>
+<h3 id="Fluxobásicodemodelagem">Fluxo básico de modelagem</h3>
+<p>Como manual introdutório, aqui apresentamos apenas as operações e o fluxo mais básicos do Onshape.</p>
+<h4>Desenho do esboço</h4>
+<p>No Estúdio de Peças, crie um esboço, escolha um plano de referência e desenhe o contorno com ferramentas como linha, retângulo e círculo; depois fixe a forma com cotas e restrições geométricas (como horizontal, vertical e tangente). Procure deixar o esboço totalmente restringido para que as operações de recurso seguintes sejam confiáveis.</p>
+<h4>Criação de peças</h4>
+<p>Concluído o esboço, use ferramentas de recurso como extrusão, revolução e varredura para transformar o contorno 2D em um sólido 3D e refine a peça com furos, chanfros e arredondamentos. Todos os recursos ficam registrados em ordem na lista de recursos e podem ser retrocedidos e editados a qualquer momento.</p>
+<h4>Montagem de peças</h4>
+<p>Na Montagem, insira peças feitas no Estúdio de Peças ou peças prontas da biblioteca e conecte-as com Encaixes e Conectores de Encaixe conforme as relações. Depois de montar, verifique se o movimento é suave e se não há interferências.</p>
+<h4>Uso das ferramentas</h4>
+<p>O Onshape oferece ferramentas de análise como medição, vista de corte e propriedades de massa, permitindo conferir dimensões e peso a qualquer momento durante a modelagem; o menu de clique com o botão direito também traz atalhos como ocultar, isolar e renomear.</p>
+<h3 id="Resistênciadomodeloeexperiênciadedesign">Resistência do modelo e experiência de design</h3>
+<p>A resistência de peças impressas em 3D depende do material e da geometria. Estes são conceitos de design estrutural usados com frequência:</p>
+<ul><li><strong>Peças estruturais principais</strong> (como vigas e placas estruturais): imprima em PETG-CF sempre que possível (parâmetros no capítulo Hardware e construção), com espessura mínima de 4 mm</li><li><strong>Peças de guia</strong> (como trilhas de esferas e batentes estruturais): PLA é aceitável, com parede mínima de 2 mm</li><li><strong>Peças de proteção e decoração</strong> (como painéis laterais): parede mínima de 1,5 mm</li><li>Para chapas ou estruturas mais frágeis, como o acrílico, evite furos muito próximos (espaçamento entre furos menor que 3 mm); nas ligações estruturais que recebem carga, a largura deve ser de pelo menos 7 mm</li><li>Evite cantos vivos nas peças; arredonde-os com filetes para impedir que a concentração de tensão cause trincas</li></ul>
+<blockquote class="bq-info">Os dados acima são apenas referência; os parâmetros reais precisam ser ajustados e validados com peças físicas.</blockquote>
+<h3 id="Estratégiadedesignereferênciasdetemporada">Estratégia de design e referências de temporada</h3>
+<ul><li>Ao conceber o robô, divida as tarefas do desafio em itens menores, pense na estrutura de cada item separadamente e só depois combine tudo</li><li>Antes de modelar de verdade, peça opiniões dos colegas e baseie o projeto na estratégia de pontuação da equipe</li><li>Depois de concluir o modelo do robô inteiro, pense no processo real de montagem: para parafusos e pontos de difícil acesso, deixe canais de instalação e espaço para a passagem de cabos</li><li>Considere projetar estruturas modulares, que facilitam reparos e otimizações posteriores</li><li>Na versão final, prefira estruturas integradas e reduza pequenas estruturas desnecessárias, para ganhar resistência geral e leveza</li></ul>
+<p><strong>Referências de calendário:</strong></p>
+<ul><li>No cronograma, o primeiro projeto pode ser simples, mas precisa ser concluído e construído o quanto antes, deixando tempo para depuração do programa e treino do Driver, além de testar a estrutura fisicamente para iterar e otimizar; antes dos torneios classificatórios, um robô apto a competir deve passar por pelo menos 3 iterações (referência)</li><li>Acompanhe as equipes estrangeiras: a comunidade FTC tem eventos como "Robot in 30 Hours Reveal | FTC", e as equipes podem divulgar seus projetos da nova temporada a qualquer momento; você também pode usar como referência projetos de equipes de FRC, VEX e outras competições</li><li>A maioria dos arquivos de modelagem de outras equipes é compartilhada publicamente, e pedir os modelos diretamente normalmente não é recusado; estude bons projetos para melhorar o seu — a experiência de equipes fortes, como a Beijing National Day School (campus principal), merece atenção especial</li></ul>
+<h3 id="RecursosdeaprendizadodoOnshape">Recursos de aprendizado do Onshape</h3>
+<p>Como plataforma profissional de modelagem, o Onshape tem recursos oficiais completos de aprendizado: <a href="https://learn.onshape.com/" target="_blank" rel="noopener">https://learn.onshape.com/</a>; plataformas de vídeo como Bilibili (哔哩哔哩) e YouTube também têm muitos tutoriais.</p>
+<ul><li>Como os fluxos de trabalho dos softwares CAD são parecidos (esboço, peça, montagem), tutoriais de SolidWorks, Autodesk Fusion e outros programas também têm valor de aprendizado: ajudam a desenvolver a noção espacial das peças e a familiaridade com o fluxo de modelagem</li><li>Lembre-se de que a prática vale mais que a teoria: procure alguns modelos no Bilibili (哔哩哔哩) para reproduzir, tente modelar sozinho primeiro e só veja o tutorial se realmente travar; no dia a dia, observe e reflita sobre como modelar pequenas estruturas</li><li>Para a competição FTC, estude bastante os bons projetos de outras equipes: a maioria das equipes fortes tem site próprio e abre seus projetos. Pesquise o número de uma equipe FTC no YouTube ou no Google para achar o site oficial, ou veja modelos de outras equipes em sites como o CycleZLab</li></ul>
+<blockquote class="bq-info">Em caso de dúvidas, consulte um veterano de modelagem ou pesquise na internet.</blockquote>
+<h3 id="BibliotecasdepeçascomunsdoFTC">Bibliotecas de peças comuns do FTC</h3>
+<p>Fornecedores de peças e plataformas de recursos usados com frequência no FTC:</p>
+<ul><li><strong>goBILDA</strong>: oferece uma linha completa de peças estruturais para FTC</li><li><strong>REV Robotics</strong>: oferece módulos de controle eletrônico e peças estruturais</li><li><strong>CycleZLab</strong>: plataforma da comunidade de robótica da FIRST (arquivo de CAD, código e registros de construção)</li></ul>
+<h3 id="Padrõesdeprojeto">Padrões de projeto</h3>
+<ul><li>Use unidades métricas (mm)</li><li>Deixe folga adequada em todas as peças impressas em 3D (recomendado: 0,2–0,3 mm)</li><li>Formatos de exportação: arquivos STEP para usinagem, STL para impressão 3D e 3MF para fatiamento e impressão</li></ul>
+</main>
+
+<script>
+(function(){
+  var sb=document.getElementById("sidebar");
+  var ol=document.getElementById("overlay");
+  var btn=document.getElementById("menuBtn");
+  function open(){sb.classList.add("open");ol.classList.add("show");btn.setAttribute("aria-expanded","true")}
+  function close(){sb.classList.remove("open");ol.classList.remove("show");btn.setAttribute("aria-expanded","false")}
+  btn.addEventListener("click",function(){sb.classList.contains("open")?close():open()});
+  ol.addEventListener("click",close);
+  var ls=document.getElementById("langSelect");
+  if(ls){ls.addEventListener("change",function(){window.location.href=ls.value})};
+  var lss=document.getElementById("langSelectSide");
+  if(lss){lss.addEventListener("change",function(){window.location.href=lss.value})};
+})();
+</script>
+<div class="dev-badge" role="note">Prévia de desenvolvimento</div>
+</body>
+</html>
