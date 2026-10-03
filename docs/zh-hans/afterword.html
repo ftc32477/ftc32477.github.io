@@ -260,6 +260,13 @@ tr:nth-child(even){background:#fafafa}
   .hero h1{font-size:20px}
 }
 
+/* dev 预览标识（仅 dev 通道构建时输出；打印隐藏） */
+.dev-badge{
+  position:fixed;right:14px;bottom:14px;z-index:400;
+  background:#d32f2f;color:#fff;padding:6px 14px;border-radius:999px;
+  font-size:12px;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,.25);opacity:.92
+}
+@media print{.dev-badge{display:none!important}}
 /* ====== PRINT (PDF 导出) ====== */
 /*
  * 注意：Chrome 打印视口宽度可能低于 768px，导致移动端媒体查询规则
@@ -342,7 +349,7 @@ tr:nth-child(even){background:#fafafa}
 <a class="sub-link" href="#全队成员">全队成员</a>
 <a class="sub-link" href="#合影">合影</a>
   </div>
-  <div class="sidebar-footer">2026年9月第1版·第2次修订 &middot; 编写小组</div>
+  <div class="sidebar-footer">2026年9月第1版·第3次修订 &middot; 编写小组</div>
 </nav>
 
 <main>
@@ -363,10 +370,12 @@ tr:nth-child(even){background:#fafafa}
 <hr>
 <h2 id="合影">合影</h2>
 <div class="img-row"><figure class="img-fig"><img src="../images/afterword/group_photo_20251219.jpg" alt="大合照（2025年12月19日）" loading="lazy"><figcaption>大合照（2025年12月19日）</figcaption></figure><figure class="img-fig"><img src="../images/afterword/group_photo_20260528.jpg" alt="大合照（2026年5月28日）" loading="lazy"><figcaption>大合照（2026年5月28日）</figcaption></figure></div>
+<p><strong>合影名单（2025年12月19日）</strong>：上排从左至右：时宇光、王一舟、姜易辰、付修齐、杜星洲、谢金灿、张熙芃；下排从左至右：杜丰宇、刘楚翌、于紫晨、李骄洋、陈西贝。</p>
+<p><strong>合影名单（2026年5月28日）</strong>：上排从左至右：王一舟、时宇光、杜星洲、付修齐、薛晨、谢金灿、张熙芃、刘楚翌；下排从左至右：柳宇轩、杜丰宇、韩子萱、李骄洋、陈西贝。</p>
 <hr>
 <p><strong>法律声明：</strong> 本指南是 FTC 32477 Origin 队伍的独立产品。本队伍与 FIRST®（For Inspiration and Recognition of Science and Technology）无隶属、背书或赞助关系。FIRST®、FIRST® Robotics Competition、FRC®、FIRST® Tech Challenge 及 FTC® 均为 FIRST 的注册商标。本指南中分享的设计、代码与资源以队伍成员提供的内容为主，亦可能包含经整理合并的开源材料与其他贡献者的成果，不代表 FIRST 官方材料。</p>
 <hr>
-<p><em>32477 Origin 快速入门指南编写小组 · 2026年9月第1版·第2次修订</em></p>
+<p><em>32477 Origin 快速入门指南编写小组 · 2026年9月第1版·第3次修订</em></p>
 </main>
 
 <script>
@@ -384,5 +393,6 @@ tr:nth-child(even){background:#fafafa}
   if(lss){lss.addEventListener("change",function(){window.location.href=lss.value})};
 })();
 </script>
+
 </body>
 </html>

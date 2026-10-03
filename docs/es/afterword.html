@@ -260,6 +260,13 @@ tr:nth-child(even){background:#fafafa}
   .hero h1{font-size:20px}
 }
 
+/* dev 预览标识（仅 dev 通道构建时输出；打印隐藏） */
+.dev-badge{
+  position:fixed;right:14px;bottom:14px;z-index:400;
+  background:#d32f2f;color:#fff;padding:6px 14px;border-radius:999px;
+  font-size:12px;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,.25);opacity:.92
+}
+@media print{.dev-badge{display:none!important}}
 /* ====== PRINT (PDF 导出) ====== */
 /*
  * 注意：Chrome 打印视口宽度可能低于 768px，导致移动端媒体查询规则
@@ -342,7 +349,7 @@ tr:nth-child(even){background:#fafafa}
 <a class="sub-link" href="#Todoslosmiembrosdelequipo">Todos los miembros del equipo</a>
 <a class="sub-link" href="#Fotodegrupo">Foto de grupo</a>
   </div>
-  <div class="sidebar-footer">1.ª edición, septiembre de 2026 · revisión 2 &middot; Equipo editorial</div>
+  <div class="sidebar-footer">1.ª edición, septiembre de 2026 · revisión 3 &middot; Equipo editorial</div>
 </nav>
 
 <main>
@@ -363,10 +370,12 @@ tr:nth-child(even){background:#fafafa}
 <hr>
 <h2 id="Fotodegrupo">Foto de grupo</h2>
 <div class="img-row"><figure class="img-fig"><img src="../images/afterword/group_photo_20251219.jpg" alt="Foto de grupo (19 de diciembre de 2025)" loading="lazy"><figcaption>Foto de grupo (19 de diciembre de 2025)</figcaption></figure><figure class="img-fig"><img src="../images/afterword/group_photo_20260528.jpg" alt="Foto de grupo (28 de mayo de 2026)" loading="lazy"><figcaption>Foto de grupo (28 de mayo de 2026)</figcaption></figure></div>
+<p><strong>Lista de la foto (19 de diciembre de 2025)</strong>: Fila superior, de izquierda a derecha: Shi Yuguang (时宇光), Wang Yizhou (王一舟), Jiang Yichen (姜易辰), Fu Xiuqi (付修齐), Du Xingzhou (杜星洲), Xie Jincan (谢金灿), Zhang Xipeng (张熙芃); fila inferior, de izquierda a derecha: Du Fengyu (杜丰宇), Liu Chuyi (刘楚翌), Yu Zichen (于紫晨), Li Jiaoyang (李骄洋), Chen Xibei (陈西贝).</p>
+<p><strong>Lista de la foto (28 de mayo de 2026)</strong>: Fila superior, de izquierda a derecha: Wang Yizhou (王一舟), Shi Yuguang (时宇光), Du Xingzhou (杜星洲), Fu Xiuqi (付修齐), Xue Chen (薛晨), Xie Jincan (谢金灿), Zhang Xipeng (张熙芃), Liu Chuyi (刘楚翌); fila inferior, de izquierda a derecha: Liu Yuxuan (柳宇轩), Du Fengyu (杜丰宇), Han Zixuan (韩子萱), Li Jiaoyang (李骄洋), Chen Xibei (陈西贝).</p>
 <hr>
 <p><strong>Aviso legal:</strong> Esta guía es un producto independiente del equipo FTC 32477 Origin. Nuestro equipo no está afiliado a FIRST® (For Inspiration and Recognition of Science and Technology), ni cuenta con su respaldo ni su patrocinio. FIRST®, FIRST® Robotics Competition, FRC®, FIRST® Tech Challenge y FTC® son marcas registradas de FIRST. Los diseños, el código y los recursos compartidos en esta guía provienen principalmente de los miembros del equipo y pueden incluir también materiales de código abierto y aportaciones de otras personas, debidamente organizados e integrados; no constituyen material oficial de FIRST.</p>
 <hr>
-<p><em>Equipo de redacción de la Guía de inicio rápido de 32477 Origin · 1.ª edición, septiembre de 2026 · revisión 2</em></p>
+<p><em>Equipo de redacción de la Guía de inicio rápido de 32477 Origin · 1.ª edición, septiembre de 2026 · revisión 3</em></p>
 </main>
 
 <script>
@@ -384,5 +393,6 @@ tr:nth-child(even){background:#fafafa}
   if(lss){lss.addEventListener("change",function(){window.location.href=lss.value})};
 })();
 </script>
+
 </body>
 </html>

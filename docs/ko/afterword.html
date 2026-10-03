@@ -260,6 +260,13 @@ tr:nth-child(even){background:#fafafa}
   .hero h1{font-size:20px}
 }
 
+/* dev 预览标识（仅 dev 通道构建时输出；打印隐藏） */
+.dev-badge{
+  position:fixed;right:14px;bottom:14px;z-index:400;
+  background:#d32f2f;color:#fff;padding:6px 14px;border-radius:999px;
+  font-size:12px;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,.25);opacity:.92
+}
+@media print{.dev-badge{display:none!important}}
 /* ====== PRINT (PDF 导出) ====== */
 /*
  * 注意：Chrome 打印视口宽度可能低于 768px，导致移动端媒体查询规则
@@ -342,7 +349,7 @@ tr:nth-child(even){background:#fafafa}
 <a class="sub-link" href="#팀전체구성원">팀 전체 구성원</a>
 <a class="sub-link" href="#단체사진">단체 사진</a>
   </div>
-  <div class="sidebar-footer">2026년 9월 제1판 · 2차 개정 &middot; 편집팀</div>
+  <div class="sidebar-footer">2026년 9월 제1판 · 3차 개정 &middot; 편집팀</div>
 </nav>
 
 <main>
@@ -363,10 +370,12 @@ tr:nth-child(even){background:#fafafa}
 <hr>
 <h2 id="단체사진">단체 사진</h2>
 <div class="img-row"><figure class="img-fig"><img src="../images/afterword/group_photo_20251219.jpg" alt="단체 사진(2025년 12월 19일)" loading="lazy"><figcaption>단체 사진(2025년 12월 19일)</figcaption></figure><figure class="img-fig"><img src="../images/afterword/group_photo_20260528.jpg" alt="단체 사진(2026년 5월 28일)" loading="lazy"><figcaption>단체 사진(2026년 5월 28일)</figcaption></figure></div>
+<p><strong>단체 사진 명단(2025년 12월 19일)</strong>: 윗줄 왼쪽부터: 시우광(时宇光), 왕일주(王一舟), 강이진(姜易辰), 부수제(付修齐), 두성주(杜星洲), 사금찬(谢金灿), 장희봉(张熙芃); 아랫줄 왼쪽부터: 두풍우(杜丰宇), 유초익(刘楚翌), 우자신(于紫晨), 이교양(李骄洋), 진서패(陈西贝).</p>
+<p><strong>단체 사진 명단(2026년 5월 28일)</strong>: 윗줄 왼쪽부터: 왕일주(王一舟), 시우광(时宇光), 두성주(杜星洲), 부수제(付修齐), 설신(薛晨), 사금찬(谢金灿), 장희봉(张熙芃), 유초익(刘楚翌); 아랫줄 왼쪽부터: 유우헌(柳宇轩), 두풍우(杜丰宇), 한자훤(韩子萱), 이교양(李骄洋), 진서패(陈西贝).</p>
 <hr>
 <p><strong>법적 고지:</strong> 이 가이드는 FTC 32477 Origin 팀의 독립 제작물입니다. 본 팀은 FIRST®(For Inspiration and Recognition of Science and Technology)와 소속, 후원 또는 스폰서 관계가 없습니다. FIRST®, FIRST® Robotics Competition, FRC®, FIRST® Tech Challenge 및 FTC®는 FIRST의 등록 상표입니다. 이 가이드에 공유된 설계, 코드와 자원은 팀원이 제공한 내용을 위주로 하며, 정리·통합된 오픈소스 자료와 다른 기여자의 성과를 포함할 수 있고, FIRST 공식 자료를 대표하지 않습니다.</p>
 <hr>
-<p><em>32477 Origin 빠른 시작 가이드 편집팀 · 2026년 9월 제1판 · 2차 개정</em></p>
+<p><em>32477 Origin 빠른 시작 가이드 편집팀 · 2026년 9월 제1판 · 3차 개정</em></p>
 </main>
 
 <script>
@@ -384,5 +393,6 @@ tr:nth-child(even){background:#fafafa}
   if(lss){lss.addEventListener("change",function(){window.location.href=lss.value})};
 })();
 </script>
+
 </body>
 </html>

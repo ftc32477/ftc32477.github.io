@@ -260,6 +260,13 @@ tr:nth-child(even){background:#fafafa}
   .hero h1{font-size:20px}
 }
 
+/* dev 预览标识（仅 dev 通道构建时输出；打印隐藏） */
+.dev-badge{
+  position:fixed;right:14px;bottom:14px;z-index:400;
+  background:#d32f2f;color:#fff;padding:6px 14px;border-radius:999px;
+  font-size:12px;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,.25);opacity:.92
+}
+@media print{.dev-badge{display:none!important}}
 /* ====== PRINT (PDF 导出) ====== */
 /*
  * 注意：Chrome 打印视口宽度可能低于 768px，导致移动端媒体查询规则
@@ -354,7 +361,7 @@ tr:nth-child(even){background:#fafafa}
 <a href="outreach.html">Divulgación y relaciones públicas</a>
 <a href="afterword.html">Epílogo</a>
   </div>
-  <div class="sidebar-footer">1.ª edición, septiembre de 2026 · revisión 2 &middot; Equipo editorial</div>
+  <div class="sidebar-footer">1.ª edición, septiembre de 2026 · revisión 3 &middot; Equipo editorial</div>
 </nav>
 
 <main>
@@ -434,5 +441,6 @@ tr:nth-child(even){background:#fafafa}
   if(lss){lss.addEventListener("change",function(){window.location.href=lss.value})};
 })();
 </script>
+
 </body>
 </html>
