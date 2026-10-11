@@ -194,6 +194,8 @@ blockquote{
 blockquote.bq-info{border-left-color:#1565c0;background:#eaf3fb;color:#0d3c66}
 blockquote.bq-warning{border-left-color:#f9a825;background:#fff8e1;color:#6d4c00}
 blockquote.bq-danger{border-left-color:#d32f2f;background:#fef5f5;color:#8b0000}
+blockquote ul,blockquote ol{margin:6px 0 0;padding-left:20px}
+blockquote li+li{margin-top:4px}
 hr{border:none;border-top:1px solid var(--border);margin:24px 0}
 img{max-width:100%;border-radius:var(--radius);margin:12px 0}
 /* 锚点跳转留白（避免被固定顶栏遮挡） */
@@ -302,6 +304,7 @@ tr:nth-child(even){background:#fafafa}
   }
   th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
+  pre{white-space:pre-wrap !important;overflow-wrap:anywhere !important;overflow:visible !important}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
   .img-row .img-fig{flex:1 1 0}
@@ -359,10 +362,22 @@ tr:nth-child(even){background:#fafafa}
 <a class="sub-link" href="#四工作流程">四、工作流程</a>
 <a class="sub-link sub-3" href="#除錯是核心">除錯是核心</a>
 <a class="sub-link sub-3" href="#AI輔助程式設計">AI 輔助程式設計</a>
+<a class="sub-link" href="#五GitHub協作基礎">五、GitHub 協作基礎</a>
+<a class="sub-link sub-3" href="#GitHub是什麼">GitHub 是什麼</a>
+<a class="sub-link sub-3" href="#名詞速查">名詞速查</a>
+<a class="sub-link sub-3" href="#團隊存放庫地圖">團隊存放庫地圖</a>
+<a class="sub-link sub-3" href="#瀏覽與下載">瀏覽與下載</a>
+<a class="sub-link sub-3" href="#回報問題Issue">回報問題（Issue）</a>
+<a class="sub-link sub-3" href="#網頁端修改編輯提PR">網頁端修改（編輯 → 提 PR）</a>
+<a class="sub-link sub-3" href="#本機協作">本機協作</a>
+<a class="sub-link sub-3" href="#開源社群搜尋評估與貢獻">開源社群（搜尋、評估與貢獻）</a>
+<a class="sub-link sub-3" href="#危險操作警示">危險操作警示</a>
+<a class="sub-link sub-3" href="#練習清單">練習清單</a>
+<a class="sub-link sub-3" href="#官方文件入口">官方文件入口</a>
 <a href="outreach.html">外部聯絡</a>
 <a href="afterword.html">後記</a>
   </div>
-  <div class="sidebar-footer">2026年10月第1版 &middot; 編寫小組</div>
+  <div class="sidebar-footer">2026年10月第2版 &middot; 編寫小組</div>
 </nav>
 
 <main>
@@ -392,24 +407,24 @@ tr:nth-child(even){background:#fafafa}
 <ul><li>兩個核取方塊均須勾選</li><li>選擇一個空間充足且不會被改變的路徑地址</li></ul>
 <p><strong>初始化：</strong></p>
 <ul><li>請選擇「Standard」模式</li><li>同意協議時請勾選「Accept」</li><li>其他請保持不變並選擇「Next」</li></ul>
-<p><strong>中文化：</strong></p>
+<p><strong>安裝中文語言包（可選）：</strong></p>
 <ol><li>開啟 <a href="https://github.com/sollyu/AndroidStudioChineseLanguagePack/releases" target="_blank" rel="noopener">Android Studio 中文語言套件</a></li><li>下載最新的語言擴充套件（.jar 檔案）</li><li>在主頁面的左側頁籤清單中選擇「Plugins」，選擇「Install Plugin from Disk」</li><li>選擇下載的 .jar 檔案並開啟，外掛載入成功後確保其處於開啟狀態</li><li>在左側頁籤清單中選擇「Customize」，進入「語言和地區（Language and Region）」，將「語言（Language）」選擇為「Chinese (Simplified) 簡體中文」，將「地區（Region）」選擇為「Americas」，然後重新啟動</li></ol>
 <p><strong>複製存放庫：</strong></p>
-<ol><li>點擊左側頁籤清單中的「GitHub」，點擊「透過 GitHub 登入」進行授權。</li><li>選擇當前賽季的程式碼存放庫（如：<code>ftc32477/FTC-32477-Decode-Program</code>）</li><li>選擇一個不會改變路徑的空資料夾，點擊「複製」</li><li>等待檔案下載完成，在左側邊欄的「建置（Build）」頁籤或視窗右下透過進度條查看進度</li></ol>
+<ol><li>點擊左側頁籤清單中的「GitHub」，點擊「透過 GitHub 登入」進行授權。</li><li>選擇當前賽季對應的程式存放庫（每賽季單獨建立，名稱形如 <code>FTC-32477-<賽季>-Program</code>；新賽季存放庫建立前先向管理員確認）</li><li>選擇一個不會改變路徑的空資料夾，點擊「複製」</li><li>等待檔案下載完成，在左側邊欄的「建置（Build）」頁籤或視窗右下透過進度條查看進度</li></ol>
 <blockquote class="bq-warning">如有問題，請向管理員諮詢。</blockquote>
 <h3 id="VisualStudioCode">Visual Studio Code</h3>
 <p>Visual Studio Code 是我隊採用的程式碼編輯與歷史檢視工具。</p>
 <p><strong>軟體安裝及環境配置流程：</strong></p>
-<ol><li>開啟 <a href="https://code.visualstudio.com/Download" target="_blank" rel="noopener">https://code.visualstudio.com/Download</a></li><li>下載對應版本並安裝即可</li><li>開啟 <a href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hans" target="_blank" rel="noopener">中文化外掛</a>，安裝該外掛即可中文化。</li></ol>
+<ol><li>開啟 <a href="https://code.visualstudio.com/Download" target="_blank" rel="noopener">https://code.visualstudio.com/Download</a></li><li>下載對應版本並安裝即可</li><li>如需中文介面，安裝 <a href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hans" target="_blank" rel="noopener">VS Code 中文語言包</a>。</li></ol>
 <hr>
 <h2 id="三用品簡介">三、用品簡介</h2>
 <h3 id="AndroidStudio-1">Android Studio</h3>
 <p>官方文件：<a href="https://developer.android.com/studio/intro?hl=zh-cn" target="_blank" rel="noopener">https://developer.android.com/studio/intro?hl=zh-cn</a></p>
-<p>在本專案中，我們基於 FTC 官方提供的應用框架，在 <code>TeamCode</code> 資料夾下使用 Java 語言編寫機器人控制程式，以呼叫機器人執行所需的各類依賴庫。</p>
+<p>本專案基於 FTC 官方應用框架，在 <code>TeamCode</code> 資料夾中使用 Java 編寫機器人控制程式，並呼叫執行所需的依賴庫。</p>
 <p>關於 Android Studio 所需掌握的基本知識，請參考官方文件中的簡易頁面指引。</p>
 <h3 id="VisualStudioCode-1">Visual Studio Code</h3>
 <p>官方文件：<a href="https://code.visualstudio.com/docs" target="_blank" rel="noopener">https://code.visualstudio.com/docs</a></p>
-<p>鑒於 Visual Studio Code 與 Android Studio 操作邏輯類似，且前者在本專案中使用頻次較低，相關介面指引請參考 Android Studio 部分，此處不再贅述。</p>
+<p>Visual Studio Code 與 Android Studio 的操作邏輯類似，且使用頻次較低；介面操作請參考 Android Studio 部分。</p>
 <h3 id="RobotDashboard">Robot Dashboard</h3>
 <ul><li>連接 Wi-Fi 網路「<code>32477-RC</code>」。Wi-Fi 密碼：詢問管理員或透過 Driver Hub 取得。</li><li>網址是：<a href="http://192.168.43.1:8080/" target="_blank" rel="noopener">http://192.168.43.1:8080/</a>（僅在機器人區域網路內可存取）</li><li>這是 Control Hub 內建的 Wi-Fi 模組的 Web 頁面（官方名稱為 Robot Controller Console，即機器人控制器控制台），提供了管理 Control Hub 的圖形化後台。</li></ul>
 <p>關於 Robot Dashboard 所需掌握的基本知識，請參考官方文件中的簡易頁面指引。</p>
@@ -417,14 +432,80 @@ tr:nth-child(even){background:#fafafa}
 <h2 id="四工作流程">四、工作流程</h2>
 <p>程式設計組的核心工作分為三部分：</p>
 <ul><li><strong>自動程式</strong>：賽季自動階段（Auto）的控制邏輯</li><li><strong>手動程式</strong>：遙控階段（TeleOp）的操作邏輯</li><li><strong>感測器配置</strong>：各類感測器、視覺系統的配置</li></ul>
-<blockquote class="bq-info">手把操作（Driver）：參賽車輛使用 Xbox 手把操控，官方僅允許 Xbox 360 型號；Driver 由隊內選拔「誰行誰上」，擅長手把遊戲的同學有天然優勢。</blockquote>
+<blockquote class="bq-info">手把操作（Driver）：參賽機器人使用有線手把操控（如 Logitech F310、Xbox 360）；官方要求必須為有線連接，允許型號以當季《競賽手冊》為準；Driver 由隊內選拔產生，熟悉手把操作者更具優勢。</blockquote>
 <h3 id="除錯是核心">除錯是核心</h3>
-<blockquote class="bq-info">程式開發的真正難點在於除錯。自動路徑、手動操作、PID 參數、視覺配置——大部分感測器都有現成的程式套件可以直接複用，你真正要做的是「調」。</blockquote>
+<blockquote class="bq-info">程式開發的難點主要在除錯。自動路徑、手動操作、PID 參數、視覺配置等，多數已有現成程式套件可複用，工作重點是參數調整與驗證。</blockquote>
 <p>除錯工作貫穿整個開發流程：</p>
 <ol><li><strong>需求分析</strong>：明確當前賽季的規則和任務需求</li><li><strong>架構設計</strong>：設計程式整體架構和模組劃分</li><li><strong>程式碼編寫</strong>：在 Android Studio 中編寫 Java 程式碼</li><li><strong>版本控制</strong>：使用 Git 進行程式碼版本管理</li><li><strong>除錯</strong>：調自動路徑、調手動操作、調 PID 參數、調視覺配置</li><li><strong>測試驗證</strong>：在機器人上驗證程式功能</li><li><strong>程式碼審查</strong>：透過 GitHub 進行程式碼審查和合併</li><li><strong>部署發布</strong>：將最終版本部署到 Robot Controller</li></ol>
 <h3 id="AI輔助程式設計">AI 輔助程式設計</h3>
-<blockquote class="bq-info">現在寫程式並不困難：可以配合 AI Agent 等工具輔助程式設計。真正的核心能力是<strong>讀懂 AI 生成的程式碼、明確修改方向並掌握 debug 能力</strong>，無需從零手寫全部程式碼。</blockquote>
+<blockquote class="bq-info">程式開發可使用 AI Agent 等工具輔助。核心能力是<strong>讀懂 AI 生成的程式碼、明確修改方向並掌握除錯方法</strong>，不必從零手寫全部程式碼。</blockquote>
 <ul><li>各類程式語言的核心邏輯（如 for 迴圈、while 迴圈）是通用的，僅語法存在差異；有 C++ 基礎的同學可以快速適應 Java 開發</li></ul>
+<hr>
+<h2 id="五GitHub協作基礎">五、GitHub 協作基礎</h2>
+<blockquote class="bq-info">本節涵蓋使用 GitHub 所需的最小內容：檢視存放庫、下載檔案、提交回饋、修改內容、參與協作與尋找開源專案。完整說明見文末的官方文件入口。介面按鈕以英文為主，文中以「英文（中文）」形式標註。</blockquote>
+<h3 id="GitHub是什麼">GitHub 是什麼</h3>
+<p>GitHub 是基於 Git 的<strong>程式碼代管與協作平台</strong>：程式碼存在雲端（存放庫）並保留完整的修改歷史（提交），多人可以在同一個專案上協作（分支、提取要求），還配套了問題、自動化（Actions）、網站代管（Pages）等工具。</p>
+<p>本隊使用 GitHub 的主要用途：</p>
+<ul><li><strong>存放賽季程式</strong>：每個賽季單獨建立一個公開存放庫（從官方 SDK 範本分叉），賽季結束後封存為唯讀；新賽季存放庫建立後補入本節表格。</li><li><strong>維護《快速入門指南》</strong>：原始檔與建置腳本存放在公開存放庫 <code>ftc32477/quick-start-guide</code>。</li><li><strong>發布團隊網站</strong>：網站發布存放庫為 <code>ftc32477/ftc32477.github.io</code>，各欄目由各自的來源存放庫經 GitHub Actions 建置後推送到對應子路徑（本指南 → <code>/docs/</code>）；根路徑目前重新導向至 <code>/docs/</code>。後續各類資源將分別建立來源存放庫並推送到各自子路徑。</li><li><strong>尋找開源專案</strong>：搜尋通用工程工具，以及 FTC 社群共享的程式碼與方案。</li></ul>
+<p><strong>帳號與組織</strong>：使用本人帳號（註冊流程見《隊員須知》），由管理員邀請加入組織 <code>ftc32477</code>。存放庫歸組織所有，操作權限由管理員按角色分配：</p>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">角色</th><th style="text-align:left">能做的事（摘要）</th></tr></thead><tbody><tr><td style="text-align:left">讀取（Read）</td><td style="text-align:left">檢視與討論專案</td></tr><tr><td style="text-align:left">分類（Triage）</td><td style="text-align:left">管理問題與提取要求，但不能寫入程式碼</td></tr><tr><td style="text-align:left">寫入（Write）</td><td style="text-align:left">向存放庫推送內容</td></tr><tr><td style="text-align:left">維護（Maintain）</td><td style="text-align:left">管理存放庫，但不能進行敏感或破壞性操作</td></tr><tr><td style="text-align:left">管理（Admin）</td><td style="text-align:left">完整權限，含刪除存放庫等操作</td></tr></tbody></table></div>
+<blockquote class="bq-warning">沒有寫入權限時，改動透過提取要求提交或交由維護者處理；無法確定權限時按唯讀方式操作，不要探測或繞過權限限制。</blockquote>
+<h3 id="名詞速查">名詞速查</h3>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">名詞</th><th style="text-align:left">含義（一句話）</th></tr></thead><tbody><tr><td style="text-align:left">存放庫（Repository）</td><td style="text-align:left">專案檔案與完整歷史記錄的儲存位置</td></tr><tr><td style="text-align:left">提交（Commit）</td><td style="text-align:left">一次帶說明的修改快照，構成歷史記錄</td></tr><tr><td style="text-align:left">分支（Branch）</td><td style="text-align:left">存放庫內的並行開發線，改動先落在分支上</td></tr><tr><td style="text-align:left">複製（Clone）</td><td style="text-align:left">將存放庫完整下載到本機電腦</td></tr><tr><td style="text-align:left">分叉（Fork）</td><td style="text-align:left">將他人的存放庫複製一份到自己帳號下，改動不影響原存放庫</td></tr><tr><td style="text-align:left">提取要求（Pull Request，PR）</td><td style="text-align:left">請求審查並合併某分支改動的機制，協作的核心</td></tr><tr><td style="text-align:left">問題（Issue）</td><td style="text-align:left">提問、回報錯誤、建議的討論串</td></tr><tr><td style="text-align:left">發行版（Release）</td><td style="text-align:left">標上版本號的正式發布，附可下載檔案（如指南 PDF）</td></tr><tr><td style="text-align:left">星號（Star）</td><td style="text-align:left">收藏與按讚，也用於判斷專案人氣</td></tr><tr><td style="text-align:left">關注（Watch）</td><td style="text-align:left">訂閱存放庫的動態通知</td></tr><tr><td style="text-align:left">Actions</td><td style="text-align:left">GitHub 的自動化管線（本專案用於建置與發布網站）</td></tr><tr><td style="text-align:left">Pages</td><td style="text-align:left">GitHub 的靜態網站代管（本專案網站即由此發布）</td></tr><tr><td style="text-align:left">README</td><td style="text-align:left">存放庫首頁的說明文件，應先閱讀</td></tr></tbody></table></div>
+<h3 id="團隊存放庫地圖">團隊存放庫地圖</h3>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">存放庫</th><th style="text-align:left">說明</th><th style="text-align:left">修改方式</th></tr></thead><tbody><tr><td style="text-align:left"><code>quick-start-guide</code></td><td style="text-align:left">指南原始檔、建置腳本與網站產物（公開）</td><td style="text-align:left">提交提取要求，或交由維護者處理</td></tr><tr><td style="text-align:left"><code>ftc32477.github.io</code></td><td style="text-align:left">團隊網站發布存放庫（公開），內容由各來源存放庫自動推送</td><td style="text-align:left">不直接修改</td></tr><tr><td style="text-align:left"><code>.github</code></td><td style="text-align:left">組織首頁資料，如組織簡介（公開）</td><td style="text-align:left">提交提取要求，或交由維護者處理</td></tr><tr><td style="text-align:left"><code>FTC-32477-<賽季>-Program</code></td><td style="text-align:left">賽季程式存放庫（公開）：每賽季單獨建立，舊賽季封存為唯讀；新賽季存放庫建立後補充具體名稱</td><td style="text-align:left">按程式組內部分工</td></tr></tbody></table></div>
+<blockquote class="bq-danger"><strong>發布存放庫禁區</strong>：<code>ftc32477.github.io</code> 的所有內容均來自各自的來源存放庫，由 GitHub Actions 自動推送；直接修改會在下一次推送時被覆蓋。不要在該存放庫或任何產生的內容上點擊編輯、提交或刪除。網站問題一律回到對應來源存放庫處理（本指南為 <code>quick-start-guide</code>）。</blockquote>
+<h3 id="瀏覽與下載">瀏覽與下載</h3>
+<ol><li>開啟組織首頁 <a href="https://github.com/ftc32477" target="_blank" rel="noopener">https://github.com/ftc32477</a>，在 Repositories 清單中進入存放庫</li><li>先讀存放庫首頁的 <strong>README</strong>（專案用途、使用方法）；右側 About 區有簡介與首頁連結</li><li>頂部頁籤（是否可見取決於權限）：<ul><li><strong>Code</strong>：檔案清單與提交歷史</li><li><strong>Issues</strong>：問題與建議</li><li><strong>Pull requests</strong>：待審查的改動</li><li><strong>Actions</strong>：自動化建置與發布記錄</li><li><strong>Releases</strong>：正式版本與下載檔案</li></ul></li><li>下載整個存放庫：Code → <strong>Download ZIP</strong></li><li>下載指南 PDF：進入 <strong>Releases</strong>，選擇版本，在 Assets 中下載對應語言</li><li>檢視歷史：Code 頁的 <strong>Commits</strong> 清單 → 點進單次提交檢視具體改動（diff）</li></ol>
+<h3 id="回報問題Issue">回報問題（Issue）</h3>
+<p>遇到故障、文件錯誤或有建議時，用 Issue 回報：</p>
+<ol><li>開啟目標存放庫的 <strong>Issues</strong> 頁籤，先搜尋是否已有相同問題</li><li>點擊 <strong>New issue</strong>，用一句話標題說明問題</li><li>正文寫清：<strong>發生了什麼</strong>、<strong>期望的結果</strong>、<strong>如何重現</strong>（步驟）、相關截圖（先移除個人資訊）</li><li>提交後關注回覆；問題解決後由維護者關閉</li></ol>
+<blockquote class="bq-info">指南的固定回報入口：<a href="https://github.com/ftc32477/quick-start-guide/issues" target="_blank" rel="noopener">https://github.com/ftc32477/quick-start-guide/issues</a></blockquote>
+<h3 id="網頁端修改編輯提PR">網頁端修改（編輯 → 提 PR）</h3>
+<p>沒有寫入權限時，GitHub 會自動把網頁端改動做成「分叉（Fork）+ 提取要求（PR）」：</p>
+<ol><li>登入後開啟要修改的檔案（如指南 <code>src/zh-hans/</code> 下的某篇 <code>.md</code>）</li><li>點擊檔案右上角的鉛筆圖示 <strong>Edit this file</strong></li><li>若無寫入權限，頁面會提示將自動建立分叉，同意即可</li><li>修改內容，在 <strong>Commit changes</strong> 中填寫一句清楚的說明</li><li>選擇 <strong>Create a new branch for this commit and start a pull request</strong>，分支名如 <code>fix/typo-member</code></li><li>在開啟的 PR 表單中說明修改內容與原因，點擊 <strong>Create pull request</strong></li><li>等待維護者審查；如有評論，按意見繼續修改，合併後改動即生效</li></ol>
+<blockquote class="bq-warning">一次 PR 只提交一件事；不要修改不熟悉的檔案（建置腳本、自動產生的檔案等）；發布存放庫不提交任何改動。</blockquote>
+<h3 id="本機協作">本機協作</h3>
+<p>在本機複製存放庫進行開發是最常用的方式。前提是本機已安裝 Git（見「二、環境配置」）。常用指令如下：</p>
+<pre><code># 將存放庫複製到本機
+git clone https://github.com/ftc32477/quick-start-guide.git
+cd quick-start-guide
+
+# 開始工作前先拉取最新改動
+git pull
+
+# 為本次工作建立新分支
+git switch -c feat/my-feature
+
+# 修改檔案後：檢視狀態、暫存、提交
+git status
+git add &lt;檔案&gt;
+git commit -m "本次修改說明"
+
+# 推送分支到 GitHub
+git push -u origin feat/my-feature</code></pre>
+<p>推送後，在 GitHub 上為該分支建立 Pull Request，等待審查合併。Android Studio 與 Visual Studio Code 提供等效的圖形化操作（見「二、環境配置」），可用介面完成相同步驟。</p>
+<blockquote class="bq-warning">三條紀律：<strong>先 pull 再動手</strong>；<strong>一次提交只做一件事、說明寫清楚</strong>；<strong>推送到自己的分支，不直接推 main</strong>。</blockquote>
+<p><strong>分叉與上游同步（參與外部專案時）</strong>：分叉的存放庫不會自動更新。需要先將原存放庫新增為上游：<code>git remote add upstream <原存放庫網址></code>，再用 <code>git fetch upstream</code> 與合併操作同步（詳見官方文件「同步分叉」一節）。</p>
+<h3 id="開源社群搜尋評估與貢獻">開源社群（搜尋、評估與貢獻）</h3>
+<p><strong>搜尋</strong>（搜尋框支援限定詞，可組合使用）：</p>
+<ul><li><code>topic:ftc</code>、<code>topic:first-tech-challenge</code>、<code>topic:ftc-robot</code>：FTC 社群專案的總入口</li><li><code>ftc language:Java sort:updated</code>：最近仍在維護的 Java 專案</li><li><code>"FIRST Tech Challenge" in:readme</code>：README 中提及 FTC 的專案</li></ul>
+<p>FTC 常用開源資源（均可在 GitHub 找到）：</p>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">專案</th><th style="text-align:left">用途</th></tr></thead><tbody><tr><td style="text-align:left">FIRST-Tech-Challenge/FtcRobotController</td><td style="text-align:left">FTC 官方 SDK 與範例</td></tr><tr><td style="text-align:left">FTCLib/FTCLib</td><td style="text-align:left">FTC 常用工具庫</td></tr><tr><td style="text-align:left">acmerobotics/road-runner</td><td style="text-align:left">動作規劃與路徑跟隨</td></tr><tr><td style="text-align:left">Pedro-Pathing/PedroPathing</td><td style="text-align:left">路徑規劃</td></tr><tr><td style="text-align:left">acmerobotics/ftc-dashboard</td><td style="text-align:left">除錯儀表板</td></tr><tr><td style="text-align:left">OpenFTC/EasyOpenCV</td><td style="text-align:left">視覺處理</td></tr><tr><td style="text-align:left">the-orange-alliance、ftc-scout/ftc-scout</td><td style="text-align:left">賽事資料與統計</td></tr></tbody></table></div>
+<p><strong>評估一個存放庫是否可用（五看）</strong>：最近提交時間（是否仍在維護）、README 與文件品質、授權條款（License）、Issues 活躍度、Releases 有無正式版本。</p>
+<p><strong>授權條款速覽</strong>（使用他人的程式碼或素材前必看）：</p>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">授權條款</th><th style="text-align:left">一句話說明</th></tr></thead><tbody><tr><td style="text-align:left">MIT</td><td style="text-align:left">最寬鬆：保留版權聲明即可自由使用</td></tr><tr><td style="text-align:left">Apache-2.0</td><td style="text-align:left">同樣寬鬆，另有專利授權與變更聲明要求</td></tr><tr><td style="text-align:left">GPL-3.0</td><td style="text-align:left">具有傳染性：基於它的衍生作品也須開源</td></tr><tr><td style="text-align:left">無授權條款</td><td style="text-align:left">預設「保留所有權利」，<strong>不能</strong>直接複製使用，需先聯絡作者</td></tr></tbody></table></div>
+<p><strong>參與貢獻</strong>：先閱讀專案根目錄的 <code>CONTRIBUTING.md</code>（貢獻指南）與行為準則；不確定的改動先開 Issue 討論；小修小補按上文「編輯 → 提 PR」流程提交。</p>
+<blockquote class="bq-warning">安全：不要執行來源不明的腳本或執行檔；不要把 API Key、密碼、Token 發到 Issue 或存放庫中；對 <code>curl | bash</code> 一類的安裝指令保持警覺。</blockquote>
+<h3 id="危險操作警示">危險操作警示</h3>
+<blockquote class="bq-danger">以下操作可能造成不可逆的損失，一般隊員一律不要執行；確有需要時先經管理員確認。<ul><li>直接修改發布存放庫 <code>ftc32477.github.io</code>（會被覆蓋並污染正式網站）</li><li><code>git push --force</code>：強制覆蓋遠端歷史，可能讓隊友的提交消失</li><li><code>git reset --hard</code>：捨棄本機未推送的改動，且難以找回</li><li>刪除分支、刪除存放庫，或修改存放庫的可見性、名稱、歸屬</li><li>向存放庫提交金鑰、密碼、Token（一旦公開，即使刪除仍會留在歷史記錄中，必須立即撤銷並重建）</li><li>在 Issue、PR 或公開存放庫中發布內部資料與私人資訊（電子郵件、住址、截圖中的個人資訊）</li><li>執行或合併來源不明的程式碼</li></ul></blockquote>
+<blockquote class="bq-info">帳號安全：不要與他人共用帳號；GitHub 正在對參與程式碼貢獻的帳號強制要求啟用兩步驟驗證（2FA），請按提示開啟；個人存取權杖（Token）按最小權限建立，且絕不寫入程式碼或存放庫。</blockquote>
+<h3 id="練習清單">練習清單</h3>
+<ol><li>開啟組織首頁，進入 <code>quick-start-guide</code> 存放庫，用 README 說出這個專案是做什麼的</li><li>在 Releases 中下載任一種語言的指南 PDF</li><li>在提交歷史中找到最近一次修改，說出它改了什麼</li><li>在 Issues 中搜尋「PDF」，看看有沒有相關問題</li><li>按「編輯 → 提 PR」流程修正一處錯別字，並提交一個提取要求</li></ol>
+<h3 id="官方文件入口">官方文件入口</h3>
+<p>需要更深入的用法時，按需查閱以下官方文件：</p>
+<ul><li>GitHub 快速入門：<a href="https://docs.github.com/zh/get-started/quickstart" target="_blank" rel="noopener">https://docs.github.com/zh/get-started/quickstart</a></li><li>編寫與儲存程式碼（分支/提交/PR）：<a href="https://docs.github.com/zh/get-started/start-your-journey/writing-and-storing-your-code" target="_blank" rel="noopener">https://docs.github.com/zh/get-started/start-your-journey/writing-and-storing-your-code</a></li><li>Git 速查表：<a href="https://docs.github.com/zh/get-started/git-basics/git-cheatsheet" target="_blank" rel="noopener">https://docs.github.com/zh/get-started/git-basics/git-cheatsheet</a></li><li>搜尋語法：<a href="https://docs.github.com/zh/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax" target="_blank" rel="noopener">https://docs.github.com/zh/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax</a></li><li>GitHub 組織的存放庫角色：<a href="https://docs.github.com/zh/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization" target="_blank" rel="noopener">https://docs.github.com/zh/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization</a></li><li>互動式課程（英文）：<a href="https://skills.github.com/" target="_blank" rel="noopener">https://skills.github.com/</a></li></ul>
+<blockquote class="bq-info">遇到不確定的操作，先諮詢管理員或在 Issues 中提問。</blockquote>
 </main>
 
 <script>

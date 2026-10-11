@@ -194,6 +194,8 @@ blockquote{
 blockquote.bq-info{border-left-color:#1565c0;background:#eaf3fb;color:#0d3c66}
 blockquote.bq-warning{border-left-color:#f9a825;background:#fff8e1;color:#6d4c00}
 blockquote.bq-danger{border-left-color:#d32f2f;background:#fef5f5;color:#8b0000}
+blockquote ul,blockquote ol{margin:6px 0 0;padding-left:20px}
+blockquote li+li{margin-top:4px}
 hr{border:none;border-top:1px solid var(--border);margin:24px 0}
 img{max-width:100%;border-radius:var(--radius);margin:12px 0}
 /* 锚点跳转留白（避免被固定顶栏遮挡） */
@@ -302,6 +304,7 @@ tr:nth-child(even){background:#fafafa}
   }
   th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
+  pre{white-space:pre-wrap !important;overflow-wrap:anywhere !important;overflow:visible !important}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
   .img-row .img-fig{flex:1 1 0}
@@ -359,10 +362,22 @@ tr:nth-child(even){background:#fafafa}
 <a class="sub-link" href="#四工作流程">四、工作流程</a>
 <a class="sub-link sub-3" href="#调试是核心">调试是核心</a>
 <a class="sub-link sub-3" href="#AI辅助编程">AI 辅助编程</a>
+<a class="sub-link" href="#五GitHub协作基础">五、GitHub 协作基础</a>
+<a class="sub-link sub-3" href="#GitHub是什么">GitHub 是什么</a>
+<a class="sub-link sub-3" href="#名词速查">名词速查</a>
+<a class="sub-link sub-3" href="#团队仓库地图">团队仓库地图</a>
+<a class="sub-link sub-3" href="#浏览与下载">浏览与下载</a>
+<a class="sub-link sub-3" href="#反馈问题Issue">反馈问题（Issue）</a>
+<a class="sub-link sub-3" href="#网页端修改编辑提PR">网页端修改（编辑 → 提 PR）</a>
+<a class="sub-link sub-3" href="#本地协作">本地协作</a>
+<a class="sub-link sub-3" href="#开源社区检索评估与贡献">开源社区（检索、评估与贡献）</a>
+<a class="sub-link sub-3" href="#危险操作警示">危险操作警示</a>
+<a class="sub-link sub-3" href="#练习清单">练习清单</a>
+<a class="sub-link sub-3" href="#官方文档入口">官方文档入口</a>
 <a href="outreach.html">外部联络</a>
 <a href="afterword.html">后记</a>
   </div>
-  <div class="sidebar-footer">2026年10月第1版 &middot; 编写小组</div>
+  <div class="sidebar-footer">2026年10月第2版 &middot; 编写小组</div>
 </nav>
 
 <main>
@@ -392,24 +407,24 @@ tr:nth-child(even){background:#fafafa}
 <ul><li>两个复选框均须勾选</li><li>选择一个空间充足且不会被改变的路径地址</li></ul>
 <p><strong>初始化：</strong></p>
 <ul><li>请选择"Standard"模式</li><li>同意协议时请勾选"Accept"</li><li>其他请保持不变并选择"Next"</li></ul>
-<p><strong>汉化：</strong></p>
+<p><strong>安装中文语言包（可选）：</strong></p>
 <ol><li>打开 <a href="https://github.com/sollyu/AndroidStudioChineseLanguagePack/releases" target="_blank" rel="noopener">Android Studio 中文语言包</a></li><li>下载最新的语言扩展包（.jar 文件）</li><li>在主页面的左侧选项卡列表中选择"Plugins"，选择"Install Plugin from Disk"</li><li>选择下载的 .jar 文件并打开，插件加载成功后确保其处于开启状态</li><li>在左侧选项卡列表中选择"Customize"，进入"语言和地区（Language and Region）"，将"语言（Language）"选择为"Chinese (Simplified) 简体中文"，将"地区（Region）"选择为"Americas"，然后重启</li></ol>
 <p><strong>克隆仓库：</strong></p>
-<ol><li>点击左侧选项卡列表中的"GitHub"，点击"通过 GitHub 登录"进行授权。</li><li>选择当前赛季的代码仓库（如：<code>ftc32477/FTC-32477-Decode-Program</code>）</li><li>选择一个不会改变路径的空文件夹，点击"克隆"</li><li>等待文件下载完成，在左侧边栏的"构建（Build）"选项卡或窗口右下通过进度条查看进度</li></ol>
+<ol><li>点击左侧选项卡列表中的"GitHub"，点击"通过 GitHub 登录"进行授权。</li><li>选择当前赛季对应的程序仓库（每赛季单独建立，名称形如 <code>FTC-32477-<赛季>-Program</code>；新赛季仓库建立前先向管理员确认）</li><li>选择一个不会改变路径的空文件夹，点击"克隆"</li><li>等待文件下载完成，在左侧边栏的"构建（Build）"选项卡或窗口右下通过进度条查看进度</li></ol>
 <blockquote class="bq-warning">如有问题，请向管理员咨询。</blockquote>
 <h3 id="VisualStudioCode">Visual Studio Code</h3>
 <p>Visual Studio Code 是我队采用的代码编辑与历史查看工具。</p>
 <p><strong>软件安装及环境配置流程：</strong></p>
-<ol><li>打开 <a href="https://code.visualstudio.com/Download" target="_blank" rel="noopener">https://code.visualstudio.com/Download</a></li><li>下载对应版本并安装即可</li><li>打开 <a href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hans" target="_blank" rel="noopener">汉化插件</a>，安装该插件即可汉化。</li></ol>
+<ol><li>打开 <a href="https://code.visualstudio.com/Download" target="_blank" rel="noopener">https://code.visualstudio.com/Download</a></li><li>下载对应版本并安装即可</li><li>如需中文界面，安装 <a href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hans" target="_blank" rel="noopener">VS Code 中文语言包</a>。</li></ol>
 <hr>
 <h2 id="三用品简介">三、用品简介</h2>
 <h3 id="AndroidStudio-1">Android Studio</h3>
 <p>官方文档：<a href="https://developer.android.com/studio/intro?hl=zh-cn" target="_blank" rel="noopener">https://developer.android.com/studio/intro?hl=zh-cn</a></p>
-<p>在本项目中，我们基于 FTC 官方提供的应用框架，在 <code>TeamCode</code> 文件夹下使用 Java 语言编写机器人控制程序，以调用机器人运行所需的各类依赖库。</p>
+<p>本项目基于 FTC 官方应用框架，在 <code>TeamCode</code> 文件夹中使用 Java 编写机器人控制程序，并调用运行所需的依赖库。</p>
 <p>关于 Android Studio 所需掌握的基本知识，请参考官方文档中的简易页面指引。</p>
 <h3 id="VisualStudioCode-1">Visual Studio Code</h3>
 <p>官方文档：<a href="https://code.visualstudio.com/docs" target="_blank" rel="noopener">https://code.visualstudio.com/docs</a></p>
-<p>鉴于 Visual Studio Code 与 Android Studio 操作逻辑类似，且前者在本项目中使用频次较低，相关界面指引请参考 Android Studio 部分，此处不再赘述。</p>
+<p>Visual Studio Code 与 Android Studio 的操作逻辑类似，且使用频次较低；界面操作请参考 Android Studio 部分。</p>
 <h3 id="RobotDashboard">Robot Dashboard</h3>
 <ul><li>连接 Wi-Fi 网络"<code>32477-RC</code>"。Wi-Fi 密码：询问管理员或通过 Driver Hub 获取。</li><li>网址是：<a href="http://192.168.43.1:8080/" target="_blank" rel="noopener">http://192.168.43.1:8080/</a>（仅在机器人局域网内可访问）</li><li>这是 Control Hub 内置的 Wi-Fi 模块的 Web 页面（官方名称为 Robot Controller Console，即机器人控制器控制台），提供了管理 Control Hub 的图形化后台。</li></ul>
 <p>关于 Robot Dashboard 所需掌握的基本知识，请参考官方文档中的简易页面指引。</p>
@@ -417,14 +432,80 @@ tr:nth-child(even){background:#fafafa}
 <h2 id="四工作流程">四、工作流程</h2>
 <p>程序设计组的核心工作分为三部分：</p>
 <ul><li><strong>自动程序</strong>：赛季自动阶段（Auto）的控制逻辑</li><li><strong>手动程序</strong>：遥控阶段（TeleOp）的操作逻辑</li><li><strong>传感器配置</strong>：各类传感器、视觉系统的配置</li></ul>
-<blockquote class="bq-info">手柄操作（Driver）：参赛车辆使用 Xbox 手柄操控，官方仅允许 Xbox 360 型号；Driver 由队内选拔"谁行谁上"，擅长手柄游戏的同学有天然优势。</blockquote>
+<blockquote class="bq-info">手柄操作（Driver）：参赛机器人使用有线手柄操控（如 Logitech F310、Xbox 360）；官方要求必须为有线连接，允许型号以当季《竞赛手册》为准；Driver 由队内选拔产生，熟悉手柄操作者更具优势。</blockquote>
 <h3 id="调试是核心">调试是核心</h3>
-<blockquote class="bq-info">程序开发的真正难点在于调试。自动路径、手动操作、PID 参数、视觉配置——大部分传感器都有现成的程序包可以直接复用，你真正要做的是"调"。</blockquote>
+<blockquote class="bq-info">程序开发的难点主要在调试。自动路径、手动操作、PID 参数、视觉配置等，多数已有现成程序包可复用，工作重点是参数调整与验证。</blockquote>
 <p>调试工作贯穿整个开发流程：</p>
 <ol><li><strong>需求分析</strong>：明确当前赛季的规则和任务需求</li><li><strong>架构设计</strong>：设计程序整体架构和模块划分</li><li><strong>代码编写</strong>：在 Android Studio 中编写 Java 代码</li><li><strong>版本控制</strong>：使用 Git 进行代码版本管理</li><li><strong>调试</strong>：调自动路径、调手动操作、调 PID 参数、调视觉配置</li><li><strong>测试验证</strong>：在机器人上验证程序功能</li><li><strong>代码审查</strong>：通过 GitHub 进行代码审查和合并</li><li><strong>部署发布</strong>：将最终版本部署到 Robot Controller</li></ol>
 <h3 id="AI辅助编程">AI 辅助编程</h3>
-<blockquote class="bq-info">现在写程序并不困难：可以配合 AI Agent 等工具辅助编程。真正的核心能力是<strong>读懂 AI 生成的代码、明确修改方向并掌握 debug 能力</strong>，无需从零手写全部代码。</blockquote>
+<blockquote class="bq-info">程序开发可使用 AI Agent 等工具辅助。核心能力是<strong>读懂 AI 生成的代码、明确修改方向并掌握调试方法</strong>，不必从零手写全部代码。</blockquote>
 <ul><li>各类编程语言的核心逻辑（如 for 循环、while 循环）是通用的，仅语法存在差异；有 C++ 基础的同学可以快速适应 Java 开发</li></ul>
+<hr>
+<h2 id="五GitHub协作基础">五、GitHub 协作基础</h2>
+<blockquote class="bq-info">本节覆盖使用 GitHub 所需的最小内容：查看仓库、下载文件、提交反馈、修改内容、参与协作与查找开源项目。完整说明见文末的官方文档入口。界面按钮以英文为主，文中以"英文（中文）"形式标注。</blockquote>
+<h3 id="GitHub是什么">GitHub 是什么</h3>
+<p>GitHub 是基于 Git 的<strong>代码托管与协作平台</strong>：代码存在云端（仓库）并保留完整修改历史（提交），多人可以在同一项目上协作（分支、拉取请求），还配套了议题、自动化（Actions）、网站托管（Pages）等工具。</p>
+<p>我队使用 GitHub 的主要用途：</p>
+<ul><li><strong>存放赛季程序</strong>：每个赛季单独建立一个公开仓库（从官方 SDK 模板复刻），赛季结束后归档为只读；新赛季仓库建立后补入本节表格。</li><li><strong>维护《快速入门指南》</strong>：源文件与构建脚本存放在公开仓库 <code>ftc32477/quick-start-guide</code>。</li><li><strong>发布团队站点</strong>：站点发布仓库为 <code>ftc32477/ftc32477.github.io</code>，各栏目由各自的源仓库经 GitHub Actions 构建后推送到对应子路径（本指南 → <code>/docs/</code>）；根路径当前重定向到 <code>/docs/</code>。后续各类资源将分别建立源仓库并推送到各自子路径。</li><li><strong>查找开源项目</strong>：检索通用工程工具，以及 FTC 社区共享的代码与方案。</li></ul>
+<p><strong>账号与组织</strong>：使用本人账号（注册流程见《队员须知》），由管理员邀请加入组织 <code>ftc32477</code>。仓库归组织所有，操作权限由管理员按角色分配：</p>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">角色</th><th style="text-align:left">能做的事（摘要）</th></tr></thead><tbody><tr><td style="text-align:left">读取（Read）</td><td style="text-align:left">查看与讨论项目</td></tr><tr><td style="text-align:left">分类（Triage）</td><td style="text-align:left">管理议题与拉取请求，但不能写入代码</td></tr><tr><td style="text-align:left">写入（Write）</td><td style="text-align:left">向仓库推送内容</td></tr><tr><td style="text-align:left">维护（Maintain）</td><td style="text-align:left">管理仓库，但不能做敏感或破坏性操作</td></tr><tr><td style="text-align:left">管理（Admin）</td><td style="text-align:left">完全权限，含删除仓库等操作</td></tr></tbody></table></div>
+<blockquote class="bq-warning">没有写入权限时，改动通过拉取请求提交或交由维护者处理；无法确定权限时按只读方式操作，不要探测或绕过权限限制。</blockquote>
+<h3 id="名词速查">名词速查</h3>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">名词</th><th style="text-align:left">含义（一句话）</th></tr></thead><tbody><tr><td style="text-align:left">仓库（Repository）</td><td style="text-align:left">项目文件与完整历史记录的存储位置</td></tr><tr><td style="text-align:left">提交（Commit）</td><td style="text-align:left">一次带说明的修改快照，构成历史记录</td></tr><tr><td style="text-align:left">分支（Branch）</td><td style="text-align:left">仓库内的并行开发线，改动先落在分支上</td></tr><tr><td style="text-align:left">克隆（Clone）</td><td style="text-align:left">把仓库完整下载到本地电脑</td></tr><tr><td style="text-align:left">复刻（Fork）</td><td style="text-align:left">把别人的仓库复制一份到自己账号下，改动不影响原仓库</td></tr><tr><td style="text-align:left">拉取请求（Pull Request，PR）</td><td style="text-align:left">请求审查并合并某分支改动的机制，协作的核心</td></tr><tr><td style="text-align:left">议题（Issue）</td><td style="text-align:left">提问、报错、建议的讨论帖</td></tr><tr><td style="text-align:left">发行版（Release）</td><td style="text-align:left">打上版本号的正式发布，附可下载文件（如指南 PDF）</td></tr><tr><td style="text-align:left">星标（Star）</td><td style="text-align:left">收藏与点赞，也用于判断项目人气</td></tr><tr><td style="text-align:left">关注（Watch）</td><td style="text-align:left">订阅仓库动态通知</td></tr><tr><td style="text-align:left">Actions</td><td style="text-align:left">GitHub 的自动化流水线（本项目用于构建与发布站点）</td></tr><tr><td style="text-align:left">Pages</td><td style="text-align:left">GitHub 的静态网站托管（本项目站点即由此发布）</td></tr><tr><td style="text-align:left">README</td><td style="text-align:left">仓库首页的说明文档，应首先阅读</td></tr></tbody></table></div>
+<h3 id="团队仓库地图">团队仓库地图</h3>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">仓库</th><th style="text-align:left">说明</th><th style="text-align:left">修改方式</th></tr></thead><tbody><tr><td style="text-align:left"><code>quick-start-guide</code></td><td style="text-align:left">指南源文件、构建脚本与站点产物（公开）</td><td style="text-align:left">提交拉取请求，或交由维护者处理</td></tr><tr><td style="text-align:left"><code>ftc32477.github.io</code></td><td style="text-align:left">团队站点发布仓库（公开），内容由各源仓库自动推送</td><td style="text-align:left">不直接修改</td></tr><tr><td style="text-align:left"><code>.github</code></td><td style="text-align:left">组织主页资料，如组织简介（公开）</td><td style="text-align:left">提交拉取请求，或交由维护者处理</td></tr><tr><td style="text-align:left"><code>FTC-32477-<赛季>-Program</code></td><td style="text-align:left">赛季程序仓库（公开）：每赛季单独建立，旧赛季归档为只读；新赛季仓库建立后补充具体名称</td><td style="text-align:left">按程序组内部分工</td></tr></tbody></table></div>
+<blockquote class="bq-danger"><strong>发布仓库禁区</strong>：<code>ftc32477.github.io</code> 的所有内容均来自各自的源仓库，由 GitHub Actions 自动推送；直接修改会在下一次推送时被覆盖。不要在该仓库或任何生成内容上点击编辑、提交或删除。站点问题一律回到对应源仓库处理（本指南为 <code>quick-start-guide</code>）。</blockquote>
+<h3 id="浏览与下载">浏览与下载</h3>
+<ol><li>打开组织主页 <a href="https://github.com/ftc32477" target="_blank" rel="noopener">https://github.com/ftc32477</a>，在 Repositories 列表中进入仓库</li><li>先读仓库首页的 <strong>README</strong>（项目用途、使用方法）；右侧 About 区有简介与主页链接</li><li>顶部页签（是否可见取决于权限）：<ul><li><strong>Code</strong>：文件列表与提交历史</li><li><strong>Issues</strong>：问题与建议</li><li><strong>Pull requests</strong>：待审查的改动</li><li><strong>Actions</strong>：自动化构建与发布记录</li><li><strong>Releases</strong>：正式版本与下载文件</li></ul></li><li>下载整个仓库：Code → <strong>Download ZIP</strong></li><li>下载指南 PDF：进入 <strong>Releases</strong>，选择版本，在 Assets 中下载对应语言</li><li>查看历史：Code 页的 <strong>Commits</strong> 列表 → 点进单次提交查看具体改动（diff）</li></ol>
+<h3 id="反馈问题Issue">反馈问题（Issue）</h3>
+<p>遇到故障、文档错误或有建议时，用 Issue 反馈：</p>
+<ol><li>打开目标仓库的 <strong>Issues</strong> 页签，先搜索是否已有相同问题</li><li>点击 <strong>New issue</strong>，用一句话标题说明问题</li><li>正文写清：<strong>发生了什么</strong>、<strong>期望的结果</strong>、<strong>如何复现</strong>（步骤）、相关截图（先去掉个人信息）</li><li>提交后关注回复；问题解决后由维护者关闭</li></ol>
+<blockquote class="bq-info">指南的固定反馈入口：<a href="https://github.com/ftc32477/quick-start-guide/issues" target="_blank" rel="noopener">https://github.com/ftc32477/quick-start-guide/issues</a></blockquote>
+<h3 id="网页端修改编辑提PR">网页端修改（编辑 → 提 PR）</h3>
+<p>没有写入权限时，GitHub 会自动把网页端改动做成"复刻（Fork）+ 拉取请求（PR）"：</p>
+<ol><li>登录后打开要修改的文件（如指南 <code>src/zh-hans/</code> 下的某篇 <code>.md</code>）</li><li>点击文件右上角的铅笔图标 <strong>Edit this file</strong></li><li>若无写入权限，页面会提示将自动创建复刻，同意即可</li><li>修改内容，在 <strong>Commit changes</strong> 中填写一句清晰的说明</li><li>选择 <strong>Create a new branch for this commit and start a pull request</strong>，分支名如 <code>fix/typo-member</code></li><li>在打开的 PR 表单中说明修改内容与原因，点击 <strong>Create pull request</strong></li><li>等待维护者审查；如有评论，按意见继续修改，合并后改动即生效</li></ol>
+<blockquote class="bq-warning">一次 PR 只提交一件事；不要修改不熟悉的文件（构建脚本、生成产物等）；发布仓库不提交任何改动。</blockquote>
+<h3 id="本地协作">本地协作</h3>
+<p>在本地克隆仓库开发是最常用的方式。前提是本机已安装 Git（见"二、环境配置"）。常用命令如下：</p>
+<pre><code># 克隆仓库到本地
+git clone https://github.com/ftc32477/quick-start-guide.git
+cd quick-start-guide
+
+# 开始工作前先拉取最新改动
+git pull
+
+# 为本次工作新建分支
+git switch -c feat/my-feature
+
+# 修改文件后：查看状态、暂存、提交
+git status
+git add &lt;文件&gt;
+git commit -m "本次修改说明"
+
+# 推送分支到 GitHub
+git push -u origin feat/my-feature</code></pre>
+<p>推送后，在 GitHub 上为该分支创建 Pull Request，等待审查合并。Android Studio 与 Visual Studio Code 提供等效的图形操作（见"二、环境配置"），可用界面完成同样步骤。</p>
+<blockquote class="bq-warning">三条纪律：<strong>先 pull 再动手</strong>；<strong>一次提交只做一件事、说明写清楚</strong>；<strong>推送到自己的分支，不直接推 main</strong>。</blockquote>
+<p><strong>复刻与上游同步（参与外部项目时）</strong>：复刻的仓库不会自动更新。需要先添加原仓库为上游：<code>git remote add upstream <原仓库地址></code>，再用 <code>git fetch upstream</code> 与合并操作同步（详见官方文档"同步复刻"一节）。</p>
+<h3 id="开源社区检索评估与贡献">开源社区（检索、评估与贡献）</h3>
+<p><strong>检索</strong>（搜索框支持限定词，可组合使用）：</p>
+<ul><li><code>topic:ftc</code>、<code>topic:first-tech-challenge</code>、<code>topic:ftc-robot</code>：FTC 社区项目的总入口</li><li><code>ftc language:Java sort:updated</code>：最近仍在维护的 Java 项目</li><li><code>"FIRST Tech Challenge" in:readme</code>：README 中提及 FTC 的项目</li></ul>
+<p>FTC 常用开源资源（均可在 GitHub 找到）：</p>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">项目</th><th style="text-align:left">用途</th></tr></thead><tbody><tr><td style="text-align:left">FIRST-Tech-Challenge/FtcRobotController</td><td style="text-align:left">FTC 官方 SDK 与示例</td></tr><tr><td style="text-align:left">FTCLib/FTCLib</td><td style="text-align:left">FTC 常用工具库</td></tr><tr><td style="text-align:left">acmerobotics/road-runner</td><td style="text-align:left">动作规划与路径跟随</td></tr><tr><td style="text-align:left">Pedro-Pathing/PedroPathing</td><td style="text-align:left">路径规划</td></tr><tr><td style="text-align:left">acmerobotics/ftc-dashboard</td><td style="text-align:left">调试仪表盘</td></tr><tr><td style="text-align:left">OpenFTC/EasyOpenCV</td><td style="text-align:left">视觉处理</td></tr><tr><td style="text-align:left">the-orange-alliance、ftc-scout/ftc-scout</td><td style="text-align:left">赛事数据与统计</td></tr></tbody></table></div>
+<p><strong>评估一个仓库是否可用（五看）</strong>：最近提交时间（是否仍在维护）、README 与文档质量、许可证（License）、Issues 活跃度、Releases 有无正式版本。</p>
+<p><strong>许可证速览</strong>（使用别人的代码或素材前必看）：</p>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">许可证</th><th style="text-align:left">一句话说明</th></tr></thead><tbody><tr><td style="text-align:left">MIT</td><td style="text-align:left">最宽松：保留版权声明即可自由使用</td></tr><tr><td style="text-align:left">Apache-2.0</td><td style="text-align:left">同样宽松，另有专利授权与变更声明要求</td></tr><tr><td style="text-align:left">GPL-3.0</td><td style="text-align:left">具有传染性：基于它的衍生作品也须开源</td></tr><tr><td style="text-align:left">无许可证</td><td style="text-align:left">默认"保留所有权利"，<strong>不能</strong>直接复制使用，需先联系作者</td></tr></tbody></table></div>
+<p><strong>参与贡献</strong>：先阅读项目根目录的 <code>CONTRIBUTING.md</code>（贡献指南）与行为准则；不确定的改动先开 Issue 讨论；小修小补按上文"编辑 → 提 PR"流程提交。</p>
+<blockquote class="bq-warning">安全：不要运行来源不明的脚本或可执行文件；不要把 API Key、密码、Token 发到 Issue 或仓库中；对 <code>curl | bash</code> 一类的安装命令保持警惕。</blockquote>
+<h3 id="危险操作警示">危险操作警示</h3>
+<blockquote class="bq-danger">以下操作可能造成不可逆损失，普通队员一律不要执行；确需操作时先经过管理员确认。<ul><li>直接修改发布仓库 <code>ftc32477.github.io</code>（会被覆盖并污染正式站）</li><li><code>git push --force</code>：强制覆盖远端历史，可能让队友的提交消失</li><li><code>git reset --hard</code>：丢弃本机未推送的改动，且难以找回</li><li>删除分支、删除仓库，或修改仓库的可见性、名称、归属</li><li>向仓库提交密钥、密码、Token（一旦公开，删除后仍留在历史里，必须立即吊销并重建）</li><li>在 Issue、PR 或公开仓库中发布内部资料与私人信息（邮箱、住址、截图中的个人信息）</li><li>运行或合并来源不明的代码</li></ul></blockquote>
+<blockquote class="bq-info">账号安全：不要与他人共享账号；GitHub 正在对参与代码贡献的账号强制要求启用两步验证（2FA），按提示开启；个人访问令牌（Token）按最小权限创建，且绝不写入代码或仓库。</blockquote>
+<h3 id="练习清单">练习清单</h3>
+<ol><li>打开组织主页，进入 <code>quick-start-guide</code> 仓库，用 README 说出这个项目是做什么的</li><li>在 Releases 中下载任意一种语言的指南 PDF</li><li>在提交历史中找到最近一次修改，说出它改了什么</li><li>在 Issues 中搜索"PDF"，看看有没有相关问题</li><li>按"编辑 → 提 PR"流程修正一处错别字，并提交一个拉取请求</li></ol>
+<h3 id="官方文档入口">官方文档入口</h3>
+<p>需要更深入的用法时，按需查阅以下官方文档：</p>
+<ul><li>GitHub 快速入门：<a href="https://docs.github.com/zh/get-started/quickstart" target="_blank" rel="noopener">https://docs.github.com/zh/get-started/quickstart</a></li><li>编写与保存代码（分支/提交/PR）：<a href="https://docs.github.com/zh/get-started/start-your-journey/writing-and-storing-your-code" target="_blank" rel="noopener">https://docs.github.com/zh/get-started/start-your-journey/writing-and-storing-your-code</a></li><li>Git 速查表：<a href="https://docs.github.com/zh/get-started/git-basics/git-cheatsheet" target="_blank" rel="noopener">https://docs.github.com/zh/get-started/git-basics/git-cheatsheet</a></li><li>搜索语法：<a href="https://docs.github.com/zh/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax" target="_blank" rel="noopener">https://docs.github.com/zh/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax</a></li><li>GitHub 组织的仓库角色：<a href="https://docs.github.com/zh/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization" target="_blank" rel="noopener">https://docs.github.com/zh/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization</a></li><li>交互式课程（英文）：<a href="https://skills.github.com/" target="_blank" rel="noopener">https://skills.github.com/</a></li></ul>
+<blockquote class="bq-info">遇到不确定的操作，先咨询管理员或在 Issues 中提问。</blockquote>
 </main>
 
 <script>

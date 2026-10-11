@@ -194,6 +194,8 @@ blockquote{
 blockquote.bq-info{border-left-color:#1565c0;background:#eaf3fb;color:#0d3c66}
 blockquote.bq-warning{border-left-color:#f9a825;background:#fff8e1;color:#6d4c00}
 blockquote.bq-danger{border-left-color:#d32f2f;background:#fef5f5;color:#8b0000}
+blockquote ul,blockquote ol{margin:6px 0 0;padding-left:20px}
+blockquote li+li{margin-top:4px}
 hr{border:none;border-top:1px solid var(--border);margin:24px 0}
 img{max-width:100%;border-radius:var(--radius);margin:12px 0}
 /* 锚点跳转留白（避免被固定顶栏遮挡） */
@@ -302,6 +304,7 @@ tr:nth-child(even){background:#fafafa}
   }
   th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
+  pre{white-space:pre-wrap !important;overflow-wrap:anywhere !important;overflow:visible !important}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
   .img-row .img-fig{flex:1 1 0}
@@ -362,7 +365,7 @@ tr:nth-child(even){background:#fafafa}
 <a href="outreach.html">아웃리치 및 대외 홍보</a>
 <a href="afterword.html">후기</a>
   </div>
-  <div class="sidebar-footer">2026년 10월 제1판 &middot; 편집팀</div>
+  <div class="sidebar-footer">2026년 10월 제2판 &middot; 편집팀</div>
 </nav>
 
 <main>
@@ -375,7 +378,7 @@ tr:nth-child(even){background:#fafafa}
 <h3 id="네트워크환경">네트워크 환경</h3>
 <p>Android 지원 자료에 접근할 수 있는 네트워크 환경이 필요합니다.</p>
 <ul><li>Android 지원: <a href="https://support.google.com/android" target="_blank" rel="noopener">https://support.google.com/android</a></li></ul>
-<blockquote class="bq-info">팀 자체 구축 LAN은 학교 독립 게이트웨이에 연결되어 일반 학교 네트워크보다 안정적이지만, 학교 네트워크의 접속 제한은 그대로 유지됩니다. 프로그래밍 담당은 Android 지원 해외 네트워크 자원에 접속해야 하며, 팀에서 관련 경로를 제공할 수 있습니다. 대용량 사용이 필요하면 별도 서비스를 구매하는 것을 권장합니다.</blockquote>
+<blockquote class="bq-info">팀 자체 구축 LAN은 학교 독립 게이트웨이에 연결되어 일반 학교 네트워크보다 안정성이 높지만, 여전히 학교 네트워크의 접속 제한을 받습니다. 프로그래밍에서는 Android 지원 해외 네트워크 자원에 접속해야 하며, 팀에서 접속 경로를 제공할 수 있습니다. 대용량 사용이 필요하면 서비스를 직접 구매하는 것을 권장합니다.</blockquote>
 <h3 id="애플리케이션">애플리케이션</h3>
 <ul><li>웹 브라우저(Chrome 또는 Edge 또는 Safari)</li><li>LocalSend</li></ul>
 <h3 id="온라인계정">온라인 계정</h3>
@@ -397,16 +400,16 @@ tr:nth-child(even){background:#fafafa}
 <p>구체적인 방법은 관리자에게 문의하세요.</p>
 <h3 id="LocalSend">LocalSend</h3>
 <p>LocalSend는 우리 팀이 사용하는 LAN 파일 전송 도구입니다.</p>
-<p><strong>설치 절차(v1.17.0 버전 기준):</strong></p>
+<p><strong>설치 절차(v1.18.2 버전 기준):</strong></p>
 <blockquote class="bq-warning"><strong>iOS</strong>의 경우: <a href="https://apps.apple.com/us/app/localsend/id1661733229" target="_blank" rel="noopener">https://apps.apple.com/us/app/localsend/id1661733229</a>를 열어 설치하면 됩니다.</blockquote>
 <ol><li><a href="https://localsend.org/ko/download" target="_blank" rel="noopener">https://localsend.org/ko/download</a> 열기</li><li>또는 GitHub 저장소 접속: <a href="https://github.com/localsend/localsend/releases" target="_blank" rel="noopener">https://github.com/localsend/localsend/releases</a></li><li>페이지를 아래로 내려 최신 버전 창의 Assets 목록에서 "Show all assets"를 클릭해 모든 사용 가능한 버전 표시</li><li>해당 버전을 다운로드하여 설치</li></ol>
 <p><strong>플랫폼별 버전 설명:</strong></p>
 <ul><li><strong>Android:</strong><ul><li><code>-android-arm32v7.apk</code>: 32비트 ARM 7세대 CPU 아키텍처용 빌드</li><li><code>-android-arm64v8.apk</code>: 64비트 ARM 8세대 CPU 아키텍처용 빌드</li><li><code>-android-google-play.apk</code>: Google Play 스토어용 빌드(Google Mobile Services 지원이 필요할 수 있음)</li><li><code>-android-x64.apk</code>: 64비트 x86 아키텍처용 빌드</li></ul></li><li><strong>Linux:</strong><ul><li><code>-linux-arm-64.deb</code>: 64비트 ARM 아키텍처 Debian/Ubuntu 등 시스템용 Deb 설치 패키지</li><li><code>-linux-arm-64.tar.gz</code>: 64비트 ARM 아키텍처 Linux 시스템용 범용 압축 패키지</li><li><code>-linux-x86-64.AppImage</code>: 64비트 x86 아키텍처 Linux 시스템용 AppImage 실행 버전</li><li><code>-linux-x86-64.deb</code>: 64비트 x86 아키텍처 Debian/Ubuntu 등 시스템용 Deb 설치 패키지</li><li><code>-linux-x86-64.tar.gz</code>: 64비트 x86 아키텍처 Linux 시스템용 범용 압축 패키지</li></ul></li><li><strong>Windows:</strong><ul><li><code>-windows-x86-64.exe</code>: 64비트 x86 아키텍처용 설치 프로그램 버전</li><li><code>-windows-x86-64.zip</code>: 64비트 x86 아키텍처용 무설치 압축 패키지</li></ul></li><li><strong>macOS:</strong><ul><li><code>.dmg</code>: macOS용 디스크 이미지 설치 패키지</li></ul></li></ul>
 <h3 id="GitHub">GitHub</h3>
-<p>GitHub는 우리 팀이 사용하는 오픈소스 자료 저장소입니다.</p>
+<p>GitHub는 우리 팀이 사용하는 코드와 자료 호스팅 플랫폼입니다.</p>
 <p><strong>가입 절차:</strong></p>
 <ol><li><a href="https://github.com/signup" target="_blank" rel="noopener">https://github.com/signup</a> 열기</li><li>안내에 따라 개인 계정 생성<ul><li>가입 과정에서 이메일 주소 인증을 요구합니다</li><li>국가/지역은 '미국' 선택을 권장합니다</li></ul></li><li>가입 후 관리자에게 사용자 이름을 알리고 조직 초대를 기다립니다. <a href="https://github.com/notifications" target="_blank" rel="noopener">https://github.com/notifications</a>에서 확인할 수 있습니다.</li></ol>
-<p>이후 <a href="https://github.com/orgs/ftc32477/repositories" target="_blank" rel="noopener">https://github.com/orgs/ftc32477/repositories</a>에서 저장소를 보고 수정할 수 있습니다.</p>
+<p>조직에 가입한 후에는 <a href="https://github.com/orgs/ftc32477/repositories" target="_blank" rel="noopener">https://github.com/orgs/ftc32477/repositories</a>에서 조직 저장소를 볼 수 있습니다. 내용을 수정해야 하면 《프로그래밍》「5. GitHub 협업 기초」의 절차에 따라 끌어오기 요청을 제출하세요.</p>
 <p><strong>참고 자료:</strong></p>
 <ul><li><a href="https://docs.github.com/ko/get-started/start-your-journey/creating-an-account-on-github" target="_blank" rel="noopener">GitHub 계정 만들기 문서</a></li></ul>
 <h3 id="Onshape">Onshape</h3>
@@ -419,9 +422,9 @@ tr:nth-child(even){background:#fafafa}
 <hr>
 <h2 id="3시즌과활동일정">3. 시즌과 활동 일정</h2>
 <h3 id="시즌일정">시즌 일정</h3>
-<ul><li>FTC 한 시즌은 그해 9월부터 다음 해 6월까지 이어집니다. 새 시즌 과제는 매년 9월 중순에 발표되며, 발표 후 로봇 설계와 디버깅에 약 7~8주가 주어집니다</li><li>예선전은 전국 여러 도시에서 열립니다. 예선을 통과하면 겨울방학에 전국 대회에 출전하고, 다시 통과하면 미국 휴스턴에서 열리는 세계 대회에 참가합니다(현재까지 중국 본토에서 휴스턴 세계 대회에 진출한 팀은 약 4팀뿐입니다)</li><li>새 시즌 기본 경기장 자재는 개학 후 공식적으로 일괄 배송되며, 도착하면 바로 새 시즌 경기장을 조립할 수 있습니다</li></ul>
+<ul><li>FTC 시즌은 그해 9월 중순 Kickoff로 시작해 다음 해 4월 말~5월 초 휴스턴 FIRST Championship까지 이어집니다. 공식 지원은 보통 그해 7월 말까지 이어집니다. 새 시즌 과제는 Kickoff와 함께 발표되며, 이후 로봇 설계와 디버깅 단계에 들어갑니다</li><li>예선전은 전국 여러 도시에서 열립니다. 예선을 통과하면 겨울방학에 전국 대회에 출전하고, 다시 통과하면 미국 휴스턴에서 열리는 세계 대회에 참가합니다(2026년 기준, 중국 본토에서 휴스턴 세계 대회에 진출한 팀은 약 4팀뿐입니다)</li><li>새 시즌 기본 경기장 자재는 개학 후 공식적으로 일괄 배송되며, 도착하면 바로 새 시즌 경기장을 조립할 수 있습니다</li></ul>
 <h3 id="알아두어야할규칙">알아두어야 할 규칙</h3>
-<ul><li>로봇은 Xbox 컨트롤러로 수동 조종하며, 공식적으로 Xbox 360 모델만 허용됩니다</li><li>규칙상 자기 부상 기술은 금지되지만 일반 자석과 전자석 부품은 사용할 수 있습니다</li><li>FTC 공식 참가 연령은 12~18세이며, 중학생도 참가할 수 있습니다</li></ul>
+<ul><li>로봇은 유선 컨트롤러(예: Logitech F310, Xbox 360)로 수동 조종하며, 공식적으로 유선 연결이 필수이고, 허용 모델은 해당 시즌 《경기 매뉴얼》 기준을 따릅니다</li><li>규칙상 릴레이, 전자석, 전자 솔레노이드 액추에이터는 금지되며(R506), 일반 영구 자석은 원자재로 사용할 수 있습니다(R302)</li><li>FTC 공식 참가 연령은 12~18세이며, 중학생도 참가할 수 있습니다</li></ul>
 </main>
 
 <script>

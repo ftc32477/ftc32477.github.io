@@ -194,6 +194,8 @@ blockquote{
 blockquote.bq-info{border-left-color:#1565c0;background:#eaf3fb;color:#0d3c66}
 blockquote.bq-warning{border-left-color:#f9a825;background:#fff8e1;color:#6d4c00}
 blockquote.bq-danger{border-left-color:#d32f2f;background:#fef5f5;color:#8b0000}
+blockquote ul,blockquote ol{margin:6px 0 0;padding-left:20px}
+blockquote li+li{margin-top:4px}
 hr{border:none;border-top:1px solid var(--border);margin:24px 0}
 img{max-width:100%;border-radius:var(--radius);margin:12px 0}
 /* 锚点跳转留白（避免被固定顶栏遮挡） */
@@ -302,6 +304,7 @@ tr:nth-child(even){background:#fafafa}
   }
   th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
+  pre{white-space:pre-wrap !important;overflow-wrap:anywhere !important;overflow:visible !important}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
   .img-row .img-fig{flex:1 1 0}
@@ -362,7 +365,7 @@ tr:nth-child(even){background:#fafafa}
 <a href="outreach.html">Outreach &amp; PR</a>
 <a href="afterword.html">Afterword</a>
   </div>
-  <div class="sidebar-footer">October 2026, 1st Edition &middot; Editorial Team</div>
+  <div class="sidebar-footer">October 2026, 2nd Edition &middot; Editorial Team</div>
 </nav>
 
 <main>
@@ -385,7 +388,7 @@ tr:nth-child(even){background:#fafafa}
 <h2 id="2EnvironmentSetup">2. Environment Setup</h2>
 <p>The following environment must be configured before you begin. If you have any questions, please consult an administrator.</p>
 <h3 id="WebBrowser">Web Browser</h3>
-<p>Install it yourself. We recommend Chrome.</p>
+<p>Install it yourself; Chrome is recommended.</p>
 <p>Chrome download: <a href="https://www.google.com/chrome/" target="_blank" rel="noopener">https://www.google.com/chrome/</a></p>
 <p><strong>Websites to know, read, and bookmark:</strong></p>
 <div class="table-wrap"><table><thead><tr><th style="text-align:left">Name</th><th style="text-align:left">URL</th></tr></thead><tbody><tr><td style="text-align:left">Current Game and Season Materials</td><td style="text-align:left">https://ftc-resources.firstinspires.org/ftc/game</td></tr><tr><td style="text-align:left">FIRST Tech Challenge documentation</td><td style="text-align:left">https://ftc-docs.firstinspires.org/en/latest/index.html</td></tr><tr><td style="text-align:left">FTC AI</td><td style="text-align:left">https://ftc-cmchatbot.firstinspires.org/</td></tr><tr><td style="text-align:left">Techno Trojans</td><td style="text-align:left">https://www.fruitportrobotics.org/</td></tr><tr><td style="text-align:left">FTC Event Web — Team 32477</td><td style="text-align:left">https://ftc-events.firstinspires.org/team/32477</td></tr><tr><td style="text-align:left">32477 — FTCScout</td><td style="text-align:left">https://ftcscout.org/teams/32477</td></tr><tr><td style="text-align:left">GitHub FTC 32477</td><td style="text-align:left">https://github.com/ftc32477</td></tr></tbody></table></div>
@@ -397,16 +400,16 @@ tr:nth-child(even){background:#fafafa}
 <p>Please consult an administrator for specific instructions.</p>
 <h3 id="LocalSend">LocalSend</h3>
 <p>LocalSend is the LAN file transfer tool adopted by our team.</p>
-<p><strong>Installation (using v1.17.0 as an example):</strong></p>
+<p><strong>Installation (using v1.18.2 as an example):</strong></p>
 <blockquote class="bq-warning">For <strong>iOS</strong>: open <a href="https://apps.apple.com/us/app/localsend/id1661733229" target="_blank" rel="noopener">https://apps.apple.com/us/app/localsend/id1661733229</a> and install directly.</blockquote>
 <ol><li>Open <a href="https://localsend.org/download" target="_blank" rel="noopener">https://localsend.org/download</a></li><li>Or go to the GitHub repository: <a href="https://github.com/localsend/localsend/releases" target="_blank" rel="noopener">https://github.com/localsend/localsend/releases</a></li><li>Scroll down and click "Show all assets" in the Assets list of the latest release to display all available builds</li><li>Download the build matching your platform and install it</li></ol>
 <p><strong>Platform-specific builds:</strong></p>
 <ul><li><strong>Android:</strong><ul><li><code>-android-arm32v7.apk</code>: built for 32-bit ARM v7 CPU architectures</li><li><code>-android-arm64v8.apk</code>: built for 64-bit ARM v8 CPU architectures</li><li><code>-android-google-play.apk</code>: built for the Google Play Store (may require Google Mobile Services)</li><li><code>-android-x64.apk</code>: built for 64-bit x86 architectures</li></ul></li><li><strong>Linux:</strong><ul><li><code>-linux-arm-64.deb</code>: Debian package for 64-bit ARM (Debian/Ubuntu and derivatives)</li><li><code>-linux-arm-64.tar.gz</code>: generic tarball for 64-bit ARM Linux</li><li><code>-linux-x86-64.AppImage</code>: AppImage executable for 64-bit x86 Linux</li><li><code>-linux-x86-64.deb</code>: Debian package for 64-bit x86 (Debian/Ubuntu and derivatives)</li><li><code>-linux-x86-64.tar.gz</code>: generic tarball for 64-bit x86 Linux</li></ul></li><li><strong>Windows:</strong><ul><li><code>-windows-x86-64.exe</code>: installer built for 64-bit x86 architectures</li><li><code>-windows-x86-64.zip</code>: portable archive built for 64-bit x86 architectures</li></ul></li><li><strong>macOS:</strong><ul><li><code>.dmg</code>: disk image installer built for macOS</li></ul></li></ul>
 <h3 id="GitHub">GitHub</h3>
-<p>GitHub is the open-source repository platform adopted by our team.</p>
+<p>GitHub is the code and resource hosting platform adopted by our team.</p>
 <p><strong>Registration:</strong></p>
-<ol><li>Open <a href="https://github.com/signup" target="_blank" rel="noopener">https://github.com/signup</a></li><li>Create a personal account by following the prompts<ul><li>During registration, the system will ask you to verify your email address</li><li>We recommend selecting "United States of America" as your country/region</li></ul></li><li>After registration, tell an administrator your username and wait for an invitation to join the organization. You can find it at <a href="https://github.com/notifications" target="_blank" rel="noopener">https://github.com/notifications</a>.</li></ol>
-<p>After that, you can view and modify repositories at <a href="https://github.com/orgs/ftc32477/repositories" target="_blank" rel="noopener">https://github.com/orgs/ftc32477/repositories</a>.</p>
+<ol><li>Open <a href="https://github.com/signup" target="_blank" rel="noopener">https://github.com/signup</a></li><li>Create a personal account by following the prompts<ul><li>During registration, the system will ask you to verify your email address</li><li>Select "United States of America" as your country/region</li></ul></li><li>After registration, tell an administrator your username and wait for an invitation to join the organization. You can find it at <a href="https://github.com/notifications" target="_blank" rel="noopener">https://github.com/notifications</a>.</li></ol>
+<p>After joining the organization, you can view the organization's repositories at <a href="https://github.com/orgs/ftc32477/repositories" target="_blank" rel="noopener">https://github.com/orgs/ftc32477/repositories</a>; to modify content, submit a pull request following the process in "Programming", Section 5, "GitHub Collaboration Basics".</p>
 <p><strong>References:</strong></p>
 <ul><li><a href="https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github" target="_blank" rel="noopener">Creating an account on GitHub</a></li></ul>
 <h3 id="Onshape">Onshape</h3>
@@ -419,9 +422,9 @@ tr:nth-child(even){background:#fafafa}
 <hr>
 <h2 id="3SeasonSchedule">3. Season &amp; Schedule</h2>
 <h3 id="SeasonTimeline">Season Timeline</h3>
-<ul><li>A full FTC season runs from September through June of the following year; the new season game is released in mid-September, leaving about seven to eight weeks for vehicle design and debugging</li><li>Qualifiers are held in several cities across the country; teams that advance play in the national championship during the winter break, and those that advance again go to Houston, USA, for the World Championship (so far only about 4 teams from mainland China have reached the Houston Championship)</li><li>The official basic field materials are delivered after the school year begins, and the new season field can be assembled once they arrive</li></ul>
+<ul><li>The FTC season starts with the Kickoff in mid-September and runs through the FIRST Championship (Houston) in late April to early May of the following year; official support usually continues through the end of July. The new season game is released at Kickoff, after which the team moves into robot design and debugging</li><li>Qualifiers are held in several cities across the country; teams that advance play in the national championship during the winter break, and those that advance again go to Houston, USA, for the World Championship (as of 2026, only about 4 teams from mainland China have reached the Houston Championship)</li><li>The official basic field materials are delivered after the school year begins, and the new season field can be assembled once they arrive</li></ul>
 <h3 id="CompetitionRulesNotes">Competition Rules Notes</h3>
-<ul><li>The robot is manually driven with an Xbox controller; officially only the Xbox 360 model is permitted</li><li>Magnetic levitation technology is prohibited by the rules; ordinary magnets and electromagnets are allowed</li><li>The official FTC age range is 12–18; middle school students may join</li></ul>
+<ul><li>The competition robot is manually driven with a wired gamepad (such as the Logitech F310 or Xbox 360); a wired connection is mandatory, and the permitted models are governed by the current season's Competition Manual</li><li>The rules prohibit relays, electromagnets, and electrical solenoid actuators (R506); ordinary permanent magnets are allowed as raw materials (R302)</li><li>The official FTC age range is 12–18; middle school students may join</li></ul>
 </main>
 
 <script>

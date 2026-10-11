@@ -194,6 +194,8 @@ blockquote{
 blockquote.bq-info{border-left-color:#1565c0;background:#eaf3fb;color:#0d3c66}
 blockquote.bq-warning{border-left-color:#f9a825;background:#fff8e1;color:#6d4c00}
 blockquote.bq-danger{border-left-color:#d32f2f;background:#fef5f5;color:#8b0000}
+blockquote ul,blockquote ol{margin:6px 0 0;padding-left:20px}
+blockquote li+li{margin-top:4px}
 hr{border:none;border-top:1px solid var(--border);margin:24px 0}
 img{max-width:100%;border-radius:var(--radius);margin:12px 0}
 /* 锚点跳转留白（避免被固定顶栏遮挡） */
@@ -302,6 +304,7 @@ tr:nth-child(even){background:#fafafa}
   }
   th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
+  pre{white-space:pre-wrap !important;overflow-wrap:anywhere !important;overflow:visible !important}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
   .img-row .img-fig{flex:1 1 0}
@@ -365,7 +368,7 @@ tr:nth-child(even){background:#fafafa}
 <a href="outreach.html">Divulgação e relações públicas</a>
 <a href="afterword.html">Posfácio</a>
   </div>
-  <div class="sidebar-footer">Outubro de 2026, 1.ª edição &middot; Equipe editorial</div>
+  <div class="sidebar-footer">Outubro de 2026, 2.ª edição &middot; Equipe editorial</div>
 </nav>
 
 <main>
@@ -373,9 +376,9 @@ tr:nth-child(even){background:#fafafa}
 <h2 id="1Requisitosbásicos">1. Requisitos básicos</h2>
 <p>Os itens a seguir são requisitos complementares de Modelagem e design.</p>
 <h3 id="Aplicativos">Aplicativos</h3>
-<ul><li>Navegador de internet (Chrome, Edge ou Safari)</li><li>LocalSend</li><li>Biblioteca de peças FTC do Onshape — <a href="https://ftconshape.com/" target="_blank" rel="noopener">https://ftconshape.com/</a> (mantida pela FIRST em parceria com a PTC; envie um e-mail para FIRST@ptc.com para entrar na pasta compartilhada)</li><li>Plugin da biblioteca de peças FTC Insert Tool — <a href="https://cad.onshape.com/appstore/apps/Design%20&amp;%20Documentation/6515cfb91574253b1b96a6ba" target="_blank" rel="noopener">https://cad.onshape.com/appstore/apps/Design%20&amp;%20Documentation/6515cfb91574253b1b96a6ba</a> (instale pela Onshape App Store: Subscribe → Get for Free)</li></ul>
+<ul><li>Navegador de internet (Chrome, Edge ou Safari)</li><li>LocalSend</li><li>Biblioteca de peças FTC do Onshape — <a href="https://ftconshape.com/" target="_blank" rel="noopener">https://ftconshape.com/</a> (mantida pela equipe FTC 2901; envie um e-mail para FIRST@ptc.com para entrar na pasta compartilhada)</li><li>Plugin da biblioteca de peças FTC Insert Tool — <a href="https://cad.onshape.com/appstore/apps/Design%20&amp;%20Documentation/6515cfb91574253b1b96a6ba" target="_blank" rel="noopener">https://cad.onshape.com/appstore/apps/Design%20&amp;%20Documentation/6515cfb91574253b1b96a6ba</a> (instale pela Onshape App Store: Subscribe → Get for Free)</li></ul>
 <h3 id="Contasonline">Contas online</h3>
-<ul><li>CycleZLab — <a href="https://www.cyclezlab.com/" target="_blank" rel="noopener">https://www.cyclezlab.com/</a> (gratuito, é preciso solicitar entrada)</li></ul>
+<ul><li>CycleZLab — <a href="https://www.cyclezlab.com/" target="_blank" rel="noopener">https://www.cyclezlab.com/</a> (gratuito, é preciso solicitar entrada; site oficial indisponível no momento, organização no GitHub: <a href="https://github.com/CycleZLab" target="_blank" rel="noopener">https://github.com/CycleZLab</a>)</li></ul>
 <hr>
 <h2 id="2Configuraçãodoambiente">2. Configuração do ambiente</h2>
 <p>O ambiente de trabalho abaixo deve ser configurado antes do início oficial. Siga as instruções; em caso de dúvidas, consulte um administrador.</p>
@@ -386,7 +389,7 @@ tr:nth-child(even){background:#fafafa}
 <p>O Onshape é a plataforma de modelagem CAD em nuvem adotada pela nossa equipe. Em comparação com softwares industriais como o SolidWorks, o Onshape exige pouco do computador, facilita o compartilhamento de projetos entre dispositivos, é fácil de aprender e tem suporte oficial da FIRST — além de ser completo em recursos, é ideal para aprender modelagem CAD e desenvolver projetos.</p>
 <p><strong>Registro:</strong></p>
 <ol><li>Abra <a href="https://www.onshape.com/en/education/" target="_blank" rel="noopener">https://www.onshape.com/en/education/</a> e cadastre uma conta educacional</li><li>Preencha nome (First name), sobrenome (Last name) e e-mail</li></ol>
-<blockquote class="bq-warning">Não use provedores de e-mail chineses, como o QQ: é provável que o código de verificação não chegue. Recomendamos @gmail.com ou @outlook.com.</blockquote>
+<blockquote class="bq-warning">Não use provedores de e-mail chineses, como o QQ: o código de verificação pode não chegar. Recomendamos @gmail.com ou @outlook.com.</blockquote>
 <ol start="3"><li>Na tela seguinte, selecione o perfil "Student", o nível escolar "Grade School / K-12 (Ages <18)" e a data de nascimento; depois clique em avançar</li><li>Preencha as informações a seguir:<ul><li>Nome da escola: BEIJING NATIONAL DAY EXPERIMENTAL SCHOOL</li><li>Site da escola: <a href="https://sysyzx.bjhdedu.cn/" target="_blank" rel="noopener">https://sysyzx.bjhdedu.cn/</a></li><li>Ano previsto de formatura</li><li>Motivo do cadastro: I am a member of FTC Team 32477, and I registered this account to use the team's modeling tools. (use esta frase se não souber o que escrever)</li><li>Marque os três termos de concordância para concluir o cadastro</li></ul></li><li>Verifique seu e-mail para confirmar o cadastro</li></ol>
 <blockquote class="bq-info">Após concluir o cadastro, informe sua conta a um administrador para que ele adicione você à pasta compartilhada da equipe.</blockquote>
 <p><strong>Dúvidas frequentes:</strong></p>
@@ -396,7 +399,7 @@ tr:nth-child(even){background:#fafafa}
 <blockquote class="bq-info">As alterações acima só valem para documentos criados depois da mudança; documentos antigos mantêm as unidades originais.</blockquote>
 <ol start="4"><li>Ajuste seu perfil pessoal como preferir</li></ol>
 <h3 id="PluginsdoOnshape">Plugins do Onshape</h3>
-<p>Por ser uma plataforma em nuvem, o Onshape tem um ecossistema rico de plugins compartilhados, disponíveis na Onshape App Store, em sites de terceiros e por compartilhamento direto.</p>
+<p>Com sua arquitetura em nuvem, o Onshape tem um ecossistema rico de plugins compartilhados, disponíveis na Onshape App Store, em sites de terceiros e por compartilhamento direto.</p>
 <p>Os plugins mais usados pela equipe incluem (apenas exemplos):</p>
 <ul><li><strong>Biblioteca de peças FTC do Onshape</strong> (essencial; veja "1. Requisitos básicos")</li><li><strong>Lighten</strong> (recurso personalizado que enxuga a estrutura para deixar a peça mais leve)</li><li><strong>Spur gear</strong> (recurso personalizado, gerador de engrenagens)</li><li><strong>HTD Pulley Generator</strong> (derivado de outro documento, gerador de polias de correia dentada)</li></ul>
 <hr>
@@ -425,7 +428,7 @@ tr:nth-child(even){background:#fafafa}
 <ul><li><strong>Peças estruturais principais</strong> (como vigas e placas estruturais): imprima em PETG-CF sempre que possível (parâmetros no capítulo Hardware e construção), com espessura mínima de 4 mm</li><li><strong>Peças de guia</strong> (como trilhas de esferas e batentes estruturais): PLA é aceitável, com parede mínima de 2 mm</li><li><strong>Peças de proteção e decoração</strong> (como painéis laterais): parede mínima de 1,5 mm</li><li>Para chapas ou estruturas mais frágeis, como o acrílico, evite furos muito próximos (espaçamento entre furos menor que 3 mm); nas ligações estruturais que recebem carga, a largura deve ser de pelo menos 7 mm</li><li>Evite cantos vivos nas peças; arredonde-os com filetes para impedir que a concentração de tensão cause trincas</li></ul>
 <blockquote class="bq-info">Os dados acima são apenas referência; os parâmetros reais precisam ser ajustados e validados com peças físicas.</blockquote>
 <h3 id="Estratégiadedesignereferênciasdetemporada">Estratégia de design e referências de temporada</h3>
-<ul><li>Ao conceber o robô, divida as tarefas do desafio em itens menores, pense na estrutura de cada item separadamente e só depois combine tudo</li><li>Antes de modelar de verdade, peça opiniões dos colegas e baseie o projeto na estratégia de pontuação da equipe</li><li>Depois de concluir o modelo do robô inteiro, pense no processo real de montagem: para parafusos e pontos de difícil acesso, deixe canais de instalação e espaço para a passagem de cabos</li><li>Considere projetar estruturas modulares, que facilitam reparos e otimizações posteriores</li><li>Na versão final, prefira estruturas integradas e reduza pequenas estruturas desnecessárias, para ganhar resistência geral e leveza</li></ul>
+<ul><li>Ao conceber o robô, divida as tarefas do desafio em itens menores, pense na estrutura de cada item separadamente e só depois combine tudo</li><li>Antes de modelar de verdade, peça opiniões dos colegas e baseie o projeto na estratégia de pontuação da equipe</li><li>Depois de concluir o modelo do robô inteiro, leve em conta o processo real de montagem: para estruturas internas de difícil instalação, como parafusos, deixe canais de instalação e espaço para a passagem de cabos</li><li>Considere projetar estruturas modulares, que facilitam reparos e otimizações posteriores</li><li>Na versão final, prefira estruturas integradas e reduza pequenas estruturas desnecessárias, para ganhar resistência geral e leveza</li></ul>
 <p><strong>Referências de calendário:</strong></p>
 <ul><li>No cronograma, o primeiro projeto pode ser simples, mas precisa ser concluído e construído o quanto antes, deixando tempo para depuração do programa e treino do Driver, além de testar a estrutura fisicamente para iterar e otimizar; antes dos torneios classificatórios, um robô apto a competir deve passar por pelo menos 3 iterações (referência)</li><li>Acompanhe as equipes estrangeiras: a comunidade FTC tem eventos como "Robot in 30 Hours Reveal | FTC", e as equipes podem divulgar seus projetos da nova temporada a qualquer momento; você também pode usar como referência projetos de equipes de FRC, VEX e outras competições</li><li>A maioria dos arquivos de modelagem de outras equipes é compartilhada publicamente, e pedir os modelos diretamente normalmente não é recusado; estude bons projetos para melhorar o seu — a experiência de equipes fortes, como a Beijing National Day School (campus principal), merece atenção especial</li></ul>
 <h3 id="RecursosdeaprendizadodoOnshape">Recursos de aprendizado do Onshape</h3>
@@ -434,7 +437,7 @@ tr:nth-child(even){background:#fafafa}
 <blockquote class="bq-info">Em caso de dúvidas, consulte um veterano de modelagem ou pesquise na internet.</blockquote>
 <h3 id="BibliotecasdepeçascomunsdoFTC">Bibliotecas de peças comuns do FTC</h3>
 <p>Fornecedores de peças e plataformas de recursos usados com frequência no FTC:</p>
-<ul><li><strong>goBILDA</strong>: oferece uma linha completa de peças estruturais para FTC</li><li><strong>REV Robotics</strong>: oferece módulos de controle eletrônico e peças estruturais</li><li><strong>CycleZLab</strong>: plataforma da comunidade de robótica da FIRST (arquivo de CAD, código e registros de construção)</li></ul>
+<ul><li><strong>goBILDA</strong>: oferece uma linha completa de peças estruturais para FTC</li><li><strong>REV Robotics</strong>: oferece módulos de controle eletrônico e peças estruturais</li><li><strong>CycleZLab</strong>: comunidade de robótica da FIRST (arquivo de CAD, código e registros de construção; site oficial indisponível no momento, organização no GitHub: <a href="https://github.com/CycleZLab" target="_blank" rel="noopener">https://github.com/CycleZLab</a>)</li></ul>
 <h3 id="Padrõesdeprojeto">Padrões de projeto</h3>
 <ul><li>Use unidades métricas (mm)</li><li>Deixe folga adequada em todas as peças impressas em 3D (recomendado: 0,2–0,3 mm)</li><li>Formatos de exportação: arquivos STEP para usinagem, STL para impressão 3D e 3MF para fatiamento e impressão</li></ul>
 </main>
