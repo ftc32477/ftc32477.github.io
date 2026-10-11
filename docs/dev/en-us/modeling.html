@@ -186,6 +186,8 @@ blockquote{
 blockquote.bq-info{border-left-color:#1565c0;background:#eaf3fb;color:#0d3c66}
 blockquote.bq-warning{border-left-color:#f9a825;background:#fff8e1;color:#6d4c00}
 blockquote.bq-danger{border-left-color:#d32f2f;background:#fef5f5;color:#8b0000}
+blockquote ul,blockquote ol{margin:6px 0 0;padding-left:20px}
+blockquote li+li{margin-top:4px}
 hr{border:none;border-top:1px solid var(--border);margin:24px 0}
 img{max-width:100%;border-radius:var(--radius);margin:12px 0}
 /* 锚点跳转留白（避免被固定顶栏遮挡） */
@@ -294,6 +296,7 @@ tr:nth-child(even){background:#fafafa}
   }
   th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
+  pre{white-space:pre-wrap !important;overflow-wrap:anywhere !important;overflow:visible !important}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
   .img-row .img-fig{flex:1 1 0}
@@ -365,9 +368,9 @@ tr:nth-child(even){background:#fafafa}
 <h2 id="1BasicRequirements">1. Basic Requirements</h2>
 <p>The following are supplementary requirements for 3D Modeling &amp; Design.</p>
 <h3 id="Applications">Applications</h3>
-<ul><li>Web browser (Chrome, Edge, or Safari)</li><li>LocalSend</li><li>Onshape FTC parts library — <a href="https://ftconshape.com/" target="_blank" rel="noopener">https://ftconshape.com/</a> (maintained by FIRST and PTC; email FIRST@ptc.com to be added to the shared folder)</li><li>FTC Insert Tool parts library plugin — <a href="https://cad.onshape.com/appstore/apps/Design%20&amp;%20Documentation/6515cfb91574253b1b96a6ba" target="_blank" rel="noopener">https://cad.onshape.com/appstore/apps/Design%20&amp;%20Documentation/6515cfb91574253b1b96a6ba</a> (install from the Onshape App Store: Subscribe → Get for Free)</li></ul>
+<ul><li>Web browser (Chrome, Edge, or Safari)</li><li>LocalSend</li><li>Onshape FTC parts library — <a href="https://ftconshape.com/" target="_blank" rel="noopener">https://ftconshape.com/</a> (maintained by FTC Team 2901; email FIRST@ptc.com to be added to the shared folder)</li><li>FTC Insert Tool parts library plugin — <a href="https://cad.onshape.com/appstore/apps/Design%20&amp;%20Documentation/6515cfb91574253b1b96a6ba" target="_blank" rel="noopener">https://cad.onshape.com/appstore/apps/Design%20&amp;%20Documentation/6515cfb91574253b1b96a6ba</a> (install from the Onshape App Store: Subscribe → Get for Free)</li></ul>
 <h3 id="OnlineAccounts">Online Accounts</h3>
-<ul><li>CycleZLab — <a href="https://www.cyclezlab.com/" target="_blank" rel="noopener">https://www.cyclezlab.com/</a> (free, application required)</li></ul>
+<ul><li>CycleZLab — <a href="https://www.cyclezlab.com/" target="_blank" rel="noopener">https://www.cyclezlab.com/</a> (free, application required; the website is currently unreachable—see its GitHub organization at <a href="https://github.com/CycleZLab" target="_blank" rel="noopener">https://github.com/CycleZLab</a>)</li></ul>
 <hr>
 <h2 id="2EnvironmentSetup">2. Environment Setup</h2>
 <p>The following environment must be configured before you begin. If you have any questions, please consult an administrator.</p>
@@ -378,7 +381,7 @@ tr:nth-child(even){background:#fafafa}
 <p>Onshape is the cloud-based CAD platform adopted by our team. Compared with industrial modeling software such as SolidWorks, Onshape is light on system resources, makes sharing projects across devices easy, is beginner-friendly, and has official FIRST support—while remaining fully functional, it is ideal for learning CAD modeling and working on projects.</p>
 <p><strong>Registration:</strong></p>
 <ol><li>Open <a href="https://www.onshape.com/en/education/" target="_blank" rel="noopener">https://www.onshape.com/en/education/</a> and sign up for an Education account</li><li>Enter your first name, last name, and email address</li></ol>
-<blockquote class="bq-warning">Do not use QQ or other Chinese domestic email providers—verification emails may never arrive. Use @gmail.com or @outlook.com instead.</blockquote>
+<blockquote class="bq-warning">Do not use QQ or other Chinese domestic email providers—verification emails may not arrive. Use @gmail.com or @outlook.com instead.</blockquote>
 <ol start="3"><li>On the next screen, select your role "Student", school level "Grade School / K-12 (Ages <18)", and date of birth, then click Next</li><li>Fill in the following information:<ul><li>School name: BEIJING NATIONAL DAY EXPERIMENTAL SCHOOL</li><li>School website: <a href="https://sysyzx.bjhdedu.cn/" target="_blank" rel="noopener">https://sysyzx.bjhdedu.cn/</a></li><li>Expected graduation year</li><li>Reason for registering: I am a member of FTC Team 32477, and I registered this account to use the team's modeling tools. (fill this in if you are unsure what to write)</li><li>Check all three agreement boxes to complete registration</li></ul></li><li>Check your email for the confirmation message</li></ol>
 <blockquote class="bq-info">After registering, give your account name to an administrator so they can add you to the team's shared folder.</blockquote>
 <p><strong>Common issues:</strong></p>
@@ -388,7 +391,7 @@ tr:nth-child(even){background:#fafafa}
 <blockquote class="bq-info">These changes only apply to documents created afterwards; existing documents keep their original units.</blockquote>
 <ol start="4"><li>Update your profile as you prefer</li></ol>
 <h3 id="OnshapePlugins">Onshape Plugins</h3>
-<p>Thanks to its cloud-based nature, Onshape has a rich ecosystem of shared plugins, available through the Onshape App Store, third-party plugin websites, and sharing between users.</p>
+<p>Built on its cloud architecture, Onshape has a rich ecosystem of shared plugins, available through the Onshape App Store, third-party plugin websites, and sharing between users.</p>
 <p>Plugins commonly used by the team include (examples only):</p>
 <ul><li><strong>Onshape FTC parts library</strong> (core; see "1. Basic Requirements")</li><li><strong>Lighten</strong> (custom feature that slims down parts to make them lighter)</li><li><strong>Spur gear</strong> (custom feature, gear generator)</li><li><strong>HTD Pulley Generator</strong> (derived from another document, timing belt pulley generator)</li></ul>
 <hr>
@@ -417,7 +420,7 @@ tr:nth-child(even){background:#fafafa}
 <ul><li><strong>Core structural parts</strong> (e.g., beams, structural plates): print in PETG-CF when possible (see the Hardware &amp; Build chapter for parameters), with a thickness of at least 4 mm</li><li><strong>Guide parts</strong> (e.g., ball tracks, structural stops): PLA is fine, with a wall thickness of at least 2 mm</li><li><strong>Protective decorative parts</strong> (e.g., side panels): wall thickness of at least 1.5 mm</li><li>For brittle sheet materials such as acrylic, avoid dense hole patterns (hole spacing less than 3 mm); load-bearing connections between structures should be at least 7 mm wide</li><li>Avoid sharp corners wherever possible; round them off with fillets to prevent stress concentrations that can cause cracking</li></ul>
 <blockquote class="bq-info">The figures above are for reference only; actual parameters must be tuned and validated on physical parts.</blockquote>
 <h3 id="DesignStrategyandSeasonPlanning">Design Strategy and Season Planning</h3>
-<ul><li>When designing the robot, break the game tasks into small items, design the structures for each item separately, and then combine them</li><li>Before formal modeling, consult your teammates on the design and base it on the team's scoring strategy</li><li>After completing the whole-robot design, consider the actual assembly process: leave assembly access for hard-to-reach screws and reserve space for cable routing</li><li>Consider modular structures to make later repairs and optimization easier</li><li>For the final version, aim for a unified structure and cut unnecessary small parts to improve overall strength and reduce weight</li></ul>
+<ul><li>When designing the robot, break the game tasks into small items, design the structures for each item separately, and then combine them</li><li>Before formal modeling, consult your teammates on the design and base it on the team's scoring strategy</li><li>After completing the whole-robot design, take the actual assembly process into account: for internal structures that are hard to install, such as screws, reserve assembly access and cable routing space in advance</li><li>Consider modular structures to make later repairs and optimization easier</li><li>For the final version, aim for a unified structure and cut unnecessary small parts to improve overall strength and reduce weight</li></ul>
 <p><strong>Season planning:</strong></p>
 <ul><li>On the schedule: the first design iteration can be rough, but it must be finished and built as soon as possible to leave time for software debugging and Driver practice, and to test the structure physically for iterative optimization. Before qualifiers, a competition-ready robot should go through at least 3 iterations (reference)</li><li>Keep an eye on teams abroad. The FTC community has events like "Robot in 30 Hours Reveal | FTC" where teams may share their new season designs at any time. You can also reference designs from FRC and VEX teams</li><li>Most other teams' CAD files are shared publicly; asking a team directly for its models is normally not refused. Study good designs to improve your own — teams like Beijing National Day School (main campus) are especially worth learning from</li></ul>
 <h3 id="OnshapeLearningResources">Onshape Learning Resources</h3>
@@ -426,7 +429,7 @@ tr:nth-child(even){background:#fafafa}
 <blockquote class="bq-info">If you have questions, ask a modeling veteran or search online.</blockquote>
 <h3 id="CommonFTCPartsLibraries">Common FTC Parts Libraries</h3>
 <p>Commonly used FTC parts suppliers and resource platforms:</p>
-<ul><li><strong>goBILDA</strong>: provides a complete range of FTC structural components</li><li><strong>REV Robotics</strong>: provides control system modules and structural components</li><li><strong>CycleZLab</strong>: a FIRST robotics community platform (archive of CAD, code, and build logs)</li></ul>
+<ul><li><strong>goBILDA</strong>: provides a complete range of FTC structural components</li><li><strong>REV Robotics</strong>: provides control system modules and structural components</li><li><strong>CycleZLab</strong>: a FIRST robotics community (archive of CAD, code, and build logs; the website is currently unreachable—GitHub organization: <a href="https://github.com/CycleZLab" target="_blank" rel="noopener">https://github.com/CycleZLab</a>)</li></ul>
 <h3 id="DesignStandards">Design Standards</h3>
 <ul><li>Use metric units (mm)</li><li>Leave appropriate clearance for all 3D-printed parts (0.2–0.3 mm recommended)</li><li>Export formats: STEP files for machining, STL files for 3D printing, and 3MF files for slicing</li></ul>
 </main>

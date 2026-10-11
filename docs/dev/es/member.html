@@ -186,6 +186,8 @@ blockquote{
 blockquote.bq-info{border-left-color:#1565c0;background:#eaf3fb;color:#0d3c66}
 blockquote.bq-warning{border-left-color:#f9a825;background:#fff8e1;color:#6d4c00}
 blockquote.bq-danger{border-left-color:#d32f2f;background:#fef5f5;color:#8b0000}
+blockquote ul,blockquote ol{margin:6px 0 0;padding-left:20px}
+blockquote li+li{margin-top:4px}
 hr{border:none;border-top:1px solid var(--border);margin:24px 0}
 img{max-width:100%;border-radius:var(--radius);margin:12px 0}
 /* 锚点跳转留白（避免被固定顶栏遮挡） */
@@ -294,6 +296,7 @@ tr:nth-child(even){background:#fafafa}
   }
   th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
+  pre{white-space:pre-wrap !important;overflow-wrap:anywhere !important;overflow:visible !important}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
   .img-row .img-fig{flex:1 1 0}
@@ -365,9 +368,9 @@ tr:nth-child(even){background:#fafafa}
 <p>Basta con una de las siguientes opciones:</p>
 <ul><li>Un ordenador con Windows 10 o superior</li><li>Un ordenador con macOS 13 o superior</li></ul>
 <h3 id="Entornodered">Entorno de red</h3>
-<p>Es necesario disponer de un entorno de red con acceso al soporte de Android.</p>
+<p>Es necesario disponer de un entorno de red con acceso a los recursos de soporte de Android.</p>
 <ul><li>Soporte de Android: <a href="https://support.google.com/android" target="_blank" rel="noopener">https://support.google.com/android</a></li></ul>
-<blockquote class="bq-info">La LAN propia del equipo se conecta a una pasarela independiente del campus: es más estable que la red habitual del campus, pero conserva las restricciones de acceso de esta. El puesto de Programación necesita acceder a recursos de red en el extranjero compatibles con Android; el equipo puede facilitar una vía de acceso. Si prevé un uso intensivo, se recomienda contratar su propio servicio.</blockquote>
+<blockquote class="bq-info">La LAN propia del equipo se conecta a una pasarela independiente del campus: su estabilidad supera a la de la red habitual del campus, pero sigue sujeta a las restricciones de acceso de la red del campus. Programación necesita acceder a recursos de red en el extranjero compatibles con Android; el equipo puede facilitar una vía de acceso. Si prevé un uso intensivo, se recomienda contratar su propio servicio.</blockquote>
 <h3 id="Aplicaciones">Aplicaciones</h3>
 <ul><li>Navegador web (Chrome, Edge o Safari)</li><li>LocalSend</li></ul>
 <h3 id="Cuentasenlínea">Cuentas en línea</h3>
@@ -377,7 +380,7 @@ tr:nth-child(even){background:#fafafa}
 <h2 id="2Configuracióndelentorno">2. Configuración del entorno</h2>
 <p>A continuación se describe el entorno de trabajo que hay que configurar antes de empezar. Siga las instrucciones y consulte al administrador si tiene dudas.</p>
 <h3 id="Navegadorweb">Navegador web</h3>
-<p>Instálelo por su cuenta. Recomendamos Chrome.</p>
+<p>Instálelo por su cuenta; se recomienda Chrome.</p>
 <p>Descarga de Chrome: <a href="https://www.google.com/chrome/" target="_blank" rel="noopener">https://www.google.com/chrome/</a></p>
 <p><strong>Sitios web que debe conocer, leer y guardar:</strong></p>
 <div class="table-wrap"><table><thead><tr><th style="text-align:left">Nombre</th><th style="text-align:left">Dirección</th></tr></thead><tbody><tr><td style="text-align:left">Current Game and Season Materials</td><td style="text-align:left">https://ftc-resources.firstinspires.org/ftc/game</td></tr><tr><td style="text-align:left">FIRST Tech Challenge documentation</td><td style="text-align:left">https://ftc-docs.firstinspires.org/en/latest/index.html</td></tr><tr><td style="text-align:left">FTC AI</td><td style="text-align:left">https://ftc-cmchatbot.firstinspires.org/</td></tr><tr><td style="text-align:left">Techno Trojans</td><td style="text-align:left">https://www.fruitportrobotics.org/</td></tr><tr><td style="text-align:left">FTC Event Web — Team 32477</td><td style="text-align:left">https://ftc-events.firstinspires.org/team/32477</td></tr><tr><td style="text-align:left">32477 — FTCScout</td><td style="text-align:left">https://ftcscout.org/teams/32477</td></tr><tr><td style="text-align:left">GitHub FTC 32477</td><td style="text-align:left">https://github.com/ftc32477</td></tr></tbody></table></div>
@@ -389,16 +392,16 @@ tr:nth-child(even){background:#fafafa}
 <p>Para las operaciones concretas, consulte al administrador.</p>
 <h3 id="LocalSend">LocalSend</h3>
 <p>LocalSend es la herramienta de transferencia de archivos en la red local que utiliza nuestro equipo.</p>
-<p><strong>Proceso de instalación (ejemplo con la versión v1.17.0):</strong></p>
+<p><strong>Proceso de instalación (ejemplo con la versión v1.18.2):</strong></p>
 <blockquote class="bq-warning">En <strong>iOS</strong>: abra <a href="https://apps.apple.com/us/app/localsend/id1661733229" target="_blank" rel="noopener">https://apps.apple.com/us/app/localsend/id1661733229</a> e instálela.</blockquote>
 <ol><li>Abra <a href="https://localsend.org/es/download" target="_blank" rel="noopener">https://localsend.org/es/download</a></li><li>O acceda al repositorio de GitHub: <a href="https://github.com/localsend/localsend/releases" target="_blank" rel="noopener">https://github.com/localsend/localsend/releases</a></li><li>Desplace la página hacia abajo y, en la lista Assets de la última versión, pulse "Show all assets" para mostrar todas las versiones disponibles</li><li>Descargue la versión correspondiente e instálela</li></ol>
 <p><strong>Descripción de las versiones por plataforma:</strong></p>
 <ul><li><strong>Android:</strong><ul><li><code>-android-arm32v7.apk</code>: compilada para CPU ARM de 32 bits de 7.ª generación</li><li><code>-android-arm64v8.apk</code>: compilada para CPU ARM de 64 bits de 8.ª generación</li><li><code>-android-google-play.apk</code>: compilada para Google Play (puede requerir los servicios de Google Mobile Services)</li><li><code>-android-x64.apk</code>: compilada para arquitectura x86 de 64 bits</li></ul></li><li><strong>Linux:</strong><ul><li><code>-linux-arm-64.deb</code>: paquete .deb para sistemas Debian/Ubuntu con arquitectura ARM de 64 bits</li><li><code>-linux-arm-64.tar.gz</code>: paquete comprimido universal para Linux con arquitectura ARM de 64 bits</li><li><code>-linux-x86-64.AppImage</code>: ejecutable AppImage para Linux con arquitectura x86 de 64 bits</li><li><code>-linux-x86-64.deb</code>: paquete .deb para sistemas Debian/Ubuntu con arquitectura x86 de 64 bits</li><li><code>-linux-x86-64.tar.gz</code>: paquete comprimido universal para Linux con arquitectura x86 de 64 bits</li></ul></li><li><strong>Windows:</strong><ul><li><code>-windows-x86-64.exe</code>: instalador para arquitectura x86 de 64 bits</li><li><code>-windows-x86-64.zip</code>: paquete comprimido portátil (sin instalación) para arquitectura x86 de 64 bits</li></ul></li><li><strong>macOS:</strong><ul><li><code>.dmg</code>: imagen de disco instalable para macOS</li></ul></li></ul>
 <h3 id="GitHub">GitHub</h3>
-<p>GitHub es el repositorio de almacenamiento de material de código abierto que utiliza nuestro equipo.</p>
+<p>GitHub es la plataforma de alojamiento de código y materiales que utiliza nuestro equipo.</p>
 <p><strong>Proceso de registro:</strong></p>
-<ol><li>Abra <a href="https://github.com/signup" target="_blank" rel="noopener">https://github.com/signup</a></li><li>Siga las indicaciones para crear una cuenta personal<ul><li>Durante el registro, el sistema pedirá verificar la dirección de correo electrónico</li><li>Recomendamos seleccionar «Estados Unidos» como país/región</li></ul></li><li>Tras registrarse, comunique su nombre de usuario al administrador y espere a que le envíe la invitación para unirse a la organización. Puede consultarla en <a href="https://github.com/notifications" target="_blank" rel="noopener">https://github.com/notifications</a>.</li></ol>
-<p>A continuación, ya puede consultar y modificar los repositorios en <a href="https://github.com/orgs/ftc32477/repositories" target="_blank" rel="noopener">https://github.com/orgs/ftc32477/repositories</a>.</p>
+<ol><li>Abra <a href="https://github.com/signup" target="_blank" rel="noopener">https://github.com/signup</a></li><li>Siga las indicaciones para crear una cuenta personal<ul><li>Durante el registro, el sistema pedirá verificar la dirección de correo electrónico</li><li>Se recomienda seleccionar «Estados Unidos» como país/región</li></ul></li><li>Tras registrarse, comunique su nombre de usuario al administrador y espere a que le envíe la invitación para unirse a la organización. Puede consultarla en <a href="https://github.com/notifications" target="_blank" rel="noopener">https://github.com/notifications</a>.</li></ol>
+<p>Una vez unido a la organización, puede consultar los repositorios de la organización en <a href="https://github.com/orgs/ftc32477/repositories" target="_blank" rel="noopener">https://github.com/orgs/ftc32477/repositories</a>; si necesita modificar algún contenido, siga el procedimiento de «5. Fundamentos de colaboración en GitHub» del capítulo «Programación» para enviar una solicitud de incorporación de cambios.</p>
 <p><strong>Referencias:</strong></p>
 <ul><li><a href="https://docs.github.com/es/get-started/start-your-journey/creating-an-account-on-github" target="_blank" rel="noopener">Documentación de GitHub sobre cómo crear una cuenta</a></li></ul>
 <h3 id="Onshape">Onshape</h3>
@@ -411,9 +414,9 @@ tr:nth-child(even){background:#fafafa}
 <hr>
 <h2 id="3Temporadayhorarios">3. Temporada y horarios</h2>
 <h3 id="Calendariodelatemporada">Calendario de la temporada</h3>
-<ul><li>Una temporada FTC completa va de septiembre a junio del año siguiente; el juego de la nueva temporada se publica a mediados de septiembre, dejando unas siete u ocho semanas para el diseño y la depuración del robot</li><li>Las fases de clasificación se celebran en varias ciudades del país; los equipos clasificados disputan el campeonato nacional durante las vacaciones de invierno y, si vuelven a clasificarse, van a Houston (EE. UU.) para la final internacional (hasta ahora solo unos 4 equipos de la China continental han llegado a la final de Houston)</li><li>Los materiales básicos del campo de la nueva temporada se entregan oficialmente tras el inicio del curso; el campo puede montarse en cuanto lleguen</li></ul>
+<ul><li>La temporada FTC comienza con el Kickoff a mediados de septiembre y se extiende hasta el FIRST Championship de finales de abril o principios de mayo (Houston); el soporte oficial suele prolongarse hasta finales de julio. El juego de la nueva temporada se publica con el Kickoff, tras lo cual comienza la fase de diseño y depuración del robot</li><li>Las fases de clasificación se celebran en varias ciudades del país; los equipos clasificados disputan el campeonato nacional durante las vacaciones de invierno y, si vuelven a clasificarse, van a Houston (EE. UU.) para la final internacional (hasta 2026, solo unos 4 equipos de la China continental han llegado a la final de Houston)</li><li>Los materiales básicos del campo de la nueva temporada se entregan oficialmente tras el inicio del curso; el campo puede montarse en cuanto lleguen</li></ul>
 <h3 id="Reglasaconocer">Reglas a conocer</h3>
-<ul><li>El robot se pilota manualmente con un mando Xbox; oficialmente solo se permite el modelo Xbox 360</li><li>La levitación magnética está prohibida por el reglamento; los imanes ordinarios y los electroimanes están permitidos</li><li>El rango de edad oficial de la FTC es de 12 a 18 años; los estudiantes de secundaria pueden participar</li></ul>
+<ul><li>El robot se pilota manualmente con un mando con cable (p. ej., Logitech F310, Xbox 360); la conexión por cable es obligatoria y los modelos permitidos son los que se indican en el manual de competición de la temporada</li><li>El reglamento prohíbe los relés, los electroimanes y los actuadores solenoides (R506); los imanes permanentes comunes pueden utilizarse como materia prima (R302)</li><li>El rango de edad oficial de la FTC es de 12 a 18 años; los estudiantes de secundaria pueden participar</li></ul>
 </main>
 
 <script>

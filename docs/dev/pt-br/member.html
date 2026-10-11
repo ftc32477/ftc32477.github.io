@@ -186,6 +186,8 @@ blockquote{
 blockquote.bq-info{border-left-color:#1565c0;background:#eaf3fb;color:#0d3c66}
 blockquote.bq-warning{border-left-color:#f9a825;background:#fff8e1;color:#6d4c00}
 blockquote.bq-danger{border-left-color:#d32f2f;background:#fef5f5;color:#8b0000}
+blockquote ul,blockquote ol{margin:6px 0 0;padding-left:20px}
+blockquote li+li{margin-top:4px}
 hr{border:none;border-top:1px solid var(--border);margin:24px 0}
 img{max-width:100%;border-radius:var(--radius);margin:12px 0}
 /* 锚点跳转留白（避免被固定顶栏遮挡） */
@@ -294,6 +296,7 @@ tr:nth-child(even){background:#fafafa}
   }
   th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
+  pre{white-space:pre-wrap !important;overflow-wrap:anywhere !important;overflow:visible !important}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
   .img-row .img-fig{flex:1 1 0}
@@ -367,7 +370,7 @@ tr:nth-child(even){background:#fafafa}
 <h3 id="Ambientederede">Ambiente de rede</h3>
 <p>É necessário um ambiente de rede com acesso aos recursos de suporte do Android.</p>
 <ul><li>Suporte do Android: <a href="https://support.google.com/android" target="_blank" rel="noopener">https://support.google.com/android</a></li></ul>
-<blockquote class="bq-info">A equipe mantém uma rede local própria, conectada a um gateway dedicado do campus: ela é mais estável que a rede escolar comum, mas mantém as restrições de acesso desta. A área de programação precisa acessar recursos de rede no exterior para o suporte do Android; a equipe pode oferecer um caminho de acesso, mas, se houver necessidade de uso intenso, recomendamos contratar um serviço próprio.</blockquote>
+<blockquote class="bq-info">A equipe mantém uma rede local própria, conectada a um gateway dedicado do campus: ela é mais estável que a rede escolar comum, mas ainda está sujeita às restrições de acesso desta. A programação precisa acessar recursos de rede no exterior para o suporte do Android; a equipe pode oferecer um caminho de acesso, mas, se houver necessidade de uso intenso, recomendamos contratar um serviço próprio.</blockquote>
 <h3 id="Aplicativos">Aplicativos</h3>
 <ul><li>Navegador de internet (Chrome, Edge ou Safari)</li><li>LocalSend</li></ul>
 <h3 id="Contasonline">Contas online</h3>
@@ -377,7 +380,7 @@ tr:nth-child(even){background:#fafafa}
 <h2 id="2Configuraçãodoambiente">2. Configuração do ambiente</h2>
 <p>O ambiente de trabalho abaixo deve ser configurado antes do início oficial. Siga as instruções; em caso de dúvidas, consulte um administrador.</p>
 <h3 id="Navegadordeinternet">Navegador de internet</h3>
-<p>Instale por conta própria. Recomendamos o Chrome.</p>
+<p>Instale por conta própria; recomendamos o Chrome.</p>
 <p>Download do Chrome: <a href="https://www.google.com/chrome/" target="_blank" rel="noopener">https://www.google.com/chrome/</a></p>
 <p><strong>Sites que você precisa conhecer, ler e salvar nos favoritos:</strong></p>
 <div class="table-wrap"><table><thead><tr><th style="text-align:left">Nome</th><th style="text-align:left">Endereço</th></tr></thead><tbody><tr><td style="text-align:left">Current Game and Season Materials</td><td style="text-align:left">https://ftc-resources.firstinspires.org/ftc/game</td></tr><tr><td style="text-align:left">FIRST Tech Challenge documentation</td><td style="text-align:left">https://ftc-docs.firstinspires.org/en/latest/index.html</td></tr><tr><td style="text-align:left">FTC AI</td><td style="text-align:left">https://ftc-cmchatbot.firstinspires.org/</td></tr><tr><td style="text-align:left">Techno Trojans</td><td style="text-align:left">https://www.fruitportrobotics.org/</td></tr><tr><td style="text-align:left">FTC Event Web — Team 32477</td><td style="text-align:left">https://ftc-events.firstinspires.org/team/32477</td></tr><tr><td style="text-align:left">32477 — FTCScout</td><td style="text-align:left">https://ftcscout.org/teams/32477</td></tr><tr><td style="text-align:left">GitHub FTC 32477</td><td style="text-align:left">https://github.com/ftc32477</td></tr></tbody></table></div>
@@ -389,16 +392,16 @@ tr:nth-child(even){background:#fafafa}
 <p>Consulte um administrador para instruções específicas.</p>
 <h3 id="LocalSend">LocalSend</h3>
 <p>O LocalSend é a ferramenta de transferência de arquivos em rede local adotada pela nossa equipe.</p>
-<p><strong>Instalação (usando a versão v1.17.0 como exemplo):</strong></p>
+<p><strong>Instalação (usando a versão v1.18.2 como exemplo):</strong></p>
 <blockquote class="bq-warning">Para <strong>iOS</strong>: abra <a href="https://apps.apple.com/us/app/localsend/id1661733229" target="_blank" rel="noopener">https://apps.apple.com/us/app/localsend/id1661733229</a> e instale diretamente.</blockquote>
 <ol><li>Abra <a href="https://localsend.org/pt-BR/download" target="_blank" rel="noopener">https://localsend.org/pt-BR/download</a></li><li>Ou acesse o repositório no GitHub: <a href="https://github.com/localsend/localsend/releases" target="_blank" rel="noopener">https://github.com/localsend/localsend/releases</a></li><li>Role a página e, na lista Assets da versão mais recente, clique em "Show all assets" para exibir todas as versões disponíveis</li><li>Baixe a versão correspondente à sua plataforma e instale</li></ol>
 <p><strong>Versões por plataforma:</strong></p>
 <ul><li><strong>Android:</strong><ul><li><code>-android-arm32v7.apk</code>: versão compilada para CPUs ARM de 32 bits, arquitetura v7</li><li><code>-android-arm64v8.apk</code>: versão compilada para CPUs ARM de 64 bits, arquitetura v8</li><li><code>-android-google-play.apk</code>: versão compilada para a Google Play Store (pode exigir Google Mobile Services)</li><li><code>-android-x64.apk</code>: versão compilada para arquitetura x86 de 64 bits</li></ul></li><li><strong>Linux:</strong><ul><li><code>-linux-arm-64.deb</code>: pacote Deb para sistemas Debian/Ubuntu e derivados em ARM de 64 bits</li><li><code>-linux-arm-64.tar.gz</code>: pacote compactado genérico para Linux ARM de 64 bits</li><li><code>-linux-x86-64.AppImage</code>: executável AppImage para Linux x86 de 64 bits</li><li><code>-linux-x86-64.deb</code>: pacote Deb para Debian/Ubuntu e derivados em x86 de 64 bits</li><li><code>-linux-x86-64.tar.gz</code>: pacote compactado genérico para Linux x86 de 64 bits</li></ul></li><li><strong>Windows:</strong><ul><li><code>-windows-x86-64.exe</code>: instalador compilado para x86 de 64 bits</li><li><code>-windows-x86-64.zip</code>: pacote portátil compilado para x86 de 64 bits</li></ul></li><li><strong>macOS:</strong><ul><li><code>.dmg</code>: imagem de disco instalável compilada para macOS</li></ul></li></ul>
 <h3 id="GitHub">GitHub</h3>
-<p>O GitHub é a plataforma de repositórios de código aberto adotada pela nossa equipe.</p>
+<p>O GitHub é a plataforma de hospedagem de código e materiais adotada pela nossa equipe.</p>
 <p><strong>Registro:</strong></p>
 <ol><li>Abra <a href="https://github.com/signup" target="_blank" rel="noopener">https://github.com/signup</a></li><li>Crie uma conta pessoal seguindo as instruções<ul><li>Durante o registro, o sistema pedirá a verificação do seu e-mail</li><li>Recomendamos selecionar "Estados Unidos" como país/região</li></ul></li><li>Após o registro, informe seu nome de usuário a um administrador e aguarde o convite para entrar na organização. Você pode conferir em <a href="https://github.com/notifications" target="_blank" rel="noopener">https://github.com/notifications</a>.</li></ol>
-<p>Depois disso, você poderá visualizar e modificar repositórios em <a href="https://github.com/orgs/ftc32477/repositories" target="_blank" rel="noopener">https://github.com/orgs/ftc32477/repositories</a>.</p>
+<p>Depois de entrar na organização, você pode visualizar os repositórios da organização em <a href="https://github.com/orgs/ftc32477/repositories" target="_blank" rel="noopener">https://github.com/orgs/ftc32477/repositories</a>; para modificar conteúdo, envie um pull request seguindo o fluxo da seção "5. Fundamentos de colaboração no GitHub" do capítulo "Programação".</p>
 <p><strong>Referências:</strong></p>
 <ul><li><a href="https://docs.github.com/pt/get-started/start-your-journey/creating-an-account-on-github" target="_blank" rel="noopener">Documentação do GitHub: criar uma conta</a></li></ul>
 <h3 id="Onshape">Onshape</h3>
@@ -411,9 +414,9 @@ tr:nth-child(even){background:#fafafa}
 <hr>
 <h2 id="3Temporadaecalendário">3. Temporada e calendário</h2>
 <h3 id="Linhadotempodatemporada">Linha do tempo da temporada</h3>
-<ul><li>Uma temporada completa do FTC vai de setembro de um ano a junho do ano seguinte; o desafio da nova temporada é divulgado em meados de setembro e, após o lançamento, há cerca de sete a oito semanas para projetar e ajustar o robô</li><li>Os torneios classificatórios são realizados em várias cidades do país; as equipes classificadas disputam o campeonato nacional nas férias de inverno e, se avançarem novamente, vão a Houston, nos Estados Unidos, para o Campeonato Mundial (até hoje, apenas cerca de 4 equipes da China continental chegaram ao Mundial de Houston)</li><li>Os materiais básicos do campo da nova temporada são enviados oficialmente após o início do ano letivo e, quando chegam, o campo pode ser montado</li></ul>
+<ul><li>A temporada do FTC vai do Kickoff, em meados de setembro de um ano, até o FIRST Championship (em Houston), no fim de abril ou início de maio do ano seguinte; o suporte oficial costuma se estender até o fim de julho. O desafio da nova temporada é divulgado no Kickoff; a partir daí, começa a fase de projeto e depuração do robô</li><li>Os torneios classificatórios são realizados em várias cidades do país; as equipes classificadas disputam o campeonato nacional nas férias de inverno e, se avançarem novamente, vão a Houston, nos Estados Unidos, para o Campeonato Mundial (até 2026, apenas cerca de 4 equipes da China continental chegaram ao Mundial de Houston)</li><li>Os materiais básicos do campo da nova temporada são enviados oficialmente após o início do ano letivo e, quando chegam, o campo pode ser montado</li></ul>
 <h3 id="Observaçõessobreasregrasdacompetição">Observações sobre as regras da competição</h3>
-<ul><li>O robô é pilotado manualmente com um controle de Xbox; oficialmente, apenas o modelo Xbox 360 é permitido — outros modelos não atendem às regras</li><li>As regras proíbem o uso de levitação magnética; ímãs comuns e eletroímãs podem ser usados normalmente</li><li>A faixa etária oficial do FTC é de 12 a 18 anos; alunos do ensino fundamental (anos finais) também podem participar</li></ul>
+<ul><li>O robô é pilotado manualmente com um controle com fio (como o Logitech F310 e o Xbox 360); oficialmente, a conexão com fio é obrigatória, e os modelos permitidos são os do Manual de Competição da temporada</li><li>As regras proíbem relés, eletroímãs e atuadores solenoides (R506); ímãs permanentes comuns podem ser usados como matéria-prima (R302)</li><li>A faixa etária oficial do FTC é de 12 a 18 anos; alunos do ensino fundamental (anos finais) também podem participar</li></ul>
 </main>
 
 <script>

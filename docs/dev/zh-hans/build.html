@@ -186,6 +186,8 @@ blockquote{
 blockquote.bq-info{border-left-color:#1565c0;background:#eaf3fb;color:#0d3c66}
 blockquote.bq-warning{border-left-color:#f9a825;background:#fff8e1;color:#6d4c00}
 blockquote.bq-danger{border-left-color:#d32f2f;background:#fef5f5;color:#8b0000}
+blockquote ul,blockquote ol{margin:6px 0 0;padding-left:20px}
+blockquote li+li{margin-top:4px}
 hr{border:none;border-top:1px solid var(--border);margin:24px 0}
 img{max-width:100%;border-radius:var(--radius);margin:12px 0}
 /* 锚点跳转留白（避免被固定顶栏遮挡） */
@@ -294,6 +296,7 @@ tr:nth-child(even){background:#fafafa}
   }
   th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
+  pre{white-space:pre-wrap !important;overflow-wrap:anywhere !important;overflow:visible !important}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
   .img-row .img-fig{flex:1 1 0}
@@ -372,7 +375,7 @@ tr:nth-child(even){background:#fafafa}
 <h3 id="应用程序">应用程序</h3>
 <ul><li>Bambu Studio</li><li>RD Works V8</li></ul>
 <h3 id="在线账户">在线账户</h3>
-<ul><li>电子邮箱（推荐使用 @gmail.com 或 @outlook.com）</li><li>Bambu Studio — <a href="https://bambulab.cn/" target="_blank" rel="noopener">https://bambulab.cn/</a></li><li>Onshape — <a href="https://www.onshape.com/" target="_blank" rel="noopener">https://www.onshape.com/</a></li><li>CycleZLab — <a href="https://www.cyclezlab.com/" target="_blank" rel="noopener">https://www.cyclezlab.com/</a></li></ul>
+<ul><li>电子邮箱（推荐使用 @gmail.com 或 @outlook.com）</li><li>Bambu Studio — <a href="https://bambulab.cn/" target="_blank" rel="noopener">https://bambulab.cn/</a></li><li>Onshape — <a href="https://www.onshape.com/" target="_blank" rel="noopener">https://www.onshape.com/</a></li><li>CycleZLab — <a href="https://www.cyclezlab.com/" target="_blank" rel="noopener">https://www.cyclezlab.com/</a>（官网目前无法访问；GitHub 组织：<a href="https://github.com/CycleZLab" target="_blank" rel="noopener">https://github.com/CycleZLab</a>）</li></ul>
 <hr>
 <h2 id="二环境配置">二、环境配置</h2>
 <p>以下是在正式开始前需要配置的工作环境，请按照说明操作。如有疑问，请向管理员咨询。</p>
@@ -386,7 +389,7 @@ tr:nth-child(even){background:#fafafa}
 <p><strong>软件安装及环境配置流程：</strong></p>
 <ol><li>打开 <a href="https://bambulab.cn/zh-cn/download/studio" target="_blank" rel="noopener">https://bambulab.cn/zh-cn/download/studio</a></li><li>选择合适的版本下载并安装即可。</li></ol>
 <p><strong>需要注意的是：</strong></p>
-<ul><li>在 Windows 中，你可以更改软件的安装目录，保证路径结尾为 <code>..\Bambu Studio\</code> 即可。安装成功时，需要勾选"使用 Bambu Studio 打开 .3mf 文件""使用 Bambu Studio 打开 .stl 文件""使用 Bambu Studio 打开 .step/.stp 文件"。</li><li>在 macOS 中，将 <code>BambuStudio.app</code> 拖入 Applications 文件夹即可。</li><li>运行 Bambu Studio。登录区域请选择"中国内地（大陆）"，打印机请至少选择 <strong>Bambu Lab P1S</strong> 和 <strong>Bambu Lab P2S</strong>，材料按默认配置即可。请勾选"安装 Bambu 网络插件"。</li><li>请使用手机号码等方式登录 Bambu 帐号。</li></ul>
+<ul><li>在 Windows 中，你可以更改软件的安装目录，保证路径结尾为 <code>..\Bambu Studio\</code> 即可。安装成功时，需要勾选"使用 Bambu Studio 打开 .3mf 文件""使用 Bambu Studio 打开 .stl 文件""使用 Bambu Studio 打开 .step/.stp 文件"。</li><li>在 macOS 中，将 <code>BambuStudio.app</code> 拖入 Applications 文件夹即可。</li><li>运行 Bambu Studio。登录区域请选择"中国内地（大陆）"，打印机请至少选择 <strong>Bambu Lab P1S</strong> 和 <strong>Bambu Lab P2S</strong>，材料按默认配置即可。请勾选"安装 Bambu 网络插件"。</li><li>请使用手机号码等方式登录 Bambu 账号。</li></ul>
 <h3 id="RDWorksV8">RD Works V8</h3>
 <blockquote class="bq-danger"><strong>注意：</strong> 强烈不推荐使用 macOS 安装本程序，否则需要 Parallels Desktop、VMware Fusion 或 CrossOver 等虚拟机支持。</blockquote>
 <p>RD Works V8 是我队采用的激光切割机的配套驱动软件。</p>
@@ -399,7 +402,7 @@ tr:nth-child(even){background:#fafafa}
 <blockquote class="bq-info">此处仅收录最常用的工具。其余不常用工具统一整理为《工具清单》附录，后续将持续扩充。</blockquote>
 <h4>内六角型扳手</h4>
 <p>截面呈正六边形的 L 型或 T 型工具，用于拧转内六角螺栓或螺钉。使用时，将扳手较短或长的一端完全插入螺钉头的六角孔内，顺时针旋转为紧固，逆时针旋转为松开。T 型手柄扳手通常用于提供更大的杠杆力或在深孔作业。</p>
-<blockquote class="bq-info">我们最常用的扳手规格是 M3 与 M4 两种，务必随身常备。</blockquote>
+<blockquote class="bq-info">最常用的规格为 M3 与 M4，应随身常备。</blockquote>
 <h4>套筒</h4>
 <p>一种圆柱形的紧固工具，内壁呈六角形，能够包住螺母或螺栓头。使用时，将套筒垂直套在螺母上，通过手柄带动旋转。其优势在于接触面积大，不易打滑，且适合在空间狭窄、普通扳手无法旋转的区域工作。</p>
 <h4>活口扳手</h4>
@@ -416,26 +419,26 @@ tr:nth-child(even){background:#fafafa}
 <p>内置弹簧卷收机构的柔性金属尺，用于测量较长距离或非线性尺寸。使用时，拉出尺带，将前端挂钩勾住物体边缘或抵住基准面。读取尺带上的刻度，测量完毕后按下锁紧扣或利用自动回弹功能回收尺带。注意挂钩通常有轻微活动量，这是为了补偿挂钩厚度以确保内量与外量读数一致。</p>
 <h4>游标卡尺</h4>
 <p>游标卡尺的主要部分是主尺 A 和一条可以沿着主尺滑动的游标尺 B。</p>
-<ul><li><strong>原理</strong>：游标卡尺是利用主尺的单位刻度（1mm）与游标尺的单位刻度之间固定的微量差值来提高测量精度的。常用的游标卡尺有 10 分度、20 分度和 50 分度三种。</li><li><strong>读数</strong>：先读主尺上的刻度，根据游标尺上零刻度线与主尺刻度线的相对位置读取主尺读数；再读游标尺上的刻度，看游标尺上第几条刻度线与主尺上的刻度线对齐；结合主尺及游标尺的读数得到被测长度。</li><li><strong>使用</strong>：当外（内）测量爪一侧的两个刃接触时，游标尺上的零刻度线与主尺上的零刻度线正好对齐。将被测物体夹（套）在这两个刃之间，把主尺读数和游标尺读数综合起来，就是被测物体的长度。</li></ul>
+<ul><li><strong>原理</strong>：游标卡尺是利用主尺的单位刻度（1 mm）与游标尺的单位刻度之间固定的微量差值来提高测量精度的。常用的游标卡尺有 10 分度、20 分度和 50 分度三种。</li><li><strong>读数</strong>：先读主尺上的刻度，根据游标尺上零刻度线与主尺刻度线的相对位置读取主尺读数；再读游标尺上的刻度，看游标尺上第几条刻度线与主尺上的刻度线对齐；结合主尺及游标尺的读数得到被测长度。</li><li><strong>使用</strong>：当外（内）测量爪一侧的两个刃接触时，游标尺上的零刻度线与主尺上的零刻度线正好对齐。将被测物体夹（套）在这两个刃之间，把主尺读数和游标尺读数综合起来，就是被测物体的长度。</li></ul>
 <h4>螺旋测微器</h4>
 <p>螺旋测微器的测砧 A 和固定刻度 B 是固定在尺架 C 上的；可动刻度 E、旋钮 D、微调旋钮 D' 是与测微螺杆 F 连在一起的，通过精密螺纹套在 B 上。</p>
 <ul><li><strong>原理</strong>：当旋钮 D 旋转一周，螺杆 F 便沿着旋转轴线方向前进或后退一个螺距的距离。螺旋测微器的固定刻度 B 的螺距是 0.5 mm，圆周上的可动刻度 E 有 50 个等分刻度，因此可动刻度每旋转一格，对应测微螺杆 F 前进或后退 0.01 mm。用螺旋测微器测量可准确到 0.01 mm。</li><li><strong>读数</strong>：先读 B 上的刻度，观察到 B 上的半毫米刻度线是否已露出；再读 E 上的刻度，每一格对应 0.01 mm。综合 B 及 E 的读数得到被测长度。</li><li><strong>使用</strong>：先使 F 与 A 接触，E 的左边缘与 B 的零刻度线对正；将被测物体夹在 F 与 A 之间，旋转 D，当 F 快靠近物体时停止使用 D，改用 D'，听到"喀喀"声时停止，然后读数。</li></ul>
 <h3 id="常用材料">常用材料</h3>
 <h4>通用材料</h4>
-<p>各种渠道都可以采购到的：</p>
+<p>以下材料可在常规渠道采购：</p>
 <ul><li>各种螺丝、螺母</li><li>六棱柱</li><li>同步带轮</li><li>轴承</li></ul>
-<blockquote class="bq-warning">轴不列入通用材料：轴的规格需求比较特殊，请按项目实际需要单独采购。</blockquote>
+<blockquote class="bq-warning">轴不列入通用材料：其规格需求特殊，请按项目需要单独采购。</blockquote>
 <h4>专用材料</h4>
 <p>官方 REV 和 goBILDA 的专用型材。</p>
 <h4>材料特性</h4>
-<div class="table-wrap"><table><thead><tr><th style="text-align:left">品牌</th><th style="text-align:left">特点</th></tr></thead><tbody><tr><td style="text-align:left"><strong>REV</strong></td><td style="text-align:left">相对古老但是核心。三大电控模块（Driver Hub、Control Hub、Expansion Hub）主要采用 REV 产品。结构件包括各种铝型材（应用相对较少），型材可做小限位架、固定非单位位移结构。型材主要对应 M3 杯头螺丝（仅），6mm REX 轴，齿轮和链条，72:1 横轴电机、40:1 电机较为可用常用。</td></tr><tr><td style="text-align:left"><strong>goBILDA</strong></td><td style="text-align:left">C 型梁、方梁或薄梁，8mm REX 轴，各种单位化的连接件，连接功能完善。主要采用 M4 螺丝（官方 10mm），电机多为 5203 系列。适用于电机直传的套件。</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">品牌</th><th style="text-align:left">特点</th></tr></thead><tbody><tr><td style="text-align:left"><strong>REV</strong></td><td style="text-align:left">推出较早，但目前仍是核心。三大电控模块（Driver Hub、Control Hub、Expansion Hub）主要采用 REV 产品。结构件包括各种铝型材（应用相对较少），型材可做小限位架、固定非单位位移结构。型材主要对应 M3 杯头螺丝（仅）、5 mm 六角轴、齿轮和链条；电机以 72:1 的 Core Hex 与 40:1 的 HD Hex 为主（后者已停产，存量仍在流通）。</td></tr><tr><td style="text-align:left"><strong>goBILDA</strong></td><td style="text-align:left">C 型梁、方梁或薄梁，8 mm REX 轴，各种单位化的连接件，连接功能完善。主要采用 M4 螺丝（官方 10 mm），电机多为 5203 系列。适用于电机直传的套件。</td></tr></tbody></table></div>
 <p><strong>REV 供应商细节：</strong></p>
-<ul><li><strong>核心电控模块</strong>：Driver Hub、Controller Hub（即 Control Hub）、Expansion Hub 三大电控模块主要采用 REV 产品。</li><li><strong>结构件</strong>：以铝型材为主，当前使用较少，可做小限位架、固定非单位位移的结构。</li><li><strong>特殊螺丝</strong>：REV 型材使用 M3 杯头（内六角）螺丝，这种螺丝卡在铝型材内，几乎只有 REV 型材会用到。</li><li><strong>轴规格</strong>：REV 对应 6 毫米 REX 轴，这是 REV 特有的规格。</li><li><strong>电机</strong>：REV 提供 72:1 横轴电机（官方名 Core Hex，90° 横置输出、无自带输出轴）与 40:1 标准电机（官方名 HD Hex）。72:1 横轴电机可提供特殊安装方案，但结构设计较老，在现有环境中较难找到适配对象。</li><li><strong>齿轮与链条</strong>：REV 也提供，但通常优先选用 goBILDA 产品。</li></ul>
+<ul><li><strong>核心电控模块</strong>：Driver Hub、Control Hub、Expansion Hub 三大电控模块主要采用 REV 产品。</li><li><strong>结构件</strong>：以铝型材为主，当前使用较少，可做小限位架、固定非单位位移的结构。</li><li><strong>特殊螺丝</strong>：REV 型材使用 M3 杯头（内六角）螺丝，这种螺丝卡在铝型材内，几乎只有 REV 型材会用到。</li><li><strong>轴规格</strong>：REV 使用 5 mm 六角轴（DUO 体系）。</li><li><strong>电机</strong>：REV 提供 72:1 横轴电机（官方名 Core Hex，90° 横置输出、无自带输出轴）与 40:1 标准电机（官方名 HD Hex，已停产，存量仍在流通）。72:1 横轴电机可提供特殊安装方案，但结构设计较老，在现有环境中较难找到适配对象。</li><li><strong>齿轮与链条</strong>：REV 也提供，但通常优先选用 goBILDA 产品。</li></ul>
 <p><strong>goBILDA 供应商细节：</strong></p>
-<ul><li><strong>C 型梁</strong>：分为方梁与薄梁两种。方梁适合做底盘等大框架结构，薄梁适合做跨度性连接。</li><li><strong>连接件</strong>：提供各类标准化连接件，单位化程度高，与自身材料和 REV 材料连接功能完善。</li><li><strong>螺丝规格</strong>：主要采用 M4 螺丝，官方配用 M4×10 毫米杯头螺丝。</li><li><strong>轴规格</strong>：对应 8 毫米 REX 轴。</li><li><strong>电机</strong>：常用 5203 系列，适合标准直传。由于 8mm REX 轴强度与电机安装方式的特性，goBILDA 是适合电机直传的套件。</li></ul>
+<ul><li><strong>C 型梁</strong>：分为方梁与薄梁两种。方梁适合做底盘等大框架结构，薄梁适合做跨度性连接。</li><li><strong>连接件</strong>：提供各类标准化连接件，单位化程度高，与自身材料和 REV 材料连接功能完善。</li><li><strong>螺丝规格</strong>：主要采用 M4 螺丝，官方配用 M4×10 毫米杯头螺丝。</li><li><strong>轴规格</strong>：对应 8 毫米 REX 轴。</li><li><strong>电机</strong>：常用 5203 系列，适合标准直传。由于 8 mm REX 轴强度与电机安装方式的特性，goBILDA 是适合电机直传的套件。</li></ul>
 <h4>3D 打印耗材</h4>
-<div class="table-wrap"><table><thead><tr><th style="text-align:left">类型</th><th style="text-align:left">打印温度（约）</th><th style="text-align:left">说明</th></tr></thead><tbody><tr><td style="text-align:left">PLA</td><td style="text-align:left">220°C</td><td style="text-align:left">标准基础塑料耗材</td></tr><tr><td style="text-align:left">PETG-CF</td><td style="text-align:left">240+°C</td><td style="text-align:left">含碳塑料耗材</td></tr></tbody></table></div>
-<p>采购使用拓竹官方或三绿（SUNLU）的耗材，质量相对稳定。</p>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">类型</th><th style="text-align:left">打印温度（约）</th><th style="text-align:left">说明</th></tr></thead><tbody><tr><td style="text-align:left">PLA</td><td style="text-align:left">190–230 °C（常用 220 °C）</td><td style="text-align:left">标准基础塑料耗材</td></tr><tr><td style="text-align:left">PETG-CF</td><td style="text-align:left">240–270 °C</td><td style="text-align:left">含碳塑料耗材</td></tr></tbody></table></div>
+<p>耗材建议选用 Bambu Lab（拓竹）或 SUNLU（三绿）官方产品，质量较稳定。</p>
 <p><strong>收缩量：</strong></p>
 <ul><li>通常情况下，PLA 不需考虑收缩量问题。</li><li>打印轴套时，可能出现直径约 5% 的收缩量，需要根据打印形态来测量。</li><li>PETG-CF 的收缩量受时间、温度、批次等因素影响波动较大，使用前建议根据零件形态制作简单测试件测量收缩量。</li></ul>
 <h4>激光切割耗材</h4>
@@ -443,9 +446,9 @@ tr:nth-child(even){background:#fafafa}
 <blockquote class="bq-info">材料本身的性质固定记录在此处。激光切割的功率、速度等工艺参数放在附录中持续更新。</blockquote>
 <h4>线材</h4>
 <p><strong>电源线：</strong></p>
-<ul><li>电池—Hub 连接线（根据设计需求，电池可能直连 Control Hub 或 Expansion Hub）</li><li>Con—EXP 连接线</li><li>自带线材的开关</li><li>电机电源线：对于 goBILDA 的电机，电源线适配口和 Hub 不兼容，需要裁掉原适配口，利用线卡子重新制作接头。</li></ul>
+<ul><li>电池—Hub 连接线（根据设计需求，电池可能直连 Control Hub 或 Expansion Hub）</li><li>Con—EXP 连接线</li><li>自带线材的开关</li><li>电机电源线：对于 goBILDA 的电机，电源线适配口和 Hub 不兼容，需要裁掉原接头，使用端子重新制作。</li></ul>
 <p><strong>数据线（电机编码器线）：</strong></p>
-<ul><li>对于 goBILDA 而言，其与 Hub 适配口、线序不同（黄线与白线互换），制作时需要特别注意。</li><li>I2C 传感器线：无特殊要求。</li><li>Con 和 EXP 数据连接线。</li><li>舵机延长线：注意方向。</li></ul>
+<ul><li>goBILDA 的接头与线序和 Hub 不同（黄线与白线互换），制作时须注意。</li><li>I2C 传感器线：无特殊要求。</li><li>Con 和 EXP 数据连接线。</li><li>舵机延长线：注意方向。</li></ul>
 <p><strong>主机数据线：</strong></p>
 <ul><li>Hub 连接电脑：Control Hub 使用 USB-A 转 USB-C 线材，Expansion Hub 使用 mini USB 线材。</li><li>其他：USB-A 到 USB-C、USB-A 到 miniUSB、USB-C 到 miniUSB 等各类转换线。</li><li>网线（可用于网络辅助连接，非必需用品）。</li><li>手柄数据线（USB-A 到 microUSB）。</li></ul>
 <p><strong>基础设施（作为耗材）：</strong></p>
@@ -455,10 +458,10 @@ tr:nth-child(even){background:#fafafa}
 <ol><li><strong>零件采购</strong><ul><li>FTC 官方器材供应商位于境外，采购工期长、价格高；非刚需材料可在国内平台寻找平替，兼顾成本与交付速度</li></ul></li><li><strong>自制件制作</strong><ul><li>3D 打印件制作</li><li>激光切割板材加工</li></ul></li><li><strong>硬件安装</strong></li><li><strong>导线连接</strong></li><li><strong>Robot Configuration 编写</strong>（与程序设计协同）</li><li><strong>Driver Station 与 Robot Controller 连接</strong>（与程序设计协同）</li></ol>
 <h3 id="硬件安装">硬件安装</h3>
 <h4>安装次序</h4>
-<blockquote class="bq-warning">常规手搭机器人习惯先做底盘再向上累加。但在比赛机器人中，我们有建模图纸，这个顺序容易因零件遮挡导致大量返工。</blockquote>
+<blockquote class="bq-warning">常规手搭装配习惯先做底盘再向上累加；比赛机器人有建模图纸，该顺序容易因零件遮挡造成返工。</blockquote>
 <ul><li>安装时需要根据零件遮挡关系调整次序：<strong>先安装被电机、电控等部件遮挡的零件</strong>，再安装遮挡它们的部件。</li><li>例如：确认电机周围需要安装的零件装完后，再装这颗电机。</li></ul>
 <h4>零件使用注意事项</h4>
-<ul><li>轴上的零件不要优先使用带顶丝的款式，顶丝会损坏轴。</li><li>拧螺丝时不要拧得过死。</li><li>其余零件使用规则后续持续补充。</li></ul>
+<ul><li>轴上的零件避免使用带顶丝的款式：顶丝会损坏轴。</li><li>拧紧螺丝时不要过度用力。</li><li>其余零件使用规则将陆续补充。</li></ul>
 <h4>为修车预留空间</h4>
 <ul><li>装车时切勿图省事：不要把螺丝、螺母藏在难以触及的位置。</li><li>一切以"好修"为原则——如果车坏了需要拆整车才能维修，比赛将无法继续。</li></ul>
 <h4>静电防护</h4>
@@ -476,9 +479,9 @@ tr:nth-child(even){background:#fafafa}
 <hr>
 <h2 id="五结构建造入门">五、结构建造入门</h2>
 <h3 id="安装并配置BambuStudio">安装并配置 Bambu Studio</h3>
-<p>下载后安装，下一步即可，注意选择安装位置，自动生成文件夹。</p>
+<p>下载后按默认步骤安装，注意选择安装位置（文件夹自动生成）。</p>
 <p><strong>注意事项：</strong></p>
-<ul><li>所有复选框均须勾选</li><li>运行后注册指引，选择中国内地（大陆）</li><li>只选择 P1S 和 P2S</li><li>按照默认选择材料常用</li><li>安装网络插件</li><li>左上角登录注册（手机号或第三方）</li></ul>
+<ul><li>所有复选框均须勾选</li><li>运行后注册指引，选择中国内地（大陆）</li><li>只选择 P1S 和 P2S</li><li>材料保持默认配置</li><li>安装网络插件</li><li>左上角登录注册（手机号或第三方）</li></ul>
 <h3 id="从Onshape导出建模文件">从 Onshape 导出建模文件</h3>
 <ol><li>打开建模文件，选中目标零件，左下角会标记出该零件在左侧实例列表中的位置。</li><li>右键该零件，选择切换到该实例对应的工作栏，进入零件构造区。</li><li>在左下角零件数位置右键，选择导出。<ul><li>注意：只有获取到文档的更改权限后，才有导出选项。</li></ul></li><li>将格式改为 STEP，文件名按需求更改，其余选项默认即可。</li></ol>
 <h3 id="BambuStudio导入与摆盘">Bambu Studio 导入与摆盘</h3>
@@ -492,14 +495,14 @@ tr:nth-child(even){background:#fafafa}
 <p><strong>多零件摆盘：</strong></p>
 <ul><li>同一打印盘需要多个相同零件：选中零件右键选择"克隆"。</li><li>添加不同零件：再次点击"导入"按钮导入即可。</li></ul>
 <h3 id="连接3D打印机">连接 3D 打印机</h3>
-<ul><li>进入"设备"一栏，开启局域网模式后自动扫描局域网内的打印机（开启局域网模式可能退出当前登录账号，可忽略提示）。</li><li>若无法扫描到目标打印机：先确认打印机已开启局域网模式；仍无法识别可通过 IP + 访问码手动绑定。IP 在打印机设置的 WiFi 页面查找，访问码在开启局域网模式后的登录头像位置查看。</li><li>切片完成后在"预览"一栏确认，打印前建议将切片预览图发给当前建模或结构负责人确认配置无误后再发送打印。</li></ul>
+<ul><li>进入"设备"一栏，开启局域网模式后自动扫描局域网内的打印机（开启局域网模式可能退出当前登录账号，可忽略提示）。</li><li>若无法扫描到目标打印机：先确认打印机已开启局域网模式；仍无法识别可通过 IP + 访问码手动绑定。IP 在打印机设置的 WiFi 页面查找，访问码在开启局域网模式后的登录头像位置查看。</li><li>切片完成后在"预览"一栏确认；打印前将预览图发给当前建模或结构负责人确认配置，再发送打印。</li></ul>
 <h3 id="打印设置">打印设置</h3>
 <p><strong>P2S 打印机：</strong></p>
 <ul><li>打印前开启延时摄影。</li><li>必须开启自动热床调平。</li><li>选择对应装载的耗材与目标打印机。</li></ul>
 <p><strong>P1S 打印机：</strong></p>
-<ul><li>延时摄影默认关闭即可。</li><li>自动热床调平和动态流量校准必须全部设置为自动。</li></ul>
+<ul><li>延时摄影默认关闭即可。</li><li>自动热床调平须开启；动态流量校准需按 Bambu Studio 提示手动执行（P1 系列不支持自动校准）。</li></ul>
 <h3 id="打印异常处理">打印异常处理</h3>
-<ul><li><strong>P2S</strong>：具备 AI 炒面检测，出现炒面（耗材丝乱飞）时设备会自动停止打印，并向登录该设备的账号发送提醒。清理错误文件后设备会自动重启。</li><li><strong>P1S</strong>：没有炒面自动识别功能，打印过程中需要实时关注状态。发现炒面后手动停止打印，可在左侧 cache 文件夹的历史打印文件中找到出错文件并清理。</li></ul>
+<ul><li><strong>P2S</strong>：具备 AI 炒面检测，出现炒面（耗材丝乱飞）时设备会自动停止打印，并向登录该设备的账号发送提醒。清理错误文件后设备会自动重启。</li><li><strong>P1S</strong>：无炒面自动识别功能，打印过程中须实时关注。发现炒面后手动停止，在左侧 cache 文件夹的历史打印记录中找到出错文件并清理。</li></ul>
 <h3 id="安装并配置RDWorksV8">安装并配置 RD Works V8</h3>
 <p><strong>安装流程：</strong></p>
 <ol><li>找管理员或指导老师获取 exe 安装文件，选择 Install</li><li>勾选手动安装路径来更改位置</li><li>其他选项保持默认即可</li><li>当连接到激光切割机后选择安装 USB 驱动</li><li>选择关闭再打开软件即可</li></ol>

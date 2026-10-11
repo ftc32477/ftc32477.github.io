@@ -186,6 +186,8 @@ blockquote{
 blockquote.bq-info{border-left-color:#1565c0;background:#eaf3fb;color:#0d3c66}
 blockquote.bq-warning{border-left-color:#f9a825;background:#fff8e1;color:#6d4c00}
 blockquote.bq-danger{border-left-color:#d32f2f;background:#fef5f5;color:#8b0000}
+blockquote ul,blockquote ol{margin:6px 0 0;padding-left:20px}
+blockquote li+li{margin-top:4px}
 hr{border:none;border-top:1px solid var(--border);margin:24px 0}
 img{max-width:100%;border-radius:var(--radius);margin:12px 0}
 /* 锚点跳转留白（避免被固定顶栏遮挡） */
@@ -294,6 +296,7 @@ tr:nth-child(even){background:#fafafa}
   }
   th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
+  pre{white-space:pre-wrap !important;overflow-wrap:anywhere !important;overflow:visible !important}
   .img-row{flex-wrap:nowrap}
   .img-fig{page-break-inside:avoid}
   .img-row .img-fig{flex:1 1 0}
@@ -351,6 +354,18 @@ tr:nth-child(even){background:#fafafa}
 <a class="sub-link" href="#4작업흐름">4. 작업 흐름</a>
 <a class="sub-link sub-3" href="#디버깅이핵심">디버깅이 핵심</a>
 <a class="sub-link sub-3" href="#AI활용프로그래밍">AI 활용 프로그래밍</a>
+<a class="sub-link" href="#5GitHub협업기초">5. GitHub 협업 기초</a>
+<a class="sub-link sub-3" href="#GitHub란무엇인가">GitHub란 무엇인가</a>
+<a class="sub-link sub-3" href="#용어빠른참조">용어 빠른 참조</a>
+<a class="sub-link sub-3" href="#팀저장소지도">팀 저장소 지도</a>
+<a class="sub-link sub-3" href="#보기와다운로드">보기와 다운로드</a>
+<a class="sub-link sub-3" href="#문제보고Issue">문제 보고(Issue)</a>
+<a class="sub-link sub-3" href="#웹에서수정편집PR제출">웹에서 수정(편집 → PR 제출)</a>
+<a class="sub-link sub-3" href="#로컬협업">로컬 협업</a>
+<a class="sub-link sub-3" href="#오픈소스커뮤니티검색평가기여">오픈소스 커뮤니티(검색, 평가, 기여)</a>
+<a class="sub-link sub-3" href="#위험한작업경고">위험한 작업 경고</a>
+<a class="sub-link sub-3" href="#연습목록">연습 목록</a>
+<a class="sub-link sub-3" href="#공식문서안내">공식 문서 안내</a>
 <a href="outreach.html">아웃리치 및 대외 홍보</a>
 <a href="afterword.html">후기</a>
   </div>
@@ -384,24 +399,24 @@ tr:nth-child(even){background:#fafafa}
 <ul><li>두 체크박스를 모두 체크해야 합니다</li><li>공간이 충분하고 변경되지 않을 경로를 선택하세요</li></ul>
 <p><strong>초기화:</strong></p>
 <ul><li>"Standard" 모드를 선택하세요</li><li>계약 동의 시 "Accept"를 체크하세요</li><li>나머지는 그대로 두고 "Next"를 선택하세요</li></ul>
-<p><strong>한글화:</strong></p>
+<p><strong>중국어 언어 팩 설치(선택 사항):</strong></p>
 <ol><li><a href="https://github.com/sollyu/AndroidStudioChineseLanguagePack/releases" target="_blank" rel="noopener">Android Studio Chinese Language Pack</a> 열기</li><li>최신 언어 확장 패키지(.jar 파일) 다운로드</li><li>메인 페이지 왼쪽 탭 목록에서 "Plugins"를 선택하고 "Install Plugin from Disk" 선택</li><li>다운로드한 .jar 파일을 선택해 열고, 플러그인이 로드되면 활성화 상태인지 확인</li><li>왼쪽 탭 목록에서 "Customize"를 선택하고 "Language and Region"에 들어가 "Language"를 "Chinese (Simplified) 简体中文"으로, "Region"을 "Americas"로 선택한 뒤 재시작</li></ol>
 <p><strong>저장소 클론:</strong></p>
-<ol><li>왼쪽 탭 목록에서 "GitHub" 클릭, "Log In via GitHub"로 인증합니다.</li><li>현재 시즌의 코드 저장소를 선택합니다(예: <code>ftc32477/FTC-32477-Decode-Program</code>)</li><li>경로가 바뀌지 않을 빈 폴더를 선택하고 "Clone" 클릭</li><li>파일 다운로드가 끝날 때까지 기다립니다. 왼쪽 사이드바의 "Build" 탭이나 창 오른쪽 아래의 진행 표시줄에서 진행 상황을 볼 수 있습니다</li></ol>
+<ol><li>왼쪽 탭 목록에서 "GitHub" 클릭, "Log In via GitHub"로 인증합니다.</li><li>현재 시즌에 해당하는 프로그램 저장소를 선택합니다(시즌마다 별도로 만들며, 이름은 <code>FTC-32477-<시즌>-Program</code> 형식입니다. 새 시즌 저장소가 만들어지기 전에는 관리자에게 먼저 확인하세요)</li><li>경로가 바뀌지 않을 빈 폴더를 선택하고 "Clone" 클릭</li><li>파일 다운로드가 끝날 때까지 기다립니다. 왼쪽 사이드바의 "Build" 탭이나 창 오른쪽 아래의 진행 표시줄에서 진행 상황을 볼 수 있습니다</li></ol>
 <blockquote class="bq-warning">문제가 있으면 관리자에게 문의하세요.</blockquote>
 <h3 id="VisualStudioCode">Visual Studio Code</h3>
 <p>Visual Studio Code는 우리 팀이 사용하는 코드 편집 및 이력 확인 도구입니다.</p>
 <p><strong>소프트웨어 설치 및 환경 설정 절차:</strong></p>
-<ol><li><a href="https://code.visualstudio.com/Download" target="_blank" rel="noopener">https://code.visualstudio.com/Download</a> 열기</li><li>해당 버전을 다운로드하고 설치하면 됩니다</li><li><a href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hans" target="_blank" rel="noopener">한글화 플러그인</a>을 열어 설치하면 한글화됩니다.</li></ol>
+<ol><li><a href="https://code.visualstudio.com/Download" target="_blank" rel="noopener">https://code.visualstudio.com/Download</a> 열기</li><li>해당 버전을 다운로드하고 설치하면 됩니다</li><li>중국어 인터페이스가 필요하면 <a href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hans" target="_blank" rel="noopener">VS Code 중국어 언어 팩</a>을 설치합니다.</li></ol>
 <hr>
 <h2 id="3도구소개">3. 도구 소개</h2>
 <h3 id="AndroidStudio-1">Android Studio</h3>
 <p>공식 문서: <a href="https://developer.android.com/studio/intro?hl=ko" target="_blank" rel="noopener">https://developer.android.com/studio/intro?hl=ko</a></p>
-<p>이 프로젝트에서는 FTC 공식 제공 애플리케이션 프레임워크를 기반으로, <code>TeamCode</code> 폴더 아래에서 Java 언어로 로봇 제어 프로그램을 작성해 로봇 구동에 필요한 각종 의존성 라이브러리를 호출합니다.</p>
+<p>이 프로젝트는 FTC 공식 애플리케이션 프레임워크를 기반으로, <code>TeamCode</code> 폴더에서 Java로 로봇 제어 프로그램을 작성하고 실행에 필요한 의존성 라이브러리를 호출합니다.</p>
 <p>Android Studio에서 알아야 할 기본 지식은 공식 문서의 간단한 페이지 안내를 참고하세요.</p>
 <h3 id="VisualStudioCode-1">Visual Studio Code</h3>
 <p>공식 문서: <a href="https://code.visualstudio.com/docs" target="_blank" rel="noopener">https://code.visualstudio.com/docs</a></p>
-<p>Visual Studio Code의 조작 로직은 Android Studio와 비슷하고, 이 프로젝트에서는 사용 빈도가 낮으므로 인터페이스 안내는 Android Studio 파트를 참고하세요. 여기서는 반복하지 않습니다.</p>
+<p>Visual Studio Code는 Android Studio와 조작 로직이 비슷하고 사용 빈도가 낮으므로, 인터페이스 조작은 Android Studio 부분을 참고하세요.</p>
 <h3 id="RobotDashboard">Robot Dashboard</h3>
 <ul><li>Wi-Fi 네트워크 '<code>32477-RC</code>'에 연결합니다. Wi-Fi 비밀번호: 관리자에게 문의하거나 Driver Hub를 통해 확인합니다.</li><li>주소: <a href="http://192.168.43.1:8080/" target="_blank" rel="noopener">http://192.168.43.1:8080/</a> (로봇 로컬 네트워크에서만 접속 가능)</li><li>Control Hub에 내장된 Wi-Fi 모듈의 웹 페이지(공식 명칭 Robot Controller Console, 즉 로봇 컨트롤러 콘솔)로, Control Hub를 관리하는 그래픽 백엔드를 제공합니다.</li></ul>
 <p>Robot Dashboard에서 알아야 할 기본 지식은 공식 문서의 간단한 페이지 안내를 참고하세요.</p>
@@ -409,14 +424,80 @@ tr:nth-child(even){background:#fafafa}
 <h2 id="4작업흐름">4. 작업 흐름</h2>
 <p>프로그래밍 팀의 핵심 업무는 세 부분으로 나뉩니다.</p>
 <ul><li><strong>자율 프로그램</strong>: 시즌 자율 단계(Auto)의 제어 로직</li><li><strong>수동 프로그램</strong>: 원격 조종 단계(TeleOp)의 조작 로직</li><li><strong>센서 설정</strong>: 각종 센서와 비전 시스템의 설정</li></ul>
-<blockquote class="bq-info">컨트롤러 조종(Driver): 로봇은 Xbox 컨트롤러로 조종하며, 공식적으로 Xbox 360 모델만 허용됩니다. Driver는 팀 내에서 '잘하는 사람이 맡는' 방식으로 선발되며, 컨트롤러 게임을 잘하는 학생은 유리합니다.</blockquote>
+<blockquote class="bq-info">컨트롤러 조종(Driver): 참가 로봇은 유선 컨트롤러(예: Logitech F310, Xbox 360)로 조종하며, 공식적으로 유선 연결이 필수이고, 허용 모델은 해당 시즌 《경기 매뉴얼》 기준을 따릅니다. Driver는 팀 내 선발로 정해지며, 컨트롤러 조작에 익숙한 사람이 더 유리합니다.</blockquote>
 <h3 id="디버깅이핵심">디버깅이 핵심</h3>
-<blockquote class="bq-info">프로그램 개발의 진짜 어려움은 디버깅에 있습니다. 자율 경로, 수동 조작, PID 매개변수, 비전 설정 — 대부분의 센서에는 바로 재사용할 수 있는 기성 패키지가 있습니다. 여러분이 진짜 해야 할 일은 '튜닝'입니다.</blockquote>
+<blockquote class="bq-info">프로그램 개발의 어려움은 주로 디버깅에 있습니다. 자율 경로, 수동 조작, PID 매개변수, 비전 설정 등은 대부분 이미 재사용할 수 있는 기성 패키지가 있으므로, 작업의 중점은 매개변수 조정과 검증입니다.</blockquote>
 <p>디버깅은 개발 프로세스 전반을 관통합니다.</p>
 <ol><li><strong>요구 분석</strong>: 현재 시즌의 규칙과 과제 요구를 명확히 합니다</li><li><strong>아키텍처 설계</strong>: 프로그램 전체 아키텍처와 모듈 분할을 설계합니다</li><li><strong>코드 작성</strong>: Android Studio에서 Java 코드를 작성합니다</li><li><strong>버전 관리</strong>: Git으로 코드 버전을 관리합니다</li><li><strong>디버깅</strong>: 자율 경로, 수동 조작, PID 매개변수, 비전 설정을 튜닝합니다</li><li><strong>테스트 검증</strong>: 로봇에서 프로그램 기능을 검증합니다</li><li><strong>코드 리뷰</strong>: GitHub로 코드 리뷰와 병합을 진행합니다</li><li><strong>배포 발표</strong>: 최종 버전을 Robot Controller에 배포합니다</li></ol>
 <h3 id="AI활용프로그래밍">AI 활용 프로그래밍</h3>
-<blockquote class="bq-info">이제 코드를 쓰는 것은 어렵지 않습니다. AI Agent 등의 도구를 활용해 프로그래밍을 보조받을 수 있습니다. 진짜 핵심 능력은 <strong>AI가 생성한 코드를 읽고, 수정할 방향을 알고, 디버깅하는 능력</strong>입니다. 모든 코드를 처음부터 직접 쓸 필요는 없습니다.</blockquote>
+<blockquote class="bq-info">프로그램 개발에는 AI Agent 등의 도구를 활용해 보조받을 수 있습니다. 핵심 능력은 <strong>AI가 생성한 코드를 읽고, 수정 방향을 정하고, 디버깅 방법을 익히는 것</strong>이며, 모든 코드를 처음부터 직접 작성할 필요는 없습니다.</blockquote>
 <ul><li>프로그래밍 언어의 핵심 논리(for 반복문, while 반복문 등)는 언어마다 공통이며 문법만 다릅니다. C++ 기초가 있는 학생은 Java 개발에 빠르게 적응할 수 있습니다</li></ul>
+<hr>
+<h2 id="5GitHub협업기초">5. GitHub 협업 기초</h2>
+<blockquote class="bq-info">이 절은 GitHub 사용에 필요한 최소한의 내용을 다룹니다: 저장소 보기, 파일 다운로드, 피드백 제출, 내용 수정, 협업 참여, 오픈소스 프로젝트 검색. 자세한 설명은 문서 끝의 공식 문서 안내를 참고하세요. 인터페이스 버튼은 대부분 영어이므로 본문에서도 영어로 표기합니다.</blockquote>
+<h3 id="GitHub란무엇인가">GitHub란 무엇인가</h3>
+<p>GitHub는 Git 기반의 <strong>코드 호스팅 및 협업 플랫폼</strong>입니다. 코드는 클라우드(저장소)에 저장되며 전체 수정 이력(커밋)이 보존되고, 여러 사람이 같은 프로젝트에서 협업할 수 있습니다(브랜치, 끌어오기 요청). 이 밖에도 이슈, 자동화(Actions), 웹사이트 호스팅(Pages) 등의 도구를 제공합니다.</p>
+<p>우리 팀이 GitHub를 사용하는 주요 목적:</p>
+<ul><li><strong>시즌 프로그램 보관</strong>: 시즌마다 공개 저장소를 하나씩 만들고(공식 SDK 템플릿에서 포크), 시즌 종료 후에는 읽기 전용으로 보관합니다. 새 시즌 저장소가 만들어지면 이 절의 표에 추가합니다.</li><li><strong>《빠른 시작 가이드》 유지 관리</strong>: 소스 파일과 빌드 스크립트를 공개 저장소 <code>ftc32477/quick-start-guide</code>에 보관합니다.</li><li><strong>팀 사이트 게시</strong>: 사이트 게시 저장소는 <code>ftc32477/ftc32477.github.io</code>이며, 각 섹션은 각자의 소스 저장소에서 GitHub Actions로 빌드된 후 해당 하위 경로로 푸시됩니다(이 가이드 → <code>/docs/</code>). 루트 경로는 현재 <code>/docs/</code>로 리디렉션됩니다. 앞으로 각종 자료는 각각 소스 저장소를 만들어 해당 하위 경로로 푸시할 예정입니다.</li><li><strong>오픈소스 프로젝트 검색</strong>: 범용 엔지니어링 도구와 FTC 커뮤니티가 공유하는 코드 및 해법을 검색합니다.</li></ul>
+<p><strong>계정과 조직</strong>: 본인 계정을 사용하며(가입 절차는 《팀원 필수사항》 참고), 관리자가 조직 <code>ftc32477</code>에 초대합니다. 저장소는 조직 소유이며, 작업 권한은 관리자가 역할별로 부여합니다:</p>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">역할</th><th style="text-align:left">할 수 있는 일(요약)</th></tr></thead><tbody><tr><td style="text-align:left">읽기(Read)</td><td style="text-align:left">프로젝트 보기와 토론</td></tr><tr><td style="text-align:left">심사(Triage)</td><td style="text-align:left">이슈와 끌어오기 요청 관리, 단 코드 작성 불가</td></tr><tr><td style="text-align:left">쓰기(Write)</td><td style="text-align:left">저장소에 내용 푸시</td></tr><tr><td style="text-align:left">유지 관리(Maintain)</td><td style="text-align:left">저장소 관리, 단 민감하거나 파괴적인 작업 불가</td></tr><tr><td style="text-align:left">관리(Admin)</td><td style="text-align:left">전체 권한, 저장소 삭제 등 포함</td></tr></tbody></table></div>
+<blockquote class="bq-warning">쓰기 권한이 없으면 변경 사항을 끌어오기 요청으로 제출하거나 유지 관리자에게 처리를 맡깁니다. 권한이 확실하지 않으면 읽기 전용으로 작업하고, 권한 제한을 탐색하거나 우회하지 마세요.</blockquote>
+<h3 id="용어빠른참조">용어 빠른 참조</h3>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">용어</th><th style="text-align:left">의미(한 줄)</th></tr></thead><tbody><tr><td style="text-align:left">저장소(Repository)</td><td style="text-align:left">프로젝트 파일과 전체 이력 기록을 보관하는 위치</td></tr><tr><td style="text-align:left">커밋(Commit)</td><td style="text-align:left">설명이 붙은 한 번의 수정 스냅샷이며, 이력을 구성함</td></tr><tr><td style="text-align:left">브랜치(Branch)</td><td style="text-align:left">저장소 안의 병렬 개발 라인이며, 변경 사항이 먼저 적용되는 곳</td></tr><tr><td style="text-align:left">클론(Clone)</td><td style="text-align:left">저장소를 로컬 컴퓨터로 완전히 다운로드하는 것</td></tr><tr><td style="text-align:left">포크(Fork)</td><td style="text-align:left">남의 저장소를 내 계정으로 복사하는 것이며, 변경 사항이 원본 저장소에 영향을 주지 않음</td></tr><tr><td style="text-align:left">끌어오기 요청(Pull Request, PR)</td><td style="text-align:left">특정 브랜치의 변경 사항을 검토하고 병합해 달라고 요청하는 방식이며, 협업의 핵심</td></tr><tr><td style="text-align:left">이슈(Issue)</td><td style="text-align:left">질문, 오류 보고, 제안을 위한 토론 글</td></tr><tr><td style="text-align:left">릴리스(Release)</td><td style="text-align:left">버전 번호를 붙인 공식 배포이며, 다운로드 파일(가이드 PDF 등)을 첨부</td></tr><tr><td style="text-align:left">별표(Star)</td><td style="text-align:left">즐겨찾기와 좋아요 기능이며, 프로젝트 인기도 판단에도 사용</td></tr><tr><td style="text-align:left">감시(Watch)</td><td style="text-align:left">저장소 활동 알림을 구독</td></tr><tr><td style="text-align:left">Actions</td><td style="text-align:left">GitHub의 자동화 파이프라인(이 프로젝트에서는 사이트 빌드와 게시에 사용)</td></tr><tr><td style="text-align:left">Pages</td><td style="text-align:left">GitHub의 정적 웹사이트 호스팅(이 프로젝트의 사이트가 이곳에서 게시됨)</td></tr><tr><td style="text-align:left">README</td><td style="text-align:left">저장소 첫 화면의 설명 문서이며, 가장 먼저 읽어야 함</td></tr></tbody></table></div>
+<h3 id="팀저장소지도">팀 저장소 지도</h3>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">저장소</th><th style="text-align:left">설명</th><th style="text-align:left">수정 방법</th></tr></thead><tbody><tr><td style="text-align:left"><code>quick-start-guide</code></td><td style="text-align:left">가이드 소스 파일, 빌드 스크립트와 사이트 산출물(공개)</td><td style="text-align:left">끌어오기 요청 제출 또는 유지 관리자 처리</td></tr><tr><td style="text-align:left"><code>ftc32477.github.io</code></td><td style="text-align:left">팀 사이트 게시 저장소(공개), 내용은 각 소스 저장소에서 자동 푸시</td><td style="text-align:left">직접 수정 금지</td></tr><tr><td style="text-align:left"><code>.github</code></td><td style="text-align:left">조직 홈페이지 자료(조직 소개 등, 공개)</td><td style="text-align:left">끌어오기 요청 제출 또는 유지 관리자 처리</td></tr><tr><td style="text-align:left"><code>FTC-32477-<시즌>-Program</code></td><td style="text-align:left">시즌 프로그램 저장소(공개): 시즌마다 따로 만들고, 지난 시즌은 읽기 전용으로 보관, 새 시즌 저장소가 만들어지면 구체적인 이름을 추가</td><td style="text-align:left">프로그램 팀 내부 분담에 따름</td></tr></tbody></table></div>
+<blockquote class="bq-danger"><strong>게시 저장소 금지 구역</strong>: <code>ftc32477.github.io</code>의 모든 내용은 각 소스 저장소에서 GitHub Actions를 통해 자동으로 푸시됩니다. 직접 수정하면 다음 푸시 때 덮어써집니다. 이 저장소나 생성된 내용에서 편집, 커밋, 삭제를 하지 마세요. 사이트 문제는 항상 해당 소스 저장소에서 처리합니다(이 가이드는 <code>quick-start-guide</code>).</blockquote>
+<h3 id="보기와다운로드">보기와 다운로드</h3>
+<ol><li>조직 홈페이지 <a href="https://github.com/ftc32477" target="_blank" rel="noopener">https://github.com/ftc32477</a>를 열고, Repositories 목록에서 저장소에 들어갑니다</li><li>먼저 저장소 첫 화면의 <strong>README</strong>를 읽습니다(프로젝트 용도, 사용 방법). 오른쪽 About 영역에 소개와 홈페이지 링크가 있습니다</li><li>상단 탭(권한에 따라 표시 여부가 결정됩니다):<ul><li><strong>Code</strong>: 파일 목록과 커밋 이력</li><li><strong>Issues</strong>: 문제와 제안</li><li><strong>Pull requests</strong>: 검토 대기 중인 변경 사항</li><li><strong>Actions</strong>: 자동 빌드와 게시 기록</li><li><strong>Releases</strong>: 정식 버전과 다운로드 파일</li></ul></li><li>저장소 전체 다운로드: Code → <strong>Download ZIP</strong></li><li>가이드 PDF 다운로드: <strong>Releases</strong>에 들어가 버전을 선택하고, Assets에서 해당 언어를 다운로드합니다</li><li>이력 보기: Code 페이지의 <strong>Commits</strong> 목록 → 개별 커밋을 클릭해 구체적인 변경 사항(diff)을 확인합니다</li></ol>
+<h3 id="문제보고Issue">문제 보고(Issue)</h3>
+<p>장애가 발생하거나 문서에 오류가 있거나 제안할 사항이 있으면 Issue로 보고합니다:</p>
+<ol><li>대상 저장소의 <strong>Issues</strong> 탭을 열고, 같은 문제가 이미 있는지 먼저 검색합니다</li><li><strong>New issue</strong>를 클릭하고, 한 문장 제목으로 문제를 설명합니다</li><li>본문에 <strong>무엇이 발생했는지</strong>, <strong>기대한 결과</strong>, <strong>재현 방법</strong>(단계), 관련 스크린샷(개인 정보는 먼저 제거)을 명확히 작성합니다</li><li>제출 후 답변을 확인합니다. 문제가 해결되면 유지 관리자가 닫습니다</li></ol>
+<blockquote class="bq-info">가이드의 고정 피드백 창구: <a href="https://github.com/ftc32477/quick-start-guide/issues" target="_blank" rel="noopener">https://github.com/ftc32477/quick-start-guide/issues</a></blockquote>
+<h3 id="웹에서수정편집PR제출">웹에서 수정(편집 → PR 제출)</h3>
+<p>쓰기 권한이 없으면 GitHub가 웹에서의 변경 사항을 자동으로 "포크(Fork) + 끌어오기 요청(PR)"으로 만듭니다:</p>
+<ol><li>로그인 후 수정할 파일을 엽니다(예: 가이드 <code>src/zh-hans/</code> 아래의 <code>.md</code> 문서)</li><li>파일 오른쪽 위의 연필 아이콘 <strong>Edit this file</strong>을 클릭합니다</li><li>쓰기 권한이 없으면 페이지에서 포크를 자동으로 만들겠다고 안내하며, 동의하면 됩니다</li><li>내용을 수정하고 <strong>Commit changes</strong>에 명확한 설명을 한 문장 작성합니다</li><li><strong>Create a new branch for this commit and start a pull request</strong>를 선택하고, 브랜치 이름은 <code>fix/typo-member</code>처럼 지정합니다</li><li>열린 PR 양식에서 수정 내용과 이유를 설명하고 <strong>Create pull request</strong>를 클릭합니다</li><li>유지 관리자의 검토를 기다립니다. 의견이 있으면 그에 따라 계속 수정하며, 병합되면 변경 사항이 반영됩니다</li></ol>
+<blockquote class="bq-warning">PR 하나에는 한 가지 일만 제출합니다. 익숙하지 않은 파일(빌드 스크립트, 생성 산출물 등)은 수정하지 마세요. 게시 저장소에는 어떤 변경도 제출하지 마세요.</blockquote>
+<h3 id="로컬협업">로컬 협업</h3>
+<p>로컬에서 저장소를 클론해 개발하는 것이 가장 일반적인 방식입니다. 전제 조건은 컴퓨터에 Git이 설치되어 있는 것입니다("2. 환경 설정" 참고). 자주 쓰는 명령은 다음과 같습니다:</p>
+<pre><code># 저장소를 로컬로 클론
+git clone https://github.com/ftc32477/quick-start-guide.git
+cd quick-start-guide
+
+# 작업 시작 전 최신 변경 사항 가져오기
+git pull
+
+# 이번 작업용 새 브랜치 만들기
+git switch -c feat/my-feature
+
+# 파일 수정 후: 상태 확인, 스테이징, 커밋
+git status
+git add &lt;파일&gt;
+git commit -m "이번 수정 설명"
+
+# 브랜치를 GitHub로 푸시
+git push -u origin feat/my-feature</code></pre>
+<p>푸시한 후 GitHub에서 해당 브랜치의 Pull Request를 만들어 검토와 병합을 기다립니다. Android Studio와 Visual Studio Code는 동등한 그래픽 작업을 제공하므로("2. 환경 설정" 참고), 인터페이스에서 같은 단계를 수행할 수 있습니다.</p>
+<blockquote class="bq-warning">세 가지 규칙: <strong>먼저 pull한 후 작업</strong>; <strong>커밋 하나에는 한 가지 일만 하고 설명을 명확히 작성</strong>; <strong>자기 브랜치에 푸시하고 main에 직접 푸시하지 않기</strong>.</blockquote>
+<p><strong>포크와 업스트림 동기화(외부 프로젝트에 참여할 때)</strong>: 포크한 저장소는 자동으로 업데이트되지 않습니다. 먼저 원본 저장소를 업스트림으로 추가해야 합니다: <code>git remote add upstream <원본 저장소 주소></code>, 그다음 <code>git fetch upstream</code>과 병합으로 동기화합니다(자세한 내용은 공식 문서 "포크 동기화" 절 참고).</p>
+<h3 id="오픈소스커뮤니티검색평가기여">오픈소스 커뮤니티(검색, 평가, 기여)</h3>
+<p><strong>검색</strong>(검색창은 한정자를 지원하며 조합해 사용할 수 있습니다):</p>
+<ul><li><code>topic:ftc</code>, <code>topic:first-tech-challenge</code>, <code>topic:ftc-robot</code>: FTC 커뮤니티 프로젝트의 통합 진입점</li><li><code>ftc language:Java sort:updated</code>: 최근에도 유지 관리되고 있는 Java 프로젝트</li><li><code>"FIRST Tech Challenge" in:readme</code>: README에서 FTC를 언급한 프로젝트</li></ul>
+<p>FTC에서 자주 쓰는 오픈소스 자료(모두 GitHub에서 찾을 수 있습니다):</p>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">프로젝트</th><th style="text-align:left">용도</th></tr></thead><tbody><tr><td style="text-align:left">FIRST-Tech-Challenge/FtcRobotController</td><td style="text-align:left">FTC 공식 SDK와 예제</td></tr><tr><td style="text-align:left">FTCLib/FTCLib</td><td style="text-align:left">FTC에서 자주 쓰는 도구 라이브러리</td></tr><tr><td style="text-align:left">acmerobotics/road-runner</td><td style="text-align:left">동작 계획과 경로 추종</td></tr><tr><td style="text-align:left">Pedro-Pathing/PedroPathing</td><td style="text-align:left">경로 계획</td></tr><tr><td style="text-align:left">acmerobotics/ftc-dashboard</td><td style="text-align:left">디버깅 대시보드</td></tr><tr><td style="text-align:left">OpenFTC/EasyOpenCV</td><td style="text-align:left">비전 처리</td></tr><tr><td style="text-align:left">the-orange-alliance, ftc-scout/ftc-scout</td><td style="text-align:left">대회 데이터와 통계</td></tr></tbody></table></div>
+<p><strong>저장소의 사용 가능 여부 평가(다섯 가지 확인)</strong>: 최근 커밋 시각(유지 관리 여부), README와 문서 품질, 라이선스(License), Issues 활동도, Releases 정식 버전 유무.</p>
+<p><strong>라이선스 요약</strong>(남의 코드나 자료를 사용하기 전에 반드시 확인):</p>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">라이선스</th><th style="text-align:left">한 줄 설명</th></tr></thead><tbody><tr><td style="text-align:left">MIT</td><td style="text-align:left">가장 관대함: 저작권 표시만 유지하면 자유롭게 사용 가능</td></tr><tr><td style="text-align:left">Apache-2.0</td><td style="text-align:left">마찬가지로 관대하며, 특허 허여와 변경 사항 표시 요구 사항이 있음</td></tr><tr><td style="text-align:left">GPL-3.0</td><td style="text-align:left">전파성 있음: 이를 기반으로 한 2차 저작물도 오픈소스로 공개해야 함</td></tr><tr><td style="text-align:left">라이선스 없음</td><td style="text-align:left">기본적으로 "모든 권리 보유"이므로 <strong>직접 복사해 사용할 수 없으며</strong>, 먼저 저자에게 연락해야 함</td></tr></tbody></table></div>
+<p><strong>기여 참여</strong>: 먼저 프로젝트 루트의 <code>CONTRIBUTING.md</code>(기여 가이드)와 행동 강령을 읽습니다. 확실하지 않은 변경은 먼저 Issue를 열어 논의합니다. 자잘한 수정은 위의 "편집 → PR 제출" 절차로 제출합니다.</p>
+<blockquote class="bq-warning">보안: 출처를 알 수 없는 스크립트나 실행 파일을 실행하지 마세요. API Key, 비밀번호, Token을 Issue나 저장소에 올리지 마세요. <code>curl | bash</code>류의 설치 명령에 주의하세요.</blockquote>
+<h3 id="위험한작업경고">위험한 작업 경고</h3>
+<blockquote class="bq-danger">다음 작업은 되돌릴 수 없는 손실을 초래할 수 있으므로 일반 팀원은 절대 실행하지 마세요. 반드시 필요한 경우에는 먼저 관리자의 확인을 받으세요.<ul><li>게시 저장소 <code>ftc32477.github.io</code> 직접 수정(덮어써지고 정식 사이트가 훼손됩니다)</li><li><code>git push --force</code>: 원격 이력을 강제로 덮어써 팀원의 커밋이 사라질 수 있습니다</li><li><code>git reset --hard</code>: 로컬의 미푸시 변경 사항을 버리며 되찾기 어렵습니다</li><li>브랜치 삭제, 저장소 삭제, 저장소의 공개 여부, 이름, 소유권 변경</li><li>저장소에 키, 비밀번호, Token 제출(한 번 공개되면 삭제해도 이력에 남으므로 즉시 폐기하고 재발급해야 합니다)</li><li>Issue, PR 또는 공개 저장소에 내부 자료와 개인 정보(이메일, 주소, 스크린샷 속 개인 정보) 게시</li><li>출처를 알 수 없는 코드 실행 또는 병합</li></ul></blockquote>
+<blockquote class="bq-info">계정 보안: 다른 사람과 계정을 공유하지 마세요. GitHub는 코드 기여에 참여하는 계정에 2단계 인증(2FA)을 의무화하고 있으므로 안내에 따라 활성화하세요. 개인용 액세스 토큰(Token)은 최소 권한으로 만들고 절대 코드나 저장소에 기록하지 마세요.</blockquote>
+<h3 id="연습목록">연습 목록</h3>
+<ol><li>조직 홈페이지를 열고 <code>quick-start-guide</code> 저장소에 들어가 README를 보고 이 프로젝트가 무엇을 하는지 말해 봅니다</li><li>Releases에서 아무 언어로 된 가이드 PDF를 다운로드합니다</li><li>커밋 이력에서 가장 최근 수정을 찾고 무엇을 바꿨는지 말해 봅니다</li><li>Issues에서 "PDF"를 검색해 관련 문제가 있는지 확인합니다</li><li>"편집 → PR 제출" 절차에 따라 오타 하나를 수정하고 끌어오기 요청을 제출합니다</li></ol>
+<h3 id="공식문서안내">공식 문서 안내</h3>
+<p>더 깊이 있는 사용법이 필요하면 다음 공식 문서를 필요에 따라 참고하세요:</p>
+<ul><li>GitHub 빠른 시작: <a href="https://docs.github.com/ko/get-started/quickstart" target="_blank" rel="noopener">https://docs.github.com/ko/get-started/quickstart</a></li><li>코드 작성과 저장(브랜치/커밋/PR): <a href="https://docs.github.com/ko/get-started/start-your-journey/writing-and-storing-your-code" target="_blank" rel="noopener">https://docs.github.com/ko/get-started/start-your-journey/writing-and-storing-your-code</a></li><li>Git 치트시트: <a href="https://docs.github.com/ko/get-started/git-basics/git-cheatsheet" target="_blank" rel="noopener">https://docs.github.com/ko/get-started/git-basics/git-cheatsheet</a></li><li>검색 구문: <a href="https://docs.github.com/ko/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax" target="_blank" rel="noopener">https://docs.github.com/ko/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax</a></li><li>GitHub 조직의 저장소 역할: <a href="https://docs.github.com/ko/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization" target="_blank" rel="noopener">https://docs.github.com/ko/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization</a></li><li>대화형 과정(영어): <a href="https://skills.github.com/" target="_blank" rel="noopener">https://skills.github.com/</a></li></ul>
+<blockquote class="bq-info">확실하지 않은 작업은 먼저 관리자에게 문의하거나 Issues에 질문하세요.</blockquote>
 </main>
 
 <script>
