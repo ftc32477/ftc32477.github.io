@@ -201,22 +201,45 @@ img{max-width:100%;border-radius:var(--radius);margin:12px 0}
 /* 锚点跳转留白（避免被固定顶栏遮挡） */
 h2,h3{scroll-margin-top:16px}
 
-/* 图片排布：多图横向，窄屏自动纵向 */
-.img-row{
-  display:flex;flex-wrap:wrap;gap:14px;margin:14px 0
-}
-.img-row .img-fig{
-  flex:1 1 40%;min-width:0;margin:0
-}
-.img-row .img-fig img{
-  width:100%;margin:0;border-radius:var(--radius)
-}
-.img-row figcaption{
-  text-align:center;font-size:12px;color:var(--muted);margin-top:6px
-}
-.img-row-single .img-fig{flex-basis:100%}
-@media(max-width:600px){
-  .img-row{flex-direction:column;gap:12px}
+/* 图注与图片编号 */
+.fig{margin:14px 0;text-align:center}
+.fig-hi{display:block;line-height:0;cursor:zoom-in;text-decoration:none}
+.fig img{max-width:100%;height:auto;margin:0 auto;border-radius:var(--radius)}
+.fig figcaption{text-align:center;font-size:12px;color:var(--muted);margin-top:6px;line-height:1.5}
+.fig-label{font-weight:600;color:var(--muted);margin-right:.35em}
+.fig-align-left{text-align:left}
+.fig-align-right{text-align:right}
+.fig-align-left img{margin-left:0}
+.fig-align-right img{margin-right:0}
+.fig-align-left figcaption,.fig-align-right figcaption{text-align:inherit}
+
+/* 图片组 / 图文并排：真实表格布局（HTML 与 PDF 双端稳定，窄屏自动堆叠） */
+.media-row{width:100%;table-layout:fixed;border-collapse:collapse;margin:14px 0}
+.media-row td{vertical-align:top;width:50%;padding:0 7px;box-sizing:border-box}
+.media-row.media-cols-3 td{width:33.3333%}
+.media-row td:first-child{padding-left:0}
+.media-row td:last-child{padding-right:0}
+.media-row .fig{margin:0}
+.media-row .fig img{width:100%;height:auto;margin:0}
+.media-side{width:100%;table-layout:fixed;border-collapse:collapse;margin:14px 0}
+.media-side td{vertical-align:top;box-sizing:border-box;padding:0}
+/* 并排间距统一为 14px：图片组为 7px+7px；图文并排给第二列加 14px 左内边距 */
+.media-side td+td{padding-left:14px}
+.media-side .side-fig{width:var(--side-img,45%)}
+.media-side .side-fig .fig{margin:0}
+.media-side .side-fig .fig img{width:100%;height:auto;margin:0}
+/* 覆盖全局表格样式：图片组/并排表格不显示边框、底色，不继承表格字号 */
+.media-row,.media-side{border:none;font-size:inherit}
+.media-row td,.media-side td{border:none;background:none;text-align:left}
+table.media-row tbody tr,table.media-side tbody tr{background:none}
+.keep{break-inside:avoid;page-break-inside:avoid}
+.page-break{display:none}
+/* 窄屏堆叠仅用于屏幕；打印时始终保留表格并排布局（纸张宽度也小于 600px） */
+@media screen and (max-width:600px){
+  .media-row,.media-row tbody,.media-row tr,.media-row td{display:block;width:100%!important;padding:0}
+  .media-row td+td{margin-top:14px}
+  .media-side,.media-side tbody,.media-side tr,.media-side td{display:block;width:100%!important;padding:0}
+  .media-side .side-fig{margin-top:14px}
   h2,h3{scroll-margin-top:64px}
 }
 
@@ -305,9 +328,26 @@ tr:nth-child(even){background:#fafafa}
   th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
   tr{page-break-inside:avoid}
   pre{white-space:pre-wrap !important;overflow-wrap:anywhere !important;overflow:visible !important}
-  .img-row{flex-wrap:nowrap}
-  .img-fig{page-break-inside:avoid}
-  .img-row .img-fig{flex:1 1 0}
+  /* 图片/图片组：尺寸封顶 + 真实表格布局，避免跨页拆图与切段 */
+  figure.fig,.fig-single{break-inside:avoid;page-break-inside:avoid}
+  figure.fig{margin:12px 0}
+  figure.fig img{max-width:100%!important;height:auto!important;max-height:22cm!important;display:block;margin:0 auto}
+  table.media-row{display:table!important;width:100%!important;table-layout:fixed!important;border-collapse:collapse!important;break-inside:avoid;page-break-inside:avoid}
+  table.media-row td{display:table-cell!important;vertical-align:top!important;width:50%!important;padding:0 7px!important;box-sizing:border-box!important}
+  table.media-row.media-cols-3 td{width:33.3333%!important}
+  table.media-row td:first-child{padding-left:0!important}
+  table.media-row td:last-child{padding-right:0!important}
+  table.media-row td img{width:100%!important;height:auto!important;max-height:20cm!important;display:block!important;margin:0 auto!important}
+  table.media-row figure.fig{margin:0!important}
+  table.media-side{display:table!important;width:100%!important;table-layout:fixed!important;border-collapse:collapse!important;break-inside:avoid;page-break-inside:avoid}
+  table.media-side td{display:table-cell!important;vertical-align:top!important;box-sizing:border-box!important}
+  table.media-side td+td{padding-left:14px!important}
+  table.media-side .side-fig{width:var(--side-img,45%)!important}
+  table.media-side .side-fig img{width:100%!important;height:auto!important;max-height:20cm!important;display:block!important;margin:0 auto!important}
+  .keep{break-inside:avoid;page-break-inside:avoid}
+  .page-break{display:block!important;height:0!important;margin:0!important;border:0!important;break-after:page;page-break-after:always}
+  blockquote{break-inside:avoid;page-break-inside:avoid}
+  thead{display:table-header-group}
   /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
   html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
   .align-right{text-align:right}
@@ -373,7 +413,7 @@ tr:nth-child(even){background:#fafafa}
 <ul><li><strong>Président</strong> : Du Xingzhou (杜星洲)</li><li><strong>Structure</strong> : Xie Jincan (谢金灿), Shi Yuguang (时宇光), Jiang Yichen (姜易辰), Xue Chen (薛晨), Du Fengyu (杜丰宇)</li><li><strong>Programmation</strong> : Du Xingzhou (杜星洲), Fu Xiuqi (付修齐), Zhang Xipeng (张熙芃), Liu Chuyi (刘楚翌)</li><li><strong>Relations extérieures</strong> : Han Zixuan (韩子萱), Chen Xibei (陈西贝), Li Jiaoyang (李骄洋), Liu Yuxuan (柳宇轩), Wang Yizhou (王一舟)</li></ul>
 <hr>
 <h2 id="Photosdegroupe">Photos de groupe</h2>
-<div class="img-row"><figure class="img-fig"><img src="../images/afterword/group_photo_20251219.jpg" alt="Photo de groupe (19 décembre 2025)" loading="lazy"><figcaption>Photo de groupe (19 décembre 2025)</figcaption></figure><figure class="img-fig"><img src="../images/afterword/group_photo_20260528.jpg" alt="Photo de groupe (28 mai 2026)" loading="lazy"><figcaption>Photo de groupe (28 mai 2026)</figcaption></figure></div>
+<table class="media-row media-cols-2" role="presentation"><tbody><tr><td><figure class="fig"><a class="fig-hi" href="../images/hi/afterword/group_photo_20251219.jpg" target="_blank" rel="noopener"><img src="../images/display/afterword/group_photo_20251219.jpg" alt="Photo de groupe (19 décembre 2025)" loading="lazy" data-print="../images/print/afterword/group_photo_20251219.jpg" style="max-width:100%"></a><figcaption><span class="fig-label">Figure Postface-1</span> Photo de groupe (19 décembre 2025)</figcaption></figure></td><td><figure class="fig"><a class="fig-hi" href="../images/hi/afterword/group_photo_20260528.jpg" target="_blank" rel="noopener"><img src="../images/display/afterword/group_photo_20260528.jpg" alt="Photo de groupe (28 mai 2026)" loading="lazy" data-print="../images/print/afterword/group_photo_20260528.jpg" style="max-width:100%"></a><figcaption><span class="fig-label">Figure Postface-2</span> Photo de groupe (28 mai 2026)</figcaption></figure></td></tr></tbody></table>
 <p><strong>Liste de la photo (19 décembre 2025)</strong> : Rangée supérieure, de gauche à droite : Shi Yuguang (时宇光), Wang Yizhou (王一舟), Jiang Yichen (姜易辰), Fu Xiuqi (付修齐), Du Xingzhou (杜星洲), Xie Jincan (谢金灿), Zhang Xipeng (张熙芃) ; rangée inférieure, de gauche à droite : Du Fengyu (杜丰宇), Liu Chuyi (刘楚翌), Yu Zichen (于紫晨), Li Jiaoyang (李骄洋), Chen Xibei (陈西贝).</p>
 <p><strong>Liste de la photo (28 mai 2026)</strong> : Rangée supérieure, de gauche à droite : Wang Yizhou (王一舟), Shi Yuguang (时宇光), Du Xingzhou (杜星洲), Fu Xiuqi (付修齐), Xue Chen (薛晨), Xie Jincan (谢金灿), Zhang Xipeng (张熙芃), Liu Chuyi (刘楚翌) ; rangée inférieure, de gauche à droite : Liu Yuxuan (柳宇轩), Du Fengyu (杜丰宇), Han Zixuan (韩子萱), Li Jiaoyang (李骄洋), Chen Xibei (陈西贝).</p>
 <hr>
