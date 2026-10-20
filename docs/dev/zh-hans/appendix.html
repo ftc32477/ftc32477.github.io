@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>附录｜FTC 32477 Origin 快速入门指南</title>
+<meta name="description" content="FTC 32477 Origin 快速入门指南——拒绝重复造轮子。面向新老队员的七章完整指南：队员须知、建模设计、结构建造、程序设计、外部联络与后记，提供七种语言版本与可打印 PDF。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="附录｜FTC 32477 Origin 快速入门指南">
+<meta property="og:description" content="FTC 32477 Origin 快速入门指南——拒绝重复造轮子。面向新老队员的七章完整指南：队员须知、建模设计、结构建造、程序设计、外部联络与后记，提供七种语言版本与可打印 PDF。">
+<meta property="og:image" content="https://ftc32477.github.io/docs/images/basic/team_logo.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="附录｜FTC 32477 Origin 快速入门指南">
+<meta name="twitter:description" content="FTC 32477 Origin 快速入门指南——拒绝重复造轮子。面向新老队员的七章完整指南：队员须知、建模设计、结构建造、程序设计、外部联络与后记，提供七种语言版本与可打印 PDF。">
+<meta name="twitter:image" content="https://ftc32477.github.io/docs/images/basic/team_logo.png">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/basic/icon_team_logo_32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../images/basic/apple-touch-icon.png">
+<style>
+:root {
+  --red: #d32f2f;
+  --dark: #1a1a2e;
+  --slate: #16213e;
+  --card: #ffffff;
+  --text: #2c2c2c;
+  --muted: #666;
+  --border: #e0e0e0;
+  --radius: 10px;
+  --sidebar-w: 260px;
+  --topbar-h: 52px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+  color:var(--text);background:#f8f9fa;line-height:1.8;min-height:100vh
+}
+
+/* ====== TOP BAR (mobile) ====== */
+.topbar{
+  display:none;position:fixed;top:0;left:0;right:0;height:var(--topbar-h);
+  background:var(--dark);color:#fff;z-index:200;align-items:center;
+  padding:0 12px;gap:8px
+}
+.topbar .brand{
+  font-weight:700;font-size:14px;flex:1;min-width:0;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap
+}
+.topbar .brand a{
+  color:#fff;text-decoration:none;cursor:pointer
+}
+.topbar .brand a:hover{opacity:.85}
+.lang-select{
+  background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);
+  border-radius:6px;font-size:13px;padding:6px 26px 6px 10px;max-width:150px;
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 8px center
+}
+.lang-select option{color:#2c2c2c;background:#fff}
+.topbar .menu-btn{
+  background:none;border:none;color:#fff;font-size:24px;cursor:pointer;
+  width:40px;height:40px;flex-shrink:0;display:flex;align-items:center;
+  justify-content:center;border-radius:6px;line-height:1
+}
+.topbar .menu-btn:hover{background:rgba(255,255,255,.1)}
+
+/* ====== SIDEBAR ====== */
+nav.sidebar{
+  position:fixed;top:0;left:0;bottom:0;width:var(--sidebar-w);
+  background:var(--dark);color:#ccc;overflow-y:auto;z-index:100;
+  display:flex;flex-direction:column;transition:transform .28s ease;
+}
+nav.sidebar::-webkit-scrollbar{width:4px}
+nav.sidebar::-webkit-scrollbar-thumb{background:#444;border-radius:2px}
+.sidebar-header{padding:24px 20px 14px;border-bottom:1px solid rgba(255,255,255,.08);text-align:center}
+.sidebar-header .home-link{
+  display:block;text-decoration:none;border-radius:8px;
+  padding:4px 0;transition:background .18s
+}
+.sidebar-header .home-link:hover{background:rgba(255,255,255,.06)}
+.sidebar-header .home-link:hover .sub{color:#fff}
+.sidebar-header .logo{font-size:22px;font-weight:700;color:#fff;line-height:1.3}
+.sidebar-header .sub{font-size:12px;color:#f44336;margin-top:4px;letter-spacing:1px}
+/* 语言切换：侧边栏下拉选项栏（节省空间给目录） */
+.lang-select-sidebar{
+  margin:12px 14px 0;width:calc(100% - 28px);box-sizing:border-box;
+  background:rgba(255,255,255,.1);color:#fff;
+  border:1px solid rgba(255,255,255,.25);border-radius:8px;
+  font-size:13px;padding:7px 26px 7px 10px;
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 8px center
+}
+.lang-select-sidebar option{color:#2c2c2c;background:#fff}
+.sidebar-nav{flex:1;padding:12px 0}
+.sidebar-nav a{
+  display:block;padding:10px 22px;color:#aaa;text-decoration:none;
+  font-size:14px;border-left:3px solid transparent;transition:all .18s
+}
+.sidebar-nav a:hover{color:#fff;background:rgba(255,255,255,.04)}
+.sidebar-nav a.active{color:#fff;background:rgba(244,67,54,.15);border-left-color:#f44336}
+/* 二级目录：仅当前页面显示 */
+.sidebar-nav a.sub-link{
+  padding:5px 22px 5px 34px;font-size:12.5px;color:#8a8a8a;border-left-color:transparent
+}
+.sidebar-nav a.sub-link:hover{color:#fff}
+.sidebar-nav a.sub-link.sub-3{padding-left:46px;font-size:12px;color:#777}
+/* 侧边栏队徽 */
+.side-logo{
+  display:block;width:64px;height:64px;margin:0 auto 10px;
+  border-radius:14px;object-fit:cover
+}
+/* 顶栏队徽（移动端） */
+.topbar-logo{width:22px;height:22px;border-radius:5px;flex-shrink:0}
+.sidebar-footer{padding:16px 20px;font-size:11px;color:#555;border-top:1px solid rgba(255,255,255,.08);text-align:center}
+
+/* ====== OVERLAY (mobile) ====== */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:99}
+
+/* ====== MAIN CONTENT ====== */
+/*
+ * 响应式宽度策略：
+ *   宽屏：内容固定 900px 宽（含 padding），居中于侧边栏右侧
+ *   中屏：随宽度缩小，左右留白逐渐收窄直至消失
+ *   窄屏（<768px）：侧边栏折叠，内容全宽
+ *
+ * 兼容性说明：部分 Chrome 版本对嵌套在自定义属性中的
+ * min()/max()/clamp()（含 vw 单位）存在布局计算 bug（宽度会算成 0，
+ * 正文空白而侧边栏正常）。因此此处只用普通 calc + max-width 封顶，
+ * 并为 min()/max()/clamp() 提供级联回退声明。
+ */
+main{
+  box-sizing:content-box;
+  --pad: 40px;                                        /* 回退：clamp 不支持时 */
+  --pad: clamp(12px, 4vw, 48px);
+  padding: 40px var(--pad);
+  /* 宽度：随视口收缩，上限 900px（含 padding，即内容宽 900-2*pad） */
+  width: calc(100vw - var(--sidebar-w) - 2 * var(--pad));
+  max-width: calc(900px - 2 * var(--pad));
+  /* 左外边距：回退为紧贴侧边栏，支持 max() 时在宽屏居中 */
+  margin-left: var(--sidebar-w);
+  margin-left: calc(var(--sidebar-w) + max(0px, (100vw - var(--sidebar-w) - 900px) / 2));
+  margin-right: auto;
+}
+
+/* Hero */
+.hero{
+  background:linear-gradient(135deg,var(--dark) 0%,var(--slate) 100%);color:#fff;
+  border-radius:var(--radius);padding:44px 40px;margin-bottom:36px;
+  position:relative;overflow:hidden
+}
+.hero::after{
+  content:'';position:absolute;right:-40px;bottom:-40px;
+  width:200px;height:200px;background:var(--red);opacity:.18;border-radius:50%
+}
+.hero h1{font-size:28px;font-weight:700;position:relative;z-index:1}
+.hero .subtitle{font-size:14px;margin-top:10px;opacity:.8;position:relative;z-index:1}
+.hero .badge{
+  display:inline-block;background:var(--red);padding:4px 14px;
+  border-radius:20px;font-size:12px;font-weight:600;margin-bottom:12px;
+  position:relative;z-index:1
+}
+
+/* Sections */
+section{margin-bottom:40px}
+section h2{font-size:22px;font-weight:700;padding-bottom:10px;margin-bottom:20px;border-bottom:2px solid var(--red);color:var(--dark)}
+section h3{font-size:17px;font-weight:600;margin:28px 0 10px;color:var(--slate)}
+section h4,.card h4{font-size:15px;font-weight:600;margin:18px 0 8px}
+.card{background:var(--card);border-radius:var(--radius);padding:24px 28px;box-shadow:0 1px 4px rgba(0,0,0,.04);margin-bottom:16px}
+p{margin-bottom:10px}
+a{color:#1565c0;text-decoration:none;overflow-wrap:anywhere}
+a:hover{text-decoration:underline}
+ul,ol{padding-left:22px;margin-bottom:12px}
+li{margin-bottom:4px}
+code{background:#f0f0f0;padding:2px 6px;border-radius:4px;font-size:13px;font-family:"SF Mono","Fira Code",monospace}
+pre{background:#1a1a2e;color:#e0e0e0;padding:16px 20px;border-radius:var(--radius);overflow-x:auto;margin-bottom:14px;font-size:13px;line-height:1.6}
+pre code{background:none;padding:0;color:inherit}
+blockquote{
+  border-left:4px solid var(--red);background:#fef5f5;padding:12px 18px;
+  margin:14px 0;border-radius:0 var(--radius) var(--radius) 0;font-size:14px;color:#8b0000
+}
+/* 类型化引用块：[!info] 蓝 / [!warning] 黄 / [!danger] 红（仅颜色区分，无标签） */
+blockquote.bq-info{border-left-color:#1565c0;background:#eaf3fb;color:#0d3c66}
+blockquote.bq-warning{border-left-color:#f9a825;background:#fff8e1;color:#6d4c00}
+blockquote.bq-danger{border-left-color:#d32f2f;background:#fef5f5;color:#8b0000}
+blockquote ul,blockquote ol{margin:6px 0 0;padding-left:20px}
+blockquote li+li{margin-top:4px}
+hr{border:none;border-top:1px solid var(--border);margin:24px 0}
+img{max-width:100%;border-radius:var(--radius);margin:12px 0}
+/* 锚点跳转留白（避免被固定顶栏遮挡） */
+h2,h3{scroll-margin-top:16px}
+
+/* 图注与图片编号 */
+.fig{margin:14px 0;text-align:center}
+.fig-hi{display:block;line-height:0;cursor:zoom-in;text-decoration:none}
+.fig img{max-width:100%;height:auto;margin:0 auto;border-radius:var(--radius)}
+.fig figcaption{text-align:center;font-size:12px;color:var(--muted);margin-top:6px;line-height:1.5}
+.fig-label{font-weight:600;color:var(--muted);margin-right:.35em}
+.fig-align-left{text-align:left}
+.fig-align-right{text-align:right}
+.fig-align-left img{margin-left:0}
+.fig-align-right img{margin-right:0}
+.fig-align-left figcaption,.fig-align-right figcaption{text-align:inherit}
+
+/* 图片组 / 图文并排：真实表格布局（HTML 与 PDF 双端稳定，窄屏自动堆叠） */
+.media-row{width:100%;table-layout:fixed;border-collapse:collapse;margin:14px 0}
+.media-row td{vertical-align:top;width:50%;padding:0 7px;box-sizing:border-box}
+.media-row.media-cols-3 td{width:33.3333%}
+.media-row td:first-child{padding-left:0}
+.media-row td:last-child{padding-right:0}
+.media-row .fig{margin:0}
+.media-row .fig img{width:100%;height:auto;margin:0}
+.media-side{width:100%;table-layout:fixed;border-collapse:collapse;margin:14px 0}
+.media-side td{vertical-align:top;box-sizing:border-box;padding:0}
+/* 并排间距统一为 14px：图片组为 7px+7px；图文并排给第二列加 14px 左内边距 */
+.media-side td+td{padding-left:14px}
+.media-side .side-fig{width:var(--side-img,45%)}
+.media-side .side-fig .fig{margin:0}
+.media-side .side-fig .fig img{width:100%;height:auto;margin:0}
+/* 覆盖全局表格样式：图片组/并排表格不显示边框、底色，不继承表格字号 */
+.media-row,.media-side{border:none;font-size:inherit}
+.media-row td,.media-side td{border:none;background:none;text-align:left}
+table.media-row tbody tr,table.media-side tbody tr{background:none}
+.keep{break-inside:avoid;page-break-inside:avoid}
+.page-break{display:none}
+/* 窄屏堆叠仅用于屏幕；打印时始终保留表格并排布局（纸张宽度也小于 600px） */
+@media screen and (max-width:600px){
+  .media-row,.media-row tbody,.media-row tr,.media-row td{display:block;width:100%!important;padding:0}
+  .media-row td+td{margin-top:14px}
+  .media-side,.media-side tbody,.media-side tr,.media-side td{display:block;width:100%!important;padding:0}
+  .media-side .side-fig{margin-top:14px}
+  h2,h3{scroll-margin-top:64px}
+}
+
+/* Table */
+.table-wrap{overflow-x:auto;margin-bottom:14px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{border:1px solid var(--border);padding:10px 14px;text-align:left}
+th{background:var(--dark);color:#fff;font-weight:600}
+tr:nth-child(even){background:#fafafa}
+
+/* ====== RESPONSIVE ====== */
+
+/* Narrow: collapse sidebar */
+@media(max-width:768px){
+  .topbar{display:flex}
+  nav.sidebar{
+    transform:translateX(-100%);
+    top:var(--topbar-h);z-index:101;
+    width:280px;                        /* 回退：min() 不支持时 */
+    width:min(280px,84vw)
+  }
+  nav.sidebar.open{transform:translateX(0)}
+  .overlay.show{display:block}
+  main{
+    margin-left:0;margin-top:var(--topbar-h);
+    width: calc(100vw - 2 * var(--pad));
+    max-width: none;
+  }
+  .hero{padding:28px 20px}
+  .hero h1{font-size:22px}
+  .card{padding:16px 18px}
+  section h2{font-size:19px}
+  section h3{font-size:16px}
+  .table-wrap{margin-left:-18px;margin-right:-18px;width:calc(100% + 36px)}
+}
+
+/* Very narrow screens */
+@media(max-width:420px){
+  .topbar .brand{font-size:13px}
+  .lang-select{max-width:132px;font-size:12px;padding:5px 22px 5px 8px}
+  main{--pad: 12px}
+  .card{padding:14px 14px}
+  .hero{padding:22px 16px}
+  .hero h1{font-size:20px}
+}
+
+/* dev 预览标识（仅 dev 通道构建时输出；打印隐藏） */
+.dev-badge{
+  position:fixed;right:14px;bottom:14px;z-index:400;
+  background:#d32f2f;color:#fff;padding:6px 14px;border-radius:999px;
+  font-size:12px;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,.25);opacity:.92
+}
+@media print{.dev-badge{display:none!important}}
+/* ====== PRINT (PDF 导出) ====== */
+/*
+ * 注意：Chrome 打印视口宽度可能低于 768px，导致移动端媒体查询规则
+ * 泄漏到打印渲染。因此必须在打印样式中显式覆盖所有相关属性。
+ */
+@media print{
+  html,body{display:block !important;width:100% !important;max-width:100% !important;overflow:visible !important}
+  nav.sidebar,.topbar,.overlay{display:none !important}
+  body{background:#fff}
+  main{
+    display:block !important;box-sizing:border-box !important;
+    margin:0 !important;padding:0 !important;
+    width:100% !important;max-width:100% !important;
+  }
+  .card{box-shadow:none;border:1px solid var(--border);padding:24px 28px}
+  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:32px 28px}
+  .hero h1{color:var(--dark);font-size:28px}
+  section h2{font-size:22px}
+  section h3{font-size:17px}
+  .hero .badge{background:var(--red);color:#fff}
+  a{color:inherit;overflow-wrap:anywhere !important}
+  /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
+  .table-wrap{
+    overflow:visible !important;
+    margin:0 !important;
+    width:100% !important;
+    max-width:100% !important;
+  }
+  table{
+    width:100% !important;max-width:100% !important;
+    table-layout:fixed;font-size:12px
+  }
+  th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
+  tr{page-break-inside:avoid}
+  pre{white-space:pre-wrap !important;overflow-wrap:anywhere !important;overflow:visible !important}
+  /* 图片/图片组：尺寸封顶 + 真实表格布局，避免跨页拆图与切段 */
+  figure.fig,.fig-single{break-inside:avoid;page-break-inside:avoid}
+  figure.fig{margin:12px 0}
+  figure.fig img{max-width:100%!important;height:auto!important;max-height:22cm!important;display:block;margin:0 auto}
+  table.media-row{display:table!important;width:100%!important;table-layout:fixed!important;border-collapse:collapse!important;break-inside:avoid;page-break-inside:avoid}
+  table.media-row td{display:table-cell!important;vertical-align:top!important;width:50%!important;padding:0 7px!important;box-sizing:border-box!important}
+  table.media-row.media-cols-3 td{width:33.3333%!important}
+  table.media-row td:first-child{padding-left:0!important}
+  table.media-row td:last-child{padding-right:0!important}
+  table.media-row td img{width:100%!important;height:auto!important;max-height:20cm!important;display:block!important;margin:0 auto!important}
+  table.media-row figure.fig{margin:0!important}
+  table.media-side{display:table!important;width:100%!important;table-layout:fixed!important;border-collapse:collapse!important;break-inside:avoid;page-break-inside:avoid}
+  table.media-side td{display:table-cell!important;vertical-align:top!important;box-sizing:border-box!important}
+  table.media-side td+td{padding-left:14px!important}
+  table.media-side .side-fig{width:var(--side-img,45%)!important}
+  table.media-side .side-fig img{width:100%!important;height:auto!important;max-height:20cm!important;display:block!important;margin:0 auto!important}
+  .keep{break-inside:avoid;page-break-inside:avoid}
+  .page-break{display:block!important;height:0!important;margin:0!important;border:0!important;break-after:page;page-break-after:always}
+  blockquote{break-inside:avoid;page-break-inside:avoid}
+  thead{display:table-header-group}
+  /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
+  html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
+  .align-right{text-align:right}
+  /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
+  h1{margin:3.2em 0 1em}
+  h2{margin:2em 0 .8em}
+  h3{margin:1.2em 0 .5em}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <img class="topbar-logo" src="../images/basic/team_logo_small.png" alt="32477 Origin">
+  <span class="brand"><a href="../index.html" title="返回主页">FTC 32477 Origin 快速入门指南</a></span>
+  <select class="lang-select" id="langSelect" aria-label="语言">
+<option value="../zh-hans/appendix.html" selected>简体中文</option><option value="../zh-hant/index.html">繁體中文</option><option value="../en-us/index.html">English (US)</option><option value="../fr/index.html">Français</option><option value="../es/index.html">Español</option><option value="../ko/index.html">한국어</option><option value="../pt-br/index.html">Português (BR)</option>
+  </select>
+  <button class="menu-btn" id="menuBtn" aria-label="菜单" aria-controls="sidebar" aria-expanded="false">☰</button>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <a class="home-link" href="../index.html" title="返回主页">
+      <img class="side-logo" src="../images/basic/team_logo_small.png" alt="32477 Origin Team Logo">
+      <div class="logo">FTC 32477<br>Origin</div>
+      <div class="sub">快速入门指南</div>
+    </a>
+    <select class="lang-select-sidebar" id="langSelectSide" aria-label="语言">
+<option value="../zh-hans/appendix.html" selected>简体中文</option><option value="../zh-hant/index.html">繁體中文</option><option value="../en-us/index.html">English (US)</option><option value="../fr/index.html">Français</option><option value="../es/index.html">Español</option><option value="../ko/index.html">한국어</option><option value="../pt-br/index.html">Português (BR)</option>
+    </select>
+  </div>
+  <div class="sidebar-nav">
+<a href="index.html">主页</a>
+<a href="preface.html">前言</a>
+<a href="member.html">队员须知</a>
+<a href="modeling.html">建模设计</a>
+<a href="build.html">结构建造</a>
+<a href="programming.html">程序设计</a>
+<a href="outreach.html">外部联络</a>
+<a href="operations.html">比赛与运营</a>
+<a href="appendix.html" class="active">附录</a>
+<a class="sub-link" href="#一术语表中英对照">一、术语表（中英对照）</a>
+<a class="sub-link" href="#二参数速查待实测">二、参数速查（待实测）</a>
+<a class="sub-link sub-3" href="#213D打印">2.1 3D 打印</a>
+<a class="sub-link sub-3" href="#22激光切割">2.2 激光切割</a>
+<a class="sub-link sub-3" href="#23紧固与电气">2.3 紧固与电气</a>
+<a class="sub-link sub-3" href="#24程序与网络速查">2.4 程序与网络速查</a>
+<a class="sub-link" href="#三检查清单">三、检查清单</a>
+<a class="sub-link sub-3" href="#31赛前机器人自检清单">3.1 赛前机器人自检清单</a>
+<a class="sub-link sub-3" href="#32赛事日物品清单">3.2 赛事日物品清单</a>
+<a class="sub-link sub-3" href="#33收工检查清单">3.3 收工检查清单</a>
+<a class="sub-link sub-3" href="#34设计评审清单建模结构">3.4 设计评审清单（建模/结构）</a>
+<a class="sub-link sub-3" href="#35程序测试清单">3.5 程序测试清单</a>
+<a class="sub-link" href="#四模板库索引">四、模板库（索引）</a>
+<a class="sub-link" href="#五故障排查骨架">五、故障排查（骨架）</a>
+<a class="sub-link" href="#六工具清单待结构组提供">六、工具清单（待结构组提供）</a>
+<a class="sub-link" href="#七常见问题FAQ">七、常见问题 FAQ</a>
+<a class="sub-link" href="#八外部资源索引">八、外部资源索引</a>
+<a href="afterword.html">后记</a>
+  </div>
+  <div class="sidebar-footer">2026年10月第2版·第1次修订 &middot; 编写小组</div>
+</nav>
+
+<main>
+<h1>附录</h1>
+<blockquote>附录是<strong>独立的一页</strong>，不隶属于任何一章：覆盖全书各章（队员须知 / 建模 / 结构 / 程序 / 外联 / 比赛与运营）的速查内容。 本附录用于"查"而不是"读"：术语、参数、检查清单、模板、故障排查集中在这里，正文各章在需要时链接过来。当前状态：结构与术语骨架已搭好；标注 <code><!-- TODO --></code> 的条目等团队提供实测数据/审核后补齐。</blockquote>
+<p><!-- TODO(I-01): 术语表中与当季赛题（2026-2027 BIOBUZZ）相关的术语、得分元素名称，需对照官方手册术语表核实后补充。 -->
+<!-- TODO(I-04/I-05/I-06): 传动/电机参数、打印/激光参数、工具清单需结构组提供实测数据；在数据到位前保留"待实测"空行。 --></p>
+<h2 id="一术语表中英对照">一、术语表（中英对照）</h2>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">中文</th><th style="text-align:left">English</th><th style="text-align:left">说明</th></tr></thead><tbody><tr><td style="text-align:left">FIRST</td><td style="text-align:left">FIRST</td><td style="text-align:left">国际青少年机器人竞赛组织</td></tr><tr><td style="text-align:left">FTC</td><td style="text-align:left">FIRST Tech Challenge</td><td style="text-align:left">本指南对应的赛事项目</td></tr><tr><td style="text-align:left">联盟</td><td style="text-align:left">Alliance</td><td style="text-align:left">由 2 支队伍组成的比赛合作单位（总决赛为 3 支）</td></tr><tr><td style="text-align:left">联盟长</td><td style="text-align:left">Alliance Captain</td><td style="text-align:left">资格赛排名靠前、负责选人的队伍代表</td></tr><tr><td style="text-align:left">练习赛</td><td style="text-align:left">Practice Match</td><td style="text-align:left">正式比赛前的上场练习</td></tr><tr><td style="text-align:left">资格赛</td><td style="text-align:left">Qualification Match</td><td style="text-align:left">决定排位与联盟选择顺序的比赛</td></tr><tr><td style="text-align:left">淘汰赛</td><td style="text-align:left">Playoff Match</td><td style="text-align:left">双败淘汰、决出冠军联盟的比赛</td></tr><tr><td style="text-align:left">检录</td><td style="text-align:left">Inspection</td><td style="text-align:left">赛前对机器人合规性与安全性的检查</td></tr><tr><td style="text-align:left">机器人</td><td style="text-align:left">Robot</td><td style="text-align:left">参赛机器人本体</td></tr><tr><td style="text-align:left">操作台</td><td style="text-align:left">Operator Console</td><td style="text-align:left">与机器人通信的控制设备组合</td></tr><tr><td style="text-align:left">驱动站</td><td style="text-align:left">Driver Station</td><td style="text-align:left">运行 Driver Station App 的控制设备</td></tr><tr><td style="text-align:left">机器人控制器</td><td style="text-align:left">Robot Controller</td><td style="text-align:left">运行 Robot Controller App 的控制设备</td></tr><tr><td style="text-align:left">驾驶团队</td><td style="text-align:left">Drive Team</td><td style="text-align:left">每场上场的队伍成员（最多 4 人）</td></tr><tr><td style="text-align:left">主操</td><td style="text-align:left">Driver</td><td style="text-align:left">控制机器人移动的队员</td></tr><tr><td style="text-align:left">副操</td><td style="text-align:left">Operator</td><td style="text-align:left">控制机构动作的队员</td></tr><tr><td style="text-align:left">教练</td><td style="text-align:left">Coach</td><td style="text-align:left">场上策略与节奏负责人</td></tr><tr><td style="text-align:left">人类玩家</td><td style="text-align:left">Human Player</td><td style="text-align:left">场边执行赛题互动的队员（视赛题设置）</td></tr><tr><td style="text-align:left">自动阶段</td><td style="text-align:left">Autonomous / AUTO</td><td style="text-align:left">开局由预编程控制的阶段</td></tr><tr><td style="text-align:left">手动阶段</td><td style="text-align:left">TeleOp</td><td style="text-align:left">由操作手遥控的阶段</td></tr><tr><td style="text-align:left">得分元素</td><td style="text-align:left">Scoring Element</td><td style="text-align:left">赛题中用于得分/互动的道具</td></tr><tr><td style="text-align:left">场地</td><td style="text-align:left">Field</td><td style="text-align:left">约 12 ft × 12 ft 的比赛区域</td></tr><tr><td style="text-align:left">比赛</td><td style="text-align:left">Match</td><td style="text-align:left">一场比赛（2 个联盟对抗）</td></tr><tr><td style="text-align:left">排名分</td><td style="text-align:left">Ranking Points</td><td style="text-align:left">资格赛中决定排位的分数</td></tr><tr><td style="text-align:left">联盟选择</td><td style="text-align:left">Alliance Selection</td><td style="text-align:left">资格赛后由联盟长依次选人的流程</td></tr><tr><td style="text-align:left">双败淘汰</td><td style="text-align:left">Double Elimination</td><td style="text-align:left">输两场才出局的淘汰赛制</td></tr><tr><td style="text-align:left">工程笔记（PORTFOLIO）</td><td style="text-align:left">Engineering Notebook (PORTFOLIO)</td><td style="text-align:left">官方 2026–2027 起用 PORTFOLIO；本指南沿用"工程笔记（PORTFOLIO）"写法</td></tr><tr><td style="text-align:left">评委</td><td style="text-align:left">Judges</td><td style="text-align:left">负责评审与奖项的志愿者</td></tr><tr><td style="text-align:left">维修区</td><td style="text-align:left">Pit</td><td style="text-align:left">队伍在场馆内的维修与准备区域</td></tr><tr><td style="text-align:left">侦察</td><td style="text-align:left">Scouting</td><td style="text-align:left">收集对手/队友数据用于策略与联盟选择</td></tr><tr><td style="text-align:left">物料清单</td><td style="text-align:left">BOM (Bill of Materials)</td><td style="text-align:left">机器人全部零件与数量清单</td></tr><tr><td style="text-align:left">比例-积分-微分</td><td style="text-align:left">PID</td><td style="text-align:left">常用闭环控制算法</td></tr><tr><td style="text-align:left">编码器</td><td style="text-align:left">Encoder</td><td style="text-align:left">测量电机/轴转速与位置的传感器</td></tr><tr><td style="text-align:left">惯性测量单元</td><td style="text-align:left">IMU</td><td style="text-align:left">测量姿态与加速度的传感器</td></tr></tbody></table></div>
+<p><!-- TODO(I-01): 补充当季赛题专有术语（得分元素、场地元素、特殊动作），每条附官方定义与手册章节号。 --></p>
+<h2 id="二参数速查待实测">二、参数速查（待实测）</h2>
+<h3 id="213D打印">2.1 3D 打印</h3>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">材料</th><th style="text-align:left">层高</th><th style="text-align:left">壁厚</th><th style="text-align:left">填充</th><th style="text-align:left">温度（喷嘴/热床）</th><th style="text-align:left">速度</th><th style="text-align:left">适用场景</th></tr></thead><tbody><tr><td style="text-align:left">PLA</td><td style="text-align:left">待实测</td><td style="text-align:left">待实测</td><td style="text-align:left">待实测</td><td style="text-align:left">待实测</td><td style="text-align:left">待实测</td><td style="text-align:left">结构件/工装</td></tr><tr><td style="text-align:left">PETG</td><td style="text-align:left">待实测</td><td style="text-align:left">待实测</td><td style="text-align:left">待实测</td><td style="text-align:left">待实测</td><td style="text-align:left">待实测</td><td style="text-align:left">受力件/耐温件</td></tr><tr><td style="text-align:left">TPU</td><td style="text-align:left">待实测</td><td style="text-align:left">待实测</td><td style="text-align:left">待实测</td><td style="text-align:left">待实测</td><td style="text-align:left">待实测</td><td style="text-align:left">缓冲/防滑</td></tr></tbody></table></div>
+<h3 id="22激光切割">2.2 激光切割</h3>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">材料</th><th style="text-align:left">厚度</th><th style="text-align:left">功率</th><th style="text-align:left">速度</th><th style="text-align:left">遍数</th><th style="text-align:left">备注</th></tr></thead><tbody><tr><td style="text-align:left">亚克力</td><td style="text-align:left">待实测</td><td style="text-align:left">待实测</td><td style="text-align:left">待实测</td><td style="text-align:left">待实测</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">木板</td><td style="text-align:left">待实测</td><td style="text-align:left">待实测</td><td style="text-align:left">待实测</td><td style="text-align:left">待实测</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">瓦楞纸</td><td style="text-align:left">待实测</td><td style="text-align:left">待实测</td><td style="text-align:left">待实测</td><td style="text-align:left">待实测</td><td style="text-align:left">打样用</td></tr></tbody></table></div>
+<h3 id="23紧固与电气">2.3 紧固与电气</h3>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">项目</th><th style="text-align:left">规格/数值</th><th style="text-align:left">备注</th></tr></thead><tbody><tr><td style="text-align:left">常用螺丝</td><td style="text-align:left">M3 / M4</td><td style="text-align:left">以 REV/goBILDA 标准件为准</td></tr><tr><td style="text-align:left">螺丝扭矩</td><td style="text-align:left">待实测</td><td style="text-align:left">按材料与螺纹类型</td></tr><tr><td style="text-align:left">线径</td><td style="text-align:left">待实测</td><td style="text-align:left">电机/信号线分开</td></tr><tr><td style="text-align:left">保险丝</td><td style="text-align:left">待实测</td><td style="text-align:left">以电控规范为准</td></tr><tr><td style="text-align:left">端口映射</td><td style="text-align:left">待补</td><td style="text-align:left">由程序组按实机配置填写</td></tr></tbody></table></div>
+<p><!-- TODO(I-04/I-05): 以上参数由结构组/实验室实测后填写；每项注明机型、测试条件与日期。 -->
+<!-- TODO(I-13): 电气安全相关数值需指导老师审核。 --></p>
+<h3 id="24程序与网络速查">2.4 程序与网络速查</h3>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">项目</th><th style="text-align:left">内容</th><th style="text-align:left">备注</th></tr></thead><tbody><tr><td style="text-align:left">FTC SDK 版本</td><td style="text-align:left">待补</td><td style="text-align:left">以当季官方发布为准</td></tr><tr><td style="text-align:left">控制设备</td><td style="text-align:left">Driver Station / Robot Controller</td><td style="text-align:left">手机或 REV Driver Hub</td></tr><tr><td style="text-align:left">连接方式</td><td style="text-align:left">Wi-Fi Direct / 路由器</td><td style="text-align:left">赛场按 FTA 要求</td></tr><tr><td style="text-align:left">端口映射</td><td style="text-align:left">待补</td><td style="text-align:left">由程序组按实机配置填写</td></tr></tbody></table></div>
+<h2 id="三检查清单">三、检查清单</h2>
+<h3 id="31赛前机器人自检清单">3.1 赛前机器人自检清单</h3>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">项目</th><th style="text-align:left">标准</th><th style="text-align:left">结果</th><th style="text-align:left">负责人</th></tr></thead><tbody><tr><td style="text-align:left">尺寸包络</td><td style="text-align:left">完全展开 ≤ 18×24×29 in</td><td style="text-align:left">☐</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">电子件数量</td><td style="text-align:left">不超过构造规则上限</td><td style="text-align:left">☐</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">电池</td><td style="text-align:left">满电、固定、无鼓包</td><td style="text-align:left">☐</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">急停/断电</td><td style="text-align:left">可触及、有效</td><td style="text-align:left">☐</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">线缆</td><td style="text-align:left">无裸露、无卡阻</td><td style="text-align:left">☐</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">结构紧固</td><td style="text-align:left">关键螺丝无松动</td><td style="text-align:left">☐</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">程序/固件</td><td style="text-align:left">版本正确、备份可用</td><td style="text-align:left">☐</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">DS/RC</td><td style="text-align:left">配对成功、延迟正常</td><td style="text-align:left">☐</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">工具/备件</td><td style="text-align:left">按清单齐全</td><td style="text-align:left">☐</td><td style="text-align:left"></td></tr></tbody></table></div>
+<h3 id="32赛事日物品清单">3.2 赛事日物品清单</h3>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">类别</th><th style="text-align:left">物品</th><th style="text-align:left">数量</th><th style="text-align:left">检查</th></tr></thead><tbody><tr><td style="text-align:left">机器人</td><td style="text-align:left">机器人本体、操作台、备用电池</td><td style="text-align:left"></td><td style="text-align:left">☐</td></tr><tr><td style="text-align:left">工具</td><td style="text-align:left">内六角、螺丝刀、扳手、剪钳、万用表</td><td style="text-align:left"></td><td style="text-align:left">☐</td></tr><tr><td style="text-align:left">备件</td><td style="text-align:left">螺丝/螺母/扎带/轴承/易损打印件</td><td style="text-align:left"></td><td style="text-align:left">☐</td></tr><tr><td style="text-align:left">文档</td><td style="text-align:left">工程笔记（PORTFOLIO）、检查清单、赛程、联系方式</td><td style="text-align:left"></td><td style="text-align:left">☐</td></tr><tr><td style="text-align:left">宣传</td><td style="text-align:left">队旗、贴纸、赞助商材料</td><td style="text-align:left"></td><td style="text-align:left">☐</td></tr></tbody></table></div>
+<h3 id="33收工检查清单">3.3 收工检查清单</h3>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">项目</th><th style="text-align:left">标准</th><th style="text-align:left">结果</th></tr></thead><tbody><tr><td style="text-align:left">机器人断电</td><td style="text-align:left">电池取出、开关关闭</td><td style="text-align:left">☐</td></tr><tr><td style="text-align:left">工具清点</td><td style="text-align:left">数量与借出记录一致</td><td style="text-align:left">☐</td></tr><tr><td style="text-align:left">垃圾清理</td><td style="text-align:left">Pit 桌面与地面无遗留</td><td style="text-align:left">☐</td></tr><tr><td style="text-align:left">数据备份</td><td style="text-align:left">代码、日志、照片已备份</td><td style="text-align:left">☐</td></tr><tr><td style="text-align:left">问题记录</td><td style="text-align:left">当日问题已写入复盘/待办</td><td style="text-align:left">☐</td></tr></tbody></table></div>
+<h3 id="34设计评审清单建模结构">3.4 设计评审清单（建模/结构）</h3>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">项目</th><th style="text-align:left">检查内容</th><th style="text-align:left">结果</th><th style="text-align:left">负责人</th></tr></thead><tbody><tr><td style="text-align:left">尺寸链</td><td style="text-align:left">关键尺寸有公差与配合说明</td><td style="text-align:left">☐</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">维修可达</td><td style="text-align:left">易损件可快速拆装</td><td style="text-align:left">☐</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">走线空间</td><td style="text-align:left">线缆不穿运动件、有固定点</td><td style="text-align:left">☐</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">重心/稳定</td><td style="text-align:left">重心低、急停/加速不翻车</td><td style="text-align:left">☐</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">模块化</td><td style="text-align:left">机构可独立拆装</td><td style="text-align:left">☐</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">标准件</td><td style="text-align:left">优先使用 REV/goBILDA 标准件</td><td style="text-align:left">☐</td><td style="text-align:left"></td></tr></tbody></table></div>
+<h3 id="35程序测试清单">3.5 程序测试清单</h3>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">项目</th><th style="text-align:left">检查内容</th><th style="text-align:left">结果</th><th style="text-align:left">负责人</th></tr></thead><tbody><tr><td style="text-align:left">构建</td><td style="text-align:left">本地/CI 构建通过，无警告</td><td style="text-align:left">☐</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">部署</td><td style="text-align:left">能部署到实机并启动 OpMode</td><td style="text-align:left">☐</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">硬件映射</td><td style="text-align:left">端口与配置一致</td><td style="text-align:left">☐</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">失效保护</td><td style="text-align:left">断连/急停后行为安全</td><td style="text-align:left">☐</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">日志</td><td style="text-align:left">telemetry/日志可用于排障</td><td style="text-align:left">☐</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">回归</td><td style="text-align:left">改动后核心动作仍可用</td><td style="text-align:left">☐</td><td style="text-align:left"></td></tr></tbody></table></div>
+<h2 id="四模板库索引">四、模板库（索引）</h2>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">模板</th><th style="text-align:left">用途</th><th style="text-align:left">结构要点</th></tr></thead><tbody><tr><td style="text-align:left">工程笔记（PORTFOLIO）章节模板</td><td style="text-align:left">工程文档/评审</td><td style="text-align:left">概述 → 设计与迭代 → 建造 → 程序 → 测试数据 → 外联 → 反思</td></tr><tr><td style="text-align:left">BOM（物料清单）</td><td style="text-align:left">采购/装配/复盘</td><td style="text-align:left">名称、规格、数量、供应商、价格、替代件</td></tr><tr><td style="text-align:left">Scouting 表</td><td style="text-align:left">赛场侦察</td><td style="text-align:left">队号、自动/手动得分、稳定性、防守、备注</td></tr><tr><td style="text-align:left">赞助方案</td><td style="text-align:left">对外筹款</td><td style="text-align:left">队伍介绍、赛事计划、预算、权益分层、联系方式</td></tr><tr><td style="text-align:left">赞助联系邮件</td><td style="text-align:left">初次联系</td><td style="text-align:left">一句话介绍、合作点、附件、跟进时间</td></tr><tr><td style="text-align:left">活动策划</td><td style="text-align:left">STEM 推广</td><td style="text-align:left">目标、对象、流程、物料、安全、预算、复盘</td></tr><tr><td style="text-align:left">预算/账目表</td><td style="text-align:left">财务管理</td><td style="text-align:left">项目、预算、实际、差额、凭证</td></tr><tr><td style="text-align:left">赛后复盘</td><td style="text-align:left">比赛改进</td><td style="text-align:left">比分、做得好/待改进、问题、责任人、截止时间</td></tr></tbody></table></div>
+<p><!-- TODO(I-10/I-11): 工程笔记样例、赞助权益分层与真实邮件模板待外联组提供后展开为完整模板。 --></p>
+<h2 id="五故障排查骨架">五、故障排查（骨架）</h2>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">现象</th><th style="text-align:left">可能原因</th><th style="text-align:left">处理</th><th style="text-align:left">负责人</th></tr></thead><tbody><tr><td style="text-align:left">机器人完全不动</td><td style="text-align:left">电池/急停/DS 连接/程序未启动</td><td style="text-align:left">逐项检查电源与连接，查看 DS 报错</td><td style="text-align:left">程序+电控</td></tr><tr><td style="text-align:left">DS 连不上 RC</td><td style="text-align:left">Wi-Fi 直连/路由器配置/设备重启</td><td style="text-align:left">重启 RC/DS，检查网络配置</td><td style="text-align:left">程序</td></tr><tr><td style="text-align:left">电机不转但程序正常</td><td style="text-align:left">端口映射错误/电机驱动/保险丝</td><td style="text-align:left">核对配置、替换端口/电机</td><td style="text-align:left">程序+电控</td></tr><tr><td style="text-align:left">传感器无读数</td><td style="text-align:left">接线/端口/驱动配置</td><td style="text-align:left">检查 I2C/模拟口与配置</td><td style="text-align:left">程序</td></tr><tr><td style="text-align:left">打印件断裂</td><td style="text-align:left">层间结合/填充不足/受力方向</td><td style="text-align:left">换打印方向/材料/增加壁厚</td><td style="text-align:left">结构</td></tr><tr><td style="text-align:left">场地无线干扰</td><td style="text-align:left">多队同频/环境干扰</td><td style="text-align:left">换信道、缩短距离、联系 FTA</td><td style="text-align:left">程序+队长</td></tr></tbody></table></div>
+<p><!-- TODO(I-13): 故障排查表需按本队实际器材与实测案例补充；安全相关处理需指导老师审核。 --></p>
+<h2 id="六工具清单待结构组提供">六、工具清单（待结构组提供）</h2>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">工具</th><th style="text-align:left">规格</th><th style="text-align:left">数量</th><th style="text-align:left">存放位置</th><th style="text-align:left">用途</th></tr></thead><tbody><tr><td style="text-align:left">内六角扳手</td><td style="text-align:left">待补</td><td style="text-align:left"></td><td style="text-align:left"></td><td style="text-align:left"></td></tr><tr><td style="text-align:left">螺丝刀</td><td style="text-align:left">待补</td><td style="text-align:left"></td><td style="text-align:left"></td><td style="text-align:left"></td></tr><tr><td style="text-align:left">卡尺</td><td style="text-align:left">待补</td><td style="text-align:left"></td><td style="text-align:left"></td><td style="text-align:left"></td></tr><tr><td style="text-align:left">万用表</td><td style="text-align:left">待补</td><td style="text-align:left"></td><td style="text-align:left"></td><td style="text-align:left"></td></tr><tr><td style="text-align:left">热风枪/电烙铁</td><td style="text-align:left">待补</td><td style="text-align:left"></td><td style="text-align:left"></td><td style="text-align:left"></td></tr></tbody></table></div>
+<p><!-- TODO(I-06): 由结构组提供完整《工具清单》（名称/规格/数量/位置/采购链接或价格/替代品），完成后本表替换为正式版。 --></p>
+<h2 id="七常见问题FAQ">七、常见问题 FAQ</h2>
+<p><strong>Q1：第一次参赛需要准备什么？</strong>
+先按《赛前检查清单》自检机器人，再按《赛事日物品清单》打包；提前确认赛程、检录时间与队伍分工。</p>
+<p><strong>Q2：检录最容易卡在哪里？</strong>
+尺寸包络、电子件数量、电池固定、线缆与急停。赛前按官方 Inspection Checklist 自检一遍。</p>
+<p><strong>Q3：资格赛排名怎么算？</strong>
+由比赛分与排名分共同决定；具体计算以当季手册为准，不要凭经验估算。</p>
+<p><strong>Q4：联盟选择时应该选什么样的队友？</strong>
+优先补本队短板（自动、防守、稳定性），而不是简单选"最强"；提前准备备选方案。</p>
+<p><strong>Q5：机器人临场坏了怎么办？</strong>
+先判断能否在下一场前修复：换电池/换电机/换打印件优先；无法修复时及时告知联盟长与裁判，调整策略。</p>
+<h2 id="八外部资源索引">八、外部资源索引</h2>
+<ul><li>官方竞赛手册与赛季资源：<a href="https://ftc-resources.firstinspires.org/ftc/game" target="_blank" rel="noopener">https://ftc-resources.firstinspires.org/ftc/game</a></li><li>官方文档（SDK/控制/硬件）：<a href="https://ftc-docs.firstinspires.org/en/latest/index.html" target="_blank" rel="noopener">https://ftc-docs.firstinspires.org/en/latest/index.html</a></li><li>官方编程资源：<a href="https://www.firstinspires.org/resources/library/ftc/programming-resources" target="_blank" rel="noopener">https://www.firstinspires.org/resources/library/ftc/programming-resources</a></li><li>本队赛事页：<a href="https://ftc-events.firstinspires.org/team/32477" target="_blank" rel="noopener">https://ftc-events.firstinspires.org/team/32477</a></li><li>赛事数据/侦察工具（非官方）：<a href="https://ftcscout.org/" target="_blank" rel="noopener">https://ftcscout.org/</a></li><li>零件与图纸：<a href="https://www.gobilda.com/" target="_blank" rel="noopener">https://www.gobilda.com/</a>、<a href="https://docs.revrobotics.com/" target="_blank" rel="noopener">https://docs.revrobotics.com/</a></li><li>路径规划：<a href="https://pedropathing.com/" target="_blank" rel="noopener">https://pedropathing.com/</a></li></ul>
+</main>
+
+<script>
+(function(){
+  var sb=document.getElementById("sidebar");
+  var ol=document.getElementById("overlay");
+  var btn=document.getElementById("menuBtn");
+  function open(){sb.classList.add("open");ol.classList.add("show");btn.setAttribute("aria-expanded","true")}
+  function close(){sb.classList.remove("open");ol.classList.remove("show");btn.setAttribute("aria-expanded","false")}
+  btn.addEventListener("click",function(){sb.classList.contains("open")?close():open()});
+  ol.addEventListener("click",close);
+  var ls=document.getElementById("langSelect");
+  if(ls){ls.addEventListener("change",function(){window.location.href=ls.value})};
+  var lss=document.getElementById("langSelectSide");
+  if(lss){lss.addEventListener("change",function(){window.location.href=lss.value})};
+})();
+</script>
+<div class="dev-badge" role="note">开发预览版</div>
+</body>
+</html>

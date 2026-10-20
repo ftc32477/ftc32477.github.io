@@ -406,7 +406,18 @@ tr:nth-child(even){background:#fafafa}
 <a class="sub-link sub-3" href="#危险操作警示">危险操作警示</a>
 <a class="sub-link sub-3" href="#练习清单">练习清单</a>
 <a class="sub-link sub-3" href="#官方文档入口">官方文档入口</a>
+<a class="sub-link" href="#六FTCSDK与工程结构">六、FTC SDK 与工程结构</a>
+<a class="sub-link" href="#七RobotConfiguration与DSRC连接">七、Robot Configuration 与 DS/RC 连接</a>
+<a class="sub-link sub-3" href="#71机器人配置">7.1 机器人配置</a>
+<a class="sub-link sub-3" href="#72DS与RC连接">7.2 DS 与 RC 连接</a>
+<a class="sub-link" href="#八第一个OpMode">八、第一个 OpMode</a>
+<a class="sub-link" href="#九常用硬件控制与调试">九、常用硬件控制与调试</a>
+<a class="sub-link sub-3" href="#91常用硬件">9.1 常用硬件</a>
+<a class="sub-link sub-3" href="#92调试方法">9.2 调试方法</a>
+<a class="sub-link" href="#十测试与第一次任务">十、测试与第一次任务</a>
 <a href="outreach.html">外部联络</a>
+<a href="operations.html">比赛与运营</a>
+<a href="appendix.html">附录</a>
 <a href="afterword.html">后记</a>
   </div>
   <div class="sidebar-footer">2026年10月第2版·第1次修订 &middot; 编写小组</div>
@@ -538,6 +549,57 @@ git push -u origin feat/my-feature</code></pre>
 <p>需要更深入的用法时，按需查阅以下官方文档：</p>
 <ul><li>GitHub 快速入门：<a href="https://docs.github.com/zh/get-started/quickstart" target="_blank" rel="noopener">https://docs.github.com/zh/get-started/quickstart</a></li><li>编写与保存代码（分支/提交/PR）：<a href="https://docs.github.com/zh/get-started/start-your-journey/writing-and-storing-your-code" target="_blank" rel="noopener">https://docs.github.com/zh/get-started/start-your-journey/writing-and-storing-your-code</a></li><li>Git 速查表：<a href="https://docs.github.com/zh/get-started/git-basics/git-cheatsheet" target="_blank" rel="noopener">https://docs.github.com/zh/get-started/git-basics/git-cheatsheet</a></li><li>搜索语法：<a href="https://docs.github.com/zh/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax" target="_blank" rel="noopener">https://docs.github.com/zh/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax</a></li><li>GitHub 组织的仓库角色：<a href="https://docs.github.com/zh/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization" target="_blank" rel="noopener">https://docs.github.com/zh/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization</a></li><li>交互式课程（英文）：<a href="https://skills.github.com/" target="_blank" rel="noopener">https://skills.github.com/</a></li></ul>
 <blockquote class="bq-info">遇到不确定的操作，先咨询管理员或在 Issues 中提问。</blockquote>
+<h2 id="六FTCSDK与工程结构">六、FTC SDK 与工程结构</h2>
+<p><!-- TODO(I-08): 由程序组补充本队示例仓库链接、已验证的 SDK 版本与硬件映射。 --></p>
+<p>FTC 官方 SDK 是一个 Android 工程，核心目录：</p>
+<pre><code>FtcRobotController/        # 官方示例与基础模块
+TeamCode/src/main/java/    # 队伍自己的代码（OpMode 放在这里）
+build.gradle               # 依赖与 SDK 版本</code></pre>
+<ul><li>每个 OpMode 是 <code>TeamCode</code> 下的一个 Java 类，用 <code>@TeleOp</code> / <code>@Autonomous</code> 注解标记；</li><li>新赛季从官方模板复刻仓库，保留 <code>TeamCode</code>，不要在官方目录里写队伍代码；</li><li>Android Studio 打开工程后先 Gradle Sync，再连接 Robot Controller 部署；</li><li>代码提交前跑一次本地构建，避免把编译错误推给全队。</li></ul>
+<h2 id="七RobotConfiguration与DSRC连接">七、Robot Configuration 与 DS/RC 连接</h2>
+<h3 id="71机器人配置">7.1 机器人配置</h3>
+<p><!-- TODO(I-02): 补 Control Hub 实际端口与设备命名截图（去敏）。 --></p>
+<ul><li>在 Driver Station 的 Robot Configuration 中为每个电机、舵机、传感器分配名字与端口；</li><li>命名规范：<code>leftFront</code>、<code>rightFront</code>、<code>arm</code>、<code>intake</code>、<code>imu</code> 等，代码里用同一个名字；</li><li>修改配置后必须保存并重启 Robot Controller，否则 <code>hardwareMap.get()</code> 会找不到设备；</li><li>每台机器人保留一份配置备份（截图或配置文件）。</li></ul>
+<h3 id="72DS与RC连接">7.2 DS 与 RC 连接</h3>
+<ol><li>给 Control Hub 上电，等待状态灯正常；</li><li>Driver Station 连接机器人网络（Wi-Fi Direct 或路由器）；</li><li>在 Driver Station 选择 OpMode，点击 INIT → START；</li><li>连接失败时依次检查：电池电压、网络、Robot Controller App 是否运行、配置是否匹配。</li></ol>
+<h2 id="八第一个OpMode">八、第一个 OpMode</h2>
+<p><!-- TODO(I-08): 示例代码需程序组在实机验证后定稿；硬件名以实际 Robot Configuration 为准。 --></p>
+<p>下面是一个最小 TeleOp：左手柄摇杆同时驱动左右电机，并在 Driver Station 显示功率。</p>
+<pre><code>package org.firstinspires.ftc.teamcode;
+
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotor;
+
+@TeleOp(name = "Hello Drive", group = "Guide")
+public class HelloDrive extends LinearOpMode {
+    @Override
+    public void runOpMode() {
+        DcMotor left = hardwareMap.get(DcMotor.class, "leftFront");
+        DcMotor right = hardwareMap.get(DcMotor.class, "rightFront");
+
+        telemetry.addData("Status", "Initialized");
+        telemetry.update();
+        waitForStart();
+
+        while (opModeIsActive()) {
+            double y = -gamepad1.left_stick_y;
+            left.setPower(y);
+            right.setPower(y);
+            telemetry.addData("power", y);
+            telemetry.update();
+        }
+    }
+}</code></pre>
+<ul><li><code>runOpMode()</code> 的生命周期：init → waitForStart() → loop → stop；不要在 init 阶段做耗时动作；</li><li><code>gamepad1.left_stick_y</code> 向上为负，所以取反；</li><li>若一侧电机方向相反，在配置里改方向或代码里对 <code>right.setPower(-y)</code>；</li><li>部署流程：Android Studio Run → 选择 Robot Controller → 在 Driver Station 选 OpMode → INIT/START。</li></ul>
+<h2 id="九常用硬件控制与调试">九、常用硬件控制与调试</h2>
+<h3 id="91常用硬件">9.1 常用硬件</h3>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">硬件</th><th style="text-align:left">用途</th><th style="text-align:left">关键点</th></tr></thead><tbody><tr><td style="text-align:left">直流电机 + 编码器</td><td style="text-align:left">驱动/升降</td><td style="text-align:left">编码器读数换算距离/速度</td></tr><tr><td style="text-align:left">舵机 / CRServo</td><td style="text-align:left">角度/连续转动</td><td style="text-align:left">行程标定，避免堵转</td></tr><tr><td style="text-align:left">距离/颜色传感器</td><td style="text-align:left">自动对齐/识别</td><td style="text-align:left">安装高度与量程</td></tr><tr><td style="text-align:left">IMU</td><td style="text-align:left">转向/姿态</td><td style="text-align:left">初始化后需校准</td></tr><tr><td style="text-align:left">摄像头 + AprilTag</td><td style="text-align:left">视觉定位</td><td style="text-align:left">光照与标定</td></tr></tbody></table></div>
+<h3 id="92调试方法">9.2 调试方法</h3>
+<ul><li><strong>Telemetry</strong>：把关键变量打到 Driver Station，先看数再改代码；</li><li><strong>日志</strong>：异常时保留完整报错，不要只看最后一行；</li><li><strong>分步验证</strong>：先单电机，再双电机，再机构，最后整机；</li><li><strong>常见故障</strong>：见《附录》故障排查表。</li></ul>
+<h2 id="十测试与第一次任务">十、测试与第一次任务</h2>
+<p>测试分三层：台架测试（架空轮子）→ 场地测试（完整动作）→ 对抗测试（有人干扰）。</p>
+<p>第一次任务：写出并部署一个 TeleOp，用左手柄摇杆驱动两个电机，在 Driver Station 显示实时功率；再给其中一个电机加编码器读数并显示。验收：能部署、能驱动、遥测正常、代码提交到队伍仓库分支。</p>
 </main>
 
 <script>

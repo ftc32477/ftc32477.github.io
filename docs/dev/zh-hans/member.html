@@ -391,10 +391,18 @@ tr:nth-child(even){background:#fafafa}
 <a class="sub-link" href="#三赛季与活动安排">三、赛季与活动安排</a>
 <a class="sub-link sub-3" href="#赛季时间线">赛季时间线</a>
 <a class="sub-link sub-3" href="#赛事规则须知">赛事规则须知</a>
+<a class="sub-link" href="#四机器人系统总览">四、机器人系统总览</a>
+<a class="sub-link sub-3" href="#41控制链路">4.1 控制链路</a>
+<a class="sub-link sub-3" href="#42供电链路">4.2 供电链路</a>
+<a class="sub-link sub-3" href="#43端口与指示灯">4.3 端口与指示灯</a>
+<a class="sub-link" href="#五赛制与规则入门">五、赛制与规则入门</a>
+<a class="sub-link" href="#六安全底线">六、安全底线</a>
 <a href="modeling.html">建模设计</a>
 <a href="build.html">结构建造</a>
 <a href="programming.html">程序设计</a>
 <a href="outreach.html">外部联络</a>
+<a href="operations.html">比赛与运营</a>
+<a href="appendix.html">附录</a>
 <a href="afterword.html">后记</a>
   </div>
   <div class="sidebar-footer">2026年10月第2版·第1次修订 &middot; 编写小组</div>
@@ -457,6 +465,26 @@ tr:nth-child(even){background:#fafafa}
 <ul><li>FTC 赛季从当年 9 月中旬的 Kickoff 开始，至次年 4 月下旬至 5 月初的 FIRST Championship（休斯顿）；官方支持通常延续至当年 7 月底。新赛季赛题随 Kickoff 发布，此后进入机器人设计与调试阶段</li><li>资格赛在全国多个城市设置分赛场；资格赛晋级后可在寒假参加全国赛事，再晋级可赴美国休斯顿参加国际总决赛（截至 2026 年，中国大陆仅约 4 支队伍晋级过休斯顿总决赛）</li><li>新赛季基础场地材料在开学后由官方统一配送，到货后即可搭建新赛季场地</li></ul>
 <h3 id="赛事规则须知">赛事规则须知</h3>
 <ul><li>参赛机器人使用有线手柄手动操控（如 Logitech F310、Xbox 360）；官方要求必须为有线连接，允许型号以当季《竞赛手册》为准</li><li>规则禁止使用继电器、电磁铁与电磁螺线管（R506）；普通永磁磁铁可作为原材料使用（R302）</li><li>FTC 官方参赛年龄范围为 12–18 岁，初中生也可参加</li></ul>
+<h2 id="四机器人系统总览">四、机器人系统总览</h2>
+<p><!-- TODO(I-02): 插入控制链路/供电链路示意图与 Control Hub 端口实拍（去敏）。 --></p>
+<p>一台 FTC 机器人可以拆成三条链路：</p>
+<h3 id="41控制链路">4.1 控制链路</h3>
+<ul><li><strong>Driver Station（驱动站）</strong>：手机或 REV Driver Hub，运行 Driver Station App，负责选择 OpMode、显示遥测、发出操作指令；</li><li><strong>Robot Controller（机器人控制器）</strong>：通常是 Control Hub，运行 Robot Controller App，执行程序并直接连接电机、舵机与传感器；</li><li><strong>扩展与执行器</strong>：Expansion Hub、电机、舵机、传感器通过 USB、RS-485、I2C 或舵机口连接。</li></ul>
+<p>连接方式有两种：Wi-Fi Direct（Driver Station 直连 Robot Controller）和路由器/场地网络（多队共用）。赛场通常按 FTA 要求选择，连接不稳定时先查这里。</p>
+<h3 id="42供电链路">4.2 供电链路</h3>
+<ul><li>电池 → 主开关 → 保险丝/配电 → Control Hub / Expansion Hub → 电机、舵机；</li><li>电机与舵机分开供电，避免大电流动作时拉低控制板电压；</li><li>所有插头必须锁紧、线缆有应力释放；电池必须固定，不能靠扎带"挂"在结构上。</li></ul>
+<h3 id="43端口与指示灯">4.3 端口与指示灯</h3>
+<ul><li>USB 口：连接 Driver Station、Expansion Hub 或摄像头；</li><li>RS-485：多个 Hub 之间的通信；</li><li>I2C：颜色/距离等传感器；</li><li>舵机口：舵机与部分传感器；</li><li>编码器口：电机转速/位置反馈。</li></ul>
+<p>详细端口表、线材规格与指示灯含义见《附录》"参数速查/端口映射"（待程序组与结构组补充）。</p>
+<blockquote class="bq-warning">任何接线调整前先断电；带电插拔 Hub 端口可能损坏设备。</blockquote>
+<h2 id="五赛制与规则入门">五、赛制与规则入门</h2>
+<p><!-- TODO(I-01): 由规则负责人核对 2026-2027 赛季数字（AUTO/TELEOP 时长、得分、判罚、晋级名额）后签字。 --></p>
+<ul><li><strong>三类比赛</strong>：练习赛（部分赛事有）、资格赛（决定排位）、淘汰赛（联盟双败淘汰）；</li><li><strong>联盟</strong>：资格赛后由排名靠前的队伍当联盟长，依次挑选 1 支队伍组成 2 队联盟（FIRST Championship 为 3 队）；</li><li><strong>检录</strong>：机器人必须通过 Inspection 才能参加资格赛/淘汰赛；尺寸包络、电子件数量、电池固定、急停与线缆是重点；</li><li><strong>规则手册</strong>：按字母分节——<code>G</code> 比赛规则、<code>R</code> 机器人构造、<code>I</code> 检录与资格、<code>T</code> 赛事运行、<code>A</code> 奖项与评审、<code>E</code> 伦理与行为；每季通过 Team Update 修订，赛前必须核对最新版本。</li></ul>
+<p>完整赛制、现场流程、Drive Team 与 Scouting 见《比赛与运营》章；当季官方手册入口：<https://ftc-resources.firstinspires.org/ftc/game/manual>。</p>
+<h2 id="六安全底线">六、安全底线</h2>
+<blockquote class="bq-danger">以下四类事没有"下次注意"：电池、急停、工具、场边。</blockquote>
+<ul><li><strong>电池</strong>：使用前检查鼓包/破损/漏液，鼓包立即停用；充电区远离可燃物，充电时有人值守；运输时端子绝缘、避免金属短路；</li><li><strong>急停/断电</strong>：机器人必须能在任何姿态下快速断电；调试时手不离急停，程序异常先断电再排查；</li><li><strong>工具</strong>：切割/打磨戴护目镜；电烙铁、热风枪远离线缆与电池；使用台钳固定工件，不徒手按压；</li><li><strong>场边</strong>：比赛/调试时非 Drive Team 成员不得进入联盟区；机器人抬动前先断电，避免轮子突然转动。</li></ul>
+<p><!-- TODO(I-13): 本章安全表述需指导老师签字确认。 --></p>
 </main>
 
 <script>

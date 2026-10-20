@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>比赛与运营｜FTC 32477 Origin 快速入门指南</title>
+<meta name="description" content="FTC 32477 Origin 快速入门指南——拒绝重复造轮子。面向新老队员的七章完整指南：队员须知、建模设计、结构建造、程序设计、外部联络与后记，提供七种语言版本与可打印 PDF。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="比赛与运营｜FTC 32477 Origin 快速入门指南">
+<meta property="og:description" content="FTC 32477 Origin 快速入门指南——拒绝重复造轮子。面向新老队员的七章完整指南：队员须知、建模设计、结构建造、程序设计、外部联络与后记，提供七种语言版本与可打印 PDF。">
+<meta property="og:image" content="https://ftc32477.github.io/docs/images/basic/team_logo.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="比赛与运营｜FTC 32477 Origin 快速入门指南">
+<meta name="twitter:description" content="FTC 32477 Origin 快速入门指南——拒绝重复造轮子。面向新老队员的七章完整指南：队员须知、建模设计、结构建造、程序设计、外部联络与后记，提供七种语言版本与可打印 PDF。">
+<meta name="twitter:image" content="https://ftc32477.github.io/docs/images/basic/team_logo.png">
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
+<link rel="shortcut icon" href="../images/basic/icon_team_logo.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/basic/icon_team_logo_32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../images/basic/apple-touch-icon.png">
+<style>
+:root {
+  --red: #d32f2f;
+  --dark: #1a1a2e;
+  --slate: #16213e;
+  --card: #ffffff;
+  --text: #2c2c2c;
+  --muted: #666;
+  --border: #e0e0e0;
+  --radius: 10px;
+  --sidebar-w: 260px;
+  --topbar-h: 52px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+  color:var(--text);background:#f8f9fa;line-height:1.8;min-height:100vh
+}
+
+/* ====== TOP BAR (mobile) ====== */
+.topbar{
+  display:none;position:fixed;top:0;left:0;right:0;height:var(--topbar-h);
+  background:var(--dark);color:#fff;z-index:200;align-items:center;
+  padding:0 12px;gap:8px
+}
+.topbar .brand{
+  font-weight:700;font-size:14px;flex:1;min-width:0;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap
+}
+.topbar .brand a{
+  color:#fff;text-decoration:none;cursor:pointer
+}
+.topbar .brand a:hover{opacity:.85}
+.lang-select{
+  background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);
+  border-radius:6px;font-size:13px;padding:6px 26px 6px 10px;max-width:150px;
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 8px center
+}
+.lang-select option{color:#2c2c2c;background:#fff}
+.topbar .menu-btn{
+  background:none;border:none;color:#fff;font-size:24px;cursor:pointer;
+  width:40px;height:40px;flex-shrink:0;display:flex;align-items:center;
+  justify-content:center;border-radius:6px;line-height:1
+}
+.topbar .menu-btn:hover{background:rgba(255,255,255,.1)}
+
+/* ====== SIDEBAR ====== */
+nav.sidebar{
+  position:fixed;top:0;left:0;bottom:0;width:var(--sidebar-w);
+  background:var(--dark);color:#ccc;overflow-y:auto;z-index:100;
+  display:flex;flex-direction:column;transition:transform .28s ease;
+}
+nav.sidebar::-webkit-scrollbar{width:4px}
+nav.sidebar::-webkit-scrollbar-thumb{background:#444;border-radius:2px}
+.sidebar-header{padding:24px 20px 14px;border-bottom:1px solid rgba(255,255,255,.08);text-align:center}
+.sidebar-header .home-link{
+  display:block;text-decoration:none;border-radius:8px;
+  padding:4px 0;transition:background .18s
+}
+.sidebar-header .home-link:hover{background:rgba(255,255,255,.06)}
+.sidebar-header .home-link:hover .sub{color:#fff}
+.sidebar-header .logo{font-size:22px;font-weight:700;color:#fff;line-height:1.3}
+.sidebar-header .sub{font-size:12px;color:#f44336;margin-top:4px;letter-spacing:1px}
+/* 语言切换：侧边栏下拉选项栏（节省空间给目录） */
+.lang-select-sidebar{
+  margin:12px 14px 0;width:calc(100% - 28px);box-sizing:border-box;
+  background:rgba(255,255,255,.1);color:#fff;
+  border:1px solid rgba(255,255,255,.25);border-radius:8px;
+  font-size:13px;padding:7px 26px 7px 10px;
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23aaa'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 8px center
+}
+.lang-select-sidebar option{color:#2c2c2c;background:#fff}
+.sidebar-nav{flex:1;padding:12px 0}
+.sidebar-nav a{
+  display:block;padding:10px 22px;color:#aaa;text-decoration:none;
+  font-size:14px;border-left:3px solid transparent;transition:all .18s
+}
+.sidebar-nav a:hover{color:#fff;background:rgba(255,255,255,.04)}
+.sidebar-nav a.active{color:#fff;background:rgba(244,67,54,.15);border-left-color:#f44336}
+/* 二级目录：仅当前页面显示 */
+.sidebar-nav a.sub-link{
+  padding:5px 22px 5px 34px;font-size:12.5px;color:#8a8a8a;border-left-color:transparent
+}
+.sidebar-nav a.sub-link:hover{color:#fff}
+.sidebar-nav a.sub-link.sub-3{padding-left:46px;font-size:12px;color:#777}
+/* 侧边栏队徽 */
+.side-logo{
+  display:block;width:64px;height:64px;margin:0 auto 10px;
+  border-radius:14px;object-fit:cover
+}
+/* 顶栏队徽（移动端） */
+.topbar-logo{width:22px;height:22px;border-radius:5px;flex-shrink:0}
+.sidebar-footer{padding:16px 20px;font-size:11px;color:#555;border-top:1px solid rgba(255,255,255,.08);text-align:center}
+
+/* ====== OVERLAY (mobile) ====== */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:99}
+
+/* ====== MAIN CONTENT ====== */
+/*
+ * 响应式宽度策略：
+ *   宽屏：内容固定 900px 宽（含 padding），居中于侧边栏右侧
+ *   中屏：随宽度缩小，左右留白逐渐收窄直至消失
+ *   窄屏（<768px）：侧边栏折叠，内容全宽
+ *
+ * 兼容性说明：部分 Chrome 版本对嵌套在自定义属性中的
+ * min()/max()/clamp()（含 vw 单位）存在布局计算 bug（宽度会算成 0，
+ * 正文空白而侧边栏正常）。因此此处只用普通 calc + max-width 封顶，
+ * 并为 min()/max()/clamp() 提供级联回退声明。
+ */
+main{
+  box-sizing:content-box;
+  --pad: 40px;                                        /* 回退：clamp 不支持时 */
+  --pad: clamp(12px, 4vw, 48px);
+  padding: 40px var(--pad);
+  /* 宽度：随视口收缩，上限 900px（含 padding，即内容宽 900-2*pad） */
+  width: calc(100vw - var(--sidebar-w) - 2 * var(--pad));
+  max-width: calc(900px - 2 * var(--pad));
+  /* 左外边距：回退为紧贴侧边栏，支持 max() 时在宽屏居中 */
+  margin-left: var(--sidebar-w);
+  margin-left: calc(var(--sidebar-w) + max(0px, (100vw - var(--sidebar-w) - 900px) / 2));
+  margin-right: auto;
+}
+
+/* Hero */
+.hero{
+  background:linear-gradient(135deg,var(--dark) 0%,var(--slate) 100%);color:#fff;
+  border-radius:var(--radius);padding:44px 40px;margin-bottom:36px;
+  position:relative;overflow:hidden
+}
+.hero::after{
+  content:'';position:absolute;right:-40px;bottom:-40px;
+  width:200px;height:200px;background:var(--red);opacity:.18;border-radius:50%
+}
+.hero h1{font-size:28px;font-weight:700;position:relative;z-index:1}
+.hero .subtitle{font-size:14px;margin-top:10px;opacity:.8;position:relative;z-index:1}
+.hero .badge{
+  display:inline-block;background:var(--red);padding:4px 14px;
+  border-radius:20px;font-size:12px;font-weight:600;margin-bottom:12px;
+  position:relative;z-index:1
+}
+
+/* Sections */
+section{margin-bottom:40px}
+section h2{font-size:22px;font-weight:700;padding-bottom:10px;margin-bottom:20px;border-bottom:2px solid var(--red);color:var(--dark)}
+section h3{font-size:17px;font-weight:600;margin:28px 0 10px;color:var(--slate)}
+section h4,.card h4{font-size:15px;font-weight:600;margin:18px 0 8px}
+.card{background:var(--card);border-radius:var(--radius);padding:24px 28px;box-shadow:0 1px 4px rgba(0,0,0,.04);margin-bottom:16px}
+p{margin-bottom:10px}
+a{color:#1565c0;text-decoration:none;overflow-wrap:anywhere}
+a:hover{text-decoration:underline}
+ul,ol{padding-left:22px;margin-bottom:12px}
+li{margin-bottom:4px}
+code{background:#f0f0f0;padding:2px 6px;border-radius:4px;font-size:13px;font-family:"SF Mono","Fira Code",monospace}
+pre{background:#1a1a2e;color:#e0e0e0;padding:16px 20px;border-radius:var(--radius);overflow-x:auto;margin-bottom:14px;font-size:13px;line-height:1.6}
+pre code{background:none;padding:0;color:inherit}
+blockquote{
+  border-left:4px solid var(--red);background:#fef5f5;padding:12px 18px;
+  margin:14px 0;border-radius:0 var(--radius) var(--radius) 0;font-size:14px;color:#8b0000
+}
+/* 类型化引用块：[!info] 蓝 / [!warning] 黄 / [!danger] 红（仅颜色区分，无标签） */
+blockquote.bq-info{border-left-color:#1565c0;background:#eaf3fb;color:#0d3c66}
+blockquote.bq-warning{border-left-color:#f9a825;background:#fff8e1;color:#6d4c00}
+blockquote.bq-danger{border-left-color:#d32f2f;background:#fef5f5;color:#8b0000}
+blockquote ul,blockquote ol{margin:6px 0 0;padding-left:20px}
+blockquote li+li{margin-top:4px}
+hr{border:none;border-top:1px solid var(--border);margin:24px 0}
+img{max-width:100%;border-radius:var(--radius);margin:12px 0}
+/* 锚点跳转留白（避免被固定顶栏遮挡） */
+h2,h3{scroll-margin-top:16px}
+
+/* 图注与图片编号 */
+.fig{margin:14px 0;text-align:center}
+.fig-hi{display:block;line-height:0;cursor:zoom-in;text-decoration:none}
+.fig img{max-width:100%;height:auto;margin:0 auto;border-radius:var(--radius)}
+.fig figcaption{text-align:center;font-size:12px;color:var(--muted);margin-top:6px;line-height:1.5}
+.fig-label{font-weight:600;color:var(--muted);margin-right:.35em}
+.fig-align-left{text-align:left}
+.fig-align-right{text-align:right}
+.fig-align-left img{margin-left:0}
+.fig-align-right img{margin-right:0}
+.fig-align-left figcaption,.fig-align-right figcaption{text-align:inherit}
+
+/* 图片组 / 图文并排：真实表格布局（HTML 与 PDF 双端稳定，窄屏自动堆叠） */
+.media-row{width:100%;table-layout:fixed;border-collapse:collapse;margin:14px 0}
+.media-row td{vertical-align:top;width:50%;padding:0 7px;box-sizing:border-box}
+.media-row.media-cols-3 td{width:33.3333%}
+.media-row td:first-child{padding-left:0}
+.media-row td:last-child{padding-right:0}
+.media-row .fig{margin:0}
+.media-row .fig img{width:100%;height:auto;margin:0}
+.media-side{width:100%;table-layout:fixed;border-collapse:collapse;margin:14px 0}
+.media-side td{vertical-align:top;box-sizing:border-box;padding:0}
+/* 并排间距统一为 14px：图片组为 7px+7px；图文并排给第二列加 14px 左内边距 */
+.media-side td+td{padding-left:14px}
+.media-side .side-fig{width:var(--side-img,45%)}
+.media-side .side-fig .fig{margin:0}
+.media-side .side-fig .fig img{width:100%;height:auto;margin:0}
+/* 覆盖全局表格样式：图片组/并排表格不显示边框、底色，不继承表格字号 */
+.media-row,.media-side{border:none;font-size:inherit}
+.media-row td,.media-side td{border:none;background:none;text-align:left}
+table.media-row tbody tr,table.media-side tbody tr{background:none}
+.keep{break-inside:avoid;page-break-inside:avoid}
+.page-break{display:none}
+/* 窄屏堆叠仅用于屏幕；打印时始终保留表格并排布局（纸张宽度也小于 600px） */
+@media screen and (max-width:600px){
+  .media-row,.media-row tbody,.media-row tr,.media-row td{display:block;width:100%!important;padding:0}
+  .media-row td+td{margin-top:14px}
+  .media-side,.media-side tbody,.media-side tr,.media-side td{display:block;width:100%!important;padding:0}
+  .media-side .side-fig{margin-top:14px}
+  h2,h3{scroll-margin-top:64px}
+}
+
+/* Table */
+.table-wrap{overflow-x:auto;margin-bottom:14px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{border:1px solid var(--border);padding:10px 14px;text-align:left}
+th{background:var(--dark);color:#fff;font-weight:600}
+tr:nth-child(even){background:#fafafa}
+
+/* ====== RESPONSIVE ====== */
+
+/* Narrow: collapse sidebar */
+@media(max-width:768px){
+  .topbar{display:flex}
+  nav.sidebar{
+    transform:translateX(-100%);
+    top:var(--topbar-h);z-index:101;
+    width:280px;                        /* 回退：min() 不支持时 */
+    width:min(280px,84vw)
+  }
+  nav.sidebar.open{transform:translateX(0)}
+  .overlay.show{display:block}
+  main{
+    margin-left:0;margin-top:var(--topbar-h);
+    width: calc(100vw - 2 * var(--pad));
+    max-width: none;
+  }
+  .hero{padding:28px 20px}
+  .hero h1{font-size:22px}
+  .card{padding:16px 18px}
+  section h2{font-size:19px}
+  section h3{font-size:16px}
+  .table-wrap{margin-left:-18px;margin-right:-18px;width:calc(100% + 36px)}
+}
+
+/* Very narrow screens */
+@media(max-width:420px){
+  .topbar .brand{font-size:13px}
+  .lang-select{max-width:132px;font-size:12px;padding:5px 22px 5px 8px}
+  main{--pad: 12px}
+  .card{padding:14px 14px}
+  .hero{padding:22px 16px}
+  .hero h1{font-size:20px}
+}
+
+/* dev 预览标识（仅 dev 通道构建时输出；打印隐藏） */
+.dev-badge{
+  position:fixed;right:14px;bottom:14px;z-index:400;
+  background:#d32f2f;color:#fff;padding:6px 14px;border-radius:999px;
+  font-size:12px;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,.25);opacity:.92
+}
+@media print{.dev-badge{display:none!important}}
+/* ====== PRINT (PDF 导出) ====== */
+/*
+ * 注意：Chrome 打印视口宽度可能低于 768px，导致移动端媒体查询规则
+ * 泄漏到打印渲染。因此必须在打印样式中显式覆盖所有相关属性。
+ */
+@media print{
+  html,body{display:block !important;width:100% !important;max-width:100% !important;overflow:visible !important}
+  nav.sidebar,.topbar,.overlay{display:none !important}
+  body{background:#fff}
+  main{
+    display:block !important;box-sizing:border-box !important;
+    margin:0 !important;padding:0 !important;
+    width:100% !important;max-width:100% !important;
+  }
+  .card{box-shadow:none;border:1px solid var(--border);padding:24px 28px}
+  .hero{background:#fff;color:var(--text);border:1px solid var(--border);padding:32px 28px}
+  .hero h1{color:var(--dark);font-size:28px}
+  section h2{font-size:22px}
+  section h3{font-size:17px}
+  .hero .badge{background:var(--red);color:#fff}
+  a{color:inherit;overflow-wrap:anywhere !important}
+  /* 表格打印适配：覆盖移动端负边距泄漏，强制约束在页面宽度内 */
+  .table-wrap{
+    overflow:visible !important;
+    margin:0 !important;
+    width:100% !important;
+    max-width:100% !important;
+  }
+  table{
+    width:100% !important;max-width:100% !important;
+    table-layout:fixed;font-size:12px
+  }
+  th,td{padding:6px 8px;word-break:normal;overflow-wrap:break-word}
+  tr{page-break-inside:avoid}
+  pre{white-space:pre-wrap !important;overflow-wrap:anywhere !important;overflow:visible !important}
+  /* 图片/图片组：尺寸封顶 + 真实表格布局，避免跨页拆图与切段 */
+  figure.fig,.fig-single{break-inside:avoid;page-break-inside:avoid}
+  figure.fig{margin:12px 0}
+  figure.fig img{max-width:100%!important;height:auto!important;max-height:22cm!important;display:block;margin:0 auto}
+  table.media-row{display:table!important;width:100%!important;table-layout:fixed!important;border-collapse:collapse!important;break-inside:avoid;page-break-inside:avoid}
+  table.media-row td{display:table-cell!important;vertical-align:top!important;width:50%!important;padding:0 7px!important;box-sizing:border-box!important}
+  table.media-row.media-cols-3 td{width:33.3333%!important}
+  table.media-row td:first-child{padding-left:0!important}
+  table.media-row td:last-child{padding-right:0!important}
+  table.media-row td img{width:100%!important;height:auto!important;max-height:20cm!important;display:block!important;margin:0 auto!important}
+  table.media-row figure.fig{margin:0!important}
+  table.media-side{display:table!important;width:100%!important;table-layout:fixed!important;border-collapse:collapse!important;break-inside:avoid;page-break-inside:avoid}
+  table.media-side td{display:table-cell!important;vertical-align:top!important;box-sizing:border-box!important}
+  table.media-side td+td{padding-left:14px!important}
+  table.media-side .side-fig{width:var(--side-img,45%)!important}
+  table.media-side .side-fig img{width:100%!important;height:auto!important;max-height:20cm!important;display:block!important;margin:0 auto!important}
+  .keep{break-inside:avoid;page-break-inside:avoid}
+  .page-break{display:block!important;height:0!important;margin:0!important;border:0!important;break-after:page;page-break-after:always}
+  blockquote{break-inside:avoid;page-break-inside:avoid}
+  thead{display:table-header-group}
+  /* 中文版段落首行缩进 2 字符（英文版按英文规范不缩进） */
+  html[lang="zh-hans"] main p,html[lang="zh-hant"] main p{text-indent:2em}
+  .align-right{text-align:right}
+  /* 标题间距：一级标题前空约两行，二级标题前空约一行 */
+  h1{margin:3.2em 0 1em}
+  h2{margin:2em 0 .8em}
+  h3{margin:1.2em 0 .5em}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <img class="topbar-logo" src="../images/basic/team_logo_small.png" alt="32477 Origin">
+  <span class="brand"><a href="../index.html" title="返回主页">FTC 32477 Origin 快速入门指南</a></span>
+  <select class="lang-select" id="langSelect" aria-label="语言">
+<option value="../zh-hans/operations.html" selected>简体中文</option><option value="../zh-hant/index.html">繁體中文</option><option value="../en-us/index.html">English (US)</option><option value="../fr/index.html">Français</option><option value="../es/index.html">Español</option><option value="../ko/index.html">한국어</option><option value="../pt-br/index.html">Português (BR)</option>
+  </select>
+  <button class="menu-btn" id="menuBtn" aria-label="菜单" aria-controls="sidebar" aria-expanded="false">☰</button>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <a class="home-link" href="../index.html" title="返回主页">
+      <img class="side-logo" src="../images/basic/team_logo_small.png" alt="32477 Origin Team Logo">
+      <div class="logo">FTC 32477<br>Origin</div>
+      <div class="sub">快速入门指南</div>
+    </a>
+    <select class="lang-select-sidebar" id="langSelectSide" aria-label="语言">
+<option value="../zh-hans/operations.html" selected>简体中文</option><option value="../zh-hant/index.html">繁體中文</option><option value="../en-us/index.html">English (US)</option><option value="../fr/index.html">Français</option><option value="../es/index.html">Español</option><option value="../ko/index.html">한국어</option><option value="../pt-br/index.html">Português (BR)</option>
+    </select>
+  </div>
+  <div class="sidebar-nav">
+<a href="index.html">主页</a>
+<a href="preface.html">前言</a>
+<a href="member.html">队员须知</a>
+<a href="modeling.html">建模设计</a>
+<a href="build.html">结构建造</a>
+<a href="programming.html">程序设计</a>
+<a href="outreach.html">外部联络</a>
+<a href="operations.html" class="active">比赛与运营</a>
+<a class="sub-link" href="#一赛制与规则">一、赛制与规则</a>
+<a class="sub-link sub-3" href="#11一场比赛由什么组成">1.1 一场比赛由什么组成</a>
+<a class="sub-link sub-3" href="#12联盟与晋级">1.2 联盟与晋级</a>
+<a class="sub-link sub-3" href="#13规则手册怎么查">1.3 规则手册怎么查</a>
+<a class="sub-link" href="#二赛前准备">二、赛前准备</a>
+<a class="sub-link sub-3" href="#21机器人合规自检">2.1 机器人合规自检</a>
+<a class="sub-link sub-3" href="#22电池备件与工具">2.2 电池、备件与工具</a>
+<a class="sub-link sub-3" href="#23Pit与材料">2.3 Pit 与材料</a>
+<a class="sub-link sub-3" href="#24赛前检查清单">2.4 赛前检查清单</a>
+<a class="sub-link" href="#三现场流程">三、现场流程</a>
+<a class="sub-link sub-3" href="#31报到与检录">3.1 报到与检录</a>
+<a class="sub-link sub-3" href="#32练习赛与资格赛">3.2 练习赛与资格赛</a>
+<a class="sub-link sub-3" href="#33联盟选择与淘汰赛">3.3 联盟选择与淘汰赛</a>
+<a class="sub-link sub-3" href="#34时间管理">3.4 时间管理</a>
+<a class="sub-link" href="#四DriveTeam">四、Drive Team</a>
+<a class="sub-link sub-3" href="#41角色分工">4.1 角色分工</a>
+<a class="sub-link sub-3" href="#42沟通用语">4.2 沟通用语</a>
+<a class="sub-link sub-3" href="#43训练计划">4.3 训练计划</a>
+<a class="sub-link" href="#五策略与Scouting">五、策略与 Scouting</a>
+<a class="sub-link sub-3" href="#51赛题拆解">5.1 赛题拆解</a>
+<a class="sub-link sub-3" href="#52侦察表">5.2 侦察表</a>
+<a class="sub-link sub-3" href="#53联盟选择策略">5.3 联盟选择策略</a>
+<a class="sub-link sub-3" href="#54比赛日志">5.4 比赛日志</a>
+<a class="sub-link" href="#六工程笔记PORTFOLIO与评审">六、工程笔记（PORTFOLIO）与评审</a>
+<a class="sub-link" href="#七赛后复盘">七、赛后复盘</a>
+<a class="sub-link" href="#八第一次任务">八、第一次任务</a>
+<a class="sub-link" href="#本章速查">本章速查</a>
+<a href="appendix.html">附录</a>
+<a href="afterword.html">后记</a>
+  </div>
+  <div class="sidebar-footer">2026年10月第2版·第1次修订 &middot; 编写小组</div>
+</nav>
+
+<main>
+<h1>比赛与运营</h1>
+<blockquote>本章你将学会：读懂一场 FTC 比赛的基本结构、在赛前把机器人和物资准备到位、在现场按流程完成检录/资格赛/联盟选择/淘汰赛，以及用 Drive Team 和 Scouting 把"能跑的车"变成"能赢的队"。前置知识：队员须知（赛制入门）、结构建造（装配检查）、程序设计（DS/RC 连接）。预计用时：读完约 40 分钟；第一次任务约 2 小时。</blockquote>
+<p><!-- TODO(I-01): 本章所有"当季数字"（TELEOP 时长、得分规则、晋级名额、赛事类型）须由规则负责人对照 2026-2027 官方手册 TU05 及后续 Team Update 核实并签字；核实后删除本注释。 -->
+<!-- TODO(I-09): 赛程照片、Pit 布置照片、Drive Team 实际分工、Scouting 实战案例待补；插入位置见各节注释。 -->
+<!-- TODO(I-12): 涉及本队内部训练安排/器材室/会议链接的内容，需主编确认公开尺度后再写。 --></p>
+<h2 id="一赛制与规则">一、赛制与规则</h2>
+<h3 id="11一场比赛由什么组成">1.1 一场比赛由什么组成</h3>
+<p>FTC 赛事是<strong>头对头（head-to-head）</strong>的机器人比赛。一个赛事通常包含三类比赛：</p>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">类型</th><th style="text-align:left">作用</th><th style="text-align:left">是否每场都有</th></tr></thead><tbody><tr><td style="text-align:left">练习赛（Practice Match）</td><td style="text-align:left">在正式比赛前让机器人上场调试</td><td style="text-align:left">部分赛事有</td></tr><tr><td style="text-align:left">资格赛（Qualification Match）</td><td style="text-align:left">每队打若干场，积累比赛分与排名分，决定排位</td><td style="text-align:left">有</td></tr><tr><td style="text-align:left">淘汰赛（Playoff Match）</td><td style="text-align:left">由排位靠前的队伍组成联盟，双败淘汰决出冠军联盟</td><td style="text-align:left">有</td></tr></tbody></table></div>
+<ul><li>资格赛的排位决定<strong>联盟选择</strong>的顺序；淘汰赛决定赛事冠军。</li><li>2026–2027 赛季（BIOBUZZ™ presented by RTX）的规则细节以官方手册为准：<a href="https://ftc-resources.firstinspires.org/ftc/game/manual" target="_blank" rel="noopener">https://ftc-resources.firstinspires.org/ftc/game/manual</a>。</li></ul>
+<p><!-- TODO(I-01): 补充本赛季 TELEOP 时长、AUTO 时长核对（手册术语表注明 AUTO 为开局 30 秒）、得分元素与得分方式，用一段话概括赛题。 --></p>
+<h3 id="12联盟与晋级">1.2 联盟与晋级</h3>
+<ul><li>一个<strong>联盟（Alliance）</strong>由 2 支 FTC 队伍组成；在 FIRST Championship 上会扩为 3 支（多一台备用机器人）。</li><li>资格赛结束后，排名最高的队伍成为各联盟的<strong>联盟长（Alliance Captain）</strong>，按排名依次挑选 1 支队伍加入自己的联盟。</li><li>淘汰赛采用<strong>双败淘汰</strong>：输 2 场即出局；决赛前每轮都有固定的场次安排。</li><li>赛事能组成几个联盟，取决于有资格参加淘汰赛的队伍数：4–10 队组成 2 个联盟，11–20 队 4 个，21–40 队 6 个，41–64 队 8 个。</li></ul>
+<p><!-- TODO(I-01): 核实中国区/北京赛区的赛事类型（联赛、分区赛、全国赛）与晋级路径、名额分配，并补一张"赛季→赛事→晋级"流程图；手册 Section 4 Advancement 为官方依据。 --></p>
+<h3 id="13规则手册怎么查">1.3 规则手册怎么查</h3>
+<ul><li>官方入口：<a href="https://ftc-resources.firstinspires.org/ftc/game" target="_blank" rel="noopener">https://ftc-resources.firstinspires.org/ftc/game</a>（当季手册 + 场地/队伍资源）。</li><li>规则按字母分节：<code>G</code> 为比赛规则、<code>R</code> 为机器人构造规则、<code>I</code> 为检录与资格、<code>T</code> 为赛事运行、<code>A</code> 为奖项与评审、<code>E</code> 为赛事伦理与行为。</li><li>手册会通过 <strong>Team Update</strong> 持续修订；赛前必须核对最新版本号（如 <code>TU05</code>），不要用旧版打印稿。</li><li>查规则的方法：先按关键词搜官方 PDF，再在 Team Update 中确认该条是否被修订；有疑问走官方 Q&amp;A/论坛，不靠"往年经验"。</li></ul>
+<h2 id="二赛前准备">二、赛前准备</h2>
+<h3 id="21机器人合规自检">2.1 机器人合规自检</h3>
+<p>检录（Inspection）是到赛场后的第一道关：<strong>未通过检录不能参加资格赛/淘汰赛</strong>。检录时需带齐机器人、全部要用的部件、操作台（Operator Console）。</p>
+<ul><li><strong>尺寸包络</strong>：机器人完全展开后必须始终处于 <strong>18 in × 24 in × 29 in（45.70 × 61.0 × 73.65 cm）</strong> 的包络内，且不能靠软件限制尺寸、不能故意分离部件。</li><li><strong>电子件数量</strong>：电机、舵机、Android 设备等的总数不得超过构造规则的限定值；所有可能用到的配置都要在检录时展示。</li><li><strong>安全</strong>：电池固定、线缆保护、急停可达、无裸露危险部件；有储能部件（弹簧等）要主动告知检录员。</li><li>官方提供 <strong>Inspection Checklist</strong>，建议每次赛前按清单自检一遍；自检发现问题比在赛场被卡住便宜得多。</li></ul>
+<blockquote class="bq-warning">检录不通过时，现场会给你整改机会，但会消耗宝贵的比赛时间；结构/程序改动后必须重新检录。</blockquote>
+<p><!-- TODO(I-02): 插入实拍照片：电控布局、电池固定、急停位置、线缆走线；每张配图注与去敏说明。 -->
+<!-- TODO(I-13): 本节安全表述需指导老师签字确认。 --></p>
+<h3 id="22电池备件与工具">2.2 电池、备件与工具</h3>
+<ul><li>电池：至少准备 <strong>2 块以上</strong>满电比赛电池，编号管理，赛前统一充电、赛后统一放电到存储电压；电池鼓包/破损立即停用。</li><li>备件：扎带、螺丝、螺母、轴、轴承、打印件易损件、备用舵机/电机、保险丝、USB 线、充电器。</li><li>工具：内六角、螺丝刀、扳手、剪钳、热熔胶/胶带、万用表、笔记本电脑（含驱动与工程备份）。</li><li>软件：Driver Station、Robot Controller 配置备份、代码仓库可离线构建；准备一个"应急 U 盘/移动硬盘"。</li></ul>
+<h3 id="23Pit与材料">2.3 Pit 与材料</h3>
+<ul><li>Pit 是队伍的维修区：桌面分区（工具区/备件区/电池区/垃圾区），线缆不要横穿通道。</li><li>墙上张贴：赛程表、检查清单、队内分工与联系方式、赞助商 logo。</li><li>打印材料：工程笔记（PORTFOLIO）、队员名单、检查清单、赞助商材料、备用标签。</li></ul>
+<p><!-- TODO(I-09): 插入 Pit 布置照片/平面图；补本队实际 Pit 物资清单。 --></p>
+<h3 id="24赛前检查清单">2.4 赛前检查清单</h3>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">检查项</th><th style="text-align:left">标准</th><th style="text-align:left">结果</th><th style="text-align:left">负责人</th></tr></thead><tbody><tr><td style="text-align:left">尺寸包络</td><td style="text-align:left">完全展开仍在 18×24×29 in 内</td><td style="text-align:left">☐</td><td style="text-align:left">结构</td></tr><tr><td style="text-align:left">电子件数量</td><td style="text-align:left">不超过构造规则上限</td><td style="text-align:left">☐</td><td style="text-align:left">程序</td></tr><tr><td style="text-align:left">电池</td><td style="text-align:left">≥2 块满电、无鼓包、固定牢靠</td><td style="text-align:left">☐</td><td style="text-align:left">电控</td></tr><tr><td style="text-align:left">急停/断电</td><td style="text-align:left">可随时触及并有效</td><td style="text-align:left">☐</td><td style="text-align:left">结构</td></tr><tr><td style="text-align:left">线缆</td><td style="text-align:left">无裸露、无卡阻、有应力释放</td><td style="text-align:left">☐</td><td style="text-align:left">电控</td></tr><tr><td style="text-align:left">固件/代码</td><td style="text-align:left">版本与备份一致，DS 能连上</td><td style="text-align:left">☐</td><td style="text-align:left">程序</td></tr><tr><td style="text-align:left">工具/备件</td><td style="text-align:left">按清单齐全</td><td style="text-align:left">☐</td><td style="text-align:left">后勤</td></tr><tr><td style="text-align:left">材料</td><td style="text-align:left">工程笔记（PORTFOLIO）/名单/赞助材料已打印</td><td style="text-align:left">☐</td><td style="text-align:left">外联</td></tr></tbody></table></div>
+<p><!-- TODO(I-09): 确认本队实际检查清单项目与负责人后，与附录中的《赛前检查清单》合并去重。 --></p>
+<h2 id="三现场流程">三、现场流程</h2>
+<h3 id="31报到与检录">3.1 报到与检录</h3>
+<ul><li>按赛事通知提前到场，完成签到/领取资料；通常需在资格赛开始前 45 分钟完成报到（以当季手册与赛事通知为准）。</li><li>到 Pit 后先做"落地检查"：电池、工具、机器人运输损伤、DS/RC 配对。</li><li>排队检录：带齐机器人、部件、操作台；检录通过后贴标/登记，之后改动机器人可能触发复检。</li></ul>
+<h3 id="32练习赛与资格赛">3.2 练习赛与资格赛</h3>
+<ul><li>练习赛用于验证场地适配（场地元素高度、摩擦、光线、无线环境），不要用来测试没把握的新结构。</li><li>资格赛前确认：赛程表、队列时间、联盟颜色、队友队号、自动阶段策略。</li><li>每场之间的最短间隔有限（资格赛约 5 分钟、淘汰赛约 8 分钟，以手册 T406 为准）；把"换电池—检查—上场"做成固定流程。</li></ul>
+<h3 id="33联盟选择与淘汰赛">3.3 联盟选择与淘汰赛</h3>
+<ul><li>资格赛结束后，排名靠前的队伍成为联盟长并依次选人；被邀请队伍当场确认。</li><li>联盟选择前要准备好：本队排名、可配合的队伍清单、对手情报、机器人状态。</li><li>淘汰赛是双败制：输一场不一定出局，但落入败者组后每场都是生死战；赛前明确"输了之后打哪场"。</li><li>每轮之间可能有较长休息；利用这段时间做电池、紧固件、程序参数的检查。</li></ul>
+<h3 id="34时间管理">3.4 时间管理</h3>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">时间点</th><th style="text-align:left">要做的事</th><th style="text-align:left">负责人</th></tr></thead><tbody><tr><td style="text-align:left">赛前 1 天</td><td style="text-align:left">打包清单核对、电池充电、代码/配置备份</td><td style="text-align:left">后勤+程序</td></tr><tr><td style="text-align:left">到场后 30 分钟</td><td style="text-align:left">报到、Pit 布置、落地检查</td><td style="text-align:left">全队</td></tr><tr><td style="text-align:left">检录前</td><td style="text-align:left">自检清单过一遍</td><td style="text-align:left">结构+程序</td></tr><tr><td style="text-align:left">每场前 15 分钟</td><td style="text-align:left">换电池、紧固检查、DS 连接测试</td><td style="text-align:left">电控+程序</td></tr><tr><td style="text-align:left">每场后 5 分钟</td><td style="text-align:left">记录问题、补充备件、更新比赛日志</td><td style="text-align:left">记录员</td></tr></tbody></table></div>
+<h2 id="四DriveTeam">四、Drive Team</h2>
+<h3 id="41角色分工">4.1 角色分工</h3>
+<p>FTC 每场比赛的 <strong>Drive Team 最多 4 人</strong>（以当季手册术语表为准）。常见分工：</p>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">角色</th><th style="text-align:left">职责</th><th style="text-align:left">关键能力</th></tr></thead><tbody><tr><td style="text-align:left">Driver（主操）</td><td style="text-align:left">控制机器人移动与主要机构</td><td style="text-align:left">稳定、抗压、熟悉场地</td></tr><tr><td style="text-align:left">Operator（副操）</td><td style="text-align:left">控制机械臂/吸取/发射等机构</td><td style="text-align:left">与主操配合默契</td></tr><tr><td style="text-align:left">Coach（教练）</td><td style="text-align:left">读秒、看全局、下达策略、与裁判沟通</td><td style="text-align:left">冷静、懂规则、会取舍</td></tr><tr><td style="text-align:left">Human Player（人类玩家）</td><td style="text-align:left">场边投放/互动（若当季赛题设置）</td><td style="text-align:left">规则熟悉、动作稳定</td></tr><tr><td style="text-align:left">Technician（技术员）</td><td style="text-align:left">场边维修、换电池、应急处理</td><td style="text-align:left">熟悉机器人结构</td></tr></tbody></table></div>
+<blockquote>不同赛题的角色设置不同；以当季手册与队伍实际配置为准。</blockquote>
+<h3 id="42沟通用语">4.2 沟通用语</h3>
+<ul><li>赛前统一口令：如"30 秒—自动结束—开始 TeleOp—最后 30 秒—停"。</li><li>场上只允许必要信息：位置、目标、剩余时间、故障；不喊情绪化的话。</li><li>建立"停/继续/回防"三个一票决策词，由 Coach 最终拍板。</li></ul>
+<h3 id="43训练计划">4.3 训练计划</h3>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">周次</th><th style="text-align:left">训练内容</th><th style="text-align:left">目标</th></tr></thead><tbody><tr><td style="text-align:left">第 1 周</td><td style="text-align:left">基础操作、场地熟悉</td><td style="text-align:left">能稳定完成基本得分动作</td></tr><tr><td style="text-align:left">第 2 周</td><td style="text-align:left">自动阶段 + 手动衔接</td><td style="text-align:left">自动不失误、衔接不丢分</td></tr><tr><td style="text-align:left">第 3 周</td><td style="text-align:left">对抗与干扰</td><td style="text-align:left">在对抗下保持操作</td></tr><tr><td style="text-align:left">第 4 周</td><td style="text-align:left">全流程模拟赛</td><td style="text-align:left">按真实赛程跑 3 场以上</td></tr></tbody></table></div>
+<p><!-- TODO(I-09): 补本队 Drive Team 实际人员、训练时段与模拟赛记录模板。 --></p>
+<h2 id="五策略与Scouting">五、策略与 Scouting</h2>
+<h3 id="51赛题拆解">5.1 赛题拆解</h3>
+<ul><li>先算"得分上限"：每个得分动作的分值 × 可完成次数，找出高性价比动作。</li><li>再算"稳定性"：比赛里能稳定拿到的分，比训练场上的极限分更重要。</li><li>最后算"对抗"：对手可能如何干扰、如何防守，准备 2 套以上策略。</li></ul>
+<h3 id="52侦察表">5.2 侦察表</h3>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">队号</th><th style="text-align:right">自动得分</th><th style="text-align:right">手动得分</th><th style="text-align:left">稳定性</th><th style="text-align:left">防守能力</th><th style="text-align:left">备注</th></tr></thead><tbody><tr><td style="text-align:left"></td><td style="text-align:right"></td><td style="text-align:right"></td><td style="text-align:left"></td><td style="text-align:left"></td><td style="text-align:left"></td></tr></tbody></table></div>
+<ul><li>每场资格赛由 1 名队员记录；数据当晚汇总，用于联盟选择。</li><li>视频回放比现场记忆可靠：关键场次录屏/录像（遵守赛事拍摄规定）。</li></ul>
+<h3 id="53联盟选择策略">5.3 联盟选择策略</h3>
+<ul><li>先列"必选清单"：能补本队短板的队伍（自动、防守、稳定性）。</li><li>再列"风险清单"：状态不稳、机器人类别不匹配、沟通困难的队伍。</li><li>准备 2 套方案：首选被拒后的备选；现场 30 秒内能做出决定。</li></ul>
+<h3 id="54比赛日志">5.4 比赛日志</h3>
+<p>每场记录：比分、得分构成、失误、对手策略、机器人异常、下一场改进项。赛后复盘以此为依据。</p>
+<p><!-- TODO(I-09): 补本队 Scouting 表模板与一次真实赛事的数据示例（去敏）。 --></p>
+<h2 id="六工程笔记PORTFOLIO与评审">六、工程笔记（PORTFOLIO）与评审</h2>
+<ul><li>官方 2026–2027 手册使用 <strong>PORTFOLIO</strong> 这一名称；本指南沿用队伍习惯，统一写作 <strong>工程笔记（PORTFOLIO）</strong>。</li><li>评审信息来自 <strong>Initial Interview、Pit Interview 与工程笔记（PORTFOLIO）</strong>；不同赛事提供的奖项不同，以当季 Section 6 Awards 为准。</li><li>2026–2027 常见团队奖项包括：Inspire、Think、Connect、Reach、Sustain、Innovate、Control、Design、Judges' Choice 等；具体名称与标准以官方手册为准。</li><li>工程笔记（PORTFOLIO）的写作与排版见《外部联络》章"工程笔记"一节；本章只负责把比赛数据、复盘与证据交给外联组。</li></ul>
+<p><!-- TODO(I-10): 补本队近年工程笔记（PORTFOLIO）样例页（去敏）与答辩常见问题；统一写法为"工程笔记（PORTFOLIO）"。 -->
+<!-- TODO(I-01): 核对当季奖项清单与申报要求（手册 Section 6 及 Team Update）。 --></p>
+<h2 id="七赛后复盘">七、赛后复盘</h2>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">项目</th><th style="text-align:left">内容</th></tr></thead><tbody><tr><td style="text-align:left">比分与得分构成</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">做得好的 3 件事</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">需要改进的 3 件事</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">机器人问题</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">策略问题</td><td style="text-align:left"></td></tr><tr><td style="text-align:left">改进项 / 负责人 / 截止时间</td><td style="text-align:left"></td></tr></tbody></table></div>
+<p>复盘原则：对事不对人；每个问题都要落到"谁、何时、怎么验证"。</p>
+<h2 id="八第一次任务">八、第一次任务</h2>
+<ol><li>用附录《赛前检查清单》对现有机器人做一次完整自检，记录不合格项；</li><li>组织一次 30 分钟模拟赛：按真实流程完成检录、练习、1 场资格赛、联盟选择、1 场淘汰赛；</li><li>填一页赛后复盘表，列出 3 个改进项并指定负责人；</li><li>把本次模拟赛的得分/失误数据补进 Scouting 表。</li></ol>
+<p>验收标准：检查清单全部有结论；模拟赛完整跑完；复盘表有责任人与截止时间。</p>
+<h2 id="本章速查">本章速查</h2>
+<ul><li>赛制/规则手册：<a href="https://ftc-resources.firstinspires.org/ftc/game/manual" target="_blank" rel="noopener">https://ftc-resources.firstinspires.org/ftc/game/manual</a></li><li>赛事与队伍页面：<a href="https://ftc-events.firstinspires.org/team/32477" target="_blank" rel="noopener">https://ftc-events.firstinspires.org/team/32477</a></li><li>检查清单、参数表、模板：见《附录》</li><li>工程笔记（PORTFOLIO）与答辩：见《外部联络》章</li></ul>
+</main>
+
+<script>
+(function(){
+  var sb=document.getElementById("sidebar");
+  var ol=document.getElementById("overlay");
+  var btn=document.getElementById("menuBtn");
+  function open(){sb.classList.add("open");ol.classList.add("show");btn.setAttribute("aria-expanded","true")}
+  function close(){sb.classList.remove("open");ol.classList.remove("show");btn.setAttribute("aria-expanded","false")}
+  btn.addEventListener("click",function(){sb.classList.contains("open")?close():open()});
+  ol.addEventListener("click",close);
+  var ls=document.getElementById("langSelect");
+  if(ls){ls.addEventListener("change",function(){window.location.href=ls.value})};
+  var lss=document.getElementById("langSelectSide");
+  if(lss){lss.addEventListener("change",function(){window.location.href=lss.value})};
+})();
+</script>
+<div class="dev-badge" role="note">开发预览版</div>
+</body>
+</html>

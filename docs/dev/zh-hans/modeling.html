@@ -395,9 +395,17 @@ tr:nth-child(even){background:#fafafa}
 <a class="sub-link sub-3" href="#Onshape学习资源">Onshape 学习资源</a>
 <a class="sub-link sub-3" href="#FTC常用零件库">FTC 常用零件库</a>
 <a class="sub-link sub-3" href="#设计规范">设计规范</a>
+<a class="sub-link" href="#四跟做一个零件">四、跟做一个零件</a>
+<a class="sub-link" href="#五跟做一个装配">五、跟做一个装配</a>
+<a class="sub-link" href="#六机器人设计流程与评审">六、机器人设计流程与评审</a>
+<a class="sub-link sub-3" href="#61设计流程">6.1 设计流程</a>
+<a class="sub-link sub-3" href="#62设计评审清单">6.2 设计评审清单</a>
+<a class="sub-link" href="#七第一次任务">七、第一次任务</a>
 <a href="build.html">结构建造</a>
 <a href="programming.html">程序设计</a>
 <a href="outreach.html">外部联络</a>
+<a href="operations.html">比赛与运营</a>
+<a href="appendix.html">附录</a>
 <a href="afterword.html">后记</a>
   </div>
   <div class="sidebar-footer">2026年10月第2版·第1次修订 &middot; 编写小组</div>
@@ -472,6 +480,21 @@ tr:nth-child(even){background:#fafafa}
 <ul><li><strong>goBILDA</strong>：提供完整的 FTC 结构件</li><li><strong>REV Robotics</strong>：提供电控模块和结构件</li><li><strong>CycleZLab</strong>：FIRST 机器人社区（CAD、代码与建造日志档案库；GitHub 组织：<a href="https://github.com/CycleZLab" target="_blank" rel="noopener">https://github.com/CycleZLab</a>）</li></ul>
 <h3 id="设计规范">设计规范</h3>
 <ul><li>使用公制单位（mm）</li><li>所有 3D 打印件需预留适当间隙（推荐 0.2-0.3 mm）</li><li>导出格式：STEP 文件用于加工，STL 文件用于 3D 打印，3MF 文件用于切片打印</li></ul>
+<h2 id="四跟做一个零件">四、跟做一个零件</h2>
+<p><!-- TODO(I-07): 由建模组提供可公开的练习零件图纸（尺寸/材料/用途）与可复制的 Onshape 文档链接。 --></p>
+<p>在正式设计整机前，先用一个零件走完"图纸 → 草图 → 特征 → 检查 → 导出"全流程：</p>
+<ol><li><strong>读图</strong>：确认单位（mm）、关键尺寸、孔位与公差；</li><li><strong>新建文档</strong>：在队伍共享文件夹中新建 Part Studio，单位设为毫米；</li><li><strong>画草图</strong>：选基准面，画轮廓，先加几何约束，再标尺寸，直到"完全约束"；</li><li><strong>做特征</strong>：拉伸主体 → 打孔/开槽 → 圆角/倒角；每一步检查特征顺序，方便回退；</li><li><strong>检查</strong>：用测量工具核对关键尺寸，查看质量属性，确认没有零厚度/自相交；</li><li><strong>导出</strong>：STEP 用于加工/CNC，STL 用于 3D 打印，3MF 用于切片；文件名带版本号。</li></ol>
+<p>验收：图纸尺寸全部对上、草图完全约束、零件可被正确导出。</p>
+<h2 id="五跟做一个装配">五、跟做一个装配</h2>
+<ol><li>新建 Assembly，插入上一步的零件；</li><li>用 Mate Connector 定义安装基准，再用 Mate（Fasten/Revolute/Slider 等）建立配合；</li><li>拖动运动件检查行程是否与设计一致；</li><li>做干涉检查，确认没有零件"穿模"；</li><li>输出爆炸视图/装配图，供建造组按图装配。</li></ol>
+<p>验收：装配无干涉、运动件行程正确、图纸能被另一名队员看懂并复现。</p>
+<h2 id="六机器人设计流程与评审">六、机器人设计流程与评审</h2>
+<h3 id="61设计流程">6.1 设计流程</h3>
+<ol><li><strong>规则与任务输入</strong>：把赛题拆成得分动作，列出必须实现的机构；</li><li><strong>概念方案</strong>：每个机构至少画 2 个方案，比较复杂度、重量、维修性；</li><li><strong>布局与包络</strong>：在 18×24×29 in 包络内布置底盘、机构、电控与走线；</li><li><strong>细节设计</strong>：标准件优先，确定轴承、轴、连接件与公差；</li><li><strong>设计评审</strong>：按下方清单逐项过一遍，记录修改项；</li><li><strong>出图与冻结</strong>：导出 STEP/装配图/BOM，打版本标签后交给建造组。</li></ol>
+<h3 id="62设计评审清单">6.2 设计评审清单</h3>
+<div class="table-wrap"><table><thead><tr><th style="text-align:left">项目</th><th style="text-align:left">检查内容</th><th style="text-align:left">结果</th></tr></thead><tbody><tr><td style="text-align:left">尺寸链</td><td style="text-align:left">关键尺寸有公差与配合说明</td><td style="text-align:left">☐</td></tr><tr><td style="text-align:left">维修可达</td><td style="text-align:left">易损件可快速拆装，不需拆半台车</td><td style="text-align:left">☐</td></tr><tr><td style="text-align:left">走线空间</td><td style="text-align:left">线缆不穿运动件，有固定点与余量</td><td style="text-align:left">☐</td></tr><tr><td style="text-align:left">重心/稳定</td><td style="text-align:left">重心低，急停/加速不翻车</td><td style="text-align:left">☐</td></tr><tr><td style="text-align:left">模块化</td><td style="text-align:left">机构可独立拆装与替换</td><td style="text-align:left">☐</td></tr><tr><td style="text-align:left">标准件</td><td style="text-align:left">优先使用 REV/goBILDA 标准件</td><td style="text-align:left">☐</td></tr><tr><td style="text-align:left">重量</td><td style="text-align:left">关键部件有重量估算，整机不超预算</td><td style="text-align:left">☐</td></tr></tbody></table></div>
+<h2 id="七第一次任务">七、第一次任务</h2>
+<p>按图纸完成一个练习零件与一个两零件装配，导出 STEP 与装配截图，并请建模组按"设计评审清单"评审一次。验收标准：尺寸正确、无干涉、文件命名规范、他人可按图复现。</p>
 </main>
 
 <script>
